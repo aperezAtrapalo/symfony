@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap\Tests;
+namespace Makhan\Component\Ldap\Tests;
 
-use Symfony\Component\Ldap\Adapter\ExtLdap\Adapter;
-use Symfony\Component\Ldap\Adapter\ExtLdap\Collection;
-use Symfony\Component\Ldap\Entry;
-use Symfony\Component\Ldap\Exception\LdapException;
+use Makhan\Component\Ldap\Adapter\ExtLdap\Adapter;
+use Makhan\Component\Ldap\Adapter\ExtLdap\Collection;
+use Makhan\Component\Ldap\Entry;
+use Makhan\Component\Ldap\Exception\LdapException;
 
 /**
  * @requires extension ldap
@@ -27,7 +27,7 @@ class LdapManagerTest extends LdapTestCase
     protected function setUp()
     {
         $this->adapter = new Adapter($this->getLdapConfig());
-        $this->adapter->getConnection()->bind('cn=admin,dc=symfony,dc=com', 'symfony');
+        $this->adapter->getConnection()->bind('cn=admin,dc=makhan,dc=com', 'makhan');
     }
 
     /**
@@ -37,7 +37,7 @@ class LdapManagerTest extends LdapTestCase
     {
         $this->executeSearchQuery(1);
 
-        $entry = new Entry('cn=Charles Sarrazin,dc=symfony,dc=com', array(
+        $entry = new Entry('cn=Charles Sarrazin,dc=makhan,dc=com', array(
             'sn' => array('csarrazi'),
             'objectclass' => array(
                 'inetOrgPerson',
@@ -62,7 +62,7 @@ class LdapManagerTest extends LdapTestCase
         $this->executeSearchQuery(1);
 
         // The entry is missing a subject name
-        $entry = new Entry('cn=Charles Sarrazin,dc=symfony,dc=com', array(
+        $entry = new Entry('cn=Charles Sarrazin,dc=makhan,dc=com', array(
             'objectclass' => array(
                 'inetOrgPerson',
             ),
@@ -105,7 +105,7 @@ class LdapManagerTest extends LdapTestCase
     {
         $results = $this
             ->adapter
-            ->createQuery('dc=symfony,dc=com', '(objectclass=person)')
+            ->createQuery('dc=makhan,dc=com', '(objectclass=person)')
             ->execute()
         ;
 

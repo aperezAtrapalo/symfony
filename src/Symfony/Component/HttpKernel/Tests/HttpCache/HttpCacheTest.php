@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\HttpCache;
+namespace Makhan\Component\HttpKernel\Tests\HttpCache;
 
-use Symfony\Component\HttpKernel\HttpCache\HttpCache;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\HttpCache\HttpCache;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * @group time-sensitive
@@ -23,7 +23,7 @@ class HttpCacheTest extends HttpCacheTestCase
 {
     public function testTerminateDelegatesTerminationOnlyForTerminableInterface()
     {
-        $storeMock = $this->getMockBuilder('Symfony\\Component\\HttpKernel\\HttpCache\\StoreInterface')
+        $storeMock = $this->getMockBuilder('Makhan\\Component\\HttpKernel\\HttpCache\\StoreInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -35,7 +35,7 @@ class HttpCacheTest extends HttpCacheTestCase
         $this->assertFalse($kernel->terminateCalled, 'terminate() is never called if the kernel class does not implement TerminableInterface');
 
         // implements TerminableInterface
-        $kernelMock = $this->getMockBuilder('Symfony\\Component\\HttpKernel\\Kernel')
+        $kernelMock = $this->getMockBuilder('Makhan\\Component\\HttpKernel\\Kernel')
             ->disableOriginalConstructor()
             ->setMethods(array('terminate', 'registerBundles', 'registerContainerConfiguration'))
             ->getMock();

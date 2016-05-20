@@ -1,16 +1,16 @@
 <?php
 
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Routing\RequestContext;
 
 /**
  * ProjectUrlMatcher.
  *
  * This class has been auto-generated
- * by the Symfony Routing Component.
+ * by the Makhan Routing Component.
  */
-class ProjectUrlMatcher extends Symfony\Component\Routing\Matcher\UrlMatcher
+class ProjectUrlMatcher extends Makhan\Component\Routing\Matcher\UrlMatcher
 {
     /**
      * Constructor.

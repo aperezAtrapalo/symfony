@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\DependencyInjection;
+namespace Makhan\Bundle\SecurityBundle\DependencyInjection;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\UserProviderFactoryInterface;
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Security\Core\Authorization\ExpressionLanguage;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\UserProviderFactoryInterface;
+use Makhan\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\HttpKernel\DependencyInjection\Extension;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Security\Core\Authorization\ExpressionLanguage;
 
 /**
  * SecurityExtension.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class SecurityExtension extends Extension
@@ -70,7 +70,7 @@ class SecurityExtension extends Extension
             $loader->load('security_debug.xml');
         }
 
-        if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
+        if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
             $container->removeDefinition('security.expression_language');
             $container->removeDefinition('security.access.expression_voter');
         }
@@ -103,23 +103,23 @@ class SecurityExtension extends Extension
 
         // add some required classes for compilation
         $this->addClassesToCompile(array(
-            'Symfony\Component\Security\Http\Firewall',
-            'Symfony\Component\Security\Core\User\UserProviderInterface',
-            'Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager',
-            'Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage',
-            'Symfony\Component\Security\Core\Authorization\AccessDecisionManager',
-            'Symfony\Component\Security\Core\Authorization\AuthorizationChecker',
-            'Symfony\Component\Security\Core\Authorization\Voter\VoterInterface',
-            'Symfony\Bundle\SecurityBundle\Security\FirewallMap',
-            'Symfony\Bundle\SecurityBundle\Security\FirewallContext',
-            'Symfony\Component\HttpFoundation\RequestMatcher',
+            'Makhan\Component\Security\Http\Firewall',
+            'Makhan\Component\Security\Core\User\UserProviderInterface',
+            'Makhan\Component\Security\Core\Authentication\AuthenticationProviderManager',
+            'Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorage',
+            'Makhan\Component\Security\Core\Authorization\AccessDecisionManager',
+            'Makhan\Component\Security\Core\Authorization\AuthorizationChecker',
+            'Makhan\Component\Security\Core\Authorization\Voter\VoterInterface',
+            'Makhan\Bundle\SecurityBundle\Security\FirewallMap',
+            'Makhan\Bundle\SecurityBundle\Security\FirewallContext',
+            'Makhan\Component\HttpFoundation\RequestMatcher',
         ));
     }
 
     private function aclLoad($config, ContainerBuilder $container)
     {
-        if (!interface_exists('Symfony\Component\Security\Acl\Model\AclInterface')) {
-            throw new \LogicException('You must install symfony/security-acl in order to use the ACL functionality.');
+        if (!interface_exists('Makhan\Component\Security\Acl\Model\AclInterface')) {
+            throw new \LogicException('You must install makhan/security-acl in order to use the ACL functionality.');
         }
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -191,7 +191,7 @@ class SecurityExtension extends Extension
         }
 
         $this->addClassesToCompile(array(
-            'Symfony\\Component\\Security\\Http\\AccessMap',
+            'Makhan\\Component\\Security\\Http\\AccessMap',
         ));
 
         foreach ($config['access_control'] as $access) {
@@ -467,7 +467,7 @@ class SecurityExtension extends Extension
             $arguments = array($config['ignore_case']);
 
             return array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\PlaintextPasswordEncoder',
                 'arguments' => $arguments,
             );
         }
@@ -475,7 +475,7 @@ class SecurityExtension extends Extension
         // pbkdf2 encoder
         if ('pbkdf2' === $config['algorithm']) {
             return array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder',
                 'arguments' => array(
                     $config['hash_algorithm'],
                     $config['encode_as_base64'],
@@ -488,14 +488,14 @@ class SecurityExtension extends Extension
         // bcrypt encoder
         if ('bcrypt' === $config['algorithm']) {
             return array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\BCryptPasswordEncoder',
                 'arguments' => array($config['cost']),
             );
         }
 
         // message digest encoder
         return array(
-            'class' => 'Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
+            'class' => 'Makhan\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
             'arguments' => array(
                 $config['algorithm'],
                 $config['encode_as_base64'],
@@ -601,7 +601,7 @@ class SecurityExtension extends Extension
         }
 
         $container
-            ->register($id, 'Symfony\Component\ExpressionLanguage\SerializedParsedExpression')
+            ->register($id, 'Makhan\Component\ExpressionLanguage\SerializedParsedExpression')
             ->setPublic(false)
             ->addArgument($expression)
             ->addArgument(serialize($this->getExpressionLanguage()->parse($expression, array('token', 'user', 'object', 'roles', 'request', 'trust_resolver'))->getNodes()))
@@ -630,7 +630,7 @@ class SecurityExtension extends Extension
         }
 
         $container
-            ->register($id, 'Symfony\Component\HttpFoundation\RequestMatcher')
+            ->register($id, 'Makhan\Component\HttpFoundation\RequestMatcher')
             ->setPublic(false)
             ->setArguments($arguments)
         ;
@@ -660,7 +660,7 @@ class SecurityExtension extends Extension
 
     public function getNamespace()
     {
-        return 'http://symfony.com/schema/dic/security';
+        return 'http://makhan.com/schema/dic/security';
     }
 
     public function getConfiguration(array $config, ContainerBuilder $container)
@@ -672,8 +672,8 @@ class SecurityExtension extends Extension
     private function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new \RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new \RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $this->expressionLanguage = new ExpressionLanguage();
         }

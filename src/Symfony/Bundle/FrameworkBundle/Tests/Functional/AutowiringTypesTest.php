@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Functional;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Functional;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\CachedReader;
-use Symfony\Component\Templating\EngineInterface as ComponentEngineInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface as FrameworkBundleEngineInterface;
+use Makhan\Component\Templating\EngineInterface as ComponentEngineInterface;
+use Makhan\Bundle\FrameworkBundle\Templating\EngineInterface as FrameworkBundleEngineInterface;
 
 class AutowiringTypesTest extends WebTestCase
 {

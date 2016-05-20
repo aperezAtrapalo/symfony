@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\DataCollector;
+namespace Makhan\Bundle\SecurityBundle\DataCollector;
 
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
-use Symfony\Component\Security\Core\Role\RoleInterface;
-use Symfony\Component\Security\Http\Logout\LogoutUrlGenerator;
-use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
-use Symfony\Component\Security\Core\Authorization\DebugAccessDecisionManager;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Role\RoleHierarchyInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\DataCollector\DataCollector;
+use Makhan\Component\Security\Core\Role\RoleInterface;
+use Makhan\Component\Security\Http\Logout\LogoutUrlGenerator;
+use Makhan\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use Makhan\Component\Security\Core\Authorization\DebugAccessDecisionManager;
 
 /**
  * SecurityDataCollector.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class SecurityDataCollector extends DataCollector
 {

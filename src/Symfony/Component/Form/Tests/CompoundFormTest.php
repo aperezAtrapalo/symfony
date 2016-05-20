@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
-use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\Forms;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\SubmitButtonBuilder;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Form\Tests\Fixtures\FixedDataTransformer;
+use Makhan\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
+use Makhan\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\Forms;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\SubmitButtonBuilder;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\Form\Tests\Fixtures\FixedDataTransformer;
 
 class CompoundFormTest extends AbstractFormTest
 {
@@ -110,7 +110,7 @@ class CompoundFormTest extends AbstractFormTest
         $factory = Forms::createFormFactoryBuilder()
             ->getFormFactory();
 
-        $child = $factory->createNamed('file', 'Symfony\Component\Form\Extension\Core\Type\FileType', null, array('auto_initialize' => false));
+        $child = $factory->createNamed('file', 'Makhan\Component\Form\Extension\Core\Type\FileType', null, array('auto_initialize' => false));
 
         $this->form->add($child);
         $this->form->submit(array('file' => null), false);
@@ -172,13 +172,13 @@ class CompoundFormTest extends AbstractFormTest
 
         $this->factory->expects($this->once())
             ->method('createNamed')
-            ->with('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array(
+            ->with('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array(
                 'bar' => 'baz',
                 'auto_initialize' => false,
             ))
             ->will($this->returnValue($child));
 
-        $this->form->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
+        $this->form->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
 
         $this->assertTrue($this->form->has('foo'));
         $this->assertSame($this->form, $child->getParent());
@@ -191,14 +191,14 @@ class CompoundFormTest extends AbstractFormTest
 
         $this->factory->expects($this->once())
             ->method('createNamed')
-            ->with('0', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array(
+            ->with('0', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array(
                 'bar' => 'baz',
                 'auto_initialize' => false,
             ))
             ->will($this->returnValue($child));
 
         // in order to make casting unnecessary
-        $this->form->add(0, 'Symfony\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
+        $this->form->add(0, 'Makhan\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
 
         $this->assertTrue($this->form->has(0));
         $this->assertSame($this->form, $child->getParent());
@@ -211,7 +211,7 @@ class CompoundFormTest extends AbstractFormTest
 
         $this->factory->expects($this->once())
             ->method('createNamed')
-            ->with('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType')
+            ->with('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType')
             ->will($this->returnValue($child));
 
         $this->form->add('foo');
@@ -267,7 +267,7 @@ class CompoundFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @expectedException \Makhan\Component\Form\Exception\AlreadySubmittedException
      */
     public function testAddThrowsExceptionIfAlreadySubmitted()
     {
@@ -286,7 +286,7 @@ class CompoundFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @expectedException \Makhan\Component\Form\Exception\AlreadySubmittedException
      */
     public function testRemoveThrowsExceptionIfAlreadySubmitted()
     {
@@ -348,7 +348,7 @@ class CompoundFormTest extends AbstractFormTest
             ->method('mapDataToForms')
             ->with('bar', $this->isInstanceOf('\RecursiveIteratorIterator'))
             ->will($this->returnCallback(function ($data, \RecursiveIteratorIterator $iterator) use ($child) {
-                $this->assertInstanceOf('Symfony\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
+                $this->assertInstanceOf('Makhan\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
                 $this->assertSame(array($child->getName() => $child), iterator_to_array($iterator));
             }));
 
@@ -442,7 +442,7 @@ class CompoundFormTest extends AbstractFormTest
             ->method('mapDataToForms')
             ->with('bar', $this->isInstanceOf('\RecursiveIteratorIterator'))
             ->will($this->returnCallback(function ($data, \RecursiveIteratorIterator $iterator) use ($child1, $child2) {
-                $this->assertInstanceOf('Symfony\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
+                $this->assertInstanceOf('Makhan\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
                 $this->assertSame(array('firstName' => $child1, 'lastName' => $child2), iterator_to_array($iterator));
             }));
 
@@ -497,7 +497,7 @@ class CompoundFormTest extends AbstractFormTest
             ->method('mapFormsToData')
             ->with($this->isInstanceOf('\RecursiveIteratorIterator'), 'bar')
             ->will($this->returnCallback(function (\RecursiveIteratorIterator $iterator) use ($child1, $child2) {
-                $this->assertInstanceOf('Symfony\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
+                $this->assertInstanceOf('Makhan\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
                 $this->assertSame(array('firstName' => $child1, 'lastName' => $child2), iterator_to_array($iterator));
                 $this->assertEquals('Bernhard', $child1->getData());
                 $this->assertEquals('Schussek', $child2->getData());
@@ -535,7 +535,7 @@ class CompoundFormTest extends AbstractFormTest
     }
 
     /*
-     * https://github.com/symfony/symfony/issues/4480
+     * https://github.com/makhan/makhan/issues/4480
      */
     public function testSubmitRestoresViewDataIfCompoundAndEmpty()
     {
@@ -569,7 +569,7 @@ class CompoundFormTest extends AbstractFormTest
             ->method('mapFormsToData')
             ->with($this->isInstanceOf('\RecursiveIteratorIterator'), $object)
             ->will($this->returnCallback(function (\RecursiveIteratorIterator $iterator) use ($child) {
-                $this->assertInstanceOf('Symfony\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
+                $this->assertInstanceOf('Makhan\Component\Form\Util\InheritDataAwareIterator', $iterator->getInnerIterator());
                 $this->assertSame(array('name' => $child), iterator_to_array($iterator));
             }));
 
@@ -866,7 +866,7 @@ class CompoundFormTest extends AbstractFormTest
 
         $this->assertSame($error1, $errorsAsArray[0]);
         $this->assertSame($error2, $errorsAsArray[1]);
-        $this->assertInstanceOf('Symfony\Component\Form\FormErrorIterator', $errorsAsArray[2]);
+        $this->assertInstanceOf('Makhan\Component\Form\FormErrorIterator', $errorsAsArray[2]);
 
         $nestedErrorsAsArray = iterator_to_array($errorsAsArray[2]);
 
@@ -877,7 +877,7 @@ class CompoundFormTest extends AbstractFormTest
     // Basic cases are covered in SimpleFormTest
     public function testCreateViewWithChildren()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
         $options = array('a' => 'Foo', 'b' => 'Bar');
         $field1 = $this->getMockForm('foo');
         $field2 = $this->getMockForm('bar');
@@ -937,7 +937,7 @@ class CompoundFormTest extends AbstractFormTest
 
     public function testNoClickedButton()
     {
-        $button = $this->getMockBuilder('Symfony\Component\Form\SubmitButton')
+        $button = $this->getMockBuilder('Makhan\Component\Form\SubmitButton')
             ->setConstructorArgs(array(new SubmitButtonBuilder('submit')))
             ->setMethods(array('isClicked'))
             ->getMock();
@@ -959,7 +959,7 @@ class CompoundFormTest extends AbstractFormTest
 
     public function testClickedButton()
     {
-        $button = $this->getMockBuilder('Symfony\Component\Form\SubmitButton')
+        $button = $this->getMockBuilder('Makhan\Component\Form\SubmitButton')
             ->setConstructorArgs(array(new SubmitButtonBuilder('submit')))
             ->setMethods(array('isClicked'))
             ->getMock();
@@ -978,7 +978,7 @@ class CompoundFormTest extends AbstractFormTest
     {
         $button = $this->getBuilder('submit')->getForm();
 
-        $nestedForm = $this->getMockBuilder('Symfony\Component\Form\Form')
+        $nestedForm = $this->getMockBuilder('Makhan\Component\Form\Form')
             ->setConstructorArgs(array($this->getBuilder('nested')))
             ->setMethods(array('getClickedButton'))
             ->getMock();
@@ -997,7 +997,7 @@ class CompoundFormTest extends AbstractFormTest
     {
         $button = $this->getBuilder('submit')->getForm();
 
-        $parentForm = $this->getMockBuilder('Symfony\Component\Form\Form')
+        $parentForm = $this->getMockBuilder('Makhan\Component\Form\Form')
             ->setConstructorArgs(array($this->getBuilder('parent')))
             ->setMethods(array('getClickedButton'))
             ->getMock();

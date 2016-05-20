@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\HttpFoundation;
+namespace Makhan\Bridge\Doctrine\HttpFoundation;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\DriverException;
@@ -18,10 +18,10 @@ use Doctrine\DBAL\Platforms\SQLServer2008Platform;
 /**
  * DBAL based session storage.
  *
- * This implementation is very similar to Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+ * This implementation is very similar to Makhan\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
  * but uses a Doctrine connection and thus also works with non-PDO-based drivers like mysqli and OCI8.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  * @author Tobias Schultze <http://tobion.de>
  */

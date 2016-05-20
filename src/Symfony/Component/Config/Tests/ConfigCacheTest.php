@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests;
+namespace Makhan\Component\Config\Tests;
 
-use Symfony\Component\Config\ConfigCache;
-use Symfony\Component\Config\Tests\Resource\ResourceStub;
+use Makhan\Component\Config\ConfigCache;
+use Makhan\Component\Config\Tests\Resource\ResourceStub;
 
 class ConfigCacheTest extends \PHPUnit_Framework_TestCase
 {

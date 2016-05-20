@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\Loader;
+namespace Makhan\Component\Translation\Tests\Loader;
 
-use Symfony\Component\Translation\Loader\XliffFileLoader;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Translation\Loader\XliffFileLoader;
+use Makhan\Component\Config\Resource\FileResource;
 
 class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -82,7 +82,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\InvalidResourceException
      */
     public function testLoadInvalidResource()
     {
@@ -91,7 +91,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\InvalidResourceException
      */
     public function testLoadResourceDoesNotValidate()
     {
@@ -100,7 +100,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\NotFoundResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\NotFoundResourceException
      */
     public function testLoadNonExistingResource()
     {
@@ -110,7 +110,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\InvalidResourceException
      */
     public function testLoadThrowsAnExceptionIfFileNotLocal()
     {
@@ -120,7 +120,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException        \Makhan\Component\Translation\Exception\InvalidResourceException
      * @expectedExceptionMessage Document types are not allowed.
      */
     public function testDocTypeIsNotAllowed()
@@ -133,7 +133,7 @@ class XliffFileLoaderTest extends \PHPUnit_Framework_TestCase
     {
         $loader = new XliffFileLoader();
         $resource = __DIR__.'/../fixtures/empty.xlf';
-        $this->setExpectedException('Symfony\Component\Translation\Exception\InvalidResourceException', sprintf('Unable to load "%s":', $resource));
+        $this->setExpectedException('Makhan\Component\Translation\Exception\InvalidResourceException', sprintf('Unable to load "%s":', $resource));
         $loader->load($resource, 'en', 'domain1');
     }
 

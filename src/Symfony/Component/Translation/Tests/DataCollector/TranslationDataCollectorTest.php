@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\DataCollector;
+namespace Makhan\Component\Translation\Tests\DataCollector;
 
-use Symfony\Component\Translation\DataCollectorTranslator;
-use Symfony\Component\Translation\DataCollector\TranslationDataCollector;
+use Makhan\Component\Translation\DataCollectorTranslator;
+use Makhan\Component\Translation\DataCollector\TranslationDataCollector;
 
 class TranslationDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        if (!class_exists('Symfony\Component\HttpKernel\DataCollector\DataCollector')) {
+        if (!class_exists('Makhan\Component\HttpKernel\DataCollector\DataCollector')) {
             $this->markTestSkipped('The "DataCollector" is not available');
         }
     }
@@ -138,7 +138,7 @@ class TranslationDataCollectorTest extends \PHPUnit_Framework_TestCase
     private function getTranslator()
     {
         $translator = $this
-            ->getMockBuilder('Symfony\Component\Translation\DataCollectorTranslator')
+            ->getMockBuilder('Makhan\Component\Translation\DataCollectorTranslator')
             ->disableOriginalConstructor()
             ->getMock()
         ;

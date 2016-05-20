@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process;
+namespace Makhan\Component\Process;
 
-use Symfony\Component\Process\Exception\RuntimeException;
+use Makhan\Component\Process\Exception\RuntimeException;
 
 /**
  * PhpProcess runs a PHP script in an independent process.
@@ -20,7 +20,7 @@ use Symfony\Component\Process\Exception\RuntimeException;
  * $p->run();
  * print $p->getOutput()."\n";
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class PhpProcess extends Process
 {
@@ -48,7 +48,7 @@ class PhpProcess extends Process
         }
         if ('\\' !== DIRECTORY_SEPARATOR && null !== $php) {
             // exec is mandatory to deal with sending a signal to the process
-            // see https://github.com/symfony/symfony/issues/5030 about prepending
+            // see https://github.com/makhan/makhan/issues/5030 about prepending
             // command with exec
             $php = 'exec '.$php;
         }

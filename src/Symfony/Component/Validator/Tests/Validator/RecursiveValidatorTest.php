@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Validator;
+namespace Makhan\Component\Validator\Tests\Validator;
 
-use Symfony\Component\Translation\IdentityTranslator;
-use Symfony\Component\Validator\ConstraintValidatorFactory;
-use Symfony\Component\Validator\Context\ExecutionContextFactory;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
-use Symfony\Component\Validator\Validator\RecursiveValidator;
+use Makhan\Component\Translation\IdentityTranslator;
+use Makhan\Component\Validator\ConstraintValidatorFactory;
+use Makhan\Component\Validator\Context\ExecutionContextFactory;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\Tests\Fixtures\Entity;
+use Makhan\Component\Validator\Validator\RecursiveValidator;
 
 class RecursiveValidatorTest extends AbstractTest
 {
@@ -35,7 +35,7 @@ class RecursiveValidatorTest extends AbstractTest
     {
         $entity = new Entity();
 
-        $validatorContext = $this->getMock('Symfony\Component\Validator\Validator\ContextualValidatorInterface');
+        $validatorContext = $this->getMock('Makhan\Component\Validator\Validator\ContextualValidatorInterface');
         $validatorContext
             ->expects($this->once())
             ->method('validate')
@@ -43,7 +43,7 @@ class RecursiveValidatorTest extends AbstractTest
             ->willReturnSelf();
 
         $validator = $this
-            ->getMockBuilder('Symfony\Component\Validator\Validator\RecursiveValidator')
+            ->getMockBuilder('Makhan\Component\Validator\Validator\RecursiveValidator')
             ->disableOriginalConstructor()
             ->setMethods(array('startContext'))
             ->getMock();

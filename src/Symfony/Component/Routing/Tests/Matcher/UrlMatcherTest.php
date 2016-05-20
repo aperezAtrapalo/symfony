@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Matcher;
+namespace Makhan\Component\Routing\Tests\Matcher;
 
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Routing\Matcher\UrlMatcher;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\RequestContext;
 
 class UrlMatcherTest extends \PHPUnit_Framework_TestCase
 {
@@ -194,7 +194,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
         $matcher = new UrlMatcher($collection, new RequestContext());
 
         $this->assertEquals(array('_route' => 'foo'), $matcher->match('/foo1'));
-        $this->setExpectedException('Symfony\Component\Routing\Exception\ResourceNotFoundException');
+        $this->setExpectedException('Makhan\Component\Routing\Exception\ResourceNotFoundException');
         $this->assertEquals(array(), $matcher->match('/foo'));
     }
 
@@ -251,7 +251,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
         // z and _format are optional.
         $this->assertEquals(array('w' => 'wwwww', 'x' => 'x', 'y' => 'y', 'z' => 'default-z', '_format' => 'html', '_route' => 'test'), $matcher->match('/wwwwwxy'));
 
-        $this->setExpectedException('Symfony\Component\Routing\Exception\ResourceNotFoundException');
+        $this->setExpectedException('Makhan\Component\Routing\Exception\ResourceNotFoundException');
         $matcher->match('/wxy.html');
     }
 
@@ -266,7 +266,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
 
         // Usually the character in front of an optional parameter can be left out, e.g. with pattern '/get/{what}' just '/get' would match.
         // But here the 't' in 'get' is not a separating character, so it makes no sense to match without it.
-        $this->setExpectedException('Symfony\Component\Routing\Exception\ResourceNotFoundException');
+        $this->setExpectedException('Makhan\Component\Routing\Exception\ResourceNotFoundException');
         $matcher->match('/ge');
     }
 
@@ -289,7 +289,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testDefaultRequirementOfVariableDisallowsSlash()
     {
@@ -301,7 +301,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testDefaultRequirementOfVariableDisallowsNextSeparator()
     {
@@ -313,7 +313,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testSchemeRequirement()
     {
@@ -324,7 +324,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testCondition()
     {
@@ -385,7 +385,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testWithOutHostHostDoesNotMatch()
     {
@@ -397,7 +397,7 @@ class UrlMatcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\ResourceNotFoundException
      */
     public function testPathIsCaseSensitive()
     {

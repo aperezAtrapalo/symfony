@@ -1,42 +1,42 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\Exception\InsufficientAuthenticationException;
-use Symfony\Component\Security\Core\Exception\LogoutException;
-use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
+use Makhan\Component\Security\Core\Security;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
+use Makhan\Component\Security\Core\Exception\AccountStatusException;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Core\Exception\AccessDeniedException;
+use Makhan\Component\Security\Core\Exception\InsufficientAuthenticationException;
+use Makhan\Component\Security\Core\Exception\LogoutException;
+use Makhan\Component\Security\Http\Util\TargetPathTrait;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * ExceptionListener catches authentication exception and converts them to
  * Response instances.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ExceptionListener
 {

@@ -1,4 +1,4 @@
-My Symfony application
+My Makhan application
 ======================
 
 * alias1

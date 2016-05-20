@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Validator\Constraints\All;
-use Symfony\Component\Validator\Constraints\AllValidator;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Range;
+use Makhan\Component\Validator\Constraints\All;
+use Makhan\Component\Validator\Constraints\AllValidator;
+use Makhan\Component\Validator\Constraints\NotNull;
+use Makhan\Component\Validator\Constraints\Range;
 
 class AllValidatorTest extends AbstractConstraintValidatorTest
 {
@@ -31,7 +31,7 @@ class AllValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Validator\Exception\UnexpectedTypeException
      */
     public function testThrowsExceptionIfNotTraversable()
     {

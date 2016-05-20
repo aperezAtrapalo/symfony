@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation;
+namespace Makhan\Component\Translation;
 
-use Symfony\Component\Translation\Loader\LoaderInterface;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Symfony\Component\Config\ConfigCacheInterface;
-use Symfony\Component\Config\ConfigCacheFactoryInterface;
-use Symfony\Component\Config\ConfigCacheFactory;
+use Makhan\Component\Translation\Loader\LoaderInterface;
+use Makhan\Component\Translation\Exception\NotFoundResourceException;
+use Makhan\Component\Config\ConfigCacheInterface;
+use Makhan\Component\Config\ConfigCacheFactoryInterface;
+use Makhan\Component\Config\ConfigCacheFactory;
 
 /**
  * Translator.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Translator implements TranslatorInterface, TranslatorBagInterface
 {
@@ -308,7 +308,7 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
         $content = sprintf(<<<EOF
 <?php
 
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\MessageCatalogue;
 
 \$catalogue = new MessageCatalogue('%s', %s);
 

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Asset\Tests;
+namespace Makhan\Component\Asset\Tests;
 
-use Symfony\Component\Asset\Package;
-use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
-use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
+use Makhan\Component\Asset\Package;
+use Makhan\Component\Asset\VersionStrategy\StaticVersionStrategy;
+use Makhan\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 
 class PackageTest extends \PHPUnit_Framework_TestCase
 {

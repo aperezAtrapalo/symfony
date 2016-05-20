@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\EventListener;
+namespace Makhan\Component\HttpKernel\EventListener;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Debug\ErrorHandler;
-use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\KernelEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Console\ConsoleEvents;
-use Symfony\Component\Console\Event\ConsoleEvent;
-use Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Makhan\Component\Debug\ErrorHandler;
+use Makhan\Component\Debug\ExceptionHandler;
+use Makhan\Component\EventDispatcher\Event;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\HttpKernel\Event\KernelEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\Console\ConsoleEvents;
+use Makhan\Component\Console\Event\ConsoleEvent;
+use Makhan\Component\Console\Output\ConsoleOutputInterface;
 
 /**
  * Configures errors and exceptions handlers.
@@ -129,7 +129,7 @@ class DebugHandlersListener implements EventSubscriberInterface
     {
         $events = array(KernelEvents::REQUEST => array('configure', 2048));
 
-        if (defined('Symfony\Component\Console\ConsoleEvents::COMMAND')) {
+        if (defined('Makhan\Component\Console\ConsoleEvents::COMMAND')) {
             $events[ConsoleEvents::COMMAND] = array('configure', 2048);
         }
 

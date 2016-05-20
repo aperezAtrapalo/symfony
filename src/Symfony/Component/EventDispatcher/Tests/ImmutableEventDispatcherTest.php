@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\EventDispatcher\Tests;
+namespace Makhan\Component\EventDispatcher\Tests;
 
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\EventDispatcher\ImmutableEventDispatcher;
+use Makhan\Component\EventDispatcher\Event;
+use Makhan\Component\EventDispatcher\ImmutableEventDispatcher;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -31,7 +31,7 @@ class ImmutableEventDispatcherTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->innerDispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->innerDispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $this->dispatcher = new ImmutableEventDispatcher($this->innerDispatcher);
     }
 
@@ -80,7 +80,7 @@ class ImmutableEventDispatcherTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddSubscriberDisallowed()
     {
-        $subscriber = $this->getMock('Symfony\Component\EventDispatcher\EventSubscriberInterface');
+        $subscriber = $this->getMock('Makhan\Component\EventDispatcher\EventSubscriberInterface');
 
         $this->dispatcher->addSubscriber($subscriber);
     }
@@ -98,7 +98,7 @@ class ImmutableEventDispatcherTest extends \PHPUnit_Framework_TestCase
      */
     public function testRemoveSubscriberDisallowed()
     {
-        $subscriber = $this->getMock('Symfony\Component\EventDispatcher\EventSubscriberInterface');
+        $subscriber = $this->getMock('Makhan\Component\EventDispatcher\EventSubscriberInterface');
 
         $this->dispatcher->removeSubscriber($subscriber);
     }

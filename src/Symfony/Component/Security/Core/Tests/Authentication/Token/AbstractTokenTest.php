@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication\Token;
+namespace Makhan\Component\Security\Core\Tests\Authentication\Token;
 
-use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
-use Symfony\Component\Security\Core\Role\Role;
-use Symfony\Component\Security\Core\Role\SwitchUserRole;
+use Makhan\Component\Security\Core\Authentication\Token\AbstractToken;
+use Makhan\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Role\SwitchUserRole;
 
 class TestUser
 {
@@ -68,7 +68,7 @@ class AbstractTokenTest extends \PHPUnit_Framework_TestCase
         $token->setUser(new TestUser('fabien'));
         $this->assertEquals('fabien', $token->getUsername());
 
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user->expects($this->once())->method('getUsername')->will($this->returnValue('fabien'));
         $token->setUser($user);
         $this->assertEquals('fabien', $token->getUsername());
@@ -78,7 +78,7 @@ class AbstractTokenTest extends \PHPUnit_Framework_TestCase
     {
         $token = $this->getToken(array('ROLE_FOO'));
 
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user->expects($this->once())->method('eraseCredentials');
         $token->setUser($user);
 
@@ -168,8 +168,8 @@ class AbstractTokenTest extends \PHPUnit_Framework_TestCase
 
     public function getUsers()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
-        $advancedUser = $this->getMock('Symfony\Component\Security\Core\User\AdvancedUserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
+        $advancedUser = $this->getMock('Makhan\Component\Security\Core\User\AdvancedUserInterface');
 
         return array(
             array($advancedUser),
@@ -197,8 +197,8 @@ class AbstractTokenTest extends \PHPUnit_Framework_TestCase
 
     public function getUserChanges()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
-        $advancedUser = $this->getMock('Symfony\Component\Security\Core\User\AdvancedUserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
+        $advancedUser = $this->getMock('Makhan\Component\Security\Core\User\AdvancedUserInterface');
 
         return array(
             array(
@@ -264,6 +264,6 @@ class AbstractTokenTest extends \PHPUnit_Framework_TestCase
 
     protected function getToken(array $roles = array())
     {
-        return $this->getMockForAbstractClass('Symfony\Component\Security\Core\Authentication\Token\AbstractToken', array($roles));
+        return $this->getMockForAbstractClass('Makhan\Component\Security\Core\Authentication\Token\AbstractToken', array($roles));
     }
 }

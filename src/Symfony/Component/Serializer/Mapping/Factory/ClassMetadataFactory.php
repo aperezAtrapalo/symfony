@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Mapping\Factory;
+namespace Makhan\Component\Serializer\Mapping\Factory;
 
 use Doctrine\Common\Cache\Cache;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
-use Symfony\Component\Serializer\Mapping\ClassMetadata;
-use Symfony\Component\Serializer\Mapping\Loader\LoaderInterface;
+use Makhan\Component\Serializer\Exception\InvalidArgumentException;
+use Makhan\Component\Serializer\Mapping\ClassMetadata;
+use Makhan\Component\Serializer\Mapping\Loader\LoaderInterface;
 
 /**
  * Returns a {@link ClassMetadata}.
@@ -50,7 +50,7 @@ class ClassMetadataFactory implements ClassMetadataFactoryInterface
         $this->cache = $cache;
 
         if (null !== $cache) {
-            @trigger_error(sprintf('Passing a Doctrine Cache instance as 2nd parameter of the "%s" constructor is deprecated since version 3.1. This parameter will be removed in Symfony 4.0. Use the "%s" class instead.', __CLASS__, CacheClassMetadataFactory::class), E_USER_DEPRECATED);
+            @trigger_error(sprintf('Passing a Doctrine Cache instance as 2nd parameter of the "%s" constructor is deprecated since version 3.1. This parameter will be removed in Makhan 4.0. Use the "%s" class instead.', __CLASS__, CacheClassMetadataFactory::class), E_USER_DEPRECATED);
         }
     }
 

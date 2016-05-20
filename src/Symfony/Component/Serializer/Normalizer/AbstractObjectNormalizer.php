@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Normalizer;
+namespace Makhan\Component\Serializer\Normalizer;
 
-use Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
-use Symfony\Component\Serializer\Exception\CircularReferenceException;
-use Symfony\Component\Serializer\Exception\LogicException;
-use Symfony\Component\Serializer\Exception\UnexpectedValueException;
-use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
-use Symfony\Component\PropertyInfo\Type;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
-use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
+use Makhan\Component\PropertyAccess\Exception\InvalidArgumentException;
+use Makhan\Component\Serializer\Exception\CircularReferenceException;
+use Makhan\Component\Serializer\Exception\LogicException;
+use Makhan\Component\Serializer\Exception\UnexpectedValueException;
+use Makhan\Component\PropertyInfo\PropertyTypeExtractorInterface;
+use Makhan\Component\PropertyInfo\Type;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
+use Makhan\Component\Serializer\NameConverter\NameConverterInterface;
 
 /**
  * Base class for a normalizer dealing with objects.

@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToLocalizedStringTransformer;
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer;
-use Symfony\Component\Form\ReversedTransformer;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToLocalizedStringTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer;
+use Makhan\Component\Form\ReversedTransformer;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\OptionsResolver\Exception\InvalidOptionsException;
 
 class DateType extends AbstractType
 {
@@ -38,8 +38,8 @@ class DateType extends AbstractType
     );
 
     private static $widgets = array(
-        'text' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
-        'choice' => 'Symfony\Component\Form\Extension\Core\Type\ChoiceType',
+        'text' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
+        'choice' => 'Makhan\Component\Form\Extension\Core\Type\ChoiceType',
     );
 
     /**

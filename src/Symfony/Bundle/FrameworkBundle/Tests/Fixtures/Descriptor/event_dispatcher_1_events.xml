@@ -5,6 +5,6 @@
     <callable type="closure" priority="-1"/>
   </event>
   <event name="event2">
-    <callable type="object" name="Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass" priority="0"/>
+    <callable type="object" name="Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass" priority="0"/>
   </event>
 </event-dispatcher>

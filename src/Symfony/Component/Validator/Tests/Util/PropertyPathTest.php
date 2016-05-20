@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Util;
+namespace Makhan\Component\Validator\Tests\Util;
 
-use Symfony\Component\Validator\Util\PropertyPath;
+use Makhan\Component\Validator\Util\PropertyPath;
 
 class PropertyPathTest extends \PHPUnit_Framework_TestCase
 {

@@ -92,7 +92,7 @@ CHANGELOG
  * added 'erase_credentials' as a configuration key (true by default)
  * added new events: `security.authentication.success` and `security.authentication.failure`
    fired on authentication success/failure, regardless of authentication method,
-   events are defined in new event class: `Symfony\Component\Security\Core\AuthenticationEvents`.
+   events are defined in new event class: `Makhan\Component\Security\Core\AuthenticationEvents`.
 
  * Added optional CSRF protection to LogoutListener:
 

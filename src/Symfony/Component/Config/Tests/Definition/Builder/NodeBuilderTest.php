@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition\Builder;
+namespace Makhan\Component\Config\Tests\Definition\Builder;
 
-use Symfony\Component\Config\Definition\Builder\NodeBuilder as BaseNodeBuilder;
-use Symfony\Component\Config\Definition\Builder\VariableNodeDefinition as BaseVariableNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\NodeBuilder as BaseNodeBuilder;
+use Makhan\Component\Config\Definition\Builder\VariableNodeDefinition as BaseVariableNodeDefinition;
 
 class NodeBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -82,10 +82,10 @@ class NodeBuilderTest extends \PHPUnit_Framework_TestCase
         $builder = new BaseNodeBuilder();
 
         $node = $builder->integerNode('foo')->min(3)->max(5);
-        $this->assertInstanceOf('Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition', $node);
+        $this->assertInstanceOf('Makhan\Component\Config\Definition\Builder\IntegerNodeDefinition', $node);
 
         $node = $builder->floatNode('bar')->min(3.0)->max(5.0);
-        $this->assertInstanceOf('Symfony\Component\Config\Definition\Builder\FloatNodeDefinition', $node);
+        $this->assertInstanceOf('Makhan\Component\Config\Definition\Builder\FloatNodeDefinition', $node);
     }
 }
 

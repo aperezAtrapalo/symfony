@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Test;
+namespace Makhan\Component\Form\Test;
 
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 abstract class TypeTestCase extends FormIntegrationTestCase
 {
@@ -30,7 +30,7 @@ abstract class TypeTestCase extends FormIntegrationTestCase
     {
         parent::setUp();
 
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $this->builder = new FormBuilder(null, null, $this->dispatcher, $this->factory);
     }
 

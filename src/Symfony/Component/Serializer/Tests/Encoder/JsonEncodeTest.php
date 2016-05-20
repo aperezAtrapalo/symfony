@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Encoder;
+namespace Makhan\Component\Serializer\Tests\Encoder;
 
-use Symfony\Component\Serializer\Encoder\JsonEncode;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Makhan\Component\Serializer\Encoder\JsonEncode;
+use Makhan\Component\Serializer\Encoder\JsonEncoder;
 
 class JsonEncodeTest extends \PHPUnit_Framework_TestCase
 {
@@ -50,7 +50,7 @@ class JsonEncodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @requires function json_last_error_msg
-     * @expectedException Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testEncodeWithError()
     {

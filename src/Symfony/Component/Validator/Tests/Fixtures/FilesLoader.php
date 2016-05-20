@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Fixtures;
+namespace Makhan\Component\Validator\Tests\Fixtures;
 
-use Symfony\Component\Validator\Mapping\Loader\FilesLoader as BaseFilesLoader;
-use Symfony\Component\Validator\Mapping\Loader\LoaderInterface;
+use Makhan\Component\Validator\Mapping\Loader\FilesLoader as BaseFilesLoader;
+use Makhan\Component\Validator\Mapping\Loader\LoaderInterface;
 
 abstract class FilesLoader extends BaseFilesLoader
 {

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication\Token;
+namespace Makhan\Component\Security\Core\Tests\Authentication\Token;
 
-use Symfony\Component\Security\Core\Authentication\Token\RememberMeToken;
-use Symfony\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Authentication\Token\RememberMeToken;
+use Makhan\Component\Security\Core\Role\Role;
 
 class RememberMeTokenTest extends \PHPUnit_Framework_TestCase
 {
@@ -54,7 +54,7 @@ class RememberMeTokenTest extends \PHPUnit_Framework_TestCase
 
     protected function getUser($roles = array('ROLE_FOO'))
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user
             ->expects($this->once())
             ->method('getRoles')

@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
 
 /**
  * Warmup the cache.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class CacheWarmupCommand extends ContainerAwareCommand
 {
@@ -54,7 +54,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
 
         $kernel = $this->getContainer()->get('kernel');
         $io->comment(sprintf('Warming up the cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));

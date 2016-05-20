@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Yaml\Tests;
+namespace Makhan\Component\Yaml\Tests;
 
-use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\Yaml\Parser;
+use Makhan\Component\Yaml\Yaml;
+use Makhan\Component\Yaml\Parser;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -401,7 +401,7 @@ EOF;
     /**
      * Regression test for issue #7989.
      *
-     * @see https://github.com/symfony/symfony/issues/7989
+     * @see https://github.com/makhan/makhan/issues/7989
      */
     public function testBlockLiteralWithLeadingNewlines()
     {
@@ -422,7 +422,7 @@ EOF;
     public function testObjectSupportEnabled()
     {
         $input = <<<EOF
-foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
+foo: !php/object:O:30:"Makhan\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, Yaml::PARSE_OBJECT), '->parse() is able to parse objects');
@@ -434,7 +434,7 @@ EOF;
     public function testObjectSupportEnabledPassingTrue()
     {
         $input = <<<EOF
-foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
+foo: !php/object:O:30:"Makhan\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, false, true), '->parse() is able to parse objects');
@@ -446,7 +446,7 @@ EOF;
     public function testObjectSupportEnabledWithDeprecatedTag()
     {
         $input = <<<EOF
-foo: !!php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
+foo: !!php/object:O:30:"Makhan\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, Yaml::PARSE_OBJECT), '->parse() is able to parse objects');
@@ -542,7 +542,7 @@ YAML;
 
     /**
      * @dataProvider invalidDumpedObjectProvider
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testObjectsSupportDisabledWithExceptions($yaml)
     {
@@ -552,7 +552,7 @@ YAML;
     /**
      * @group legacy
      * @dataProvider invalidDumpedObjectProvider
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testObjectsSupportDisabledWithExceptionsUsingBooleanToggles($yaml)
     {
@@ -562,11 +562,11 @@ YAML;
     public function invalidDumpedObjectProvider()
     {
         $yamlTag = <<<EOF
-foo: !!php/object:O:30:"Symfony\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
+foo: !!php/object:O:30:"Makhan\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF;
         $localTag = <<<EOF
-foo: !php/object:O:30:"Symfony\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
+foo: !php/object:O:30:"Makhan\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF;
 
@@ -593,13 +593,13 @@ EOF;
 
                 $this->fail('charsets other than UTF-8 are rejected.');
             } catch (\Exception $e) {
-                $this->assertInstanceOf('Symfony\Component\Yaml\Exception\ParseException', $e, 'charsets other than UTF-8 are rejected.');
+                $this->assertInstanceOf('Makhan\Component\Yaml\Exception\ParseException', $e, 'charsets other than UTF-8 are rejected.');
             }
         }
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testUnindentedCollectionException()
     {
@@ -616,7 +616,7 @@ EOF;
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testShortcutKeyUnindentedCollectionException()
     {
@@ -632,7 +632,7 @@ EOF;
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage Multiple documents are not supported.
      */
     public function testMultipleDocumentsNotSupportedException()
@@ -653,7 +653,7 @@ EOL
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testSequenceInAMapping()
     {
@@ -666,7 +666,7 @@ EOF
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testMappingInASequence()
     {
@@ -679,7 +679,7 @@ EOF
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage missing colon
      */
     public function testScalarInSequence()
@@ -915,7 +915,7 @@ EOF;
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage A colon cannot be used in an unquoted mapping value
      */
     public function testColonInMappingValueException()
@@ -1155,7 +1155,7 @@ EOT
      */
     public function testParseInvalidBinaryData($data, $expectedMessage)
     {
-        $this->setExpectedExceptionRegExp('\Symfony\Component\Yaml\Exception\ParseException', $expectedMessage);
+        $this->setExpectedExceptionRegExp('\Makhan\Component\Yaml\Exception\ParseException', $expectedMessage);
 
         $this->parser->parse($data);
     }

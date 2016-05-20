@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process\Tests;
+namespace Makhan\Component\Process\Tests;
 
-use Symfony\Component\Process\ProcessBuilder;
+use Makhan\Component\Process\ProcessBuilder;
 
 class ProcessBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -65,7 +65,7 @@ class ProcessBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Process\Exception\InvalidArgumentException
      */
     public function testNegativeTimeoutFromSetter()
     {
@@ -162,7 +162,7 @@ class ProcessBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      */
     public function testShouldThrowALogicExceptionIfNoPrefixAndNoArgument()
     {
@@ -214,8 +214,8 @@ class ProcessBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Symfony\Component\Process\ProcessBuilder::setInput only accepts strings, Traversable objects or stream resources.
+     * @expectedException \Makhan\Component\Process\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Makhan\Component\Process\ProcessBuilder::setInput only accepts strings, Traversable objects or stream resources.
      */
     public function testInvalidInput()
     {

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DependencyInjection;
+namespace Makhan\Component\Form\Extension\DependencyInjection;
 
-use Symfony\Component\Form\FormExtensionInterface;
-use Symfony\Component\Form\FormTypeGuesserChain;
-use Symfony\Component\Form\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\Form\FormExtensionInterface;
+use Makhan\Component\Form\FormTypeGuesserChain;
+use Makhan\Component\Form\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\ContainerInterface;
 
 class DependencyInjectionExtension implements FormExtensionInterface
 {

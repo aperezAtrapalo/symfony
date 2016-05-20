@@ -6,7 +6,7 @@
         "hostRegex": "#^localhost$#si",
         "scheme": "http|https",
         "method": "GET|HEAD",
-        "class": "Symfony\\Component\\Routing\\Route",
+        "class": "Makhan\\Component\\Routing\\Route",
         "defaults": {
             "name": "Joseph"
         },
@@ -14,7 +14,7 @@
             "name": "[a-z]+"
         },
         "options": {
-            "compiler_class": "Symfony\\Component\\Routing\\RouteCompiler",
+            "compiler_class": "Makhan\\Component\\Routing\\RouteCompiler",
             "opt1": "val1",
             "opt2": "val2"
         }
@@ -26,13 +26,13 @@
         "hostRegex": "#^localhost$#si",
         "scheme": "http|https",
         "method": "PUT|POST",
-        "class": "Symfony\\Component\\Routing\\Route",
+        "class": "Makhan\\Component\\Routing\\Route",
         "defaults": [
 
         ],
         "requirements": "NO CUSTOM",
         "options": {
-            "compiler_class": "Symfony\\Component\\Routing\\RouteCompiler",
+            "compiler_class": "Makhan\\Component\\Routing\\RouteCompiler",
             "opt1": "val1",
             "opt2": "val2"
         }

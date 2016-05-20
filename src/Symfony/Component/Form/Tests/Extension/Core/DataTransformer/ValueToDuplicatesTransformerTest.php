@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\ValueToDuplicatesTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\ValueToDuplicatesTransformer;
 
 class ValueToDuplicatesTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -105,7 +105,7 @@ class ValueToDuplicatesTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyNull()
     {
@@ -119,7 +119,7 @@ class ValueToDuplicatesTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDifferences()
     {
@@ -133,7 +133,7 @@ class ValueToDuplicatesTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformRequiresArray()
     {

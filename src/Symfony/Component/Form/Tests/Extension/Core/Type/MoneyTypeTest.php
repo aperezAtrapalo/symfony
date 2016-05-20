@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-use Symfony\Component\Form\Test\TypeTestCase as TestCase;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Test\TypeTestCase as TestCase;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class MoneyTypeTest extends TestCase
 {
@@ -29,7 +29,7 @@ class MoneyTypeTest extends TestCase
     {
         \Locale::setDefault('de_DE');
 
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\MoneyType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\MoneyType');
         $view = $form->createView();
 
         $this->assertSame('{{ widget }} €', $view->vars['money_pattern']);
@@ -39,18 +39,18 @@ class MoneyTypeTest extends TestCase
     {
         \Locale::setDefault('en_US');
 
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'JPY'));
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'JPY'));
         $view = $form->createView();
         $this->assertTrue((bool) strstr($view->vars['money_pattern'], '¥'));
     }
 
-    // https://github.com/symfony/symfony/issues/5458
+    // https://github.com/makhan/makhan/issues/5458
     public function testPassDifferentPatternsForDifferentCurrencies()
     {
         \Locale::setDefault('de_DE');
 
-        $form1 = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'GBP'));
-        $form2 = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'EUR'));
+        $form1 = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'GBP'));
+        $form2 = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\MoneyType', null, array('currency' => 'EUR'));
         $view1 = $form1->createView();
         $view2 = $form2->createView();
 

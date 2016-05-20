@@ -1,11 +1,11 @@
-Symfony Debug Extension for PHP 5
+Makhan Debug Extension for PHP 5
 =================================
 
 This extension publishes several functions to help building powerful debugging tools.
 It is compatible with PHP 5.3, 5.4, 5.5 and 5.6; with ZTS and non-ZTS modes.
 It is not required thus not provided for PHP 7.
 
-symfony_zval_info()
+makhan_zval_info()
 -------------------
 
 - exposes zval_hash/refcounts, allowing e.g. efficient exploration of arbitrary structures in PHP,
@@ -16,7 +16,7 @@ Its behavior is about the same as:
 ```php
 <?php
 
-function symfony_zval_info($key, $array, $options = 0)
+function makhan_zval_info($key, $array, $options = 0)
 {
 
     // $options is currently not used, but could be in future version.
@@ -67,7 +67,7 @@ function symfony_zval_info($key, $array, $options = 0)
 }
 ```
 
-symfony_debug_backtrace()
+makhan_debug_backtrace()
 -------------------------
 
 This function works like debug_backtrace(), except that it can fetch the full backtrace in case of fatal errors:
@@ -76,7 +76,7 @@ This function works like debug_backtrace(), except that it can fetch the full ba
 function foo() { fatal(); }
 function bar() { foo(); }
 
-function sd() { var_dump(symfony_debug_backtrace()); }
+function sd() { var_dump(makhan_debug_backtrace()); }
 
 register_shutdown_function('sd');
 

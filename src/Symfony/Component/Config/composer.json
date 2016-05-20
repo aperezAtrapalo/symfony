@@ -1,29 +1,29 @@
 {
-    "name": "symfony/config",
+    "name": "makhan/config",
     "type": "library",
-    "description": "Symfony Config Component",
+    "description": "Makhan Config Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/filesystem": "~2.8|~3.0"
+        "makhan/filesystem": "~2.8|~3.0"
     },
     "suggest": {
-        "symfony/yaml": "To use the yaml reference dumper"
+        "makhan/yaml": "To use the yaml reference dumper"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Config\\": "" },
+        "psr-4": { "Makhan\\Component\\Config\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass;
 
 /**
  * Tests for the SerializerPass class.
@@ -23,7 +23,7 @@ class SerializerPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testThrowExceptionWhenNoNormalizers()
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('hasDefinition', 'findTaggedServiceIds'));
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerBuilder', array('hasDefinition', 'findTaggedServiceIds'));
 
         $container->expects($this->once())
             ->method('hasDefinition')
@@ -43,9 +43,9 @@ class SerializerPassTest extends \PHPUnit_Framework_TestCase
 
     public function testThrowExceptionWhenNoEncoders()
     {
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
 
@@ -85,7 +85,7 @@ class SerializerPassTest extends \PHPUnit_Framework_TestCase
            new Reference('n3'),
        );
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
 
         $container->expects($this->any())
             ->method('findTaggedServiceIds')
@@ -94,7 +94,7 @@ class SerializerPassTest extends \PHPUnit_Framework_TestCase
         $serializerPass = new SerializerPass();
 
         $method = new \ReflectionMethod(
-          'Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass',
+          'Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass',
           'findAndSortTaggedServices'
         );
         $method->setAccessible(true);

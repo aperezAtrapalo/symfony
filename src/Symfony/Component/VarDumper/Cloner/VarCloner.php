@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Cloner;
+namespace Makhan\Component\VarDumper\Cloner;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -68,7 +68,7 @@ class VarCloner extends AbstractCloner
                     $indexed = false;
                 }
                 if ($useExt) {
-                    $zval = symfony_zval_info($k, $step);
+                    $zval = makhan_zval_info($k, $step);
                 } else {
                     $step[$k] = $cookie;
                     if ($zval['zval_isref'] = $queue[$i][$k] === $cookie) {
@@ -154,7 +154,7 @@ class VarCloner extends AbstractCloner
                                 }
                                 if ($useExt) {
                                     $zval['type'] = $stub->value;
-                                    $zval = symfony_zval_info('type', $zval);
+                                    $zval = makhan_zval_info('type', $zval);
                                     $h = $zval['object_handle'];
                                 } else {
                                     $h = $hashMask ^ hexdec(substr(spl_object_hash($stub->value), $hashOffset, PHP_INT_SIZE));

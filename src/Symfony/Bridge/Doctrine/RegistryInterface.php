@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine;
+namespace Makhan\Bridge\Doctrine;
 
 use Doctrine\Common\Persistence\ManagerRegistry as ManagerRegistryInterface;
 use Doctrine\ORM\EntityManager;
@@ -17,7 +17,7 @@ use Doctrine\ORM\EntityManager;
 /**
  * References Doctrine connections and entity managers.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 interface RegistryInterface extends ManagerRegistryInterface
 {

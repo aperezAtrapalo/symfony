@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\EntryPoint;
+namespace Makhan\Component\Security\Http\Tests\EntryPoint;
 
-use Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 class FormAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 {
     public function testStart()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request', array(), array(), '', false, false);
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request', array(), array(), '', false, false);
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
 
-        $httpKernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
-        $httpUtils = $this->getMock('Symfony\Component\Security\Http\HttpUtils');
+        $httpKernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
+        $httpUtils = $this->getMock('Makhan\Component\Security\Http\HttpUtils');
         $httpUtils
             ->expects($this->once())
             ->method('createRedirectResponse')
@@ -37,11 +37,11 @@ class FormAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 
     public function testStartWithUseForward()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request', array(), array(), '', false, false);
-        $subRequest = $this->getMock('Symfony\Component\HttpFoundation\Request', array(), array(), '', false, false);
-        $response = new \Symfony\Component\HttpFoundation\Response('', 200);
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request', array(), array(), '', false, false);
+        $subRequest = $this->getMock('Makhan\Component\HttpFoundation\Request', array(), array(), '', false, false);
+        $response = new \Makhan\Component\HttpFoundation\Response('', 200);
 
-        $httpUtils = $this->getMock('Symfony\Component\Security\Http\HttpUtils');
+        $httpUtils = $this->getMock('Makhan\Component\Security\Http\HttpUtils');
         $httpUtils
             ->expects($this->once())
             ->method('createRequest')
@@ -49,7 +49,7 @@ class FormAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($subRequest))
         ;
 
-        $httpKernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $httpKernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $httpKernel
             ->expects($this->once())
             ->method('handle')

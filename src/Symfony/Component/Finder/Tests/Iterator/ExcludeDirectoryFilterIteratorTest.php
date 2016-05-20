@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Tests\Iterator;
+namespace Makhan\Component\Finder\Tests\Iterator;
 
-use Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
-use Symfony\Component\Finder\Iterator\RecursiveDirectoryIterator;
+use Makhan\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
+use Makhan\Component\Finder\Iterator\RecursiveDirectoryIterator;
 
 class ExcludeDirectoryFilterIteratorTest extends RealIteratorTestCase
 {

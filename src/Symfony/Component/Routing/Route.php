@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing;
+namespace Makhan\Component\Routing;
 
 /**
  * A Route describes a route and its parameters.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 class Route implements \Serializable
@@ -280,7 +280,7 @@ class Route implements \Serializable
     public function setOptions(array $options)
     {
         $this->options = array(
-            'compiler_class' => 'Symfony\\Component\\Routing\\RouteCompiler',
+            'compiler_class' => 'Makhan\\Component\\Routing\\RouteCompiler',
         );
 
         return $this->addOptions($options);

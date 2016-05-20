@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormTypeExtensionInterface;
-use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Component\Form\ResolvedFormType;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\FormTypeExtensionInterface;
+use Makhan\Component\Form\FormTypeInterface;
+use Makhan\Component\Form\ResolvedFormType;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -69,9 +69,9 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
-        $this->dataMapper = $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
+        $this->dataMapper = $this->getMock('Makhan\Component\Form\DataMapperInterface');
         $this->parentType = $this->getMockFormType();
         $this->type = $this->getMockFormType();
         $this->extension1 = $this->getMockFormTypeExtension();
@@ -125,9 +125,9 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
     {
         $givenOptions = array('a' => 'a_custom', 'c' => 'c_custom');
         $resolvedOptions = array('a' => 'a_custom', 'b' => 'b_default', 'c' => 'c_custom', 'd' => 'd_default');
-        $optionsResolver = $this->getMock('Symfony\Component\OptionsResolver\OptionsResolver');
+        $optionsResolver = $this->getMock('Makhan\Component\OptionsResolver\OptionsResolver');
 
-        $this->resolvedType = $this->getMockBuilder('Symfony\Component\Form\ResolvedFormType')
+        $this->resolvedType = $this->getMockBuilder('Makhan\Component\Form\ResolvedFormType')
             ->setConstructorArgs(array($this->type, array($this->extension1, $this->extension2), $this->parentResolvedType))
             ->setMethods(array('getOptionsResolver'))
             ->getMock();
@@ -153,9 +153,9 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
     {
         $givenOptions = array('data_class' => 'Foo');
         $resolvedOptions = array('data_class' => '\stdClass');
-        $optionsResolver = $this->getMock('Symfony\Component\OptionsResolver\OptionsResolver');
+        $optionsResolver = $this->getMock('Makhan\Component\OptionsResolver\OptionsResolver');
 
-        $this->resolvedType = $this->getMockBuilder('Symfony\Component\Form\ResolvedFormType')
+        $this->resolvedType = $this->getMockBuilder('Makhan\Component\Form\ResolvedFormType')
             ->setConstructorArgs(array($this->type, array($this->extension1, $this->extension2), $this->parentResolvedType))
             ->setMethods(array('getOptionsResolver'))
             ->getMock();
@@ -190,7 +190,7 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
         };
 
         $options = array('a' => 'Foo', 'b' => 'Bar');
-        $builder = $this->getMock('Symfony\Component\Form\Test\FormBuilderInterface');
+        $builder = $this->getMock('Makhan\Component\Form\Test\FormBuilderInterface');
 
         // First the form is built for the super type
         $this->parentType->expects($this->once())
@@ -220,30 +220,30 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateView()
     {
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
 
         $view = $this->resolvedType->createView($form);
 
-        $this->assertInstanceOf('Symfony\Component\Form\FormView', $view);
+        $this->assertInstanceOf('Makhan\Component\Form\FormView', $view);
         $this->assertNull($view->parent);
     }
 
     public function testCreateViewWithParent()
     {
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
-        $parentView = $this->getMock('Symfony\Component\Form\FormView');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
+        $parentView = $this->getMock('Makhan\Component\Form\FormView');
 
         $view = $this->resolvedType->createView($form, $parentView);
 
-        $this->assertInstanceOf('Symfony\Component\Form\FormView', $view);
+        $this->assertInstanceOf('Makhan\Component\Form\FormView', $view);
         $this->assertSame($parentView, $view->parent);
     }
 
     public function testBuildView()
     {
         $options = array('a' => '1', 'b' => '2');
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
-        $view = $this->getMock('Symfony\Component\Form\FormView');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
+        $view = $this->getMock('Makhan\Component\Form\FormView');
 
         $i = 0;
 
@@ -284,8 +284,8 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
     public function testFinishView()
     {
         $options = array('a' => '1', 'b' => '2');
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
-        $view = $this->getMock('Symfony\Component\Form\FormView');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
+        $view = $this->getMock('Makhan\Component\Form\FormView');
 
         $i = 0;
 
@@ -359,7 +359,7 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    private function getMockFormType($typeClass = 'Symfony\Component\Form\AbstractType')
+    private function getMockFormType($typeClass = 'Makhan\Component\Form\AbstractType')
     {
         return $this->getMock($typeClass, array('getBlockPrefix', 'configureOptions', 'finishView', 'buildView', 'buildForm'));
     }
@@ -369,7 +369,7 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
      */
     private function getMockFormTypeExtension()
     {
-        return $this->getMock('Symfony\Component\Form\AbstractTypeExtension', array('getExtendedType', 'configureOptions', 'finishView', 'buildView', 'buildForm'));
+        return $this->getMock('Makhan\Component\Form\AbstractTypeExtension', array('getExtendedType', 'configureOptions', 'finishView', 'buildView', 'buildForm'));
     }
 
     /**
@@ -377,7 +377,7 @@ class ResolvedFormTypeTest extends \PHPUnit_Framework_TestCase
      */
     private function getMockFormFactory()
     {
-        return $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        return $this->getMock('Makhan\Component\Form\FormFactoryInterface');
     }
 
     /**

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\BrowserKit\Tests;
+namespace Makhan\Component\BrowserKit\Tests;
 
-use Symfony\Component\BrowserKit\CookieJar;
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\BrowserKit\Response;
+use Makhan\Component\BrowserKit\CookieJar;
+use Makhan\Component\BrowserKit\Cookie;
+use Makhan\Component\BrowserKit\Response;
 
 class CookieJarTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,8 +76,8 @@ class CookieJarTest extends \PHPUnit_Framework_TestCase
         $cookieJar->set(new Cookie('bar', 'bar'));
         $cookieJar->updateFromSetCookie($setCookies);
 
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Cookie', $cookieJar->get('foo'));
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Cookie', $cookieJar->get('bar'));
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Cookie', $cookieJar->get('foo'));
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Cookie', $cookieJar->get('bar'));
         $this->assertEquals('foo', $cookieJar->get('foo')->getValue(), '->updateFromSetCookie() updates cookies from a Set-Cookie header');
         $this->assertEquals('bar', $cookieJar->get('bar')->getValue(), '->updateFromSetCookie() keeps existing cookies');
     }
@@ -93,18 +93,18 @@ class CookieJarTest extends \PHPUnit_Framework_TestCase
     {
         $timestamp = time() + 3600;
         $date = gmdate('D, d M Y H:i:s \G\M\T', $timestamp);
-        $setCookies = array(sprintf('foo=foo; expires=%s; domain=.symfony.com; path=/, bar=bar; domain=.blog.symfony.com, PHPSESSID=id; expires=%s', $date, $date));
+        $setCookies = array(sprintf('foo=foo; expires=%s; domain=.makhan.com; path=/, bar=bar; domain=.blog.makhan.com, PHPSESSID=id; expires=%s', $date, $date));
 
         $cookieJar = new CookieJar();
         $cookieJar->updateFromSetCookie($setCookies);
 
-        $fooCookie = $cookieJar->get('foo', '/', '.symfony.com');
-        $barCookie = $cookieJar->get('bar', '/', '.blog.symfony.com');
+        $fooCookie = $cookieJar->get('foo', '/', '.makhan.com');
+        $barCookie = $cookieJar->get('bar', '/', '.blog.makhan.com');
         $phpCookie = $cookieJar->get('PHPSESSID');
 
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Cookie', $fooCookie);
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Cookie', $barCookie);
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Cookie', $phpCookie);
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Cookie', $fooCookie);
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Cookie', $barCookie);
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Cookie', $phpCookie);
         $this->assertEquals('foo', $fooCookie->getValue());
         $this->assertEquals('bar', $barCookie->getValue());
         $this->assertEquals('id', $phpCookie->getValue());

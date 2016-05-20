@@ -1,1 +1,1 @@
-Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass::staticMethod()
+Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass::staticMethod()

@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://symfony.com/schema/dic/services"
+<container xmlns="http://makhan.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
         <parameter key="debug.error_handler.throw_at">0</parameter>
     </parameters>
 
     <services>
-        <service id="debug.debug_handlers_listener" class="Symfony\Component\HttpKernel\EventListener\DebugHandlersListener">
+        <service id="debug.debug_handlers_listener" class="Makhan\Component\HttpKernel\EventListener\DebugHandlersListener">
             <tag name="kernel.event_subscriber" />
             <tag name="monolog.logger" channel="php" />
             <argument>null</argument><!-- Exception handler -->
@@ -20,6 +20,6 @@
             <argument>null</argument><!-- %templating.helper.code.file_link_format% -->
         </service>
 
-        <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch" />
+        <service id="debug.stopwatch" class="Makhan\Component\Stopwatch\Stopwatch" />
     </services>
 </container>

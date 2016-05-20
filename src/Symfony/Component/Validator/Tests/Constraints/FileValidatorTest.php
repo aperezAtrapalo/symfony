@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Validator\Constraints\FileValidator;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\Validator\Constraints\File;
+use Makhan\Component\Validator\Constraints\FileValidator;
 
 abstract class FileValidatorTest extends AbstractConstraintValidatorTest
 {
@@ -66,7 +66,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Validator\Exception\UnexpectedTypeException
      */
     public function testExpectsStringCompatibleTypeOrFile()
     {
@@ -110,10 +110,10 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
 
         // Analogous for kB/MB.
 
-        // Prior to Symfony 2.5, violation messages are always displayed in the
+        // Prior to Makhan 2.5, violation messages are always displayed in the
         // same unit used to specify the limit.
 
-        // As of Symfony 2.5, the above logic is implemented.
+        // As of Makhan 2.5, the above logic is implemented.
         return array(
             // limit in bytes
             array(1001, 1000, '1001', '1000', 'bytes'),
@@ -222,7 +222,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testInvalidMaxSize()
     {
@@ -284,7 +284,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     public function testValidMimeType()
     {
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\File')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\File')
             ->setConstructorArgs(array(__DIR__.'/Fixtures/foo'))
             ->getMock();
         $file
@@ -308,7 +308,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     public function testValidWildcardMimeType()
     {
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\File')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\File')
             ->setConstructorArgs(array(__DIR__.'/Fixtures/foo'))
             ->getMock();
         $file
@@ -332,7 +332,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     public function testInvalidMimeType()
     {
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\File')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\File')
             ->setConstructorArgs(array(__DIR__.'/Fixtures/foo'))
             ->getMock();
         $file
@@ -362,7 +362,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
     public function testInvalidWildcardMimeType()
     {
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\File')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\File')
             ->setConstructorArgs(array(__DIR__.'/Fixtures/foo'))
             ->getMock();
         $file
@@ -436,7 +436,7 @@ abstract class FileValidatorTest extends AbstractConstraintValidatorTest
             array(UPLOAD_ERR_EXTENSION, 'uploadExtensionErrorMessage'),
         );
 
-        if (class_exists('Symfony\Component\HttpFoundation\File\UploadedFile')) {
+        if (class_exists('Makhan\Component\HttpFoundation\File\UploadedFile')) {
             // when no maxSize is specified on constraint, it should use the ini value
             $tests[] = array(UPLOAD_ERR_INI_SIZE, 'uploadIniSizeErrorMessage', array(
                 '{{ limit }}' => UploadedFile::getMaxFilesize() / 1048576,

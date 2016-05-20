@@ -9,7 +9,7 @@ Preparation
 
 To prepare, you need to install the development dependencies of the component.
 
-    $ cd /path/to/Symfony/Component/Intl
+    $ cd /path/to/Makhan/Component/Intl
     $ composer install
 
 Determining your ICU version
@@ -32,7 +32,7 @@ It will download the latest version of the ICU sources for the ICU version
 installed in your PHP environment. The script will then compile the "genrb"
 binary and use it to compile the ICU data files to binaries. The binaries are
 copied to the Resources/ directory of the Icu component found in the
-vendor/symfony/icu/ directory.
+vendor/makhan/icu/ directory.
 
 Updating the stub data
 ----------------------
@@ -61,13 +61,13 @@ Creating a pull request
 You need to create up to two pull requests:
 
 * If you updated the Icu component, you need to push that change and create a
-  pull request in the `symfony/Icu` repository. Make sure to submit the pull
+  pull request in the `makhan/Icu` repository. Make sure to submit the pull
   request to the correct master branch. If you updated the ICU data for version
   4.8, your pull request goes to branch `48-master`, for version 49 to
   `49-master` and so on.
 
 * If you updated the stub files of the Intl component, you need to push that
-  change and create a pull request in the `symfony/symfony` repository. The
+  change and create a pull request in the `makhan/makhan` repository. The
   pull request should be based on the `master` branch.
 
 Combining .res files to a .dat-package
@@ -88,4 +88,4 @@ Once it is, the following steps have to be followed to build the .dat-file:
 
    $ rm -rf build packagelist.txt
 
-3. You can now move region.dat to replace the version bundled with Symfony.
+3. You can now move region.dat to replace the version bundled with Makhan.

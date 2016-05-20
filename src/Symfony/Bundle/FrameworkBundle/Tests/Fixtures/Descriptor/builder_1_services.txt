@@ -1,5 +1,5 @@
 
-[33mSymfony Container Public and Private Services[39m
+[33mMakhan Container Public and Private Services[39m
 [33m=============================================[39m
 
  ------------------- -------------------------------------------------------- 
@@ -9,6 +9,6 @@
   alias_2             alias for "service_2"                                   
   definition_1        Full\Qualified\Class1                                   
   definition_2        Full\Qualified\Class2                                   
-  service_container   Symfony\Component\DependencyInjection\ContainerBuilder  
+  service_container   Makhan\Component\DependencyInjection\ContainerBuilder
  ------------------- -------------------------------------------------------- 
 

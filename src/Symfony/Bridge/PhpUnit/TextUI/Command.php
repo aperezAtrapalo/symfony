@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\PhpUnit\TextUI;
+namespace Makhan\Bridge\PhpUnit\TextUI;
 
 /**
  * {@inheritdoc}
@@ -31,15 +31,15 @@ class Command extends \PHPUnit_TextUI_Command
     {
         parent::handleBootstrap($filename);
 
-        // By default, we want PHPUnit's autoloader before Symfony's one
+        // By default, we want PHPUnit's autoloader before Makhan's one
         if (!getenv('SYMFONY_PHPUNIT_OVERLOAD')) {
             $filename = realpath(stream_resolve_include_path($filename));
-            $symfonyLoader = realpath(dirname(PHPUNIT_COMPOSER_INSTALL).'/../../../vendor/autoload.php');
+            $makhanLoader = realpath(dirname(PHPUNIT_COMPOSER_INSTALL).'/../../../vendor/autoload.php');
 
-            if ($filename === $symfonyLoader) {
-                $symfonyLoader = require $symfonyLoader;
-                $symfonyLoader->unregister();
-                $symfonyLoader->register(false);
+            if ($filename === $makhanLoader) {
+                $makhanLoader = require $makhanLoader;
+                $makhanLoader->unregister();
+                $makhanLoader->register(false);
             }
         }
     }

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\DependencyInjection;
+namespace Makhan\Bundle\TwigBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\TreeBuilder;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * TwigExtension configuration structure.

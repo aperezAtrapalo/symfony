@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Matcher;
+namespace Makhan\Component\Routing\Matcher;
 
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\ExpressionLanguage\ExpressionLanguage;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
  * UrlMatcher matches URL based on a set of routes.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
 {
@@ -240,8 +240,8 @@ class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
     protected function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new \RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new \RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $this->expressionLanguage = new ExpressionLanguage(null, $this->expressionLanguageProviders);
         }

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\Locale;
+namespace Makhan\Component\Intl\Tests\Locale;
 
 class LocaleTest extends AbstractLocaleTest
 {
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testAcceptFromHttp()
     {
@@ -22,7 +22,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testComposeLocale()
     {
@@ -35,7 +35,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testFilterMatches()
     {
@@ -43,7 +43,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetAllVariants()
     {
@@ -51,7 +51,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetDisplayLanguage()
     {
@@ -59,7 +59,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetDisplayName()
     {
@@ -67,7 +67,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetDisplayRegion()
     {
@@ -75,7 +75,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetDisplayScript()
     {
@@ -83,7 +83,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetDisplayVariant()
     {
@@ -91,7 +91,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetKeywords()
     {
@@ -99,7 +99,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetPrimaryLanguage()
     {
@@ -107,7 +107,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetRegion()
     {
@@ -115,7 +115,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetScript()
     {
@@ -123,7 +123,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testLookup()
     {
@@ -135,7 +135,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testParseLocale()
     {
@@ -143,7 +143,7 @@ class LocaleTest extends AbstractLocaleTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetDefault()
     {
@@ -159,6 +159,6 @@ class LocaleTest extends AbstractLocaleTest
     {
         $args = array_slice(func_get_args(), 1);
 
-        return call_user_func_array(array('Symfony\Component\Intl\Locale\Locale', $methodName), $args);
+        return call_user_func_array(array('Makhan\Component\Intl\Locale\Locale', $methodName), $args);
     }
 }

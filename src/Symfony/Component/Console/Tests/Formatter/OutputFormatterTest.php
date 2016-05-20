@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Formatter;
+namespace Makhan\Component\Console\Tests\Formatter;
 
-use Symfony\Component\Console\Formatter\OutputFormatter;
-use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Makhan\Component\Console\Formatter\OutputFormatter;
+use Makhan\Component\Console\Formatter\OutputFormatterStyle;
 
 class OutputFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,8 +31,8 @@ class OutputFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('\\<info>some info\\</info>', OutputFormatter::escape('<info>some info</info>'));
 
         $this->assertEquals(
-            "\033[33mSymfony\\Component\\Console does work very well!\033[39m",
-            $formatter->format('<comment>Symfony\Component\Console does work very well!</comment>')
+            "\033[33mMakhan\\Component\\Console does work very well!\033[39m",
+            $formatter->format('<comment>Makhan\Component\Console does work very well!</comment>')
         );
     }
 

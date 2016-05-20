@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Guard\Provider;
+namespace Makhan\Component\Security\Guard\Provider;
 
-use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Guard\GuardAuthenticatorInterface;
-use Symfony\Component\Security\Guard\Token\GuardTokenInterface;
-use Symfony\Component\Security\Guard\Token\PreAuthenticationGuardToken;
-use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationExpiredException;
+use Makhan\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Guard\GuardAuthenticatorInterface;
+use Makhan\Component\Security\Guard\Token\GuardTokenInterface;
+use Makhan\Component\Security\Guard\Token\PreAuthenticationGuardToken;
+use Makhan\Component\Security\Core\User\UserCheckerInterface;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationExpiredException;
 
 /**
  * Responsible for accepting the PreAuthenticationGuardToken and calling

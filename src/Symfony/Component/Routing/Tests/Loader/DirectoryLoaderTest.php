@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Routing\Loader\DirectoryLoader;
-use Symfony\Component\Routing\Loader\YamlFileLoader;
-use Symfony\Component\Routing\Loader\AnnotationFileLoader;
-use Symfony\Component\Config\Loader\LoaderResolver;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Loader\DirectoryLoader;
+use Makhan\Component\Routing\Loader\YamlFileLoader;
+use Makhan\Component\Routing\Loader\AnnotationFileLoader;
+use Makhan\Component\Config\Loader\LoaderResolver;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Routing\RouteCollection;
 
 class DirectoryLoaderTest extends AbstractAnnotationLoaderTest
 {
@@ -55,7 +55,7 @@ class DirectoryLoaderTest extends AbstractAnnotationLoaderTest
         $routes = $collection->all();
 
         $this->assertCount(3, $routes, 'Three routes are loaded');
-        $this->assertContainsOnly('Symfony\Component\Routing\Route', $routes);
+        $this->assertContainsOnly('Makhan\Component\Routing\Route', $routes);
 
         for ($i = 1; $i <= 3; ++$i) {
             $this->assertSame('/route/'.$i, $routes['route'.$i]->getPath());

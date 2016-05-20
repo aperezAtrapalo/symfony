@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\NumberFormatter;
+namespace Makhan\Component\Intl\Tests\NumberFormatter;
 
-use Symfony\Component\Intl\Globals\IntlGlobals;
-use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
+use Makhan\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\NumberFormatter\NumberFormatter;
 
 /**
  * Note that there are some values written like -2147483647 - 1. This is the lower 32bit int max and is a known
@@ -21,7 +21,7 @@ use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
 class NumberFormatterTest extends AbstractNumberFormatterTest
 {
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testConstructorWithUnsupportedLocale()
     {
@@ -29,7 +29,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testConstructorWithUnsupportedStyle()
     {
@@ -37,7 +37,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentNotImplementedException
      */
     public function testConstructorWithPatternDifferentThanNull()
     {
@@ -45,7 +45,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testSetAttributeWithUnsupportedAttribute()
     {
@@ -54,7 +54,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testSetAttributeInvalidRoundingMode()
     {
@@ -65,7 +65,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     public function testConstructWithoutLocale()
     {
         $this->assertInstanceOf(
-            '\Symfony\Component\Intl\NumberFormatter\NumberFormatter',
+            '\Makhan\Component\Intl\NumberFormatter\NumberFormatter',
             $this->getNumberFormatter(null, NumberFormatter::DECIMAL)
         );
     }
@@ -73,7 +73,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     public function testCreate()
     {
         $this->assertInstanceOf(
-            '\Symfony\Component\Intl\NumberFormatter\NumberFormatter',
+            '\Makhan\Component\Intl\NumberFormatter\NumberFormatter',
             NumberFormatter::create('en', NumberFormatter::DECIMAL)
         );
     }
@@ -88,7 +88,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeInt32Provider
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testFormatTypeInt32($formatter, $value, $expected, $message = '')
     {
@@ -97,7 +97,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeInt32WithCurrencyStyleProvider
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatTypeInt32WithCurrencyStyle($formatter, $value, $expected, $message = '')
     {
@@ -106,7 +106,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeInt64Provider
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testFormatTypeInt64($formatter, $value, $expected)
     {
@@ -115,7 +115,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeInt64WithCurrencyStyleProvider
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatTypeInt64WithCurrencyStyle($formatter, $value, $expected)
     {
@@ -124,7 +124,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeDoubleProvider
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testFormatTypeDouble($formatter, $value, $expected)
     {
@@ -133,7 +133,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
 
     /**
      * @dataProvider formatTypeDoubleWithCurrencyStyleProvider
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatTypeDoubleWithCurrencyStyle($formatter, $value, $expected)
     {
@@ -141,7 +141,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetPattern()
     {
@@ -156,7 +156,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testParseCurrency()
     {
@@ -165,7 +165,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetPattern()
     {
@@ -174,7 +174,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetSymbol()
     {
@@ -183,7 +183,7 @@ class NumberFormatterTest extends AbstractNumberFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetTextAttribute()
     {

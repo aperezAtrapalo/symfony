@@ -1,9 +1,9 @@
 {
-    "name": "symfony/phpunit-bridge",
-    "type": "symfony-bridge",
-    "description": "Symfony PHPUnit Bridge",
+    "name": "makhan/phpunit-bridge",
+    "type": "makhan-bridge",
+    "description": "Makhan PHPUnit Bridge",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
@@ -11,8 +11,8 @@
             "email": "p@tchwork.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
@@ -21,11 +21,11 @@
         "php": ">=5.3.3"
     },
     "suggest": {
-        "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
+        "makhan/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
     },
     "autoload": {
         "files": [ "bootstrap.php" ],
-        "psr-4": { "Symfony\\Bridge\\PhpUnit\\": "" },
+        "psr-4": { "Makhan\\Bridge\\PhpUnit\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

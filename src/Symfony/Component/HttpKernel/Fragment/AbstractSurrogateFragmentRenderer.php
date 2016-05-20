@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Fragment;
+namespace Makhan\Component\HttpKernel\Fragment;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\HttpCache\SurrogateInterface;
-use Symfony\Component\HttpKernel\UriSigner;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\HttpCache\SurrogateInterface;
+use Makhan\Component\HttpKernel\UriSigner;
 
 /**
  * Implements Surrogate rendering strategy.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class AbstractSurrogateFragmentRenderer extends RoutableFragmentRenderer
 {
@@ -59,7 +59,7 @@ abstract class AbstractSurrogateFragmentRenderer extends RoutableFragmentRendere
      * Note, that not all surrogate strategies support all options. For now
      * 'alt' and 'comment' are only supported by ESI.
      *
-     * @see Symfony\Component\HttpKernel\HttpCache\SurrogateInterface
+     * @see Makhan\Component\HttpKernel\HttpCache\SurrogateInterface
      */
     public function render($uri, Request $request, array $options = array())
     {

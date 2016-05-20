@@ -1,12 +1,12 @@
 <?php
 
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Tests\Style\SymfonyStyleWithForcedLineLength;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Tests\Style\MakhanStyleWithForcedLineLength;
 
-//Ensure has proper blank line after text block when using a block like with SymfonyStyle::success
+//Ensure has proper blank line after text block when using a block like with MakhanStyle::success
 return function (InputInterface $input, OutputInterface $output) {
-    $output = new SymfonyStyleWithForcedLineLength($input, $output);
+    $output = new MakhanStyleWithForcedLineLength($input, $output);
 
     $output->listing(array(
         'Lorem ipsum dolor sit amet',

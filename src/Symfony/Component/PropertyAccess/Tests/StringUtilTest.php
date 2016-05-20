@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess\Tests;
+namespace Makhan\Component\PropertyAccess\Tests;
 
-use Symfony\Component\PropertyAccess\StringUtil;
+use Makhan\Component\PropertyAccess\StringUtil;
 
 /**
  * @group legacy
@@ -21,7 +21,7 @@ class StringUtilTest extends \PHPUnit_Framework_TestCase
     public function singularifyProvider()
     {
         // This is only a stub to make sure the BC layer works
-        // Actual tests are in the Symfony Inflector component
+        // Actual tests are in the Makhan Inflector component
         return array(
             array('axes', array('ax', 'axe', 'axis')),
         );

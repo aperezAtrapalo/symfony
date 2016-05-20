@@ -1,35 +1,35 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Loader;
+namespace Makhan\Component\DependencyInjection\Loader;
 
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Config\Util\XmlUtils;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Config\Util\XmlUtils;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 /**
  * XmlFileLoader loads XML files service definitions.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class XmlFileLoader extends FileLoader
 {
-    const NS = 'http://symfony.com/schema/dic/services';
+    const NS = 'http://makhan.com/schema/dic/services';
 
     /**
      * {@inheritdoc}
@@ -432,7 +432,7 @@ class XmlFileLoader extends FileLoader
      */
     public function validateSchema(\DOMDocument $dom)
     {
-        $schemaLocations = array('http://symfony.com/schema/dic/services' => str_replace('\\', '/', __DIR__.'/schema/dic/services/services-1.0.xsd'));
+        $schemaLocations = array('http://makhan.com/schema/dic/services' => str_replace('\\', '/', __DIR__.'/schema/dic/services/services-1.0.xsd'));
 
         if ($element = $dom->documentElement->getAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'schemaLocation')) {
             $items = preg_split('/\s+/', $element);
@@ -473,9 +473,9 @@ class XmlFileLoader extends FileLoader
 
         $source = <<<EOF
 <?xml version="1.0" encoding="utf-8" ?>
-<xsd:schema xmlns="http://symfony.com/schema"
+<xsd:schema xmlns="http://makhan.com/schema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://symfony.com/schema"
+    targetNamespace="http://makhan.com/schema"
     elementFormDefault="qualified">
 
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
@@ -503,13 +503,13 @@ EOF
     {
         foreach ($alias->attributes as $name => $node) {
             if (!in_array($name, array('alias', 'id', 'public'))) {
-                @trigger_error(sprintf('Using the attribute "%s" is deprecated for alias definition "%s" in "%s". Allowed attributes are "alias", "id" and "public". The XmlFileLoader will raise an exception in Symfony 4.0, instead of silently ignoring unsupported attributes.', $name, $alias->getAttribute('id'), $file), E_USER_DEPRECATED);
+                @trigger_error(sprintf('Using the attribute "%s" is deprecated for alias definition "%s" in "%s". Allowed attributes are "alias", "id" and "public". The XmlFileLoader will raise an exception in Makhan 4.0, instead of silently ignoring unsupported attributes.', $name, $alias->getAttribute('id'), $file), E_USER_DEPRECATED);
             }
         }
 
         foreach ($alias->childNodes as $child) {
             if ($child instanceof \DOMElement && $child->namespaceURI === self::NS) {
-                @trigger_error(sprintf('Using the element "%s" is deprecated for alias definition "%s" in "%s". The XmlFileLoader will raise an exception in Symfony 4.0, instead of silently ignoring unsupported elements.', $child->localName, $alias->getAttribute('id'), $file), E_USER_DEPRECATED);
+                @trigger_error(sprintf('Using the element "%s" is deprecated for alias definition "%s" in "%s". The XmlFileLoader will raise an exception in Makhan 4.0, instead of silently ignoring unsupported elements.', $child->localName, $alias->getAttribute('id'), $file), E_USER_DEPRECATED);
             }
         }
     }
@@ -525,7 +525,7 @@ EOF
     private function validateExtensions(\DOMDocument $dom, $file)
     {
         foreach ($dom->documentElement->childNodes as $node) {
-            if (!$node instanceof \DOMElement || 'http://symfony.com/schema/dic/services' === $node->namespaceURI) {
+            if (!$node instanceof \DOMElement || 'http://makhan.com/schema/dic/services' === $node->namespaceURI) {
                 continue;
             }
 

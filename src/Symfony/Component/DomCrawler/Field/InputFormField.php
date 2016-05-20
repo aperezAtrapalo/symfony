@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler\Field;
+namespace Makhan\Component\DomCrawler\Field;
 
 /**
  * InputFormField represents an input form field (an HTML input tag).
@@ -17,7 +17,7 @@ namespace Symfony\Component\DomCrawler\Field;
  * For inputs with type of file, checkbox, or radio, there are other more
  * specialized classes (cf. FileFormField and ChoiceFormField).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class InputFormField extends FormField
 {

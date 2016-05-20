@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Templating\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Templating\Helper;
 
-use Symfony\Component\Templating\Helper\Helper;
-use Symfony\Component\Form\FormRendererInterface;
-use Symfony\Component\Form\FormView;
+use Makhan\Component\Templating\Helper\Helper;
+use Makhan\Component\Form\FormRendererInterface;
+use Makhan\Component\Form\FormView;
 
 /**
  * FormHelper provides helpers to help display forms.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 class FormHelper extends Helper

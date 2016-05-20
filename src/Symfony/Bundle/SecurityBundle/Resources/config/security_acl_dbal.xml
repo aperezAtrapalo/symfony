@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<container xmlns="http://symfony.com/schema/dic/services"
+<container xmlns="http://makhan.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
 
     <services>
         <service id="security.acl.dbal.connection" alias="database_connection" />
 
-        <service id="security.acl.dbal.provider" class="Symfony\Component\Security\Acl\Dbal\MutableAclProvider" public="false">
+        <service id="security.acl.dbal.provider" class="Makhan\Component\Security\Acl\Dbal\MutableAclProvider" public="false">
             <argument type="service" id="security.acl.dbal.connection" />
             <argument type="service" id="security.acl.permission_granting_strategy" />
             <argument type="collection">
@@ -20,7 +20,7 @@
             <argument type="service" id="security.acl.cache" on-invalid="null" />
         </service>
 
-        <service id="security.acl.dbal.schema" class="Symfony\Component\Security\Acl\Dbal\Schema">
+        <service id="security.acl.dbal.schema" class="Makhan\Component\Security\Acl\Dbal\Schema">
             <argument type="collection">
                 <argument key="class_table_name">%security.acl.dbal.class_table_name%</argument>
                 <argument key="entry_table_name">%security.acl.dbal.entry_table_name%</argument>
@@ -30,13 +30,13 @@
             </argument>
             <argument type="service" id="security.acl.dbal.connection" />
         </service>
-        <service id="security.acl.dbal.schema_listener" class="Symfony\Bundle\SecurityBundle\EventListener\AclSchemaListener" public="false">
+        <service id="security.acl.dbal.schema_listener" class="Makhan\Bundle\SecurityBundle\EventListener\AclSchemaListener" public="false">
             <argument type="service" id="security.acl.dbal.schema" />
         </service>
 
         <service id="security.acl.provider" alias="security.acl.dbal.provider" />
 
-        <service id="security.acl.cache.doctrine" class="Symfony\Component\Security\Acl\Domain\DoctrineAclCache" public="false">
+        <service id="security.acl.cache.doctrine" class="Makhan\Component\Security\Acl\Domain\DoctrineAclCache" public="false">
             <argument type="service" id="security.acl.cache.doctrine.cache_impl" />
             <argument type="service" id="security.acl.permission_granting_strategy" />
         </service>

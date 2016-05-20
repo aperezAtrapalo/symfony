@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Bridge\PhpUnit\DnsMock;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\EmailValidator;
+use Makhan\Bridge\PhpUnit\DnsMock;
+use Makhan\Component\Validator\Constraints\Email;
+use Makhan\Component\Validator\Constraints\EmailValidator;
 
 /**
  * @group dns-sensitive
@@ -40,7 +40,7 @@ class EmailValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Validator\Exception\UnexpectedTypeException
      */
     public function testExpectsStringCompatibleType()
     {
@@ -60,7 +60,7 @@ class EmailValidatorTest extends AbstractConstraintValidatorTest
     public function getValidEmails()
     {
         return array(
-            array('fabien@symfony.com'),
+            array('fabien@makhan.com'),
             array('example@example.co.uk'),
             array('fabien_potencier@example.fr'),
         );
@@ -104,7 +104,7 @@ class EmailValidatorTest extends AbstractConstraintValidatorTest
 
     /**
      * @dataProvider getDnsChecks
-     * @requires function Symfony\Bridge\PhpUnit\DnsMock::withMockedHosts
+     * @requires function Makhan\Bridge\PhpUnit\DnsMock::withMockedHosts
      */
     public function testDnsChecks($type, $violation)
     {
@@ -140,7 +140,7 @@ class EmailValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @requires function Symfony\Bridge\PhpUnit\DnsMock::withMockedHosts
+     * @requires function Makhan\Bridge\PhpUnit\DnsMock::withMockedHosts
      */
     public function testHostnameIsProperlyParsed()
     {

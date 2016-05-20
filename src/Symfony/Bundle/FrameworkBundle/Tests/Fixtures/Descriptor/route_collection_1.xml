@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes>
-  <route name="route_1" class="Symfony\Component\Routing\Route">
+  <route name="route_1" class="Makhan\Component\Routing\Route">
     <path regex="#^/hello(?:/(?P&lt;name&gt;[a-z]+))?$#s">/hello/{name}</path>
     <host regex="#^localhost$#si">localhost</host>
     <scheme>http</scheme>
@@ -14,12 +14,12 @@
       <requirement key="name">[a-z]+</requirement>
     </requirements>
     <options>
-      <option key="compiler_class">Symfony\Component\Routing\RouteCompiler</option>
+      <option key="compiler_class">Makhan\Component\Routing\RouteCompiler</option>
       <option key="opt1">val1</option>
       <option key="opt2">val2</option>
     </options>
   </route>
-  <route name="route_2" class="Symfony\Component\Routing\Route">
+  <route name="route_2" class="Makhan\Component\Routing\Route">
     <path regex="#^/name/add$#s">/name/add</path>
     <host regex="#^localhost$#si">localhost</host>
     <scheme>http</scheme>
@@ -27,7 +27,7 @@
     <method>PUT</method>
     <method>POST</method>
     <options>
-      <option key="compiler_class">Symfony\Component\Routing\RouteCompiler</option>
+      <option key="compiler_class">Makhan\Component\Routing\RouteCompiler</option>
       <option key="opt1">val1</option>
       <option key="opt2">val2</option>
     </options>

@@ -1,4 +1,4 @@
-<info>My Symfony application</info> version <comment>v1.0</comment>
+<info>My Makhan application</info> version <comment>v1.0</comment>
 
 <comment>Usage:</comment>
   command [options] [arguments]

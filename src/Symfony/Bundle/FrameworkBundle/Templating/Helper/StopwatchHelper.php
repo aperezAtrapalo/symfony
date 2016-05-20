@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Templating\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Templating\Helper;
 
-use Symfony\Component\Stopwatch\Stopwatch;
-use Symfony\Component\Templating\Helper\Helper;
+use Makhan\Component\Stopwatch\Stopwatch;
+use Makhan\Component\Templating\Helper\Helper;
 
 /**
  * StopwatchHelper provides methods time your PHP templates.

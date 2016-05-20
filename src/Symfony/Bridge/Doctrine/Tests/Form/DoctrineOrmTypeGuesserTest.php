@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form;
+namespace Makhan\Bridge\Doctrine\Tests\Form;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser;
-use Symfony\Component\Form\Guess\Guess;
-use Symfony\Component\Form\Guess\ValueGuess;
+use Makhan\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser;
+use Makhan\Component\Form\Guess\Guess;
+use Makhan\Component\Form\Guess\ValueGuess;
 
 class DoctrineOrmTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {

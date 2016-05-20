@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\RememberMe\RememberMeServicesInterface;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategyInterface;
-use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\RememberMe\RememberMeServicesInterface;
+use Makhan\Component\Security\Http\Event\InteractiveLoginEvent;
+use Makhan\Component\Security\Http\SecurityEvents;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Security\Http\Session\SessionAuthenticationStrategyInterface;
+use Makhan\Component\Security\Http\Session\SessionAuthenticationStrategy;
 
 /**
  * RememberMeListener implements authentication capabilities via a cookie.

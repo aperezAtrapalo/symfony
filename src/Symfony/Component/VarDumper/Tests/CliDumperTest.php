@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Tests;
+namespace Makhan\Component\VarDumper\Tests;
 
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\CliDumper;
-use Symfony\Component\VarDumper\Test\VarDumperTestTrait;
+use Makhan\Component\VarDumper\Cloner\VarCloner;
+use Makhan\Component\VarDumper\Dumper\CliDumper;
+use Makhan\Component\VarDumper\Test\VarDumperTestTrait;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -69,13 +69,13 @@ array:24 [
     seekable: true
 %A  options: []
   }
-  "obj" => Symfony\Component\VarDumper\Tests\Fixture\DumbFoo {#%d
+  "obj" => Makhan\Component\VarDumper\Tests\Fixture\DumbFoo {#%d
     +foo: "foo"
     +"bar": "bar"
   }
   "closure" => Closure {{$r}
-    class: "Symfony\Component\VarDumper\Tests\CliDumperTest"
-    this: Symfony\Component\VarDumper\Tests\CliDumperTest {{$r} …}
+    class: "Makhan\Component\VarDumper\Tests\CliDumperTest"
+    this: Makhan\Component\VarDumper\Tests\CliDumperTest {{$r} …}
     parameters: {
       \$a: {}
       &\$b: {
@@ -94,7 +94,7 @@ array:24 [
     0 => &4 array:1 [&4]
   ]
   8 => &1 null
-  "sobj" => Symfony\Component\VarDumper\Tests\Fixture\DumbFoo {#%d}
+  "sobj" => Makhan\Component\VarDumper\Tests\Fixture\DumbFoo {#%d}
   "snobj" => &3 {#%d}
   "snobj2" => {#%d}
   "file" => "{$var['file']}"
@@ -247,7 +247,7 @@ stream resource {@{$ref}
   seekable: true
   uri: "php://memory"
 %Aoptions: []
-  ⚠: Symfony\Component\VarDumper\Exception\ThrowingCasterException {{$r}
+  ⚠: Makhan\Component\VarDumper\Exception\ThrowingCasterException {{$r}
     #message: "Unexpected Exception thrown from a caster: Foobar"
     -trace: {
       %d. __TwigTemplate_VarDumperFixture_u75a09->doDisplay() ==> new Exception(): {

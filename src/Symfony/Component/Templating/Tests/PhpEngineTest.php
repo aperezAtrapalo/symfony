@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests;
+namespace Makhan\Component\Templating\Tests;
 
-use Symfony\Component\Templating\PhpEngine;
-use Symfony\Component\Templating\Loader\Loader;
-use Symfony\Component\Templating\Storage\StringStorage;
-use Symfony\Component\Templating\Helper\SlotsHelper;
-use Symfony\Component\Templating\TemplateNameParser;
-use Symfony\Component\Templating\TemplateReferenceInterface;
-use Symfony\Component\Templating\TemplateReference;
+use Makhan\Component\Templating\PhpEngine;
+use Makhan\Component\Templating\Loader\Loader;
+use Makhan\Component\Templating\Storage\StringStorage;
+use Makhan\Component\Templating\Helper\SlotsHelper;
+use Makhan\Component\Templating\TemplateNameParser;
+use Makhan\Component\Templating\TemplateReferenceInterface;
+use Makhan\Component\Templating\TemplateReference;
 
 class PhpEngineTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,7 +42,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
     public function testOffsetGet()
     {
         $engine = new ProjectTemplateEngine(new TemplateNameParser(), $this->loader);
-        $engine->set($helper = new \Symfony\Component\Templating\Tests\Fixtures\SimpleHelper('bar'), 'foo');
+        $engine->set($helper = new \Makhan\Component\Templating\Tests\Fixtures\SimpleHelper('bar'), 'foo');
         $this->assertEquals($helper, $engine['foo'], '->offsetGet() returns the value of a helper');
 
         try {
@@ -57,7 +57,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
     public function testGetSetHas()
     {
         $engine = new ProjectTemplateEngine(new TemplateNameParser(), $this->loader);
-        $foo = new \Symfony\Component\Templating\Tests\Fixtures\SimpleHelper('foo');
+        $foo = new \Makhan\Component\Templating\Tests\Fixtures\SimpleHelper('foo');
         $engine->set($foo);
         $this->assertEquals($foo, $engine->get('foo'), '->set() sets a helper');
 
@@ -82,7 +82,7 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
     public function testUnsetHelper()
     {
         $engine = new ProjectTemplateEngine(new TemplateNameParser(), $this->loader);
-        $foo = new \Symfony\Component\Templating\Tests\Fixtures\SimpleHelper('foo');
+        $foo = new \Makhan\Component\Templating\Tests\Fixtures\SimpleHelper('foo');
         $engine->set($foo);
 
         $this->setExpectedException('\LogicException');
@@ -102,13 +102,13 @@ class PhpEngineTest extends \PHPUnit_Framework_TestCase
         }
 
         $engine = new ProjectTemplateEngine(new TemplateNameParser(), $this->loader, array(new SlotsHelper()));
-        $engine->set(new \Symfony\Component\Templating\Tests\Fixtures\SimpleHelper('bar'));
+        $engine->set(new \Makhan\Component\Templating\Tests\Fixtures\SimpleHelper('bar'));
         $this->loader->setTemplate('foo.php', '<?php $this->extend("layout.php"); echo $this[\'foo\'].$foo ?>');
         $this->loader->setTemplate('layout.php', '-<?php echo $this[\'slots\']->get("_content") ?>-');
         $this->assertEquals('-barfoo-', $engine->render('foo.php', array('foo' => 'foo')), '->render() uses the decorator to decorate the template');
 
         $engine = new ProjectTemplateEngine(new TemplateNameParser(), $this->loader, array(new SlotsHelper()));
-        $engine->set(new \Symfony\Component\Templating\Tests\Fixtures\SimpleHelper('bar'));
+        $engine->set(new \Makhan\Component\Templating\Tests\Fixtures\SimpleHelper('bar'));
         $this->loader->setTemplate('bar.php', 'bar');
         $this->loader->setTemplate('foo.php', '<?php $this->extend("layout.php"); echo $foo ?>');
         $this->loader->setTemplate('layout.php', '<?php echo $this->render("bar.php") ?>-<?php echo $this[\'slots\']->get("_content") ?>-');

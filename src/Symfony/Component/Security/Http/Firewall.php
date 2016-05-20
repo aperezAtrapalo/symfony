@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http;
+namespace Makhan\Component\Security\Http;
 
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\HttpKernel\Event\FinishRequestEvent;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Firewall uses a FirewallMap to register security listeners for the given
@@ -25,7 +25,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * (a Basic authentication for the /api, and a web based authentication for
  * everything else for instance).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Firewall implements EventSubscriberInterface
 {

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\PropertyInfo\Tests;
+namespace Makhan\Bridge\Doctrine\PropertyInfo\Tests;
 
 use Doctrine\DBAL\Types\Type as DBALType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
-use Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Bridge\Doctrine\PropertyInfo\DoctrineExtractor;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -33,7 +33,7 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
         $entityManager = EntityManager::create(array('driver' => 'pdo_sqlite'), $config);
 
         if (!DBALType::hasType('foo')) {
-            DBALType::addType('foo', 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineFooType');
+            DBALType::addType('foo', 'Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineFooType');
             $entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('custom_foo', 'foo');
         }
 
@@ -56,7 +56,7 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
                 'bar',
                 'indexedBar',
             ),
-            $this->extractor->getProperties('Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy')
+            $this->extractor->getProperties('Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy')
         );
     }
 
@@ -65,7 +65,7 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
      */
     public function testExtract($property, array $type = null)
     {
-        $this->assertEquals($type, $this->extractor->getTypes('Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy', $property, array()));
+        $this->assertEquals($type, $this->extractor->getTypes('Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy', $property, array()));
     }
 
     public function typesProvider()
@@ -76,14 +76,14 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
             array('bool', array(new Type(Type::BUILTIN_TYPE_BOOL))),
             array('binary', array(new Type(Type::BUILTIN_TYPE_RESOURCE))),
             array('json', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true))),
-            array('foo', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation'))),
+            array('foo', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation'))),
             array('bar', array(new Type(
                 Type::BUILTIN_TYPE_OBJECT,
                 false,
                 'Doctrine\Common\Collections\Collection',
                 true,
                 new Type(Type::BUILTIN_TYPE_INT),
-                new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation')
+                new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation')
             ))),
             array('indexedBar', array(new Type(
                 Type::BUILTIN_TYPE_OBJECT,
@@ -91,7 +91,7 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
                 'Doctrine\Common\Collections\Collection',
                 true,
                 new Type(Type::BUILTIN_TYPE_STRING),
-                new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation')
+                new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Makhan\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation')
             ))),
             array('simpleArray', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true, new Type(Type::BUILTIN_TYPE_INT), new Type(Type::BUILTIN_TYPE_STRING)))),
             array('customFoo', null),

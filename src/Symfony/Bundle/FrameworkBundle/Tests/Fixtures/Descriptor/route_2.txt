@@ -9,9 +9,9 @@
 | Scheme       | http|https                                              |
 | Method       | PUT|POST                                                |
 | Requirements | NO CUSTOM                                               |
-| Class        | Symfony\Component\Routing\Route                         |
+| Class        | Makhan\Component\Routing\Route                         |
 | Defaults     | NONE                                                    |
-| Options      | compiler_class: Symfony\Component\Routing\RouteCompiler |
+| Options      | compiler_class: Makhan\Component\Routing\RouteCompiler |
 |              | opt1: val1                                              |
 |              | opt2: val2                                              |
 +--------------+---------------------------------------------------------+

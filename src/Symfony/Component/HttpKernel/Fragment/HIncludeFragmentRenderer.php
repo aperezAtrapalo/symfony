@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Fragment;
+namespace Makhan\Component\HttpKernel\Fragment;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Templating\EngineInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\UriSigner;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Templating\EngineInterface;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\UriSigner;
 
 /**
  * Implements the Hinclude rendering strategy.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HIncludeFragmentRenderer extends RoutableFragmentRenderer
 {
@@ -55,7 +55,7 @@ class HIncludeFragmentRenderer extends RoutableFragmentRenderer
     public function setTemplating($templating)
     {
         if (null !== $templating && !$templating instanceof EngineInterface && !$templating instanceof \Twig_Environment) {
-            throw new \InvalidArgumentException('The hinclude rendering strategy needs an instance of \Twig_Environment or Symfony\Component\Templating\EngineInterface');
+            throw new \InvalidArgumentException('The hinclude rendering strategy needs an instance of \Twig_Environment or Makhan\Component\Templating\EngineInterface');
         }
 
         $this->templating = $templating;

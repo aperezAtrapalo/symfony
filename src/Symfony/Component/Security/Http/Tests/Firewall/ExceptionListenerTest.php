@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
-use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
-use Symfony\Component\Security\Http\Firewall\ExceptionListener;
-use Symfony\Component\Security\Http\HttpUtils;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Exception\AccessDeniedException;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
+use Makhan\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
+use Makhan\Component\Security\Http\Firewall\ExceptionListener;
+use Makhan\Component\Security\Http\HttpUtils;
 
 class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -69,7 +69,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->createEvent(new AuthenticationException());
 
-        $entryPoint = $this->getMock('Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface');
+        $entryPoint = $this->getMock('Makhan\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface');
         $entryPoint->expects($this->once())->method('start')->will($this->returnValue('NOT A RESPONSE'));
 
         $listener = $this->createExceptionListener(null, null, null, $entryPoint);
@@ -98,12 +98,12 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testAccessDeniedExceptionFullFledgedAndWithoutAccessDeniedHandlerAndWithErrorPage(\Exception $exception, \Exception $eventException = null)
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $kernel->expects($this->once())->method('handle')->will($this->returnValue(new Response('error')));
 
         $event = $this->createEvent($exception, $kernel);
 
-        $httpUtils = $this->getMock('Symfony\Component\Security\Http\HttpUtils');
+        $httpUtils = $this->getMock('Makhan\Component\Security\Http\HttpUtils');
         $httpUtils->expects($this->once())->method('createRequest')->will($this->returnValue(Request::create('/error')));
 
         $listener = $this->createExceptionListener(null, $this->createTrustResolver(true), $httpUtils, null, '/error');
@@ -120,7 +120,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->createEvent($exception);
 
-        $accessDeniedHandler = $this->getMock('Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface');
+        $accessDeniedHandler = $this->getMock('Makhan\Component\Security\Http\Authorization\AccessDeniedHandlerInterface');
         $accessDeniedHandler->expects($this->once())->method('handle')->will($this->returnValue(new Response('error')));
 
         $listener = $this->createExceptionListener(null, $this->createTrustResolver(true), null, null, null, $accessDeniedHandler);
@@ -137,8 +137,8 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->createEvent($exception);
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $tokenStorage->expects($this->once())->method('getToken')->will($this->returnValue($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage->expects($this->once())->method('getToken')->will($this->returnValue($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
 
         $listener = $this->createExceptionListener($tokenStorage, $this->createTrustResolver(false), null, $this->createEntryPoint());
         $listener->onKernelException($event);
@@ -160,7 +160,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
 
     private function createEntryPoint()
     {
-        $entryPoint = $this->getMock('Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface');
+        $entryPoint = $this->getMock('Makhan\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface');
         $entryPoint->expects($this->once())->method('start')->will($this->returnValue(new Response('OK')));
 
         return $entryPoint;
@@ -168,7 +168,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
 
     private function createTrustResolver($fullFledged)
     {
-        $trustResolver = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface');
+        $trustResolver = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface');
         $trustResolver->expects($this->once())->method('isFullFledged')->will($this->returnValue($fullFledged));
 
         return $trustResolver;
@@ -177,7 +177,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     private function createEvent(\Exception $exception, $kernel = null)
     {
         if (null === $kernel) {
-            $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+            $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         }
 
         return new GetResponseForExceptionEvent($kernel, Request::create('/'), HttpKernelInterface::MASTER_REQUEST, $exception);
@@ -186,9 +186,9 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     private function createExceptionListener(TokenStorageInterface $tokenStorage = null, AuthenticationTrustResolverInterface $trustResolver = null, HttpUtils $httpUtils = null, AuthenticationEntryPointInterface $authenticationEntryPoint = null, $errorPage = null, AccessDeniedHandlerInterface $accessDeniedHandler = null)
     {
         return new ExceptionListener(
-            $tokenStorage ?: $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
-            $trustResolver ?: $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface'),
-            $httpUtils ?: $this->getMock('Symfony\Component\Security\Http\HttpUtils'),
+            $tokenStorage ?: $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
+            $trustResolver ?: $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface'),
+            $httpUtils ?: $this->getMock('Makhan\Component\Security\Http\HttpUtils'),
             'key',
             $authenticationEntryPoint,
             $errorPage,

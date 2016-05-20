@@ -22,12 +22,12 @@ UPGRADE FROM 2.x to 3.0
 
 ### Config
 
- * `\Symfony\Component\Config\Resource\ResourceInterface::isFresh()` has been removed. Also,
+ * `\Makhan\Component\Config\Resource\ResourceInterface::isFresh()` has been removed. Also,
    cache validation through this method (which was still supported in 2.8 for BC) does no longer
-   work because the `\Symfony\Component\Config\Resource\BCResourceInterfaceChecker` helper class
+   work because the `\Makhan\Component\Config\Resource\BCResourceInterfaceChecker` helper class
    has been removed as well.
 
- * The `__toString()` method of the `\Symfony\Component\Config\ConfigCache` class
+ * The `__toString()` method of the `\Makhan\Component\Config\ConfigCache` class
    was removed in favor of the new `getPath()` method.
 
 ### Console
@@ -35,7 +35,7 @@ UPGRADE FROM 2.x to 3.0
  * The `dialog` helper has been removed in favor of the `question` helper.
 
  * The methods `isQuiet`, `isVerbose`, `isVeryVerbose` and `isDebug` were added
-   to `Symfony\Component\Console\Output\OutputInterface`.
+   to `Makhan\Component\Console\Output\OutputInterface`.
 
  * `ProgressHelper` has been removed in favor of `ProgressBar`.
 
@@ -83,7 +83,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Console\Helper\Table;
+   use Makhan\Component\Console\Helper\Table;
 
    $table = new Table($output);
    $table
@@ -99,28 +99,28 @@ UPGRADE FROM 2.x to 3.0
    ```
 
 * Parameters of `renderException()` method of the
-  `Symfony\Component\Console\Application` are type hinted.
+  `Makhan\Component\Console\Application` are type hinted.
   You must add the type hint to your implementations.
 
 ### DependencyInjection
 
- * The method `remove` was added to `Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface`.
+ * The method `remove` was added to `Makhan\Component\DependencyInjection\ParameterBag\ParameterBagInterface`.
 
  * The concept of scopes was removed, the removed methods are:
 
-    - `Symfony\Component\DependencyInjection\ContainerBuilder::getScopes()`
-    - `Symfony\Component\DependencyInjection\ContainerBuilder::getScopeChildren()`
-    - `Symfony\Component\DependencyInjection\ContainerInterface::enterScope()`
-    - `Symfony\Component\DependencyInjection\ContainerInterface::leaveScope()`
-    - `Symfony\Component\DependencyInjection\ContainerInterface::addScope()`
-    - `Symfony\Component\DependencyInjection\ContainerInterface::hasScope()`
-    - `Symfony\Component\DependencyInjection\ContainerInterface::isScopeActive()`
-    - `Symfony\Component\DependencyInjection\Definition::setScope()`
-    - `Symfony\Component\DependencyInjection\Definition::getScope()`
-    - `Symfony\Component\DependencyInjection\Reference::isStrict()`
+    - `Makhan\Component\DependencyInjection\ContainerBuilder::getScopes()`
+    - `Makhan\Component\DependencyInjection\ContainerBuilder::getScopeChildren()`
+    - `Makhan\Component\DependencyInjection\ContainerInterface::enterScope()`
+    - `Makhan\Component\DependencyInjection\ContainerInterface::leaveScope()`
+    - `Makhan\Component\DependencyInjection\ContainerInterface::addScope()`
+    - `Makhan\Component\DependencyInjection\ContainerInterface::hasScope()`
+    - `Makhan\Component\DependencyInjection\ContainerInterface::isScopeActive()`
+    - `Makhan\Component\DependencyInjection\Definition::setScope()`
+    - `Makhan\Component\DependencyInjection\Definition::getScope()`
+    - `Makhan\Component\DependencyInjection\Reference::isStrict()`
 
-  Also, the `$scope` and `$strict` parameters of `Symfony\Component\DependencyInjection\ContainerInterface::set()`
-  and `Symfony\Component\DependencyInjection\Reference` respectively were removed.
+  Also, the `$scope` and `$strict` parameters of `Makhan\Component\DependencyInjection\ContainerInterface::set()`
+  and `Makhan\Component\DependencyInjection\Reference` respectively were removed.
 
  * A new `shared` flag has been added to the service definition
    in replacement of the `prototype` scope.
@@ -128,7 +128,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\DependencyInjection\ContainerBuilder;
+   use Makhan\Component\DependencyInjection\ContainerBuilder;
 
    $container = new ContainerBuilder();
    $container
@@ -153,7 +153,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\DependencyInjection\ContainerBuilder;
+   use Makhan\Component\DependencyInjection\ContainerBuilder;
 
    $container = new ContainerBuilder();
    $container
@@ -175,9 +175,9 @@ UPGRADE FROM 2.x to 3.0
    </services>
    ```
 
- * `Symfony\Component\DependencyInjection\ContainerAware` was removed, use
-   `Symfony\Component\DependencyInjection\ContainerAwareTrait` or implement
-   `Symfony\Component\DependencyInjection\ContainerAwareInterface` manually
+ * `Makhan\Component\DependencyInjection\ContainerAware` was removed, use
+   `Makhan\Component\DependencyInjection\ContainerAwareTrait` or implement
+   `Makhan\Component\DependencyInjection\ContainerAwareInterface` manually
 
  * The methods `Definition::setFactoryClass()`,
    `Definition::setFactoryMethod()`, and `Definition::setFactoryService()` have
@@ -190,7 +190,7 @@ UPGRADE FROM 2.x to 3.0
 
 ### DomCrawler
 
- * The interface of the `Symfony\Component\DomCrawler\Crawler` changed. It does no longer implement `\Iterator` but `\IteratorAggregate`. If you rely on methods of the `\Iterator` interface, call the `getIterator` method of the `\IteratorAggregate` interface before. No changes are required in a `\Traversable`-aware control structure, such as `foreach`.
+ * The interface of the `Makhan\Component\DomCrawler\Crawler` changed. It does no longer implement `\Iterator` but `\IteratorAggregate`. If you rely on methods of the `\Iterator` interface, call the `getIterator` method of the `\IteratorAggregate` interface before. No changes are required in a `\Traversable`-aware control structure, such as `foreach`.
 
    Before:
 
@@ -211,8 +211,8 @@ UPGRADE FROM 2.x to 3.0
  * The `loader` option of `DoctrineType` was removed. You now have to override the `getLoader()`
    method in your custom type.
 
- * The `Symfony\Bridge\Doctrine\Form\ChoiceList\EntityChoiceList` was removed in favor
-   of `Symfony\Bridge\Doctrine\Form\ChoiceList\DoctrineChoiceLoader`.
+ * The `Makhan\Bridge\Doctrine\Form\ChoiceList\EntityChoiceList` was removed in favor
+   of `Makhan\Bridge\Doctrine\Form\ChoiceList\DoctrineChoiceLoader`.
 
  * Passing a query builder closure to `ORMQueryBuilderLoader` is not supported anymore.
    You should pass resolved query builders only.
@@ -228,8 +228,8 @@ UPGRADE FROM 2.x to 3.0
 
  * The method `getListenerPriority($eventName, $listener)` has been added to the
    `EventDispatcherInterface`.
- * The interface `Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcherInterface`
-   extends `Symfony\Component\EventDispatcher\EventDispatcherInterface`.
+ * The interface `Makhan\Component\EventDispatcher\Debug\TraceableEventDispatcherInterface`
+   extends `Makhan\Component\EventDispatcher\EventDispatcherInterface`.
 
 ### Form
 
@@ -263,8 +263,8 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-   use Symfony\Component\Form\Extension\Core\Type\TextType;
+   use Makhan\Component\Form\Extension\Core\Type\IntegerType;
+   use Makhan\Component\Form\Extension\Core\Type\TextType;
 
    $form = $this->createFormBuilder()
        ->add('name', TextType::class)
@@ -320,7 +320,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\FormType;
+   use Makhan\Component\Form\Extension\Core\Type\FormType;
 
    class MyTypeExtension extends AbstractTypeExtension
    {
@@ -394,7 +394,7 @@ UPGRADE FROM 2.x to 3.0
    After:
    ```xml
    <service id="app.type_extension" class="Vendor\Form\Extension\MyTypeExtension">
-       <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextType" />
+       <tag name="form.type_extension" extended-type="Makhan\Component\Form\Extension\Core\Type\TextType" />
    </service>
    ```
 
@@ -408,7 +408,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\NumberType;
+   use Makhan\Component\Form\Extension\Core\Type\NumberType;
 
    $builder->add('length', NumberType::class, array(
       'precision' => 3,
@@ -418,7 +418,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\NumberType;
+   use Makhan\Component\Form\Extension\Core\Type\NumberType;
 
    $builder->add('length', NumberType::class, array(
       'scale' => 3,
@@ -430,7 +430,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\FormType;
+   use Makhan\Component\Form\Extension\Core\Type\FormType;
 
    $builder->add('address', FormType::class, array(
        'virtual' => true,
@@ -440,7 +440,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Extension\Core\Type\FormType;
+   use Makhan\Component\Form\Extension\Core\Type\FormType;
 
    $builder->add('address', FormType::class, array(
        'inherit_data' => true,
@@ -467,7 +467,7 @@ UPGRADE FROM 2.x to 3.0
    $form->submit(array(...));
    ```
 
- * Passing a `Symfony\Component\HttpFoundation\Request` instance, as was
+ * Passing a `Makhan\Component\HttpFoundation\Request` instance, as was
    supported by `FormInterface::bind()`, is not possible with
    `FormInterface::submit()` anymore. You should use `FormInterface::handleRequest()`
    instead.
@@ -533,7 +533,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Form\Util\VirtualFormAwareIterator;
+   use Makhan\Component\Form\Util\VirtualFormAwareIterator;
 
    $iterator = new VirtualFormAwareIterator($forms);
    ```
@@ -541,17 +541,17 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Util\InheritDataAwareIterator;
+   use Makhan\Component\Form\Util\InheritDataAwareIterator;
 
    $iterator = new InheritDataAwareIterator($forms);
    ```
 
- * The `TypeTestCase` class was moved from the `Symfony\Component\Form\Tests\Extension\Core\Type` namespace to the `Symfony\Component\Form\Test` namespace.
+ * The `TypeTestCase` class was moved from the `Makhan\Component\Form\Tests\Extension\Core\Type` namespace to the `Makhan\Component\Form\Test` namespace.
 
    Before:
 
    ```php
-   use Symfony\Component\Form\Tests\Extension\Core\Type\TypeTestCase
+   use Makhan\Component\Form\Tests\Extension\Core\Type\TypeTestCase
 
    class MyTypeTest extends TypeTestCase
    {
@@ -562,7 +562,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Form\Test\TypeTestCase;
+   use Makhan\Component\Form\Test\TypeTestCase;
 
    class MyTypeTest extends TypeTestCase
    {
@@ -576,21 +576,21 @@ UPGRADE FROM 2.x to 3.0
    As a value for the option you must provide the fully-qualified class name (FQCN)
    now as well.
 
- * The `FormIntegrationTestCase` and `FormPerformanceTestCase` classes were moved form the `Symfony\Component\Form\Tests` namespace to the `Symfony\Component\Form\Test` namespace.
+ * The `FormIntegrationTestCase` and `FormPerformanceTestCase` classes were moved form the `Makhan\Component\Form\Tests` namespace to the `Makhan\Component\Form\Test` namespace.
 
  * The constants `ROUND_HALFEVEN`, `ROUND_HALFUP` and `ROUND_HALFDOWN` in class
    `NumberToLocalizedStringTransformer` were renamed to `ROUND_HALF_EVEN`,
    `ROUND_HALF_UP` and `ROUND_HALF_DOWN`.
 
- * The `Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface` was
-   removed in favor of `Symfony\Component\Form\ChoiceList\ChoiceListInterface`.
+ * The `Makhan\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface` was
+   removed in favor of `Makhan\Component\Form\ChoiceList\ChoiceListInterface`.
 
- * `Symfony\Component\Form\Extension\Core\View\ChoiceView` was removed in favor of
-   `Symfony\Component\Form\ChoiceList\View\ChoiceView`.
+ * `Makhan\Component\Form\Extension\Core\View\ChoiceView` was removed in favor of
+   `Makhan\Component\Form\ChoiceList\View\ChoiceView`.
 
- * The interface `Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface`
+ * The interface `Makhan\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface`
    and all of its implementations were removed. Use the new interface
-   `Symfony\Component\Security\Csrf\CsrfTokenManagerInterface` instead.
+   `Makhan\Component\Security\Csrf\CsrfTokenManagerInterface` instead.
 
  * The options "`csrf_provider`" and "`intention`" were renamed to  "`csrf_token_generator`"
    and "`csrf_token_id`".
@@ -611,33 +611,33 @@ UPGRADE FROM 2.x to 3.0
    echo $form->getErrors(true, false);
    ```
 
- * The `Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList` class has been removed in
-   favor of `Symfony\Component\Form\ChoiceList\ArrayChoiceList`.
+ * The `Makhan\Component\Form\Extension\Core\ChoiceList\ChoiceList` class has been removed in
+   favor of `Makhan\Component\Form\ChoiceList\ArrayChoiceList`.
 
- * The `Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList` class has been removed in
-   favor of `Symfony\Component\Form\ChoiceList\LazyChoiceList`.
+ * The `Makhan\Component\Form\Extension\Core\ChoiceList\LazyChoiceList` class has been removed in
+   favor of `Makhan\Component\Form\ChoiceList\LazyChoiceList`.
 
- * The `Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList` class has been removed in
-   favor of `Symfony\Component\Form\ChoiceList\ArrayChoiceList`.
+ * The `Makhan\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList` class has been removed in
+   favor of `Makhan\Component\Form\ChoiceList\ArrayChoiceList`.
 
- * The `Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList` class has been removed in
-   favor of `Symfony\Component\Form\ChoiceList\ArrayChoiceList`.
+ * The `Makhan\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList` class has been removed in
+   favor of `Makhan\Component\Form\ChoiceList\ArrayChoiceList`.
 
  * The `TimezoneType::getTimezones()` method was removed. You should not use
    this method.
 
- * The `Symfony\Component\Form\ChoiceList\ArrayKeyChoiceList` class has been removed in
-   favor of `Symfony\Component\Form\ChoiceList\ArrayChoiceList`.
+ * The `Makhan\Component\Form\ChoiceList\ArrayKeyChoiceList` class has been removed in
+   favor of `Makhan\Component\Form\ChoiceList\ArrayChoiceList`.
 
 ### FrameworkBundle
 
  * The `config:debug`, `container:debug`, `router:debug`, `translation:debug`
-   and `yaml:lint` commands have been deprecated since Symfony 2.7 and will
-   be removed in Symfony 3.0. Use the `debug:config`, `debug:container`,
+   and `yaml:lint` commands have been deprecated since Makhan 2.7 and will
+   be removed in Makhan 3.0. Use the `debug:config`, `debug:container`,
    `debug:router`, `debug:translation` and `lint:yaml` commands instead.
 
  * The `getRequest` method of the base `Controller` class has been deprecated
-   since Symfony 2.4 and must be therefore removed in 3.0. The only reliable
+   since Makhan 2.4 and must be therefore removed in 3.0. The only reliable
    way to get the `Request` object is to inject it in the action method.
 
    Before:
@@ -660,7 +660,7 @@ UPGRADE FROM 2.x to 3.0
    ```php
    namespace Acme\FooBundle\Controller;
 
-   use Symfony\Component\HttpFoundation\Request;
+   use Makhan\Component\HttpFoundation\Request;
 
    class DemoController
    {
@@ -671,7 +671,7 @@ UPGRADE FROM 2.x to 3.0
    }
    ```
 
- * In Symfony 2.7 a small BC break was introduced with the new choices_as_values
+ * In Makhan 2.7 a small BC break was introduced with the new choices_as_values
    option. In order to have the choice values populated to the html value attribute
    you had to define the choice_value option. This is now not any more needed.
 
@@ -684,7 +684,7 @@ UPGRADE FROM 2.x to 3.0
            'Disabled' => Status::DISABLED,
            'Ignored' => Status::IGNORED,
        ),
-       // choices_as_values defaults to true in Symfony 3.0
+       // choices_as_values defaults to true in Makhan 3.0
        // and setting it to anything else is deprecated as of 3.0
        'choices_as_values' => true,
        // important if you rely on your option value attribute (e.g. for JavaScript)
@@ -762,7 +762,7 @@ UPGRADE FROM 2.x to 3.0
 
  * The `RouterApacheDumperCommand` was removed.
 
- * The `createEsi` method of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache` was removed. Use `createSurrogate` instead.
+ * The `createEsi` method of `Makhan\Bundle\FrameworkBundle\HttpCache\HttpCache` was removed. Use `createSurrogate` instead.
 
  * The `templating.helper.router` service was moved to `templating_php.xml`. You
    have to ensure that the PHP templating engine is enabled to be able to use it:
@@ -775,7 +775,7 @@ UPGRADE FROM 2.x to 3.0
 
  * The `form.csrf_provider` service is removed as it implements an adapter for
    the new token manager to the deprecated
-   `Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface`
+   `Makhan\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface`
    interface.
    The `security.csrf.token_manager` should be used instead.
 
@@ -802,7 +802,7 @@ UPGRADE FROM 2.x to 3.0
 
 ### HttpKernel
 
- * The `Symfony\Component\HttpKernel\Log\LoggerInterface` has been removed in
+ * The `Makhan\Component\HttpKernel\Log\LoggerInterface` has been removed in
    favor of `Psr\Log\LoggerInterface`. The only difference is that some method
    names are different:
 
@@ -815,32 +815,32 @@ UPGRADE FROM 2.x to 3.0
 
    The previous method renames also happened to the following classes:
 
-     * `Symfony\Bridge\Monolog\Logger`
-     * `Symfony\Component\HttpKernel\Log\NullLogger`
+     * `Makhan\Bridge\Monolog\Logger`
+     * `Makhan\Component\HttpKernel\Log\NullLogger`
 
- * The `Symfony\Component\HttpKernel\Kernel::init()` method has been removed.
+ * The `Makhan\Component\HttpKernel\Kernel::init()` method has been removed.
 
  * The following classes have been renamed as they have been moved to the
    Debug component:
 
    | Old name | New name
    | -------- | ---
-   | `Symfony\Component\HttpKernel\Debug\ErrorHandler` | `Symfony\Component\Debug\ErrorHandler`
-   | `Symfony\Component\HttpKernel\Debug\ExceptionHandler` | `Symfony\Component\Debug\ExceptionHandler`
-   | `Symfony\Component\HttpKernel\Exception\FatalErrorException` | `Symfony\Component\Debug\Exception\FatalErrorException`
-   | `Symfony\Component\HttpKernel\Exception\FlattenException` | `Symfony\Component\Debug\Exception\FlattenException`
+   | `Makhan\Component\HttpKernel\Debug\ErrorHandler` | `Makhan\Component\Debug\ErrorHandler`
+   | `Makhan\Component\HttpKernel\Debug\ExceptionHandler` | `Makhan\Component\Debug\ExceptionHandler`
+   | `Makhan\Component\HttpKernel\Exception\FatalErrorException` | `Makhan\Component\Debug\Exception\FatalErrorException`
+   | `Makhan\Component\HttpKernel\Exception\FlattenException` | `Makhan\Component\Debug\Exception\FlattenException`
 
- * The `Symfony\Component\HttpKernel\EventListener\ExceptionListener` now
+ * The `Makhan\Component\HttpKernel\EventListener\ExceptionListener` now
    passes the Request format as the `_format` argument instead of `format`.
 
- * The `Symfony\Component\HttpKernel\DependencyInjection\RegisterListenersPass` has been renamed to
-   `Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass` and moved to the EventDispatcher component.
+ * The `Makhan\Component\HttpKernel\DependencyInjection\RegisterListenersPass` has been renamed to
+   `Makhan\Component\EventDispatcher\DependencyInjection\RegisterListenersPass` and moved to the EventDispatcher component.
 
 ### Locale
 
  * The Locale component was removed and replaced by the Intl component.
-   Instead of the methods in `Symfony\Component\Locale\Locale`, you should use
-   these equivalent methods in `Symfony\Component\Intl\Intl` now:
+   Instead of the methods in `Makhan\Component\Locale\Locale`, you should use
+   these equivalent methods in `Makhan\Component\Intl\Intl` now:
 
    | Old way | New way
    | ------- | ---
@@ -858,7 +858,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\PropertyAccess\PropertyAccess;
+   use Makhan\Component\PropertyAccess\PropertyAccess;
 
    $accessor = PropertyAccess::getPropertyAccessor();
    ```
@@ -866,7 +866,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\PropertyAccess\PropertyAccess;
+   use Makhan\Component\PropertyAccess\PropertyAccess;
 
    $accessor = PropertyAccess::createPropertyAccessor();
    ```
@@ -929,7 +929,7 @@ UPGRADE FROM 2.x to 3.0
    of PHP implementation.
 
  * The `getMatcherDumperInstance()` and `getGeneratorDumperInstance()` methods in the
-   `Symfony\Component\Routing\Router` have been changed from `public` to `protected`.
+   `Makhan\Component\Routing\Router` have been changed from `public` to `protected`.
 
 ### Security
 
@@ -1059,7 +1059,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Security\Core\Authorization\Voter\Voter;
+   use Makhan\Component\Security\Core\Authorization\Voter\Voter;
 
    class MyVoter extends Voter
    {
@@ -1121,12 +1121,12 @@ UPGRADE FROM 2.x to 3.0
 ### Serializer
 
  * The `setCamelizedAttributes()` method of the
-   `Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer` and
-   `Symfony\Component\Serializer\Normalizer\PropertyNormalizer` classes
+   `Makhan\Component\Serializer\Normalizer\GetSetMethodNormalizer` and
+   `Makhan\Component\Serializer\Normalizer\PropertyNormalizer` classes
    was removed.
 
- * The `Symfony\Component\Serializer\Exception\Exception` interface was removed
-   in favor of the new `Symfony\Component\Serializer\Exception\ExceptionInterface`.
+ * The `Makhan\Component\Serializer\Exception\Exception` interface was removed
+   in favor of the new `Makhan\Component\Serializer\Exception\ExceptionInterface`.
 
 ### Translator
 
@@ -1195,14 +1195,14 @@ UPGRADE FROM 2.x to 3.0
     }
    ```
 
- * The `getMessages()` method of the `Symfony\Component\Translation\Translator`
+ * The `getMessages()` method of the `Makhan\Component\Translation\Translator`
    class was removed. You should use the `getCatalogue()` method of the
-   `Symfony\Component\Translation\TranslatorBagInterface`.
+   `Makhan\Component\Translation\TranslatorBagInterface`.
 
 ### Twig Bridge
 
- * The `twig:lint` command has been deprecated since Symfony 2.7 and will be
-   removed in Symfony 3.0. Use the `lint:twig` command instead.
+ * The `twig:lint` command has been deprecated since Makhan 2.7 and will be
+   removed in Makhan 3.0. Use the `lint:twig` command instead.
 
  * The `render` tag is deprecated in favor of the `render` function.
 
@@ -1258,11 +1258,11 @@ UPGRADE FROM 2.x to 3.0
 
 ### TwigBundle
 
- * The `Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy` was removed
+ * The `Makhan\Bundle\TwigBundle\TwigDefaultEscapingStrategy` was removed
    in favor of `Twig_FileExtensionEscapingStrategy`.
 
- * The `twig:debug` command has been deprecated since Symfony 2.7 and will be
-   removed in Symfony 3.0. Use the `debug:twig` command instead.
+ * The `twig:debug` command has been deprecated since Makhan 2.7 and will be
+   removed in Makhan 3.0. Use the `debug:twig` command instead.
 
 ### Validator
 
@@ -1270,37 +1270,37 @@ UPGRADE FROM 2.x to 3.0
    validators (`NullValidator`, `TrueValidator`, `FalseValidator`) have been
    removed in favor of their `Is`-prefixed equivalent.
 
- * The class `Symfony\Component\Validator\Mapping\Cache\ApcCache` has been removed in favor
-   of `Symfony\Component\Validator\Mapping\Cache\DoctrineCache`.
+ * The class `Makhan\Component\Validator\Mapping\Cache\ApcCache` has been removed in favor
+   of `Makhan\Component\Validator\Mapping\Cache\DoctrineCache`.
 
    Before:
 
    ```php
-   use Symfony\Component\Validator\Mapping\Cache\ApcCache;
+   use Makhan\Component\Validator\Mapping\Cache\ApcCache;
 
-   $cache = new ApcCache('symfony.validator');
+   $cache = new ApcCache('makhan.validator');
    ```
 
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\Cache\DoctrineCache;
+   use Makhan\Component\Validator\Mapping\Cache\DoctrineCache;
    use Doctrine\Common\Cache\ApcCache;
 
    $apcCache = new ApcCache();
-   $apcCache->setNamespace('symfony.validator');
+   $apcCache->setNamespace('makhan.validator');
 
    $cache = new DoctrineCache($apcCache);
    ```
 
  * The constraints `Optional` and `Required` were moved to the
-   `Symfony\Component\Validator\Constraints\` namespace. You should adapt
+   `Makhan\Component\Validator\Constraints\` namespace. You should adapt
    the path wherever you used them.
 
    Before:
 
    ```php
-   use Symfony\Component\Validator\Constraints as Assert;
+   use Makhan\Component\Validator\Constraints as Assert;
 
    /**
     * @Assert\Collection({
@@ -1314,7 +1314,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Validator\Constraints as Assert;
+   use Makhan\Component\Validator\Constraints as Assert;
 
    /**
     * @Assert\Collection({
@@ -1350,8 +1350,8 @@ UPGRADE FROM 2.x to 3.0
    Before (Annotations):
 
    ```php
-   use Symfony\Component\Validator\Constraints as Assert;
-   use Symfony\Component\Validator\ExecutionContextInterface;
+   use Makhan\Component\Validator\Constraints as Assert;
+   use Makhan\Component\Validator\ExecutionContextInterface;
 
    /**
     * @Assert\Callback({"callback"})
@@ -1368,8 +1368,8 @@ UPGRADE FROM 2.x to 3.0
    After (Annotations):
 
    ```php
-   use Symfony\Component\Validator\Constraints as Assert;
-   use Symfony\Component\Validator\ExecutionContextInterface;
+   use Makhan\Component\Validator\Constraints as Assert;
+   use Makhan\Component\Validator\ExecutionContextInterface;
 
    class MyClass
    {
@@ -1440,13 +1440,13 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\MetadataInterface;
+   use Makhan\Component\Validator\MetadataInterface;
    ```
 
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\MetadataInterface;
+   use Makhan\Component\Validator\Mapping\MetadataInterface;
    ```
 
    The methods `getCascadingStrategy()` and `getTraversalStrategy()` were
@@ -1457,7 +1457,7 @@ UPGRADE FROM 2.x to 3.0
    Example:
 
    ```php
-   use Symfony\Component\Validator\Mapping\TraversalStrategy;
+   use Makhan\Component\Validator\Mapping\TraversalStrategy;
 
    public function getTraversalStrategy()
    {
@@ -1471,13 +1471,13 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\PropertyMetadataInterface;
+   use Makhan\Component\Validator\PropertyMetadataInterface;
    ```
 
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\PropertyMetadataInterface;
+   use Makhan\Component\Validator\Mapping\PropertyMetadataInterface;
    ```
 
  * The interface `PropertyMetadataContainerInterface` was moved to the `Mapping`
@@ -1486,13 +1486,13 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\PropertyMetadataContainerInterface;
+   use Makhan\Component\Validator\PropertyMetadataContainerInterface;
    ```
 
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\ClassMetadataInterface;
+   use Makhan\Component\Validator\Mapping\ClassMetadataInterface;
    ```
 
    The interface now contains four additional methods:
@@ -1510,7 +1510,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\ClassBasedInterface;
+   use Makhan\Component\Validator\ClassBasedInterface;
 
    class MyClassMetadata implements ClassBasedInterface
    {
@@ -1521,7 +1521,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\ClassMetadataInterface;
+   use Makhan\Component\Validator\Mapping\ClassMetadataInterface;
 
    class MyClassMetadata implements ClassMetadataInterface
    {
@@ -1534,7 +1534,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\Mapping\ElementMetadata;
+   use Makhan\Component\Validator\Mapping\ElementMetadata;
 
    class MyMetadata extends ElementMetadata
    {
@@ -1544,7 +1544,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\GenericMetadata;
+   use Makhan\Component\Validator\Mapping\GenericMetadata;
 
    class MyMetadata extends GenericMetadata
    {
@@ -1557,13 +1557,13 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\ExecutionContextInterface;
+   use Makhan\Component\Validator\ExecutionContextInterface;
    ```
 
    After:
 
    ```php
-   use Symfony\Component\Validator\Context\ExecutionContextInterface;
+   use Makhan\Component\Validator\Context\ExecutionContextInterface;
    ```
 
    The interface now contains the following additional methods:
@@ -1648,7 +1648,7 @@ UPGRADE FROM 2.x to 3.0
    Before:
 
    ```php
-   use Symfony\Component\Validator\Mapping\ClassMetadataFactory;
+   use Makhan\Component\Validator\Mapping\ClassMetadataFactory;
 
    $factory = new ClassMetadataFactory($loader);
    ```
@@ -1656,7 +1656,7 @@ UPGRADE FROM 2.x to 3.0
    After:
 
    ```php
-   use Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
+   use Makhan\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
 
    $factory = new LazyLoadingMetadataFactory($loader);
    ```
@@ -1685,19 +1685,19 @@ UPGRADE FROM 2.x to 3.0
    $plural = $violation->getPlural();
    ```
 
- * The class `Symfony\Component\Validator\DefaultTranslator` was removed. You
-   should use `Symfony\Component\Translation\IdentityTranslator` instead.
+ * The class `Makhan\Component\Validator\DefaultTranslator` was removed. You
+   should use `Makhan\Component\Translation\IdentityTranslator` instead.
 
    Before:
 
    ```php
-   $translator = new \Symfony\Component\Validator\DefaultTranslator();
+   $translator = new \Makhan\Component\Validator\DefaultTranslator();
    ```
 
    After:
 
    ```php
-   $translator = new \Symfony\Component\Translation\IdentityTranslator();
+   $translator = new \Makhan\Component\Translation\IdentityTranslator();
    $translator->setLocale('en');
    ```
 
@@ -1743,14 +1743,14 @@ UPGRADE FROM 2.x to 3.0
  * All the profiler storages different than `FileProfilerStorage` have been
    removed. The removed classes are:
 
-    - `Symfony\Component\HttpKernel\Profiler\BaseMemcacheProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\MemcachedProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\MemcacheProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\MongoDbProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\MysqlProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\PdoProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\RedisProfilerStorage`
-    - `Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\BaseMemcacheProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\MemcachedProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\MemcacheProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\MongoDbProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\MysqlProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\PdoProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\RedisProfilerStorage`
+    - `Makhan\Component\HttpKernel\Profiler\SqliteProfilerStorage`
 
 ### Process
 
@@ -1760,18 +1760,18 @@ UPGRADE FROM 2.x to 3.0
 
 ### Monolog Bridge
 
- * `Symfony\Bridge\Monolog\Logger::emerg()` was removed. Use `emergency()` which is PSR-3 compatible.
- * `Symfony\Bridge\Monolog\Logger::crit()` was removed. Use `critical()` which is PSR-3 compatible.
- * `Symfony\Bridge\Monolog\Logger::err()` was removed. Use `error()` which is PSR-3 compatible.
- * `Symfony\Bridge\Monolog\Logger::warn()` was removed. Use `warning()` which is PSR-3 compatible.
+ * `Makhan\Bridge\Monolog\Logger::emerg()` was removed. Use `emergency()` which is PSR-3 compatible.
+ * `Makhan\Bridge\Monolog\Logger::crit()` was removed. Use `critical()` which is PSR-3 compatible.
+ * `Makhan\Bridge\Monolog\Logger::err()` was removed. Use `error()` which is PSR-3 compatible.
+ * `Makhan\Bridge\Monolog\Logger::warn()` was removed. Use `warning()` which is PSR-3 compatible.
 
 ### Swiftmailer Bridge
 
- * `Symfony\Bridge\Swiftmailer\DataCollector\MessageDataCollector` was removed. Use the `Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector` class instead.
+ * `Makhan\Bridge\Swiftmailer\DataCollector\MessageDataCollector` was removed. Use the `Makhan\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector` class instead.
 
 ### HttpFoundation
 
- * `Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface` no longer implements the `IteratorAggregate` interface. Use the `all()` method instead of iterating over the flash bag.
+ * `Makhan\Component\HttpFoundation\Session\Flash\FlashBagInterface` no longer implements the `IteratorAggregate` interface. Use the `all()` method instead of iterating over the flash bag.
 
  * Removed the feature that allowed finding deep items in `ParameterBag::get()`.
    This may affect you when getting parameters from the `Request` class:

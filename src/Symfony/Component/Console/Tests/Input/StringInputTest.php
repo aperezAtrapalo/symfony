@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Input;
+namespace Makhan\Component\Console\Tests\Input;
 
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\StringInput;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\StringInput;
 
 class StringInputTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class StringInputTest extends \PHPUnit_Framework_TestCase
     public function testTokenize($input, $tokens, $message)
     {
         $input = new StringInput($input);
-        $r = new \ReflectionClass('Symfony\Component\Console\Input\ArgvInput');
+        $r = new \ReflectionClass('Makhan\Component\Console\Input\ArgvInput');
         $p = $r->getProperty('tokens');
         $p->setAccessible(true);
         $this->assertEquals($tokens, $p->getValue($input), $message);

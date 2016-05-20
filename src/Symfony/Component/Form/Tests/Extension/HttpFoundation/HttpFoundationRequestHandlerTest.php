@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\HttpFoundation;
+namespace Makhan\Component\Form\Tests\Extension\HttpFoundation;
 
-use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
-use Symfony\Component\Form\Tests\AbstractRequestHandlerTest;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
+use Makhan\Component\Form\Tests\AbstractRequestHandlerTest;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class HttpFoundationRequestHandlerTest extends AbstractRequestHandlerTest
 {
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testRequestShouldNotBeNull()
     {
@@ -30,7 +30,7 @@ class HttpFoundationRequestHandlerTest extends AbstractRequestHandlerTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testRequestShouldBeInstanceOfRequest()
     {

@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
-use Symfony\Component\Cache\Adapter\ApcuAdapter;
-use Symfony\Component\Cache\Adapter\ChainAdapter;
-use Symfony\Component\Cache\Adapter\DoctrineAdapter;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Component\Cache\Adapter\ProxyAdapter;
-use Symfony\Component\Cache\Adapter\RedisAdapter;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\Serializer\Normalizer\DataUriNormalizer;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
-use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
+use Makhan\Component\Cache\Adapter\ApcuAdapter;
+use Makhan\Component\Cache\Adapter\ChainAdapter;
+use Makhan\Component\Cache\Adapter\DoctrineAdapter;
+use Makhan\Component\Cache\Adapter\FilesystemAdapter;
+use Makhan\Component\Cache\Adapter\ProxyAdapter;
+use Makhan\Component\Cache\Adapter\RedisAdapter;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\Loader\ClosureLoader;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\Serializer\Normalizer\DataUriNormalizer;
+use Makhan\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Makhan\Component\Serializer\Normalizer\JsonSerializableNormalizer;
 
 abstract class FrameworkExtensionTest extends TestCase
 {
@@ -128,7 +128,7 @@ abstract class FrameworkExtensionTest extends TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testRouterRequiresResourceOption()
     {
@@ -147,7 +147,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertEquals('session.handler.native_file', (string) $container->getAlias('session.handler'));
 
         $options = $container->getParameter('session.storage.options');
-        $this->assertEquals('_SYMFONY', $options['name']);
+        $this->assertEquals('_MAKHAN', $options['name']);
         $this->assertEquals(86400, $options['cookie_lifetime']);
         $this->assertEquals('/', $options['cookie_path']);
         $this->assertEquals('example.com', $options['cookie_domain']);
@@ -254,19 +254,19 @@ abstract class FrameworkExtensionTest extends TestCase
         $options = $container->getDefinition('translator.default')->getArgument(3);
 
         $files = array_map(function ($resource) { return realpath($resource); }, $options['resource_files']['en']);
-        $ref = new \ReflectionClass('Symfony\Component\Validator\Validation');
+        $ref = new \ReflectionClass('Makhan\Component\Validator\Validation');
         $this->assertContains(
             strtr(dirname($ref->getFileName()).'/Resources/translations/validators.en.xlf', '/', DIRECTORY_SEPARATOR),
             $files,
             '->registerTranslatorConfiguration() finds Validator translation resources'
         );
-        $ref = new \ReflectionClass('Symfony\Component\Form\Form');
+        $ref = new \ReflectionClass('Makhan\Component\Form\Form');
         $this->assertContains(
             strtr(dirname($ref->getFileName()).'/Resources/translations/validators.en.xlf', '/', DIRECTORY_SEPARATOR),
             $files,
             '->registerTranslatorConfiguration() finds Form translation resources'
         );
-        $ref = new \ReflectionClass('Symfony\Component\Security\Core\Security');
+        $ref = new \ReflectionClass('Makhan\Component\Security\Core\Security');
         $this->assertContains(
             strtr(dirname($ref->getFileName()).'/Resources/translations/security.en.xlf', '/', DIRECTORY_SEPARATOR),
             $files,
@@ -291,7 +291,7 @@ abstract class FrameworkExtensionTest extends TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testTemplatingRequiresAtLeastOneEngine()
     {
@@ -304,7 +304,7 @@ abstract class FrameworkExtensionTest extends TestCase
     {
         $container = $this->createContainerFromFile('full');
 
-        $ref = new \ReflectionClass('Symfony\Component\Form\Form');
+        $ref = new \ReflectionClass('Makhan\Component\Form\Form');
         $xmlMappings = array(dirname($ref->getFileName()).'/Resources/config/validation.xml');
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
@@ -328,7 +328,7 @@ abstract class FrameworkExtensionTest extends TestCase
     {
         $container = $this->createContainerFromFile('validation_annotations', array('kernel.charset' => 'UTF-8'), false);
 
-        $this->assertInstanceOf('Symfony\Component\Validator\Validator\ValidatorInterface', $container->get('validator'));
+        $this->assertInstanceOf('Makhan\Component\Validator\Validator\ValidatorInterface', $container->get('validator'));
     }
 
     public function testAnnotations()
@@ -359,7 +359,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame('addMethodMapping', $calls[5][0]);
         $this->assertSame(array('loadValidatorMetadata'), $calls[5][1]);
         $this->assertSame('setMetadataCache', $calls[6][0]);
-        $this->assertEquals(array(new Reference('validator.mapping.cache.symfony')), $calls[6][1]);
+        $this->assertEquals(array(new Reference('validator.mapping.cache.makhan')), $calls[6][1]);
         // no cache this time
     }
 
@@ -368,7 +368,7 @@ abstract class FrameworkExtensionTest extends TestCase
         require_once __DIR__.'/Fixtures/TestBundle/TestBundle.php';
 
         $container = $this->createContainerFromFile('validation_annotations', array(
-            'kernel.bundles' => array('TestBundle' => 'Symfony\Bundle\FrameworkBundle\Tests\TestBundle'),
+            'kernel.bundles' => array('TestBundle' => 'Makhan\Bundle\FrameworkBundle\Tests\TestBundle'),
         ));
 
         $calls = $container->getDefinition('validator.builder')->getMethodCalls();
@@ -380,16 +380,16 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertSame('addMethodMapping', $calls[6][0]);
         $this->assertSame(array('loadValidatorMetadata'), $calls[6][1]);
         $this->assertSame('setMetadataCache', $calls[7][0]);
-        $this->assertEquals(array(new Reference('validator.mapping.cache.symfony')), $calls[7][1]);
+        $this->assertEquals(array(new Reference('validator.mapping.cache.makhan')), $calls[7][1]);
 
         $xmlMappings = $calls[3][1][0];
         $this->assertCount(2, $xmlMappings);
         try {
-            // Testing symfony/symfony
+            // Testing makhan/makhan
             $this->assertStringEndsWith('Component'.DIRECTORY_SEPARATOR.'Form/Resources/config/validation.xml', $xmlMappings[0]);
         } catch (\Exception $e) {
-            // Testing symfony/framework-bundle with deps=high
-            $this->assertStringEndsWith('symfony'.DIRECTORY_SEPARATOR.'form/Resources/config/validation.xml', $xmlMappings[0]);
+            // Testing makhan/framework-bundle with deps=high
+            $this->assertStringEndsWith('makhan'.DIRECTORY_SEPARATOR.'form/Resources/config/validation.xml', $xmlMappings[0]);
         }
         $this->assertStringEndsWith('TestBundle'.DIRECTORY_SEPARATOR.'Resources'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'validation.xml', $xmlMappings[1]);
 
@@ -407,7 +407,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $this->assertCount(5, $calls);
         $this->assertSame('addXmlMappings', $calls[3][0]);
         $this->assertSame('setMetadataCache', $calls[4][0]);
-        $this->assertEquals(array(new Reference('validator.mapping.cache.symfony')), $calls[4][1]);
+        $this->assertEquals(array(new Reference('validator.mapping.cache.makhan')), $calls[4][1]);
         // no cache, no annotations, no static methods
     }
 
@@ -451,7 +451,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $argument = $container->getDefinition('serializer.mapping.chain_loader')->getArgument(0);
 
         $this->assertCount(1, $argument);
-        $this->assertEquals('Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader', $argument[0]->getClass());
+        $this->assertEquals('Makhan\Component\Serializer\Mapping\Loader\AnnotationLoader', $argument[0]->getClass());
         $this->assertNull($container->getDefinition('serializer.mapping.class_metadata_factory')->getArgument(1));
         $this->assertEquals(new Reference('serializer.name_converter.camel_case_to_snake_case'), $container->getDefinition('serializer.normalizer.object')->getArgument(1));
     }
@@ -470,7 +470,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
     public function testDataUriNormalizerRegistered()
     {
-        if (!class_exists('Symfony\Component\Serializer\Normalizer\DataUriNormalizer')) {
+        if (!class_exists('Makhan\Component\Serializer\Normalizer\DataUriNormalizer')) {
             $this->markTestSkipped('The DataUriNormalizer has been introduced in the Serializer Component version 3.1.');
         }
 
@@ -485,7 +485,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
     public function testDateTimeNormalizerRegistered()
     {
-        if (!class_exists('Symfony\Component\Serializer\Normalizer\DateTimeNormalizer')) {
+        if (!class_exists('Makhan\Component\Serializer\Normalizer\DateTimeNormalizer')) {
             $this->markTestSkipped('The DateTimeNormalizer has been introduced in the Serializer Component version 3.1.');
         }
 
@@ -500,7 +500,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
     public function testJsonSerializableNormalizerRegistered()
     {
-        if (!class_exists('Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer')) {
+        if (!class_exists('Makhan\Component\Serializer\Normalizer\JsonSerializableNormalizer')) {
             $this->markTestSkipped('The JsonSerializableNormalizer has been introduced in the Serializer Component version 3.1.');
         }
 
@@ -520,7 +520,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $definition = $container->getDefinition('serializer.normalizer.object');
         $tag = $definition->getTag('serializer.normalizer');
 
-        $this->assertEquals('Symfony\Component\Serializer\Normalizer\ObjectNormalizer', $definition->getClass());
+        $this->assertEquals('Makhan\Component\Serializer\Normalizer\ObjectNormalizer', $definition->getClass());
         $this->assertEquals(-1000, $tag[0]['priority']);
     }
 
@@ -632,7 +632,7 @@ abstract class FrameworkExtensionTest extends TestCase
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles' => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
+            'kernel.bundles' => array('FrameworkBundle' => 'Makhan\\Bundle\\FrameworkBundle\\FrameworkBundle'),
             'kernel.cache_dir' => __DIR__,
             'kernel.debug' => false,
             'kernel.environment' => 'test',

@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\ConstraintValidatorInterface;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\Context\ExecutionContext;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Mapping\PropertyMetadata;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\NotNull;
+use Makhan\Component\Validator\ConstraintValidatorInterface;
+use Makhan\Component\Validator\ConstraintViolation;
+use Makhan\Component\Validator\Context\ExecutionContext;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\PropertyMetadata;
 
 /**
  * @since 2.5.3
@@ -93,9 +93,9 @@ abstract class AbstractConstraintValidatorTest extends \PHPUnit_Framework_TestCa
 
     protected function createContext()
     {
-        $translator = $this->getMock('Symfony\Component\Translation\TranslatorInterface');
-        $validator = $this->getMock('Symfony\Component\Validator\Validator\ValidatorInterface');
-        $contextualValidator = $this->getMock('Symfony\Component\Validator\Validator\ContextualValidatorInterface');
+        $translator = $this->getMock('Makhan\Component\Translation\TranslatorInterface');
+        $validator = $this->getMock('Makhan\Component\Validator\Validator\ValidatorInterface');
+        $contextualValidator = $this->getMock('Makhan\Component\Validator\Validator\ContextualValidatorInterface');
 
         $context = new ExecutionContext($validator, $this->root, $translator);
         $context->setGroup($this->group);
@@ -173,7 +173,7 @@ abstract class AbstractConstraintValidatorTest extends \PHPUnit_Framework_TestCa
             ->will($this->returnValue($validator));
         $validator->expects($this->at(2 * $i + 1))
             ->method('validate')
-            ->with($value, $this->logicalOr(null, array(), $this->isInstanceOf('\Symfony\Component\Validator\Constraints\Valid')), $group);
+            ->with($value, $this->logicalOr(null, array(), $this->isInstanceOf('\Makhan\Component\Validator\Constraints\Valid')), $group);
     }
 
     protected function expectValidateValueAt($i, $propertyPath, $value, $constraints, $group = null)

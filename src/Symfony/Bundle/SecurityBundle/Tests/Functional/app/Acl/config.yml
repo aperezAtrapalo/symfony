@@ -15,7 +15,7 @@ security:
     acl:
         connection: default
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Makhan\Component\Security\Core\User\User: plaintext
     providers:
         in_memory:
             memory:

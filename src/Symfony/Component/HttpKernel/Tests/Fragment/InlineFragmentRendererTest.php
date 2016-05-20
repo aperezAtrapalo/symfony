@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Makhan\Component\HttpKernel\Tests\Fragment;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\HttpKernel;
-use Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver;
+use Makhan\Component\HttpKernel\Controller\ControllerResolverInterface;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\HttpKernel;
+use Makhan\Component\HttpKernel\Fragment\InlineFragmentRenderer;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
 {
@@ -57,7 +57,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
      */
     public function testRenderWithObjectsAsAttributesPassedAsObjectsInTheControllerLegacy()
     {
-        $resolver = $this->getMock('Symfony\\Component\\HttpKernel\\Controller\\ControllerResolver', array('getController'));
+        $resolver = $this->getMock('Makhan\\Component\\HttpKernel\\Controller\\ControllerResolver', array('getController'));
         $resolver
             ->expects($this->once())
             ->method('getController')
@@ -111,7 +111,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
      */
     public function testRenderExceptionNoIgnoreErrors()
     {
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $dispatcher->expects($this->never())->method('dispatch');
 
         $strategy = new InlineFragmentRenderer($this->getKernel($this->throwException(new \RuntimeException('foo'))), $dispatcher);
@@ -121,7 +121,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderExceptionIgnoreErrors()
     {
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $dispatcher->expects($this->once())->method('dispatch')->with(KernelEvents::EXCEPTION);
 
         $strategy = new InlineFragmentRenderer($this->getKernel($this->throwException(new \RuntimeException('foo'))), $dispatcher);
@@ -141,7 +141,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     private function getKernel($returnValue)
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $kernel
             ->expects($this->any())
             ->method('handle')
@@ -157,7 +157,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
      */
     private function getKernelExpectingRequest(Request $request)
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $kernel
             ->expects($this->any())
             ->method('handle')
@@ -169,7 +169,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     public function testExceptionInSubRequestsDoesNotMangleOutputBuffers()
     {
-        $controllerResolver = $this->getMock('Symfony\\Component\\HttpKernel\\Controller\\ControllerResolverInterface');
+        $controllerResolver = $this->getMock('Makhan\\Component\\HttpKernel\\Controller\\ControllerResolverInterface');
         $controllerResolver
             ->expects($this->once())
             ->method('getController')
@@ -180,7 +180,7 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
             }))
         ;
 
-        $argumentResolver = $this->getMock('Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolverInterface');
+        $argumentResolver = $this->getMock('Makhan\\Component\\HttpKernel\\Controller\\ArgumentResolverInterface');
         $argumentResolver
             ->expects($this->once())
             ->method('getArguments')

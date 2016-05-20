@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Tests;
+namespace Makhan\Component\Finder\Tests;
 
-use Symfony\Component\Finder\Finder;
+use Makhan\Component\Finder\Finder;
 
 class FinderTest extends Iterator\RealIteratorTestCase
 {
     public function testCreate()
     {
-        $this->assertInstanceOf('Symfony\Component\Finder\Finder', Finder::create());
+        $this->assertInstanceOf('Makhan\Component\Finder\Finder', Finder::create());
     }
 
     public function testDirectories()
@@ -378,7 +378,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
 
     public function testAppendReturnsAFinder()
     {
-        $this->assertInstanceOf('Symfony\\Component\\Finder\\Finder', Finder::create()->append(array()));
+        $this->assertInstanceOf('Makhan\\Component\\Finder\\Finder', Finder::create()->append(array()));
     }
 
     public function testAppendDoesNotRequireIn()
@@ -629,7 +629,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
                 $this->assertIterator($this->toAbsolute(array('foo bar', 'test.php', 'test.py')), $finder->getIterator());
                 $this->fail('Finder should throw an exception when opening a non-readable directory.');
             } catch (\Exception $e) {
-                $expectedExceptionClass = 'Symfony\\Component\\Finder\\Exception\\AccessDeniedException';
+                $expectedExceptionClass = 'Makhan\\Component\\Finder\\Exception\\AccessDeniedException';
                 if ($e instanceof \PHPUnit_Framework_ExpectationFailedException) {
                     $this->fail(sprintf("Expected exception:\n%s\nGot:\n%s\nWith comparison failure:\n%s", $expectedExceptionClass, 'PHPUnit_Framework_ExpectationFailedException', $e->getComparisonFailure()->getExpectedAsString()));
                 }

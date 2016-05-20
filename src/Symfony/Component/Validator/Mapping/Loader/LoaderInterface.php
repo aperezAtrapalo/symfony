@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping\Loader;
+namespace Makhan\Component\Validator\Mapping\Loader;
 
-use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * Loads validation metadata into {@link ClassMetadata} instances.

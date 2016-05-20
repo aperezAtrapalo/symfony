@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\PhpUnit;
+namespace Makhan\Bridge\PhpUnit;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
@@ -18,7 +18,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */
-class SymfonyTestsListener extends \PHPUnit_Framework_BaseTestListener
+class MakhanTestsListener extends \PHPUnit_Framework_BaseTestListener
 {
     private static $globallyEnabled = false;
     private $state = -1;
@@ -57,7 +57,7 @@ class SymfonyTestsListener extends \PHPUnit_Framework_BaseTestListener
         } else {
             self::$globallyEnabled = true;
             if ($warn) {
-                echo "Clock-mocked namespaces for SymfonyTestsListener need to be nested in a \"time-sensitive\" key. This will be enforced in Symfony 4.0.\n";
+                echo "Clock-mocked namespaces for MakhanTestsListener need to be nested in a \"time-sensitive\" key. This will be enforced in Makhan 4.0.\n";
             }
         }
     }

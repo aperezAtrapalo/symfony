@@ -18,11 +18,11 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony Test Suite">
-            <directory>./src/Symfony/Bridge/*/Tests/</directory>
-            <directory>./src/Symfony/Component/*/Tests/</directory>
-            <directory>./src/Symfony/Component/*/*/Tests/</directory>
-            <directory>./src/Symfony/Bundle/*/Tests/</directory>
+        <testsuite name="Makhan Test Suite">
+            <directory>./src/Makhan/Bridge/*/Tests/</directory>
+            <directory>./src/Makhan/Component/*/Tests/</directory>
+            <directory>./src/Makhan/Component/*/*/Tests/</directory>
+            <directory>./src/Makhan/Bundle/*/Tests/</directory>
         </testsuite>
     </testsuites>
 
@@ -35,33 +35,33 @@
 
     <filter>
         <whitelist>
-            <directory>./src/Symfony/</directory>
+            <directory>./src/Makhan/</directory>
             <exclude>
-                <directory>./src/Symfony/Bridge/*/Tests</directory>
-                <directory>./src/Symfony/Component/*/Tests</directory>
-                <directory>./src/Symfony/Component/*/*/Tests</directory>
-                <directory>./src/Symfony/Bundle/*/Tests</directory>
-                <directory>./src/Symfony/Bundle/*/Resources</directory>
-                <directory>./src/Symfony/Component/*/Resources</directory>
-                <directory>./src/Symfony/Component/*/*/Resources</directory>
-                <directory>./src/Symfony/Bridge/*/vendor</directory>
-                <directory>./src/Symfony/Bundle/*/vendor</directory>
-                <directory>./src/Symfony/Component/*/vendor</directory>
-                <directory>./src/Symfony/Component/*/*/vendor</directory>
+                <directory>./src/Makhan/Bridge/*/Tests</directory>
+                <directory>./src/Makhan/Component/*/Tests</directory>
+                <directory>./src/Makhan/Component/*/*/Tests</directory>
+                <directory>./src/Makhan/Bundle/*/Tests</directory>
+                <directory>./src/Makhan/Bundle/*/Resources</directory>
+                <directory>./src/Makhan/Component/*/Resources</directory>
+                <directory>./src/Makhan/Component/*/*/Resources</directory>
+                <directory>./src/Makhan/Bridge/*/vendor</directory>
+                <directory>./src/Makhan/Bundle/*/vendor</directory>
+                <directory>./src/Makhan/Component/*/vendor</directory>
+                <directory>./src/Makhan/Component/*/*/vendor</directory>
             </exclude>
         </whitelist>
     </filter>
 
     <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener">
+        <listener class="Makhan\Bridge\PhpUnit\MakhanTestsListener">
             <arguments>
                 <array>
                     <element key="time-sensitive">
                         <array>
                             <element><string>Cache\IntegrationTests</string></element>
                             <element><string>Doctrine\Common\Cache</string></element>
-                            <element><string>Symfony\Component\Console</string></element>
-                            <element><string>Symfony\Component\HttpFoundation</string></element>
+                            <element><string>Makhan\Component\Console</string></element>
+                            <element><string>Makhan\Component\HttpFoundation</string></element>
                         </array>
                     </element>
                 </array>

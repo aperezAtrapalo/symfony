@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\DebugBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\DebugBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\DebugBundle\DependencyInjection\DebugExtension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Bundle\DebugBundle\DependencyInjection\DebugExtension;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class DebugExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,7 +42,7 @@ class DebugExtensionTest extends \PHPUnit_Framework_TestCase
             'kernel.root_dir' => __DIR__.'/Fixtures',
             'kernel.charset' => 'UTF-8',
             'kernel.debug' => true,
-            'kernel.bundles' => array('DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle'),
+            'kernel.bundles' => array('DebugBundle' => 'Makhan\\Bundle\\DebugBundle\\DebugBundle'),
         )));
 
         return $container;

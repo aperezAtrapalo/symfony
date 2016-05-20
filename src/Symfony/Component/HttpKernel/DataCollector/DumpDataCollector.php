@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\DataCollector;
+namespace Makhan\Component\HttpKernel\DataCollector;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Stopwatch\Stopwatch;
-use Symfony\Component\VarDumper\Cloner\Data;
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\CliDumper;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
-use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Stopwatch\Stopwatch;
+use Makhan\Component\VarDumper\Cloner\Data;
+use Makhan\Component\VarDumper\Cloner\VarCloner;
+use Makhan\Component\VarDumper\Dumper\CliDumper;
+use Makhan\Component\VarDumper\Dumper\HtmlDumper;
+use Makhan\Component\VarDumper\Dumper\DataDumperInterface;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -80,7 +80,7 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
         for ($i = 1; $i < 7; ++$i) {
             if (isset($trace[$i]['class'], $trace[$i]['function'])
                 && 'dump' === $trace[$i]['function']
-                && 'Symfony\Component\VarDumper\VarDumper' === $trace[$i]['class']
+                && 'Makhan\Component\VarDumper\VarDumper' === $trace[$i]['class']
             ) {
                 $file = $trace[$i]['file'];
                 $line = $trace[$i]['line'];

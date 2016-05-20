@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Tests;
+namespace Makhan\Component\VarDumper\Tests;
 
-use Symfony\Component\VarDumper\Cloner\VarCloner;
+use Makhan\Component\VarDumper\Cloner\VarCloner;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -26,13 +26,13 @@ class VarClonerTest extends \PHPUnit_Framework_TestCase
         $clone = $cloner->cloneVar($data);
 
         $expected = <<<EOTXT
-Symfony\Component\VarDumper\Cloner\Data Object
+Makhan\Component\VarDumper\Cloner\Data Object
 (
-    [data:Symfony\Component\VarDumper\Cloner\Data:private] => Array
+    [data:Makhan\Component\VarDumper\Cloner\Data:private] => Array
         (
             [0] => Array
                 (
-                    [0] => Symfony\Component\VarDumper\Cloner\Stub Object
+                    [0] => Makhan\Component\VarDumper\Cloner\Stub Object
                         (
                             [type] => array
                             [class] => assoc
@@ -52,9 +52,9 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
         )
 
-    [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxDepth:Makhan\Component\VarDumper\Cloner\Data:private] => 20
+    [maxItemsPerDepth:Makhan\Component\VarDumper\Cloner\Data:private] => -1
+    [useRefHandles:Makhan\Component\VarDumper\Cloner\Data:private] => -1
 )
 
 EOTXT;
@@ -69,13 +69,13 @@ EOTXT;
         $clone = $cloner->cloneVar($json);
 
         $expected = <<<EOTXT
-Symfony\Component\VarDumper\Cloner\Data Object
+Makhan\Component\VarDumper\Cloner\Data Object
 (
-    [data:Symfony\Component\VarDumper\Cloner\Data:private] => Array
+    [data:Makhan\Component\VarDumper\Cloner\Data:private] => Array
         (
             [0] => Array
                 (
-                    [0] => Symfony\Component\VarDumper\Cloner\Stub Object
+                    [0] => Makhan\Component\VarDumper\Cloner\Stub Object
                         (
                             [type] => object
                             [class] => stdClass
@@ -90,7 +90,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
             [1] => Array
                 (
-                    [\000+\0001] => Symfony\Component\VarDumper\Cloner\Stub Object
+                    [\000+\0001] => Makhan\Component\VarDumper\Cloner\Stub Object
                         (
                             [type] => object
                             [class] => stdClass
@@ -101,7 +101,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
                             [position] => 2
                         )
 
-                    [\000+\0002] => Symfony\Component\VarDumper\Cloner\Stub Object
+                    [\000+\0002] => Makhan\Component\VarDumper\Cloner\Stub Object
                         (
                             [type] => object
                             [class] => stdClass
@@ -126,9 +126,9 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
         )
 
-    [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxDepth:Makhan\Component\VarDumper\Cloner\Data:private] => 20
+    [maxItemsPerDepth:Makhan\Component\VarDumper\Cloner\Data:private] => -1
+    [useRefHandles:Makhan\Component\VarDumper\Cloner\Data:private] => -1
 )
 
 EOTXT;
@@ -150,13 +150,13 @@ EOTXT;
         $clone = $cloner->cloneVar($this);
 
         $expected = <<<EOTXT
-Symfony\Component\VarDumper\Cloner\Data Object
+Makhan\Component\VarDumper\Cloner\Data Object
 (
-    [data:Symfony\Component\VarDumper\Cloner\Data:private] => Array
+    [data:Makhan\Component\VarDumper\Cloner\Data:private] => Array
         (
             [0] => Array
                 (
-                    [0] => Symfony\Component\VarDumper\Cloner\Stub Object
+                    [0] => Makhan\Component\VarDumper\Cloner\Stub Object
                         (
                             [type] => object
                             [class] => %s
@@ -176,9 +176,9 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
         )
 
-    [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxDepth:Makhan\Component\VarDumper\Cloner\Data:private] => 20
+    [maxItemsPerDepth:Makhan\Component\VarDumper\Cloner\Data:private] => -1
+    [useRefHandles:Makhan\Component\VarDumper\Cloner\Data:private] => -1
 )
 
 EOTXT;

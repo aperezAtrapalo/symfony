@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Loader;
+namespace Makhan\Bundle\TwigBundle\Loader;
 
-use Symfony\Component\Config\FileLocatorInterface;
-use Symfony\Component\Templating\TemplateNameParserInterface;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+use Makhan\Component\Config\FileLocatorInterface;
+use Makhan\Component\Templating\TemplateNameParserInterface;
+use Makhan\Component\Templating\TemplateReferenceInterface;
 
 /**
  * FilesystemLoader extends the default Twig filesystem loader
- * to work with the Symfony paths and template references.
+ * to work with the Makhan paths and template references.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class FilesystemLoader extends \Twig_Loader_Filesystem
 {
@@ -54,7 +54,7 @@ class FilesystemLoader extends \Twig_Loader_Filesystem
      * Returns the path to the template file.
      *
      * The file locator is used to locate the template when the naming convention
-     * is the symfony one (i.e. the name can be parsed).
+     * is the makhan one (i.e. the name can be parsed).
      * Otherwise the template is located using the locator from the twig library.
      *
      * @param string|TemplateReferenceInterface $template The template

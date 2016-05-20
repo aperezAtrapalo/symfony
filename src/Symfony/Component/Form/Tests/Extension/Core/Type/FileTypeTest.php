@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
+class FileTypeTest extends \Makhan\Component\Form\Test\TypeTestCase
 {
-    // https://github.com/symfony/symfony/pull/5028
+    // https://github.com/makhan/makhan/pull/5028
     public function testSetData()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FileType')->getForm();
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FileType')->getForm();
         $data = $this->createUploadedFileMock('abcdef', 'original.jpg', true);
 
         $form->setData($data);
@@ -26,7 +26,7 @@ class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSubmit()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FileType')->getForm();
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FileType')->getForm();
         $data = $this->createUploadedFileMock('abcdef', 'original.jpg', true);
 
         $form->submit($data);
@@ -34,10 +34,10 @@ class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
         $this->assertSame($data, $form->getData());
     }
 
-    // https://github.com/symfony/symfony/issues/6134
+    // https://github.com/makhan/makhan/issues/6134
     public function testSubmitEmpty()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FileType')->getForm();
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FileType')->getForm();
 
         $form->submit(null);
 
@@ -46,7 +46,7 @@ class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSubmitMultiple()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FileType', null, array(
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FileType', null, array(
             'multiple' => true,
         ))->getForm();
 
@@ -65,9 +65,9 @@ class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testDontPassValueToView()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FileType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FileType');
         $form->submit(array(
-            'Symfony\Component\Form\Extension\Core\Type\FileType' => $this->createUploadedFileMock('abcdef', 'original.jpg', true),
+            'Makhan\Component\Form\Extension\Core\Type\FileType' => $this->createUploadedFileMock('abcdef', 'original.jpg', true),
         ));
         $view = $form->createView();
 
@@ -77,7 +77,7 @@ class FileTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
     private function createUploadedFileMock($name, $originalName, $valid)
     {
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\UploadedFile')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\UploadedFile')
             ->setConstructorArgs(array(__DIR__.'/../../../Fixtures/foo', 'foo'))
             ->getMock()
         ;

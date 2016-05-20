@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Compiler;
+namespace Makhan\Component\DependencyInjection\Tests\Compiler;
 
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Compiler\CheckCircularReferencesPass;
-use Symfony\Component\DependencyInjection\Compiler\AnalyzeServiceReferencesPass;
-use Symfony\Component\DependencyInjection\Compiler\Compiler;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Compiler\CheckCircularReferencesPass;
+use Makhan\Component\DependencyInjection\Compiler\AnalyzeServiceReferencesPass;
+use Makhan\Component\DependencyInjection\Compiler\Compiler;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testProcess()
     {
@@ -32,7 +32,7 @@ class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testProcessWithAliases()
     {
@@ -45,7 +45,7 @@ class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testProcessWithFactory()
     {
@@ -63,7 +63,7 @@ class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testProcessDetectsIndirectCircularReference()
     {
@@ -76,7 +76,7 @@ class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testProcessDetectsIndirectCircularReferenceWithFactory()
     {
@@ -94,7 +94,7 @@ class CheckCircularReferencesPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testDeepCircularReference()
     {

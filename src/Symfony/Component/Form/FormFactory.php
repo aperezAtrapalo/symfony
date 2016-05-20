@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
 
 class FormFactory implements FormFactoryInterface
 {
@@ -34,7 +34,7 @@ class FormFactory implements FormFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create($type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
+    public function create($type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
     {
         return $this->createBuilder($type, $data, $options)->getForm();
     }
@@ -42,7 +42,7 @@ class FormFactory implements FormFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createNamed($name, $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
+    public function createNamed($name, $type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
     {
         return $this->createNamedBuilder($name, $type, $data, $options)->getForm();
     }
@@ -58,7 +58,7 @@ class FormFactory implements FormFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createBuilder($type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
+    public function createBuilder($type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
     {
         if (!is_string($type)) {
             throw new UnexpectedTypeException($type, 'string');
@@ -70,7 +70,7 @@ class FormFactory implements FormFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createNamedBuilder($name, $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
+    public function createNamedBuilder($name, $type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array())
     {
         if (null !== $data && !array_key_exists('data', $options)) {
             $options['data'] = $data;
@@ -97,7 +97,7 @@ class FormFactory implements FormFactoryInterface
     public function createBuilderForProperty($class, $property, $data = null, array $options = array())
     {
         if (null === $guesser = $this->registry->getTypeGuesser()) {
-            return $this->createNamedBuilder($property, 'Symfony\Component\Form\Extension\Core\Type\TextType', $data, $options);
+            return $this->createNamedBuilder($property, 'Makhan\Component\Form\Extension\Core\Type\TextType', $data, $options);
         }
 
         $typeGuess = $guesser->guessType($class, $property);
@@ -105,7 +105,7 @@ class FormFactory implements FormFactoryInterface
         $requiredGuess = $guesser->guessRequired($class, $property);
         $patternGuess = $guesser->guessPattern($class, $property);
 
-        $type = $typeGuess ? $typeGuess->getType() : 'Symfony\Component\Form\Extension\Core\Type\TextType';
+        $type = $typeGuess ? $typeGuess->getType() : 'Makhan\Component\Form\Extension\Core\Type\TextType';
 
         $maxLength = $maxLengthGuess ? $maxLengthGuess->getValue() : null;
         $pattern = $patternGuess ? $patternGuess->getValue() : null;

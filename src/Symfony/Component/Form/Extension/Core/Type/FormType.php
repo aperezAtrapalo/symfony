@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Extension\Core\EventListener\TrimListener;
-use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
-use Symfony\Component\Form\Exception\LogicException;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Extension\Core\EventListener\TrimListener;
+use Makhan\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
+use Makhan\Component\Form\Exception\LogicException;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\PropertyAccess\PropertyAccessorInterface;
 
 class FormType extends BaseType
 {

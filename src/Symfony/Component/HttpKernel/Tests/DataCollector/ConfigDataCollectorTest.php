@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DataCollector;
+namespace Makhan\Component\HttpKernel\Tests\DataCollector;
 
-use Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\DataCollector\ConfigDataCollector;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 class ConfigDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,7 +32,7 @@ class ConfigDataCollectorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('config', $c->getName());
         $this->assertSame('testkernel', $c->getAppName());
         $this->assertSame(PHP_VERSION, $c->getPhpVersion());
-        $this->assertSame(Kernel::VERSION, $c->getSymfonyVersion());
+        $this->assertSame(Kernel::VERSION, $c->getMakhanVersion());
         $this->assertNull($c->getToken());
 
         // if else clause because we don't know it

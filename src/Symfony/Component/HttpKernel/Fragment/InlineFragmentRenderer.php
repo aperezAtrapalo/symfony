@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Fragment;
+namespace Makhan\Component\HttpKernel\Fragment;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Implements the inline rendering strategy where the Request is rendered by the current HTTP kernel.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class InlineFragmentRenderer extends RoutableFragmentRenderer
 {
@@ -54,7 +54,7 @@ class InlineFragmentRenderer extends RoutableFragmentRenderer
         if ($uri instanceof ControllerReference) {
             $reference = $uri;
 
-            // Remove attributes from the generated URI because if not, the Symfony
+            // Remove attributes from the generated URI because if not, the Makhan
             // routing system will use them to populate the Request attributes. We don't
             // want that as we want to preserve objects (so we manually set Request attributes
             // below instead)

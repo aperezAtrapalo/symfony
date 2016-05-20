@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Templating;
+namespace Makhan\Component\Form\Extension\Templating;
 
-use Symfony\Component\Form\AbstractExtension;
-use Symfony\Component\Form\FormRenderer;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Templating\PhpEngine;
-use Symfony\Bundle\FrameworkBundle\Templating\Helper\FormHelper;
+use Makhan\Component\Form\AbstractExtension;
+use Makhan\Component\Form\FormRenderer;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Templating\PhpEngine;
+use Makhan\Bundle\FrameworkBundle\Templating\Helper\FormHelper;
 
 /**
  * Integrates the Templating component with the Form library.

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Authentication;
+namespace Makhan\Component\Security\Http\Tests\Authentication;
 
-use Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler;
+use Makhan\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler;
 
 class DefaultAuthenticationSuccessHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,10 +23,10 @@ class DefaultAuthenticationSuccessHandlerTest extends \PHPUnit_Framework_TestCas
 
     protected function setUp()
     {
-        $this->httpUtils = $this->getMock('Symfony\Component\Security\Http\HttpUtils');
-        $this->request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-        $this->request->headers = $this->getMock('Symfony\Component\HttpFoundation\HeaderBag');
-        $this->token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $this->httpUtils = $this->getMock('Makhan\Component\Security\Http\HttpUtils');
+        $this->request = $this->getMock('Makhan\Component\HttpFoundation\Request');
+        $this->request->headers = $this->getMock('Makhan\Component\HttpFoundation\HeaderBag');
+        $this->token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 
     public function testRequestIsRedirected()
@@ -100,7 +100,7 @@ class DefaultAuthenticationSuccessHandlerTest extends \PHPUnit_Framework_TestCas
 
     public function testTargetPathIsTakenFromTheSession()
     {
-        $session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
+        $session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface');
         $session->expects($this->once())
             ->method('get')->with('_security.admin.target_path')
             ->will($this->returnValue('/admin/dashboard'));
@@ -171,7 +171,7 @@ class DefaultAuthenticationSuccessHandlerTest extends \PHPUnit_Framework_TestCas
 
     private function expectRedirectResponse($path)
     {
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
 
         $this->httpUtils->expects($this->once())
             ->method('createRedirectResponse')

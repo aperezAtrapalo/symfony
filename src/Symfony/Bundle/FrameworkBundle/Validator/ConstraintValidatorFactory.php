@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Validator;
+namespace Makhan\Bundle\FrameworkBundle\Validator;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidatorFactoryInterface;
-use Symfony\Component\Validator\ConstraintValidatorInterface;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidatorFactoryInterface;
+use Makhan\Component\Validator\ConstraintValidatorInterface;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * Uses a service container to create constraint validators.
@@ -35,7 +35,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
  *         return 'some_alias';
  *     }
  *
- * @author Kris Wallsmith <kris@symfony.com>
+ * @author Kris Wallsmith <kris@makhan.com>
  */
 class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
 {
@@ -74,7 +74,7 @@ class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
         }
 
         if (!$this->validators[$name] instanceof ConstraintValidatorInterface) {
-            throw new UnexpectedTypeException($this->validators[$name], 'Symfony\Component\Validator\ConstraintValidatorInterface');
+            throw new UnexpectedTypeException($this->validators[$name], 'Makhan\Component\Validator\ConstraintValidatorInterface');
         }
 
         return $this->validators[$name];

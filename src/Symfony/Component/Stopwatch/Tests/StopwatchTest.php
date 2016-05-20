@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Stopwatch\Tests;
+namespace Makhan\Component\Stopwatch\Tests;
 
-use Symfony\Component\Stopwatch\Stopwatch;
+use Makhan\Component\Stopwatch\Stopwatch;
 
 /**
  * StopwatchTest.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  *
  * @group time-sensitive
  */
@@ -29,7 +29,7 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         $stopwatch = new Stopwatch();
         $event = $stopwatch->start('foo', 'cat');
 
-        $this->assertInstanceOf('Symfony\Component\Stopwatch\StopwatchEvent', $event);
+        $this->assertInstanceOf('Makhan\Component\Stopwatch\StopwatchEvent', $event);
         $this->assertEquals('cat', $event->getCategory());
         $this->assertSame($event, $stopwatch->getEvent('foo'));
     }
@@ -53,14 +53,14 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
     {
         $stopwatch = new Stopwatch();
 
-        $sections = new \ReflectionProperty('Symfony\Component\Stopwatch\Stopwatch', 'sections');
+        $sections = new \ReflectionProperty('Makhan\Component\Stopwatch\Stopwatch', 'sections');
         $sections->setAccessible(true);
         $section = $sections->getValue($stopwatch);
 
-        $events = new \ReflectionProperty('Symfony\Component\Stopwatch\Section', 'events');
+        $events = new \ReflectionProperty('Makhan\Component\Stopwatch\Section', 'events');
         $events->setAccessible(true);
 
-        $stopwatchMockEvent = $this->getMockBuilder('Symfony\Component\Stopwatch\StopwatchEvent')
+        $stopwatchMockEvent = $this->getMockBuilder('Makhan\Component\Stopwatch\StopwatchEvent')
             ->setConstructorArgs(array(microtime(true) * 1000))
             ->getMock()
         ;
@@ -77,7 +77,7 @@ class StopwatchTest extends \PHPUnit_Framework_TestCase
         usleep(200000);
         $event = $stopwatch->stop('foo');
 
-        $this->assertInstanceOf('Symfony\Component\Stopwatch\StopwatchEvent', $event);
+        $this->assertInstanceOf('Makhan\Component\Stopwatch\StopwatchEvent', $event);
         $this->assertEquals(200, $event->getDuration(), null, self::DELTA);
     }
 

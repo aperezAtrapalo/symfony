@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests;
+namespace Makhan\Component\Routing\Tests;
 
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\RouteCollectionBuilder;
 
 class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
 {
     public function testImport()
     {
-        $resolvedLoader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolvedLoader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
         $resolver->expects($this->once())
             ->method('resolve')
             ->with('admin_routing.yml', 'yaml')
@@ -38,7 +38,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
             ->with('admin_routing.yml', 'yaml')
             ->will($this->returnValue($expectedCollection));
 
-        $loader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         $loader->expects($this->any())
             ->method('getResolver')
             ->will($this->returnValue($resolver));
@@ -48,7 +48,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
         $importedRoutes = $routes->import('admin_routing.yml', '/', 'yaml');
 
         // we should get back a RouteCollectionBuilder
-        $this->assertInstanceOf('Symfony\Component\Routing\RouteCollectionBuilder', $importedRoutes);
+        $this->assertInstanceOf('Makhan\Component\Routing\RouteCollectionBuilder', $importedRoutes);
 
         // get the collection back so we can look at it
         $addedCollection = $importedRoutes->build();
@@ -76,7 +76,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
 
         $addedRoute = $collectionBuilder->add('/checkout', 'AppBundle:Order:checkout');
         $addedRoute2 = $collectionBuilder->add('/blogs', 'AppBundle:Blog:list', 'blog_list');
-        $this->assertInstanceOf('Symfony\Component\Routing\Route', $addedRoute);
+        $this->assertInstanceOf('Makhan\Component\Routing\Route', $addedRoute);
         $this->assertEquals('AppBundle:Order:checkout', $addedRoute->getDefault('_controller'));
 
         $finalCollection = $collectionBuilder->build();
@@ -89,7 +89,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
         $importedCollection->add('imported_route1', new Route('/imported/foo1'));
         $importedCollection->add('imported_route2', new Route('/imported/foo2'));
 
-        $loader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         // make this loader able to do the import - keeps mocking simple
         $loader->expects($this->any())
             ->method('supports')
@@ -181,7 +181,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
             ->setDefault('_format', 'json')
             ->setRequirement('_format', 'xml')
             ->setOption('fooBar', false)
-            ->setHost('symfony.com')
+            ->setHost('makhan.com')
             ->setCondition('request.query.get("page")==1')
             // some unique things that should be set on the child
             ->setDefault('_locale', 'fr')
@@ -211,7 +211,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
 
         $actualEditRoute = $collection->get('blog_edit');
         // inherited from the collection
-        $this->assertEquals('symfony.com', $actualEditRoute->getHost());
+        $this->assertEquals('makhan.com', $actualEditRoute->getHost());
         $this->assertEquals('request.query.get("page")==1', $actualEditRoute->getCondition());
         $this->assertEquals(array('http'), $actualEditRoute->getSchemes());
         $this->assertEquals(array('GET', 'POST'), $actualEditRoute->getMethods());
@@ -252,7 +252,7 @@ class RouteCollectionBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testFlushSetsPrefixedWithMultipleLevels()
     {
-        $loader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         $routes = new RouteCollectionBuilder($loader);
 
         $routes->add('homepage', 'MainController::homepageAction', 'homepage');

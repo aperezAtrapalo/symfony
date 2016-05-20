@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * @group time-sensitive
@@ -23,7 +23,7 @@ class ResponseTest extends ResponseTestCase
     {
         $response = Response::create('foo', 301, array('Foo' => 'bar'));
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Response', $response);
         $this->assertEquals(301, $response->getStatusCode());
         $this->assertEquals('bar', $response->headers->get('foo'));
     }
@@ -442,7 +442,7 @@ class ResponseTest extends ResponseTestCase
 
     public function testDefaultContentType()
     {
-        $headerMock = $this->getMock('Symfony\Component\HttpFoundation\ResponseHeaderBag', array('set'));
+        $headerMock = $this->getMock('Makhan\Component\HttpFoundation\ResponseHeaderBag', array('set'));
         $headerMock->expects($this->at(0))
             ->method('set')
             ->with('Content-Type', 'text/html');

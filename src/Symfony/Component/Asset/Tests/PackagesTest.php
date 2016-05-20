@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Asset\Tests;
+namespace Makhan\Component\Asset\Tests;
 
-use Symfony\Component\Asset\Package;
-use Symfony\Component\Asset\Packages;
-use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
-use Symfony\Component\Asset\Exception\InvalidArgumentException;
-use Symfony\Component\Asset\Exception\LogicException;
+use Makhan\Component\Asset\Package;
+use Makhan\Component\Asset\Packages;
+use Makhan\Component\Asset\VersionStrategy\StaticVersionStrategy;
+use Makhan\Component\Asset\Exception\InvalidArgumentException;
+use Makhan\Component\Asset\Exception\LogicException;
 
 class PackagesTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetterSetters()
     {
         $packages = new Packages();
-        $packages->setDefaultPackage($default = $this->getMock('Symfony\Component\Asset\PackageInterface'));
-        $packages->addPackage('a', $a = $this->getMock('Symfony\Component\Asset\PackageInterface'));
+        $packages->setDefaultPackage($default = $this->getMock('Makhan\Component\Asset\PackageInterface'));
+        $packages->addPackage('a', $a = $this->getMock('Makhan\Component\Asset\PackageInterface'));
 
         $this->assertEquals($default, $packages->getPackage());
         $this->assertEquals($a, $packages->getPackage('a'));

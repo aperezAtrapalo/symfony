@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Extension;
+namespace Makhan\Bridge\Twig\Extension;
 
-use Symfony\Component\HttpKernel\Fragment\FragmentHandler;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\Fragment\FragmentHandler;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
 
 /**
  * Provides integration with the HttpKernel component.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HttpKernelExtension extends \Twig_Extension
 {

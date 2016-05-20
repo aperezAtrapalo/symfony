@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer;
+namespace Makhan\Component\Serializer;
 
-use Symfony\Component\Serializer\Encoder\ChainDecoder;
-use Symfony\Component\Serializer\Encoder\ChainEncoder;
-use Symfony\Component\Serializer\Encoder\EncoderInterface;
-use Symfony\Component\Serializer\Encoder\DecoderInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-use Symfony\Component\Serializer\Exception\LogicException;
-use Symfony\Component\Serializer\Exception\UnexpectedValueException;
+use Makhan\Component\Serializer\Encoder\ChainDecoder;
+use Makhan\Component\Serializer\Encoder\ChainEncoder;
+use Makhan\Component\Serializer\Encoder\EncoderInterface;
+use Makhan\Component\Serializer\Encoder\DecoderInterface;
+use Makhan\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerInterface;
+use Makhan\Component\Serializer\Normalizer\DenormalizerInterface;
+use Makhan\Component\Serializer\Exception\LogicException;
+use Makhan\Component\Serializer\Exception\UnexpectedValueException;
 
 /**
  * Serializer serializes and deserializes data.

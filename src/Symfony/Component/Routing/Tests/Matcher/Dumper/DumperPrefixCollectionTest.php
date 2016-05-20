@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Matcher\Dumper;
+namespace Makhan\Component\Routing\Tests\Matcher\Dumper;
 
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\Matcher\Dumper\DumperPrefixCollection;
-use Symfony\Component\Routing\Matcher\Dumper\DumperRoute;
-use Symfony\Component\Routing\Matcher\Dumper\DumperCollection;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\Matcher\Dumper\DumperPrefixCollection;
+use Makhan\Component\Routing\Matcher\Dumper\DumperRoute;
+use Makhan\Component\Routing\Matcher\Dumper\DumperCollection;
 
 class DumperPrefixCollectionTest extends \PHPUnit_Framework_TestCase
 {

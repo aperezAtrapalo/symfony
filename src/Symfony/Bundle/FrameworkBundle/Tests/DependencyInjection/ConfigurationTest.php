@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Configuration;
-use Symfony\Component\Config\Definition\Processor;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Configuration;
+use Makhan\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
@@ -71,7 +71,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testInvalidTypeTrustedProxies()
     {
@@ -86,7 +86,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testInvalidValueTrustedProxies()
     {
@@ -121,7 +121,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage You cannot use both "version_strategy" and "version" at the same time under "assets".
      */
     public function testInvalidVersionStrategy()
@@ -140,7 +140,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage  You cannot use both "version_strategy" and "version" at the same time under "assets" packages.
      */
     public function testInvalidPackageVersionStrategy()
@@ -211,7 +211,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
                 'static_method' => array('loadValidatorMetadata'),
                 'translation_domain' => 'validators',
                 'strict_email' => false,
-                'cache' => 'validator.mapping.cache.symfony',
+                'cache' => 'validator.mapping.cache.makhan',
             ),
             'annotations' => array(
                 'cache' => 'file',

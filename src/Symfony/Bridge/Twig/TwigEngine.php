@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig;
+namespace Makhan\Bridge\Twig;
 
-use Symfony\Component\Templating\EngineInterface;
-use Symfony\Component\Templating\StreamingEngineInterface;
-use Symfony\Component\Templating\TemplateNameParserInterface;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+use Makhan\Component\Templating\EngineInterface;
+use Makhan\Component\Templating\StreamingEngineInterface;
+use Makhan\Component\Templating\TemplateNameParserInterface;
+use Makhan\Component\Templating\TemplateReferenceInterface;
 
 /**
  * This engine knows how to render Twig templates.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TwigEngine implements EngineInterface, StreamingEngineInterface
 {

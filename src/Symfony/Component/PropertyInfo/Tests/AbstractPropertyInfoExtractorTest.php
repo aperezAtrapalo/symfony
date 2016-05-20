@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Tests;
+namespace Makhan\Component\PropertyInfo\Tests;
 
-use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
-use Symfony\Component\PropertyInfo\Tests\Fixtures\DummyExtractor;
-use Symfony\Component\PropertyInfo\Tests\Fixtures\NullExtractor;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\PropertyInfoExtractor;
+use Makhan\Component\PropertyInfo\Tests\Fixtures\DummyExtractor;
+use Makhan\Component\PropertyInfo\Tests\Fixtures\NullExtractor;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -34,10 +34,10 @@ class AbstractPropertyInfoExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testInstanceOf()
     {
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface', $this->propertyInfo);
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface', $this->propertyInfo);
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface', $this->propertyInfo);
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface', $this->propertyInfo);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\PropertyInfoExtractorInterface', $this->propertyInfo);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\PropertyTypeExtractorInterface', $this->propertyInfo);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\PropertyDescriptionExtractorInterface', $this->propertyInfo);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\PropertyAccessExtractorInterface', $this->propertyInfo);
     }
 
     public function testGetShortDescription()

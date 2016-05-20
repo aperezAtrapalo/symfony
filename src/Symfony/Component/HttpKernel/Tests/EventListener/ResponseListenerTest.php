@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpKernel\EventListener\ResponseListener;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\HttpKernel\EventListener\ResponseListener;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class ResponseListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,7 +31,7 @@ class ResponseListenerTest extends \PHPUnit_Framework_TestCase
         $listener = new ResponseListener('UTF-8');
         $this->dispatcher->addListener(KernelEvents::RESPONSE, array($listener, 'onKernelResponse'));
 
-        $this->kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $this->kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
     }
 
     protected function tearDown()

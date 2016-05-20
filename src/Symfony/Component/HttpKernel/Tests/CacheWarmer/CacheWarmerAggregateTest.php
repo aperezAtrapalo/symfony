@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\CacheWarmer;
+namespace Makhan\Component\HttpKernel\Tests\CacheWarmer;
 
-use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate;
+use Makhan\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate;
 
 class CacheWarmerAggregateTest extends \PHPUnit_Framework_TestCase
 {
@@ -91,7 +91,7 @@ class CacheWarmerAggregateTest extends \PHPUnit_Framework_TestCase
 
     protected function getCacheWarmerMock()
     {
-        $warmer = $this->getMockBuilder('Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface')
+        $warmer = $this->getMockBuilder('Makhan\Component\HttpKernel\CacheWarmer\CacheWarmerInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

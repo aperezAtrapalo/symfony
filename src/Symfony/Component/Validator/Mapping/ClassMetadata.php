@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Makhan\Component\Validator\Mapping;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\GroupSequence;
-use Symfony\Component\Validator\Constraints\Traverse;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use Symfony\Component\Validator\Exception\GroupDefinitionException;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\GroupSequence;
+use Makhan\Component\Validator\Constraints\Traverse;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\Exception\GroupDefinitionException;
 
 /**
  * Default implementation of {@link ClassMetadataInterface}.
@@ -24,7 +24,7 @@ use Symfony\Component\Validator\Exception\GroupDefinitionException;
  * This class supports serialization and cloning.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
 {
@@ -429,7 +429,7 @@ class ClassMetadata extends GenericMetadata implements ClassMetadataInterface
             throw new GroupDefinitionException('Defining a group sequence provider is not allowed with a static group sequence');
         }
 
-        if (!$this->getReflectionClass()->implementsInterface('Symfony\Component\Validator\GroupSequenceProviderInterface')) {
+        if (!$this->getReflectionClass()->implementsInterface('Makhan\Component\Validator\GroupSequenceProviderInterface')) {
             throw new GroupDefinitionException(sprintf('Class "%s" must implement GroupSequenceProviderInterface', $this->name));
         }
 

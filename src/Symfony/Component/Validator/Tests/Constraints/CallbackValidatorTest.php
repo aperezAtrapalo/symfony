@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Callback;
-use Symfony\Component\Validator\Constraints\CallbackValidator;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\Callback;
+use Makhan\Component\Validator\Constraints\CallbackValidator;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
 
 class CallbackValidatorTest_Class
 {
@@ -180,7 +180,7 @@ class CallbackValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testExpectValidMethods()
     {
@@ -190,7 +190,7 @@ class CallbackValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testExpectValidCallbacks()
     {

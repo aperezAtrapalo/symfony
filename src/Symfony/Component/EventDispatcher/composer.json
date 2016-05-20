@@ -1,36 +1,36 @@
 {
-    "name": "symfony/event-dispatcher",
+    "name": "makhan/event-dispatcher",
     "type": "library",
-    "description": "Symfony EventDispatcher Component",
+    "description": "Makhan EventDispatcher Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "require-dev": {
-        "symfony/dependency-injection": "~2.8|~3.0",
-        "symfony/expression-language": "~2.8|~3.0",
-        "symfony/config": "~2.8|~3.0",
-        "symfony/stopwatch": "~2.8|~3.0",
+        "makhan/dependency-injection": "~2.8|~3.0",
+        "makhan/expression-language": "~2.8|~3.0",
+        "makhan/config": "~2.8|~3.0",
+        "makhan/stopwatch": "~2.8|~3.0",
         "psr/log": "~1.0"
     },
     "suggest": {
-        "symfony/dependency-injection": "",
-        "symfony/http-kernel": ""
+        "makhan/dependency-injection": "",
+        "makhan/http-kernel": ""
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\EventDispatcher\\": "" },
+        "psr-4": { "Makhan\\Component\\EventDispatcher\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

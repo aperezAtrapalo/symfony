@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Mapping;
+namespace Makhan\Component\Validator\Tests\Mapping;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintA;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintB;
-use Symfony\Component\Validator\Tests\Fixtures\PropertyConstraint;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintA;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintB;
+use Makhan\Component\Validator\Tests\Fixtures\PropertyConstraint;
 
 class ClassMetadataTest extends \PHPUnit_Framework_TestCase
 {
-    const CLASSNAME = 'Symfony\Component\Validator\Tests\Fixtures\Entity';
-    const PARENTCLASS = 'Symfony\Component\Validator\Tests\Fixtures\EntityParent';
-    const PROVIDERCLASS = 'Symfony\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity';
+    const CLASSNAME = 'Makhan\Component\Validator\Tests\Fixtures\Entity';
+    const PARENTCLASS = 'Makhan\Component\Validator\Tests\Fixtures\EntityParent';
+    const PROVIDERCLASS = 'Makhan\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity';
 
     protected $metadata;
 
@@ -38,14 +38,14 @@ class ClassMetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testAddConstraintDoesNotAcceptValid()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\ConstraintDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\ConstraintDefinitionException');
 
         $this->metadata->addConstraint(new Valid());
     }
 
     public function testAddConstraintRequiresClassConstraints()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\ConstraintDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\ConstraintDefinitionException');
 
         $this->metadata->addConstraint(new PropertyConstraint());
     }
@@ -222,20 +222,20 @@ class ClassMetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testGroupSequencesFailIfNotContainingDefaultGroup()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\GroupDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\GroupDefinitionException');
 
         $this->metadata->setGroupSequence(array('Foo', 'Bar'));
     }
 
     public function testGroupSequencesFailIfContainingDefault()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\GroupDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\GroupDefinitionException');
 
         $this->metadata->setGroupSequence(array('Foo', $this->metadata->getDefaultGroup(), Constraint::DEFAULT_GROUP));
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\GroupDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\GroupDefinitionException
      */
     public function testGroupSequenceFailsIfGroupSequenceProviderIsSet()
     {
@@ -245,7 +245,7 @@ class ClassMetadataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\GroupDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\GroupDefinitionException
      */
     public function testGroupSequenceProviderFailsIfGroupSequenceIsSet()
     {
@@ -255,7 +255,7 @@ class ClassMetadataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\GroupDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\GroupDefinitionException
      */
     public function testGroupSequenceProviderFailsIfDomainClassIsInvalid()
     {
@@ -271,7 +271,7 @@ class ClassMetadataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * https://github.com/symfony/symfony/issues/11604.
+     * https://github.com/makhan/makhan/issues/11604.
      */
     public function testGetPropertyMetadataReturnsEmptyArrayWithoutConfiguredMetadata()
     {

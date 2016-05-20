@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests\Loader;
+namespace Makhan\Component\Templating\Tests\Loader;
 
-use Symfony\Component\Templating\Loader\FilesystemLoader;
-use Symfony\Component\Templating\TemplateReference;
+use Makhan\Component\Templating\Loader\FilesystemLoader;
+use Makhan\Component\Templating\TemplateReference;
 
 class FilesystemLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,13 +49,13 @@ class FilesystemLoaderTest extends \PHPUnit_Framework_TestCase
         $path = self::$fixturesPath.'/templates';
         $loader = new ProjectTemplateLoader2($pathPattern);
         $storage = $loader->load(new TemplateReference($path.'/foo.php', 'php'));
-        $this->assertInstanceOf('Symfony\Component\Templating\Storage\FileStorage', $storage, '->load() returns a FileStorage if you pass an absolute path');
+        $this->assertInstanceOf('Makhan\Component\Templating\Storage\FileStorage', $storage, '->load() returns a FileStorage if you pass an absolute path');
         $this->assertEquals($path.'/foo.php', (string) $storage, '->load() returns a FileStorage pointing to the passed absolute path');
 
         $this->assertFalse($loader->load(new TemplateReference('bar', 'php')), '->load() returns false if the template is not found');
 
         $storage = $loader->load(new TemplateReference('foo.php', 'php'));
-        $this->assertInstanceOf('Symfony\Component\Templating\Storage\FileStorage', $storage, '->load() returns a FileStorage if you pass a relative template that exists');
+        $this->assertInstanceOf('Makhan\Component\Templating\Storage\FileStorage', $storage, '->load() returns a FileStorage if you pass a relative template that exists');
         $this->assertEquals($path.'/foo.php', (string) $storage, '->load() returns a FileStorage pointing to the absolute path of the template');
 
         $logger = $this->getMock('Psr\Log\LoggerInterface');

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess\Tests;
+namespace Makhan\Component\PropertyAccess\Tests;
 
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\PropertyAccess\PropertyAccessor;
 
 abstract class PropertyAccessorArrayAccessTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ abstract class PropertyAccessorArrayAccessTest extends \PHPUnit_Framework_TestCa
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchIndexException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchIndexException
      */
     public function testGetValueFailsIfNoSuchIndex()
     {

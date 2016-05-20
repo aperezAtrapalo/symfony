@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Helper\DebugFormatterHelper;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Output\StreamOutput;
-use Symfony\Component\Console\Helper\ProcessHelper;
-use Symfony\Component\Process\Process;
+use Makhan\Component\Console\Helper\DebugFormatterHelper;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Helper\ProcessHelper;
+use Makhan\Component\Process\Process;
 
 class ProcessHelperTest extends \PHPUnit_Framework_TestCase
 {

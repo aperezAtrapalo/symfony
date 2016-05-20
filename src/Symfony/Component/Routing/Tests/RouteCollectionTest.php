@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests;
+namespace Makhan\Component\Routing\Tests;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Config\Resource\FileResource;
 
 class RouteCollectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -133,7 +133,7 @@ class RouteCollectionTest extends \PHPUnit_Framework_TestCase
 
         $collection->addOptions(array('option' => 'new-value'));
         $this->assertEquals(
-            array('option' => 'new-value', 'compiler_class' => 'Symfony\\Component\\Routing\\RouteCompiler'),
+            array('option' => 'new-value', 'compiler_class' => 'Makhan\\Component\\Routing\\RouteCompiler'),
             $collection->get('bar')->getOptions(), '->addOptions() adds options to all routes and overwrites existing ones'
         );
     }

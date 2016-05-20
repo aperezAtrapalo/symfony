@@ -1,9 +1,9 @@
 <?php
 
-namespace Symfony\Component\Security\Http\Tests\Util;
+namespace Makhan\Component\Security\Http\Tests\Util;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Makhan\Component\HttpFoundation\Session\SessionInterface;
+use Makhan\Component\Security\Http\Util\TargetPathTrait;
 
 class TargetPathTraitTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +11,7 @@ class TargetPathTraitTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new TestClassWithTargetPathTrait();
 
-        $session = $this->getMockBuilder('Symfony\Component\HttpFoundation\Session\SessionInterface')
+        $session = $this->getMockBuilder('Makhan\Component\HttpFoundation\Session\SessionInterface')
                     ->getMock();
 
         $session->expects($this->once())
@@ -25,7 +25,7 @@ class TargetPathTraitTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new TestClassWithTargetPathTrait();
 
-        $session = $this->getMockBuilder('Symfony\Component\HttpFoundation\Session\SessionInterface')
+        $session = $this->getMockBuilder('Makhan\Component\HttpFoundation\Session\SessionInterface')
                     ->getMock();
 
         $session->expects($this->once())
@@ -44,7 +44,7 @@ class TargetPathTraitTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new TestClassWithTargetPathTrait();
 
-        $session = $this->getMockBuilder('Symfony\Component\HttpFoundation\Session\SessionInterface')
+        $session = $this->getMockBuilder('Makhan\Component\HttpFoundation\Session\SessionInterface')
                     ->getMock();
 
         $session->expects($this->once())

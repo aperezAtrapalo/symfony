@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Controller;
+namespace Makhan\Bundle\WebProfilerBundle\Controller;
 
-use Symfony\Bundle\WebProfilerBundle\Profiler\TemplateManager;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Profiler\Profiler;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Bundle\WebProfilerBundle\Profiler\TemplateManager;
+use Makhan\Component\HttpFoundation\RedirectResponse;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Profiler\Profiler;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * ProfilerController.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ProfilerController
 {
@@ -112,7 +112,7 @@ class ProfilerController
             'request' => $request,
             'templates' => $this->getTemplateManager()->getTemplates($profile),
             'is_ajax' => $request->isXmlHttpRequest(),
-            'profiler_markup_version' => 2, // 1 = original profiler, 2 = Symfony 2.8+ profiler
+            'profiler_markup_version' => 2, // 1 = original profiler, 2 = Makhan 2.8+ profiler
         )), 200, array('Content-Type' => 'text/html'));
     }
 
@@ -192,7 +192,7 @@ class ProfilerController
             'templates' => $this->getTemplateManager()->getTemplates($profile),
             'profiler_url' => $url,
             'token' => $token,
-            'profiler_markup_version' => 2, // 1 = original toolbar, 2 = Symfony 2.8+ toolbar
+            'profiler_markup_version' => 2, // 1 = original toolbar, 2 = Makhan 2.8+ toolbar
         )), 200, array('Content-Type' => 'text/html'));
     }
 

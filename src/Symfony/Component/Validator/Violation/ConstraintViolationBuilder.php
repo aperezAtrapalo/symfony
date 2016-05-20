@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Violation;
+namespace Makhan\Component\Validator\Violation;
 
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Validator\Util\PropertyPath;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintViolation;
+use Makhan\Component\Validator\ConstraintViolationList;
+use Makhan\Component\Validator\Util\PropertyPath;
 
 /**
  * Default implementation of {@link ConstraintViolationBuilderInterface}.

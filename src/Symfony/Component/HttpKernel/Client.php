@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel;
+namespace Makhan\Component\HttpKernel;
 
-use Symfony\Component\BrowserKit\Client as BaseClient;
-use Symfony\Component\BrowserKit\Request as DomRequest;
-use Symfony\Component\BrowserKit\Response as DomResponse;
-use Symfony\Component\BrowserKit\Cookie as DomCookie;
-use Symfony\Component\BrowserKit\History;
-use Symfony\Component\BrowserKit\CookieJar;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\BrowserKit\Client as BaseClient;
+use Makhan\Component\BrowserKit\Request as DomRequest;
+use Makhan\Component\BrowserKit\Response as DomResponse;
+use Makhan\Component\BrowserKit\Cookie as DomCookie;
+use Makhan\Component\BrowserKit\History;
+use Makhan\Component\BrowserKit\CookieJar;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * Client simulates a browser and makes requests to a Kernel object.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Client extends BaseClient
 {
@@ -97,9 +97,9 @@ class Client extends BaseClient
         $kernel = str_replace("'", "\\'", serialize($this->kernel));
         $request = str_replace("'", "\\'", serialize($request));
 
-        $r = new \ReflectionClass('\\Symfony\\Component\\ClassLoader\\ClassLoader');
+        $r = new \ReflectionClass('\\Makhan\\Component\\ClassLoader\\ClassLoader');
         $requirePath = str_replace("'", "\\'", $r->getFileName());
-        $symfonyPath = str_replace("'", "\\'", dirname(dirname(dirname(__DIR__))));
+        $makhanPath = str_replace("'", "\\'", dirname(dirname(dirname(__DIR__))));
         $errorReporting = error_reporting();
 
         $code = <<<EOF
@@ -109,8 +109,8 @@ error_reporting($errorReporting);
 
 require_once '$requirePath';
 
-\$loader = new Symfony\Component\ClassLoader\ClassLoader();
-\$loader->addPrefix('Symfony', '$symfonyPath');
+\$loader = new Makhan\Component\ClassLoader\ClassLoader();
+\$loader->addPrefix('Makhan', '$makhanPath');
 \$loader->register();
 
 \$kernel = unserialize('$kernel');
@@ -125,7 +125,7 @@ EOF;
         return <<<'EOF'
 $response = $kernel->handle($request);
 
-if ($kernel instanceof Symfony\Component\HttpKernel\TerminableInterface) {
+if ($kernel instanceof Makhan\Component\HttpKernel\TerminableInterface) {
     $kernel->terminate($request, $response);
 }
 

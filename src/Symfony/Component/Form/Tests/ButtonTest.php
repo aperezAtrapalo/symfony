@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\ButtonBuilder;
-use Symfony\Component\Form\FormBuilder;
+use Makhan\Component\Form\ButtonBuilder;
+use Makhan\Component\Form\FormBuilder;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -25,8 +25,8 @@ class ButtonTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
     }
 
     /**

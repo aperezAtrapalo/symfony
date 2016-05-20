@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator\Util;
+namespace Makhan\Component\Form\Tests\Extension\Validator\Util;
 
-use Symfony\Component\Form\Extension\Validator\Util\ServerParams;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Form\Extension\Validator\Util\ServerParams;
+use Makhan\Component\HttpFoundation\Request;
 
 class ServerParamsTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,7 +31,7 @@ class ServerParamsTest extends \PHPUnit_Framework_TestCase
     public function testGetContentLengthFromRequest()
     {
         $request = Request::create('http://foo', 'GET', array(), array(), array(), array('CONTENT_LENGTH' => 1024));
-        $requestStack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack', array('getCurrentRequest'));
+        $requestStack = $this->getMock('Makhan\Component\HttpFoundation\RequestStack', array('getCurrentRequest'));
         $requestStack->expects($this->once())->method('getCurrentRequest')->will($this->returnValue($request));
         $serverParams = new ServerParams($requestStack);
 
@@ -41,7 +41,7 @@ class ServerParamsTest extends \PHPUnit_Framework_TestCase
     /** @dataProvider getGetPostMaxSizeTestData */
     public function testGetPostMaxSize($size, $bytes)
     {
-        $serverParams = $this->getMock('Symfony\Component\Form\Extension\Validator\Util\ServerParams', array('getNormalizedIniPostMaxSize'));
+        $serverParams = $this->getMock('Makhan\Component\Form\Extension\Validator\Util\ServerParams', array('getNormalizedIniPostMaxSize'));
         $serverParams
             ->expects($this->any())
             ->method('getNormalizedIniPostMaxSize')

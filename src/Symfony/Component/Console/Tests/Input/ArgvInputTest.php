@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Input;
+namespace Makhan\Component\Console\Tests\Input;
 
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\ArgvInput;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputOption;
 
 class ArgvInputTest extends \PHPUnit_Framework_TestCase
 {

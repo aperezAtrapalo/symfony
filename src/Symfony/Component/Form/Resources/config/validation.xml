@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 
-<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+<constraint-mapping xmlns="http://makhan.com/schema/dic/constraint-mapping"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/constraint-mapping http://makhan.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
-  <class name="Symfony\Component\Form\Form">
-    <constraint name="Symfony\Component\Form\Extension\Validator\Constraints\Form" />
+  <class name="Makhan\Component\Form\Form">
+    <constraint name="Makhan\Component\Form\Extension\Validator\Constraints\Form" />
     <property name="children">
         <constraint name="Valid" />
     </property>

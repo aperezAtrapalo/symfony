@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateFilenameParser;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateReference;
 
 class TemplateFilenameParserTest extends TestCase
 {

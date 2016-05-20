@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\TokenParser;
+namespace Makhan\Bridge\Twig\Tests\TokenParser;
 
-use Symfony\Bridge\Twig\TokenParser\FormThemeTokenParser;
-use Symfony\Bridge\Twig\Node\FormThemeNode;
+use Makhan\Bridge\Twig\TokenParser\FormThemeTokenParser;
+use Makhan\Bridge\Twig\Node\FormThemeNode;
 
 class FormThemeTokenParserTest extends \PHPUnit_Framework_TestCase
 {

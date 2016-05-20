@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Dumper;
+namespace Makhan\Component\DependencyInjection\Tests\Dumper;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Dumper\XmlDumper;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Dumper\XmlDumper;
 
 class XmlDumperTest extends \PHPUnit_Framework_TestCase
 {
@@ -67,7 +67,7 @@ class XmlDumperTest extends \PHPUnit_Framework_TestCase
         $container = include self::$fixturesPath.'/containers/container11.php';
         $dumper = new XmlDumper($container);
         $this->assertEquals('<?xml version="1.0" encoding="utf-8"?>
-<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<container xmlns="http://makhan.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
   <services>
     <service id="foo" class="FooClass">
       <argument type="service">
@@ -88,7 +88,7 @@ class XmlDumperTest extends \PHPUnit_Framework_TestCase
         $container = include self::$fixturesPath.'/containers/container12.php';
         $dumper = new XmlDumper($container);
         $this->assertEquals("<?xml version=\"1.0\" encoding=\"utf-8\"?>
-<container xmlns=\"http://symfony.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd\">
+<container xmlns=\"http://makhan.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd\">
   <services>
     <service id=\"foo\" class=\"FooClass\Foo\">
       <tag name=\"foo&quot;bar\bar\" foo=\"foo&quot;barřž€\"/>
@@ -114,14 +114,14 @@ class XmlDumperTest extends \PHPUnit_Framework_TestCase
 
         return array(
             array("<?xml version=\"1.0\" encoding=\"utf-8\"?>
-<container xmlns=\"http://symfony.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd\">
+<container xmlns=\"http://makhan.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd\">
   <services>
     <service id=\"foo\" class=\"FooClass\Foo\" decorates=\"bar\" decoration-inner-name=\"bar.woozy\"/>
   </services>
 </container>
 ", include $fixturesPath.'/containers/container15.php'),
             array("<?xml version=\"1.0\" encoding=\"utf-8\"?>
-<container xmlns=\"http://symfony.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd\">
+<container xmlns=\"http://makhan.com/schema/dic/services\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd\">
   <services>
     <service id=\"foo\" class=\"FooClass\Foo\" decorates=\"bar\"/>
   </services>

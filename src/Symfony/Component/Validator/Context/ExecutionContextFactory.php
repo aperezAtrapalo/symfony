@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Context;
+namespace Makhan\Component\Validator\Context;
 
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Creates new {@link ExecutionContext} instances.

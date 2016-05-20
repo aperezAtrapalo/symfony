@@ -1,45 +1,45 @@
 {
-    "name": "symfony/routing",
+    "name": "makhan/routing",
     "type": "library",
-    "description": "Symfony Routing Component",
+    "description": "Makhan Routing Component",
     "keywords": ["routing", "router", "URL", "URI"],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "require-dev": {
-        "symfony/config": "~2.8|~3.0",
-        "symfony/http-foundation": "~2.8|~3.0",
-        "symfony/yaml": "~2.8|~3.0",
-        "symfony/expression-language": "~2.8|~3.0",
+        "makhan/config": "~2.8|~3.0",
+        "makhan/http-foundation": "~2.8|~3.0",
+        "makhan/yaml": "~2.8|~3.0",
+        "makhan/expression-language": "~2.8|~3.0",
         "doctrine/annotations": "~1.0",
         "doctrine/common": "~2.2",
         "psr/log": "~1.0"
     },
     "conflict": {
-        "symfony/config": "<2.8"
+        "makhan/config": "<2.8"
     },
     "suggest": {
-        "symfony/http-foundation": "For using a Symfony Request object",
-        "symfony/config": "For using the all-in-one router or any loader",
-        "symfony/yaml": "For using the YAML loader",
-        "symfony/expression-language": "For using expression matching",
+        "makhan/http-foundation": "For using a Makhan Request object",
+        "makhan/config": "For using the all-in-one router or any loader",
+        "makhan/yaml": "For using the YAML loader",
+        "makhan/expression-language": "For using expression matching",
         "doctrine/annotations": "For using the annotation loader",
-        "symfony/dependency-injection": "For loading routes from a service"
+        "makhan/dependency-injection": "For loading routes from a service"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Routing\\": "" },
+        "psr-4": { "Makhan\\Component\\Routing\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

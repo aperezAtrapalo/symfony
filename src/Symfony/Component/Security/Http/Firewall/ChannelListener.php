@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\Security\Http\AccessMapInterface;
-use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
+use Makhan\Component\Security\Http\AccessMapInterface;
+use Makhan\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
 
 /**
  * ChannelListener switches the HTTP protocol based on the access control
  * configuration.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ChannelListener implements ListenerInterface
 {

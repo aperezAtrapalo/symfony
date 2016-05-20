@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\NameConverter;
+namespace Makhan\Component\Serializer\Tests\NameConverter;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Makhan\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -21,7 +21,7 @@ class CamelCaseToSnakeCaseNameConverterTest extends \PHPUnit_Framework_TestCase
     public function testInterface()
     {
         $attributeMetadata = new CamelCaseToSnakeCaseNameConverter();
-        $this->assertInstanceOf('Symfony\Component\Serializer\NameConverter\NameConverterInterface', $attributeMetadata);
+        $this->assertInstanceOf('Makhan\Component\Serializer\NameConverter\NameConverterInterface', $attributeMetadata);
     }
 
     /**

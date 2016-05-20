@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Output;
+namespace Makhan\Component\Console\Output;
 
-use Symfony\Component\Console\Formatter\OutputFormatterInterface;
-use Symfony\Component\Console\Formatter\OutputFormatter;
+use Makhan\Component\Console\Formatter\OutputFormatterInterface;
+use Makhan\Component\Console\Formatter\OutputFormatter;
 
 /**
  * Base class for output classes.
@@ -25,7 +25,7 @@ use Symfony\Component\Console\Formatter\OutputFormatter;
  *  * debug: -vvv (all debug output)
  *  * quiet: -q (no output)
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Output implements OutputInterface
 {

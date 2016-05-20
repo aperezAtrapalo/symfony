@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition;
+namespace Makhan\Component\Config\Tests\Definition;
 
-use Symfony\Component\Config\Definition\NodeInterface;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Makhan\Component\Config\Definition\NodeInterface;
+use Makhan\Component\Config\Definition\Builder\TreeBuilder;
 
 class NormalizationTest extends \PHPUnit_Framework_TestCase
 {
@@ -169,7 +169,7 @@ class NormalizationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The attribute "id" must be set for path "root.thing".
      */
     public function testNonAssociativeArrayThrowsExceptionIfAttributeNotSet()

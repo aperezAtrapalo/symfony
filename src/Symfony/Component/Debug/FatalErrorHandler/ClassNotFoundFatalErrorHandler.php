@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\FatalErrorHandler;
+namespace Makhan\Component\Debug\FatalErrorHandler;
 
-use Symfony\Component\Debug\Exception\ClassNotFoundException;
-use Symfony\Component\Debug\Exception\FatalErrorException;
-use Symfony\Component\Debug\DebugClassLoader;
+use Makhan\Component\Debug\Exception\ClassNotFoundException;
+use Makhan\Component\Debug\Exception\FatalErrorException;
+use Makhan\Component\Debug\DebugClassLoader;
 use Composer\Autoload\ClassLoader as ComposerClassLoader;
-use Symfony\Component\ClassLoader\ClassLoader as SymfonyClassLoader;
+use Makhan\Component\ClassLoader\ClassLoader as MakhanClassLoader;
 
 /**
  * ErrorHandler for classes that do not exist.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ClassNotFoundFatalErrorHandler implements FatalErrorHandlerInterface
 {
@@ -76,7 +76,7 @@ class ClassNotFoundFatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Tries to guess the full namespace for a given class name.
      *
-     * By default, it looks for PSR-0 and PSR-4 classes registered via a Symfony or a Composer
+     * By default, it looks for PSR-0 and PSR-4 classes registered via a Makhan or a Composer
      * autoloader (that should cover all common cases).
      *
      * @param string $class A class name (without its namespace)
@@ -89,7 +89,7 @@ class ClassNotFoundFatalErrorHandler implements FatalErrorHandlerInterface
             return array();
         }
 
-        // find Symfony and Composer autoloaders
+        // find Makhan and Composer autoloaders
         $classes = array();
 
         foreach ($functions as $function) {
@@ -105,7 +105,7 @@ class ClassNotFoundFatalErrorHandler implements FatalErrorHandlerInterface
                 }
             }
 
-            if ($function[0] instanceof ComposerClassLoader || $function[0] instanceof SymfonyClassLoader) {
+            if ($function[0] instanceof ComposerClassLoader || $function[0] instanceof MakhanClassLoader) {
                 foreach ($function[0]->getPrefixes() as $prefix => $paths) {
                     foreach ($paths as $path) {
                         $classes = array_merge($classes, $this->findClassInPath($path, $class, $prefix));

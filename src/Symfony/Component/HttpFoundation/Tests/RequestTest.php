@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
+use Makhan\Component\HttpFoundation\Session\Session;
+use Makhan\Component\HttpFoundation\Request;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -210,7 +210,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/?foo', $request->getRequestUri());
         $this->assertEquals(array('foo' => ''), $request->query->all());
 
-        // assume rewrite rule: (.*) --> app/app.php; app/ is a symlink to a symfony web/ directory
+        // assume rewrite rule: (.*) --> app/app.php; app/ is a symlink to a makhan web/ directory
         $request = Request::create('http://test.com/apparthotel-1234', 'GET', array(), array(), array(),
             array(
                 'DOCUMENT_ROOT' => '/var/www/www.test.com',
@@ -473,7 +473,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $request->initialize(array(), array(), array(), array(), array(), $server);
         $this->assertEquals('http://host:8080/ba%20se/index_dev.php/foo%20bar/in+fo?query=string', $request->getUri());
 
-        $server['PHP_AUTH_PW'] = 'symfony';
+        $server['PHP_AUTH_PW'] = 'makhan';
         $request->initialize(array(), array(), array(), array(), array(), $server);
         $this->assertEquals('http://host:8080/ba%20se/index_dev.php/foo%20bar/in+fo?query=string', $request->getUri());
     }
@@ -580,7 +580,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $request->initialize(array(), array(), array(), array(), array(), $server);
         $this->assertEquals('http://servername/some/path', $request->getUriForPath('/some/path'));
 
-        $server['PHP_AUTH_PW'] = 'symfony';
+        $server['PHP_AUTH_PW'] = 'makhan';
         $request->initialize(array(), array(), array(), array(), array(), $server);
         $this->assertEquals('http://servername/some/path', $request->getUriForPath('/some/path'));
     }
@@ -1544,7 +1544,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
     private function disableHttpMethodParameterOverride()
     {
-        $class = new \ReflectionClass('Symfony\\Component\\HttpFoundation\\Request');
+        $class = new \ReflectionClass('Makhan\\Component\\HttpFoundation\\Request');
         $property = $class->getProperty('httpMethodParameterOverride');
         $property->setAccessible(true);
         $property->setValue(false);

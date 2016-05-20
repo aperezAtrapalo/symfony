@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http;
+namespace Makhan\Component\Security\Http;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
-use Symfony\Component\Routing\Matcher\RequestMatcherInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Security\Core\Security;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\RedirectResponse;
+use Makhan\Component\Routing\Matcher\UrlMatcherInterface;
+use Makhan\Component\Routing\Matcher\RequestMatcherInterface;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Security\Core\Security;
 
 /**
  * Encapsulates the logic needed to create sub-requests, redirect the user, and match URLs.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HttpUtils
 {

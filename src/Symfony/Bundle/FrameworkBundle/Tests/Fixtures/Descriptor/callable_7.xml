@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<callable type="object" name="Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass"/>
+<callable type="object" name="Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass"/>

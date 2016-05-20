@@ -1,9 +1,9 @@
 <?php
 
-namespace Symfony\Component\DependencyInjection\Tests\Fixtures\containers;
+namespace Makhan\Component\DependencyInjection\Tests\Fixtures\containers;
 
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class CustomContainer extends Container
 {

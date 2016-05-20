@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests;
+namespace Makhan\Bridge\Twig\Tests;
 
-use Symfony\Bridge\Twig\TwigEngine;
-use Symfony\Component\Templating\TemplateReference;
+use Makhan\Bridge\Twig\TwigEngine;
+use Makhan\Component\Templating\TemplateReference;
 
 class TwigEngineTest extends \PHPUnit_Framework_TestCase
 {
@@ -71,7 +71,7 @@ class TwigEngineTest extends \PHPUnit_Framework_TestCase
             'index' => 'foo',
             'error' => '{{ foo }',
         )));
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
 
         return new TwigEngine($twig, $parser);
     }

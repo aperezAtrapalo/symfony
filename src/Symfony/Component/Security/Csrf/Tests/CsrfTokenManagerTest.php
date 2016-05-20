@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Csrf\Tests;
+namespace Makhan\Component\Security\Csrf\Tests;
 
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManager;
+use Makhan\Component\Security\Csrf\CsrfToken;
+use Makhan\Component\Security\Csrf\CsrfTokenManager;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -36,8 +36,8 @@ class CsrfTokenManagerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->generator = $this->getMock('Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface');
-        $this->storage = $this->getMock('Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface');
+        $this->generator = $this->getMock('Makhan\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface');
+        $this->storage = $this->getMock('Makhan\Component\Security\Csrf\TokenStorage\TokenStorageInterface');
         $this->manager = new CsrfTokenManager($this->generator, $this->storage);
     }
 
@@ -65,7 +65,7 @@ class CsrfTokenManagerTest extends \PHPUnit_Framework_TestCase
 
         $token = $this->manager->getToken('token_id');
 
-        $this->assertInstanceOf('Symfony\Component\Security\Csrf\CsrfToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Csrf\CsrfToken', $token);
         $this->assertSame('token_id', $token->getId());
         $this->assertSame('TOKEN', $token->getValue());
     }
@@ -84,7 +84,7 @@ class CsrfTokenManagerTest extends \PHPUnit_Framework_TestCase
 
         $token = $this->manager->getToken('token_id');
 
-        $this->assertInstanceOf('Symfony\Component\Security\Csrf\CsrfToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Csrf\CsrfToken', $token);
         $this->assertSame('token_id', $token->getId());
         $this->assertSame('TOKEN', $token->getValue());
     }
@@ -104,7 +104,7 @@ class CsrfTokenManagerTest extends \PHPUnit_Framework_TestCase
 
         $token = $this->manager->refreshToken('token_id');
 
-        $this->assertInstanceOf('Symfony\Component\Security\Csrf\CsrfToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Csrf\CsrfToken', $token);
         $this->assertSame('token_id', $token->getId());
         $this->assertSame('TOKEN', $token->getValue());
     }

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests;
+namespace Makhan\Component\Translation\Tests;
 
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\MessageSelector;
-use Symfony\Component\Translation\Loader\ArrayLoader;
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Translator;
+use Makhan\Component\Translation\MessageSelector;
+use Makhan\Component\Translation\Loader\ArrayLoader;
+use Makhan\Component\Translation\MessageCatalogue;
 
 class TranslatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -204,11 +204,11 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider      getTransFileTests
-     * @expectedException \Symfony\Component\Translation\Exception\NotFoundResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\NotFoundResourceException
      */
     public function testTransWithoutFallbackLocaleFile($format, $loader)
     {
-        $loaderClass = 'Symfony\\Component\\Translation\\Loader\\'.$loader;
+        $loaderClass = 'Makhan\\Component\\Translation\\Loader\\'.$loader;
         $translator = new Translator('en');
         $translator->addLoader($format, new $loaderClass());
         $translator->addResource($format, __DIR__.'/fixtures/non-existing', 'en');
@@ -223,7 +223,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testTransWithFallbackLocaleFile($format, $loader)
     {
-        $loaderClass = 'Symfony\\Component\\Translation\\Loader\\'.$loader;
+        $loaderClass = 'Makhan\\Component\\Translation\\Loader\\'.$loader;
         $translator = new Translator('en_GB');
         $translator->addLoader($format, new $loaderClass());
         $translator->addResource($format, __DIR__.'/fixtures/non-existing', 'en_GB');
@@ -276,7 +276,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
     public function testFallbackCatalogueResources()
     {
         $translator = new Translator('en_GB', new MessageSelector());
-        $translator->addLoader('yml', new \Symfony\Component\Translation\Loader\YamlFileLoader());
+        $translator->addLoader('yml', new \Makhan\Component\Translation\Loader\YamlFileLoader());
         $translator->addResource('yml', __DIR__.'/fixtures/empty.yml', 'en_GB');
         $translator->addResource('yml', __DIR__.'/fixtures/resources.yml', 'en');
 
@@ -399,18 +399,18 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
     public function getTransTests()
     {
         return array(
-            array('Symfony est super !', 'Symfony is great!', 'Symfony est super !', array(), 'fr', ''),
-            array('Symfony est awesome !', 'Symfony is %what%!', 'Symfony est %what% !', array('%what%' => 'awesome'), 'fr', ''),
-            array('Symfony est super !', new StringClass('Symfony is great!'), 'Symfony est super !', array(), 'fr', ''),
+            array('Makhan est super !', 'Makhan is great!', 'Makhan est super !', array(), 'fr', ''),
+            array('Makhan est awesome !', 'Makhan is %what%!', 'Makhan est %what% !', array('%what%' => 'awesome'), 'fr', ''),
+            array('Makhan est super !', new StringClass('Makhan is great!'), 'Makhan est super !', array(), 'fr', ''),
         );
     }
 
     public function getFlattenedTransTests()
     {
         $messages = array(
-            'symfony' => array(
+            'makhan' => array(
                 'is' => array(
-                    'great' => 'Symfony est super!',
+                    'great' => 'Makhan est super!',
                 ),
             ),
             'foo' => array(
@@ -422,7 +422,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         );
 
         return array(
-            array('Symfony est super!', $messages, 'symfony.is.great'),
+            array('Makhan est super!', $messages, 'makhan.is.great'),
             array('Foo Bar Baz', $messages, 'foo.bar.baz'),
             array('Foo Baz', $messages, 'foo.baz'),
         );

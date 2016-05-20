@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Tests\Iterator;
+namespace Makhan\Component\Finder\Tests\Iterator;
 
 abstract class IteratorTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -69,7 +69,7 @@ abstract class IteratorTestCase extends \PHPUnit_Framework_TestCase
     {
         $values = array();
         foreach ($iterator as $file) {
-            $this->assertInstanceOf('Symfony\\Component\\Finder\\SplFileInfo', $file);
+            $this->assertInstanceOf('Makhan\\Component\\Finder\\SplFileInfo', $file);
             $values[] = $file->getPathname();
         }
 
@@ -89,7 +89,7 @@ abstract class IteratorTestCase extends \PHPUnit_Framework_TestCase
     {
         $values = array();
         foreach ($iterator as $file) {
-            $this->assertInstanceOf('Symfony\\Component\\Finder\\SplFileInfo', $file);
+            $this->assertInstanceOf('Makhan\\Component\\Finder\\SplFileInfo', $file);
             $values[] = $file->getPathname();
         }
 

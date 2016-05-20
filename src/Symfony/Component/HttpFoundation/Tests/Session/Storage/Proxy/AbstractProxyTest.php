@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\Session\Storage\Proxy;
+namespace Makhan\Component\HttpFoundation\Tests\Session\Storage\Proxy;
 
-use Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
+use Makhan\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
 
 // Note until PHPUnit_Mock_Objects 1.2 is released you cannot mock abstracts due to
 // https://github.com/sebastianbergmann/phpunit-mock-objects/issues/73

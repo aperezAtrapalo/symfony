@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-use Symfony\Component\Form\Test\TypeTestCase as TestCase;
-use Symfony\Component\Form\ChoiceList\View\ChoiceView;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Test\TypeTestCase as TestCase;
+use Makhan\Component\Form\ChoiceList\View\ChoiceView;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class CountryTypeTest extends TestCase
 {
@@ -26,7 +26,7 @@ class CountryTypeTest extends TestCase
 
     public function testCountriesAreSelectable()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\CountryType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\CountryType');
         $view = $form->createView();
         $choices = $view->vars['choices'];
 
@@ -40,7 +40,7 @@ class CountryTypeTest extends TestCase
 
     public function testUnknownCountryIsNotIncluded()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\CountryType', 'Symfony\Component\Form\Extension\Core\Type\CountryType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\CountryType', 'Makhan\Component\Form\Extension\Core\Type\CountryType');
         $view = $form->createView();
         $choices = $view->vars['choices'];
 

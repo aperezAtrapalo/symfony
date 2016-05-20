@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Mapping;
+namespace Makhan\Component\Validator\Tests\Mapping;
 
-use Symfony\Component\Validator\Mapping\PropertyMetadata;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
+use Makhan\Component\Validator\Mapping\PropertyMetadata;
+use Makhan\Component\Validator\Tests\Fixtures\Entity;
 
 class PropertyMetadataTest extends \PHPUnit_Framework_TestCase
 {
-    const CLASSNAME = 'Symfony\Component\Validator\Tests\Fixtures\Entity';
-    const PARENTCLASS = 'Symfony\Component\Validator\Tests\Fixtures\EntityParent';
+    const CLASSNAME = 'Makhan\Component\Validator\Tests\Fixtures\Entity';
+    const PARENTCLASS = 'Makhan\Component\Validator\Tests\Fixtures\EntityParent';
 
     public function testInvalidPropertyName()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\ValidatorException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\ValidatorException');
 
         new PropertyMetadata(self::CLASSNAME, 'foobar');
     }

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Exception;
+namespace Makhan\Component\Routing\Exception;
 
 /**
  * The resource was found but the request method is not allowed.
  *
  * This exception should trigger an HTTP 405 response in your application code.
  *
- * @author Kris Wallsmith <kris@symfony.com>
+ * @author Kris Wallsmith <kris@makhan.com>
  */
 class MethodNotAllowedException extends \RuntimeException implements ExceptionInterface
 {

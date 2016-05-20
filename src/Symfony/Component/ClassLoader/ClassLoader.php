@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ClassLoader;
+namespace Makhan\Component\ClassLoader;
 
 /**
  * ClassLoader implements an PSR-0 class loader.
@@ -19,8 +19,8 @@ namespace Symfony\Component\ClassLoader;
  *     $loader = new ClassLoader();
  *
  *     // register classes with namespaces
- *     $loader->addPrefix('Symfony\Component', __DIR__.'/component');
- *     $loader->addPrefix('Symfony',           __DIR__.'/framework');
+ *     $loader->addPrefix('Makhan\Component', __DIR__.'/component');
+ *     $loader->addPrefix('Makhan',           __DIR__.'/framework');
  *
  *     // activate the autoloader
  *     $loader->register();
@@ -28,13 +28,13 @@ namespace Symfony\Component\ClassLoader;
  *     // to enable searching the include path (e.g. for PEAR packages)
  *     $loader->setUseIncludePath(true);
  *
- * In this example, if you try to use a class in the Symfony\Component
- * namespace or one of its children (Symfony\Component\Console for instance),
+ * In this example, if you try to use a class in the Makhan\Component
+ * namespace or one of its children (Makhan\Component\Console for instance),
  * the autoloader will first look for the class under the component/
  * directory, and it will then fallback to the framework/ directory if not
  * found before giving up.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */
 class ClassLoader

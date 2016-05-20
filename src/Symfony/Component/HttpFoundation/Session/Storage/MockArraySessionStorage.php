@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Session\Storage;
 
-use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
+use Makhan\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * MockArraySessionStorage mocks the session for unit tests.
@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
  *
  * When doing functional testing, you should use MockFileSessionStorage instead.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Bulat Shakirzyanov <mallluhuct@gmail.com>
  * @author Drak <drak@zikula.org>
  */

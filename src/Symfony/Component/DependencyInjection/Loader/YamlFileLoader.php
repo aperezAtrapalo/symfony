@@ -1,34 +1,34 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Loader;
+namespace Makhan\Component\DependencyInjection\Loader;
 
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Parser as YamlParser;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Yaml\Exception\ParseException;
+use Makhan\Component\Yaml\Parser as YamlParser;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 /**
  * YamlFileLoader loads YAML files service definitions.
  *
  * The YAML format does not support anonymous services (cf. the XML loader).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class YamlFileLoader extends FileLoader
 {
@@ -180,7 +180,7 @@ class YamlFileLoader extends FileLoader
 
             foreach ($service as $key => $value) {
                 if (!in_array($key, array('alias', 'public'))) {
-                    @trigger_error(sprintf('The configuration key "%s" is unsupported for alias definition "%s" in "%s". Allowed configuration keys are "alias" and "public". The YamlFileLoader will raise an exception in Symfony 4.0, instead of silently ignoring unsupported attributes.', $key, $id, $file), E_USER_DEPRECATED);
+                    @trigger_error(sprintf('The configuration key "%s" is unsupported for alias definition "%s" in "%s". Allowed configuration keys are "alias" and "public". The YamlFileLoader will raise an exception in Makhan 4.0, instead of silently ignoring unsupported attributes.', $key, $id, $file), E_USER_DEPRECATED);
                 }
             }
 
@@ -349,8 +349,8 @@ class YamlFileLoader extends FileLoader
      */
     protected function loadFile($file)
     {
-        if (!class_exists('Symfony\Component\Yaml\Parser')) {
-            throw new RuntimeException('Unable to load YAML config files as the Symfony Yaml Component is not installed.');
+        if (!class_exists('Makhan\Component\Yaml\Parser')) {
+            throw new RuntimeException('Unable to load YAML config files as the Makhan Yaml Component is not installed.');
         }
 
         if (!stream_is_local($file)) {
@@ -485,8 +485,8 @@ class YamlFileLoader extends FileLoader
     {
         foreach ($definition as $key => $value) {
             if (!isset(static::$keywords[$key])) {
-                @trigger_error(sprintf('The configuration key "%s" is unsupported for service definition "%s" in "%s". Allowed configuration keys are "%s". The YamlFileLoader object will raise an exception instead in Symfony 4.0 when detecting an unsupported service configuration key.', $key, $id, $file, implode('", "', static::$keywords)), E_USER_DEPRECATED);
-                // @deprecated Uncomment the following statement in Symfony 4.0
+                @trigger_error(sprintf('The configuration key "%s" is unsupported for service definition "%s" in "%s". Allowed configuration keys are "%s". The YamlFileLoader object will raise an exception instead in Makhan 4.0 when detecting an unsupported service configuration key.', $key, $id, $file, implode('", "', static::$keywords)), E_USER_DEPRECATED);
+                // @deprecated Uncomment the following statement in Makhan 4.0
                 // and also update the corresponding unit test to make it expect
                 // an InvalidArgumentException exception.
                 //throw new InvalidArgumentException(sprintf('The configuration key "%s" is unsupported for service definition "%s" in "%s". Allowed configuration keys are "%s".', $key, $id, $file, implode('", "', static::$keywords)));

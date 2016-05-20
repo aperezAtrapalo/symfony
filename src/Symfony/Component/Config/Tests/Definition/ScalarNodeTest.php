@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition;
+namespace Makhan\Component\Config\Tests\Definition;
 
-use Symfony\Component\Config\Definition\ScalarNode;
+use Makhan\Component\Config\Definition\ScalarNode;
 
 class ScalarNodeTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,7 +41,7 @@ class ScalarNodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getInvalidValues
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidTypeException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidTypeException
      */
     public function testNormalizeThrowsExceptionOnInvalidValues($value)
     {
@@ -62,7 +62,7 @@ class ScalarNodeTest extends \PHPUnit_Framework_TestCase
     {
         $node = new ScalarNode('test');
 
-        $this->setExpectedException('Symfony\Component\Config\Definition\Exception\InvalidTypeException', 'Invalid type for path "test". Expected scalar, but got array.');
+        $this->setExpectedException('Makhan\Component\Config\Definition\Exception\InvalidTypeException', 'Invalid type for path "test". Expected scalar, but got array.');
 
         $node->normalize(array());
     }
@@ -72,7 +72,7 @@ class ScalarNodeTest extends \PHPUnit_Framework_TestCase
         $node = new ScalarNode('test');
         $node->setInfo('"the test value"');
 
-        $this->setExpectedException('Symfony\Component\Config\Definition\Exception\InvalidTypeException', "Invalid type for path \"test\". Expected scalar, but got array.\nHint: \"the test value\"");
+        $this->setExpectedException('Makhan\Component\Config\Definition\Exception\InvalidTypeException', "Invalid type for path \"test\". Expected scalar, but got array.\nHint: \"the test value\"");
 
         $node->normalize(array());
     }
@@ -105,7 +105,7 @@ class ScalarNodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getEmptyValues
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      *
      * @param mixed $value
      */

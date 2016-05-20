@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<xsd:schema xmlns="http://symfony.com/schema/routing"
+<xsd:schema xmlns="http://makhan.com/schema/routing"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://symfony.com/schema/routing"
+    targetNamespace="http://makhan.com/schema/routing"
     elementFormDefault="qualified">
 
   <xsd:annotation>
     <xsd:documentation><![CDATA[
-      Symfony XML Routing Schema, version 1.0
+      Makhan XML Routing Schema, version 1.0
       Authors: Fabien Potencier, Tobias Schultze
 
       This scheme defines the elements and attributes that can be used to define

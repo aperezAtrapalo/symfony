@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Compiler;
+namespace Makhan\Component\DependencyInjection\Tests\Compiler;
 
-use Symfony\Component\DependencyInjection\Compiler\CheckDefinitionValidityPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Compiler\CheckDefinitionValidityPass;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class CheckDefinitionValidityPassTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      */
     public function testProcessDetectsSyntheticNonPublicDefinitions()
     {
@@ -28,7 +28,7 @@ class CheckDefinitionValidityPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      */
     public function testProcessDetectsNonSyntheticNonAbstractDefinitionWithoutClass()
     {
@@ -61,7 +61,7 @@ class CheckDefinitionValidityPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      */
     public function testInvalidTags()
     {

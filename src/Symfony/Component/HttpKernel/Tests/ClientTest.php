@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests;
+namespace Makhan\Component\HttpKernel\Tests;
 
-use Symfony\Component\HttpKernel\Client;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
-use Symfony\Component\HttpFoundation\Cookie;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpKernel\Tests\Fixtures\TestClient;
+use Makhan\Component\HttpKernel\Client;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\StreamedResponse;
+use Makhan\Component\HttpFoundation\Cookie;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\HttpKernel\Tests\Fixtures\TestClient;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,10 +26,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $client->request('GET', '/');
         $this->assertEquals('Request: /', $client->getResponse()->getContent(), '->doRequest() uses the request handler to make the request');
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Request', $client->getInternalRequest());
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Request', $client->getRequest());
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Response', $client->getInternalResponse());
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $client->getResponse());
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Request', $client->getInternalRequest());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Request', $client->getRequest());
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Response', $client->getInternalResponse());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Response', $client->getResponse());
 
         $client->request('GET', 'http://www.example.com/');
         $this->assertEquals('Request: /', $client->getResponse()->getContent(), '->doRequest() uses the request handler to make the request');
@@ -149,7 +149,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client = new Client($kernel);
 
         $file = $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\File\UploadedFile')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\File\UploadedFile')
             ->setConstructorArgs(array($source, 'original', 'mime/original', 123, UPLOAD_ERR_OK, true))
             ->setMethods(array('getSize'))
             ->getMock()

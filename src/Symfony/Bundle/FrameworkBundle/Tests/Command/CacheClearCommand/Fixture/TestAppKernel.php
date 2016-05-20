@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand\Fixture;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand\Fixture;
 
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Kernel;
+use Makhan\Bundle\FrameworkBundle\FrameworkBundle;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\HttpKernel\Kernel;
 
 class TestAppKernel extends Kernel
 {

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Config;
+namespace Makhan\Component\DependencyInjection\Tests\Config;
 
-use Symfony\Component\DependencyInjection\Compiler\AutowirePass;
-use Symfony\Component\DependencyInjection\Config\AutowireServiceResource;
+use Makhan\Component\DependencyInjection\Compiler\AutowirePass;
+use Makhan\Component\DependencyInjection\Config\AutowireServiceResource;
 
 class AutowireServiceResourceTest extends \PHPUnit_Framework_TestCase
 {

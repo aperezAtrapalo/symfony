@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Definition\Dumper;
+namespace Makhan\Component\Config\Definition\Dumper;
 
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Config\Definition\NodeInterface;
-use Symfony\Component\Config\Definition\ArrayNode;
-use Symfony\Component\Config\Definition\EnumNode;
-use Symfony\Component\Config\Definition\PrototypedArrayNode;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Config\Definition\NodeInterface;
+use Makhan\Component\Config\Definition\ArrayNode;
+use Makhan\Component\Config\Definition\EnumNode;
+use Makhan\Component\Config\Definition\PrototypedArrayNode;
 
 /**
  * Dumps a XML reference configuration for the given configuration/node instance.
@@ -103,20 +103,20 @@ class XmlReferenceDumper
                         $prototypeValue = $prototype->getDefaultValue();
                     } else {
                         switch (get_class($prototype)) {
-                            case 'Symfony\Component\Config\Definition\ScalarNode':
+                            case 'Makhan\Component\Config\Definition\ScalarNode':
                                 $prototypeValue = 'scalar value';
                                 break;
 
-                            case 'Symfony\Component\Config\Definition\FloatNode':
-                            case 'Symfony\Component\Config\Definition\IntegerNode':
+                            case 'Makhan\Component\Config\Definition\FloatNode':
+                            case 'Makhan\Component\Config\Definition\IntegerNode':
                                 $prototypeValue = 'numeric value';
                                 break;
 
-                            case 'Symfony\Component\Config\Definition\BooleanNode':
+                            case 'Makhan\Component\Config\Definition\BooleanNode':
                                 $prototypeValue = 'true|false';
                                 break;
 
-                            case 'Symfony\Component\Config\Definition\EnumNode':
+                            case 'Makhan\Component\Config\Definition\EnumNode':
                                 $prototypeValue = implode('|', array_map('json_encode', $prototype->getValues()));
                                 break;
 

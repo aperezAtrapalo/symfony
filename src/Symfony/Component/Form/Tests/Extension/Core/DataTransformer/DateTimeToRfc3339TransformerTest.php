@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToRfc3339Transformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToRfc3339Transformer;
 
 class DateTimeToRfc3339TransformerTest extends DateTimeTestCase
 {
@@ -90,7 +90,7 @@ class DateTimeToRfc3339TransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformRequiresValidDateTime()
     {
@@ -113,7 +113,7 @@ class DateTimeToRfc3339TransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformRequiresString()
     {
@@ -122,7 +122,7 @@ class DateTimeToRfc3339TransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNonExistingDate()
     {
@@ -132,7 +132,7 @@ class DateTimeToRfc3339TransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsValidDateString()
     {

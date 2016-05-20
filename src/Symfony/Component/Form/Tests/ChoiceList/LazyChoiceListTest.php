@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\ChoiceList;
+namespace Makhan\Component\Form\Tests\ChoiceList;
 
-use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\ChoiceList\LazyChoiceList;
+use Makhan\Component\Form\ChoiceList\ArrayChoiceList;
+use Makhan\Component\Form\ChoiceList\LazyChoiceList;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -38,8 +38,8 @@ class LazyChoiceListTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->loadedList = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
-        $this->loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $this->loadedList = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
+        $this->loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
         $this->value = function () {};
         $this->list = new LazyChoiceList($this->loader, $this->value);
     }

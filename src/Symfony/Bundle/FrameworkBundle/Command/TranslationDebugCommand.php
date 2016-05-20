@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Translation\Catalogue\MergeOperation;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Translator;
+use Makhan\Bundle\FrameworkBundle\Translation\TranslationLoader;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\Translation\Catalogue\MergeOperation;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Translator;
 
 /**
  * Helps finding unused or missing translation messages in a given locale
@@ -89,7 +89,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
 
         $locale = $input->getArgument('locale');
         $domain = $input->getOption('domain');

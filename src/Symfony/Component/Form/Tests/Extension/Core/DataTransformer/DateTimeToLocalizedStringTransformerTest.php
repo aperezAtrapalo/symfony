@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToLocalizedStringTransformer;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToLocalizedStringTransformer;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
 {
@@ -154,7 +154,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformRequiresValidDateTime()
     {
@@ -170,7 +170,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
 
         // HOW TO REPRODUCE?
 
-        //$this->setExpectedException('Symfony\Component\Form\Extension\Core\DataTransformer\TransformationFailedException');
+        //$this->setExpectedException('Makhan\Component\Form\Extension\Core\DataTransformer\TransformationFailedException');
 
         //$transformer->transform(1.5);
     }
@@ -235,7 +235,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformRequiresString()
     {
@@ -244,7 +244,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWrapsIntlErrors()
     {
@@ -253,7 +253,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testValidateDateFormatOption()
     {
@@ -261,7 +261,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testValidateTimeFormatOption()
     {
@@ -269,7 +269,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNonExistingDate()
     {
@@ -279,7 +279,7 @@ class DateTimeToLocalizedStringTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformOutOfTimestampRange()
     {

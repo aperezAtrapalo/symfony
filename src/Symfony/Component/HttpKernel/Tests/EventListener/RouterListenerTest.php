@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\EventListener\RouterListener;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\EventListener\RouterListener;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Routing\RequestContext;
 
 class RouterListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->requestStack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack', array(), array(), '', false);
+        $this->requestStack = $this->getMock('Makhan\Component\HttpFoundation\RequestStack', array(), array(), '', false);
     }
 
     /**
@@ -31,7 +31,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testPort($defaultHttpPort, $defaultHttpsPort, $uri, $expectedHttpPort, $expectedHttpsPort)
     {
-        $urlMatcher = $this->getMockBuilder('Symfony\Component\Routing\Matcher\UrlMatcherInterface')
+        $urlMatcher = $this->getMockBuilder('Makhan\Component\Routing\Matcher\UrlMatcherInterface')
                              ->disableOriginalConstructor()
                              ->getMock();
         $context = new RequestContext();
@@ -67,7 +67,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
      */
     private function createGetResponseEventForUri($uri)
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $request = Request::create($uri);
         $request->attributes->set('_controller', null); // Prevents going in to routing process
 
@@ -84,14 +84,14 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testRequestMatcher()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $request = Request::create('http://localhost/');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST);
 
-        $requestMatcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $requestMatcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $requestMatcher->expects($this->once())
                        ->method('matchRequest')
-                       ->with($this->isInstanceOf('Symfony\Component\HttpFoundation\Request'))
+                       ->with($this->isInstanceOf('Makhan\Component\HttpFoundation\Request'))
                        ->will($this->returnValue(array()));
 
         $listener = new RouterListener($requestMatcher, $this->requestStack, new RequestContext());
@@ -100,14 +100,14 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testSubRequestWithDifferentMethod()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $request = Request::create('http://localhost/', 'post');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST);
 
-        $requestMatcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $requestMatcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $requestMatcher->expects($this->any())
                        ->method('matchRequest')
-                       ->with($this->isInstanceOf('Symfony\Component\HttpFoundation\Request'))
+                       ->with($this->isInstanceOf('Makhan\Component\HttpFoundation\Request'))
                        ->will($this->returnValue(array()));
 
         $context = new RequestContext();
@@ -116,7 +116,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
         $listener->onKernelRequest($event);
 
         // sub-request with another HTTP method
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $request = Request::create('http://localhost/', 'get');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::SUB_REQUEST);
 
@@ -130,7 +130,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoggingParameter($parameter, $log, $parameters)
     {
-        $requestMatcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $requestMatcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $requestMatcher->expects($this->once())
           ->method('matchRequest')
           ->will($this->returnValue($parameter));
@@ -140,7 +140,7 @@ class RouterListenerTest extends \PHPUnit_Framework_TestCase
           ->method('info')
           ->with($this->equalTo($log), $this->equalTo($parameters));
 
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $request = Request::create('http://localhost/');
 
         $listener = new RouterListener($requestMatcher, $this->requestStack, new RequestContext(), $logger);

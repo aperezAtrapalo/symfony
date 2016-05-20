@@ -1,25 +1,25 @@
 {
-    "name": "symfony/finder",
+    "name": "makhan/finder",
     "type": "library",
-    "description": "Symfony Finder Component",
+    "description": "Makhan Finder Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Finder\\": "" },
+        "psr-4": { "Makhan\\Component\\Finder\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

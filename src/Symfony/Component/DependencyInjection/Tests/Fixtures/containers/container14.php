@@ -2,7 +2,7 @@
 
 namespace Container14;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 /*
  * This file is included in Tests\Dumper\GraphvizDumperTest::testDumpWithFrozenCustomClassContainer

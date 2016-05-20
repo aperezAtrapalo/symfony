@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Formatter;
+namespace Makhan\Component\Console\Tests\Formatter;
 
-use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Makhan\Component\Console\Formatter\OutputFormatterStyle;
 
 class OutputFormatterStyleTest extends \PHPUnit_Framework_TestCase
 {

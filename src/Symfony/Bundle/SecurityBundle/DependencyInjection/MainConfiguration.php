@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\DependencyInjection;
+namespace Makhan\Bundle\SecurityBundle\DependencyInjection;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory;
-use Symfony\Component\Security\Core\Authorization\AccessDecisionManager;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory;
+use Makhan\Component\Security\Core\Authorization\AccessDecisionManager;
+use Makhan\Component\Config\Definition\Builder\TreeBuilder;
+use Makhan\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Security\Http\Session\SessionAuthenticationStrategy;
 
 /**
  * This class contains the configuration information.

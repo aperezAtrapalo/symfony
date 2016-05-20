@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\DataCollector;
+namespace Makhan\Bundle\FrameworkBundle\DataCollector;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\DataCollector\RequestDataCollector as BaseRequestCollector;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\HttpFoundation\ParameterBag;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\DataCollector\RequestDataCollector as BaseRequestCollector;
+use Makhan\Component\HttpKernel\Event\FilterControllerEvent;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * RequestDataCollector.

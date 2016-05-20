@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache\Tests\Adapter;
+namespace Makhan\Component\Cache\Tests\Adapter;
 
 use Cache\IntegrationTests\CachePoolTest;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Cache\Adapter\ChainAdapter;
-use Symfony\Component\Cache\Tests\Fixtures\ExternalAdapter;
+use Makhan\Component\Cache\Adapter\FilesystemAdapter;
+use Makhan\Component\Cache\Adapter\ArrayAdapter;
+use Makhan\Component\Cache\Adapter\ChainAdapter;
+use Makhan\Component\Cache\Tests\Fixtures\ExternalAdapter;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -32,7 +32,7 @@ class ChainAdapterTest extends CachePoolTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Cache\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Cache\Exception\InvalidArgumentException
      * @expectedExceptionMessage At least one adapter must be specified.
      */
     public function testEmptyAdaptersException()
@@ -41,7 +41,7 @@ class ChainAdapterTest extends CachePoolTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Cache\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Cache\Exception\InvalidArgumentException
      * @expectedExceptionMessage The class "stdClass" does not implement
      */
     public function testInvalidAdapterException()

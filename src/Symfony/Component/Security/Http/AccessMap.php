@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http;
+namespace Makhan\Component\Security\Http;
 
-use Symfony\Component\HttpFoundation\RequestMatcherInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\RequestMatcherInterface;
+use Makhan\Component\HttpFoundation\Request;
 
 /**
  * AccessMap allows configuration of different access control rules for
  * specific parts of the website.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class AccessMap implements AccessMapInterface
 {

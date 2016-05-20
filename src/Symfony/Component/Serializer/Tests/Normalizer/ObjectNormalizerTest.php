@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
-use Symfony\Component\Serializer\Exception\UnexpectedValueException;
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Tests\Fixtures\CircularReferenceDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\SiblingHolder;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Tests\Fixtures\GroupDummy;
+use Makhan\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Makhan\Component\Serializer\Exception\UnexpectedValueException;
+use Makhan\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Makhan\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Makhan\Component\Serializer\Normalizer\ObjectNormalizer;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerInterface;
+use Makhan\Component\Serializer\Tests\Fixtures\CircularReferenceDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\SiblingHolder;
+use Makhan\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Makhan\Component\Serializer\Tests\Fixtures\GroupDummy;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -167,7 +167,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
         $obj->setFoo('foo');
         $obj->setBar('bar');
         $obj->setFooBar('fooBar');
-        $obj->setSymfony('symfony');
+        $obj->setMakhan('makhan');
         $obj->setKevin('kevin');
         $obj->setCoopTilleuls('coopTilleuls');
 
@@ -176,7 +176,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
         ), $this->normalizer->normalize($obj, null, array(ObjectNormalizer::GROUPS => array('c'))));
 
         $this->assertEquals(array(
-            'symfony' => 'symfony',
+            'makhan' => 'makhan',
             'foo' => 'foo',
             'fooBar' => 'fooBar',
             'bar' => 'bar',
@@ -198,7 +198,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(ObjectNormalizer::GROUPS => array('a'))
         );
@@ -208,7 +208,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(ObjectNormalizer::GROUPS => array('a', 'b'))
         );
@@ -235,14 +235,14 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
         $obj->setCoopTilleuls('les-tilleuls.coop');
 
         $this->assertEquals(
             array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
             ),
             $this->normalizer->normalize($obj, null, array(ObjectNormalizer::GROUPS => array('name_converter')))
         );
@@ -256,16 +256,16 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
 
         $this->assertEquals(
             $obj,
             $this->normalizer->denormalize(array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
                 'coop_tilleuls' => 'les-tilleuls.coop',
-            ), 'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(ObjectNormalizer::GROUPS => array('name_converter')))
+            ), 'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(ObjectNormalizer::GROUPS => array('name_converter')))
         );
     }
 
@@ -374,12 +374,12 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\LogicException
+     * @expectedException \Makhan\Component\Serializer\Exception\LogicException
      * @expectedExceptionMessage Cannot normalize attribute "object" because the injected serializer is not a normalizer
      */
     public function testUnableToNormalizeObjectAttribute()
     {
-        $serializer = $this->getMock('Symfony\Component\Serializer\SerializerInterface');
+        $serializer = $this->getMock('Makhan\Component\Serializer\SerializerInterface');
         $this->normalizer->setSerializer($serializer);
 
         $obj = new ObjectDummy();
@@ -390,7 +390,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\CircularReferenceException
+     * @expectedException \Makhan\Component\Serializer\Exception\CircularReferenceException
      */
     public function testUnableToNormalizeCircularReference()
     {
@@ -428,7 +428,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new CircularReferenceDummy();
 
-        $expected = array('me' => 'Symfony\Component\Serializer\Tests\Fixtures\CircularReferenceDummy');
+        $expected = array('me' => 'Makhan\Component\Serializer\Tests\Fixtures\CircularReferenceDummy');
         $this->assertEquals($expected, $this->normalizer->normalize($obj));
     }
 
@@ -503,7 +503,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testThrowUnexpectedValueException()
     {
@@ -523,7 +523,7 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException UnexpectedValueException
-     * @expectedExceptionMessage The type of the "date" attribute for class "Symfony\Component\Serializer\Tests\Normalizer\ObjectOuter" must be one of "DateTimeInterface" ("string" given).
+     * @expectedExceptionMessage The type of the "date" attribute for class "Makhan\Component\Serializer\Tests\Normalizer\ObjectOuter" must be one of "DateTimeInterface" ("string" given).
      */
     public function testRejectInvalidType()
     {

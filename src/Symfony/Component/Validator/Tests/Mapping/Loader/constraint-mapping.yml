@@ -1,20 +1,20 @@
 namespaces:
-  custom: Symfony\Component\Validator\Tests\Fixtures\
+  custom: Makhan\Component\Validator\Tests\Fixtures\
 
-Symfony\Component\Validator\Tests\Fixtures\Entity:
+Makhan\Component\Validator\Tests\Fixtures\Entity:
   group_sequence:
     - Foo
     - Entity
 
   constraints:
     # Custom constraint
-    - Symfony\Component\Validator\Tests\Fixtures\ConstraintA: ~
+    - Makhan\Component\Validator\Tests\Fixtures\ConstraintA: ~
     # Custom constraint with namespaces prefix
     - "custom:ConstraintB": ~
     # Callbacks
     - Callback: validateMe
     - Callback: validateMeStatic
-    - Callback: [Symfony\Component\Validator\Tests\Fixtures\CallbackClass, callback]
+    - Callback: [Makhan\Component\Validator\Tests\Fixtures\CallbackClass, callback]
 
   properties:
     firstName:
@@ -58,5 +58,5 @@ Symfony\Component\Validator\Tests\Fixtures\Entity:
     permissions:
       - "IsTrue": ~
 
-Symfony\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity:
+Makhan\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity:
   group_sequence_provider: true

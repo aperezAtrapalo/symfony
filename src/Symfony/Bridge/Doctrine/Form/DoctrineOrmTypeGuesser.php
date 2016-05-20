@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Form;
+namespace Makhan\Bridge\Doctrine\Form;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\ORM\Mapping\MappingException as LegacyMappingException;
-use Symfony\Component\Form\FormTypeGuesserInterface;
-use Symfony\Component\Form\Guess\Guess;
-use Symfony\Component\Form\Guess\TypeGuess;
-use Symfony\Component\Form\Guess\ValueGuess;
+use Makhan\Component\Form\FormTypeGuesserInterface;
+use Makhan\Component\Form\Guess\Guess;
+use Makhan\Component\Form\Guess\TypeGuess;
+use Makhan\Component\Form\Guess\ValueGuess;
 use Doctrine\Common\Util\ClassUtils;
 
 class DoctrineOrmTypeGuesser implements FormTypeGuesserInterface
@@ -39,7 +39,7 @@ class DoctrineOrmTypeGuesser implements FormTypeGuesserInterface
     public function guessType($class, $property)
     {
         if (!$ret = $this->getMetadata($class)) {
-            return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\TextType', array(), Guess::LOW_CONFIDENCE);
+            return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\TextType', array(), Guess::LOW_CONFIDENCE);
         }
 
         list($metadata, $name) = $ret;
@@ -48,35 +48,35 @@ class DoctrineOrmTypeGuesser implements FormTypeGuesserInterface
             $multiple = $metadata->isCollectionValuedAssociation($property);
             $mapping = $metadata->getAssociationMapping($property);
 
-            return new TypeGuess('Symfony\Bridge\Doctrine\Form\Type\EntityType', array('em' => $name, 'class' => $mapping['targetEntity'], 'multiple' => $multiple), Guess::HIGH_CONFIDENCE);
+            return new TypeGuess('Makhan\Bridge\Doctrine\Form\Type\EntityType', array('em' => $name, 'class' => $mapping['targetEntity'], 'multiple' => $multiple), Guess::HIGH_CONFIDENCE);
         }
 
         switch ($metadata->getTypeOfField($property)) {
             case Type::TARRAY:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\CollectionType', array(), Guess::MEDIUM_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\CollectionType', array(), Guess::MEDIUM_CONFIDENCE);
             case Type::BOOLEAN:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\CheckboxType', array(), Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\CheckboxType', array(), Guess::HIGH_CONFIDENCE);
             case Type::DATETIME:
             case Type::DATETIMETZ:
             case 'vardatetime':
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\DateTimeType', array(), Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\DateTimeType', array(), Guess::HIGH_CONFIDENCE);
             case Type::DATE:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\DateType', array(), Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\DateType', array(), Guess::HIGH_CONFIDENCE);
             case Type::TIME:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\TimeType', array(), Guess::HIGH_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\TimeType', array(), Guess::HIGH_CONFIDENCE);
             case Type::DECIMAL:
             case Type::FLOAT:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\NumberType', array(), Guess::MEDIUM_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\NumberType', array(), Guess::MEDIUM_CONFIDENCE);
             case Type::INTEGER:
             case Type::BIGINT:
             case Type::SMALLINT:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\IntegerType', array(), Guess::MEDIUM_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\IntegerType', array(), Guess::MEDIUM_CONFIDENCE);
             case Type::STRING:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\TextType', array(), Guess::MEDIUM_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\TextType', array(), Guess::MEDIUM_CONFIDENCE);
             case Type::TEXT:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\TextareaType', array(), Guess::MEDIUM_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\TextareaType', array(), Guess::MEDIUM_CONFIDENCE);
             default:
-                return new TypeGuess('Symfony\Component\Form\Extension\Core\Type\TextType', array(), Guess::LOW_CONFIDENCE);
+                return new TypeGuess('Makhan\Component\Form\Extension\Core\Type\TextType', array(), Guess::LOW_CONFIDENCE);
         }
     }
 

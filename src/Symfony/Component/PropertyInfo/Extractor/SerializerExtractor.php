@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Extractor;
+namespace Makhan\Component\PropertyInfo\Extractor;
 
-use Symfony\Component\PropertyInfo\PropertyListExtractorInterface;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
+use Makhan\Component\PropertyInfo\PropertyListExtractorInterface;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
 
 /**
- * Lists available properties using Symfony Serializer Component metadata.
+ * Lists available properties using Makhan Serializer Component metadata.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

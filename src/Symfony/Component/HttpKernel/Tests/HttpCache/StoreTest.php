@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\HttpCache;
+namespace Makhan\Component\HttpKernel\Tests\HttpCache;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpCache\Store;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpCache\Store;
 
 class StoreTest extends \PHPUnit_Framework_TestCase
 {
@@ -98,7 +98,7 @@ class StoreTest extends \PHPUnit_Framework_TestCase
         $response = $this->store->lookup($this->request);
 
         $this->assertNotNull($response);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Response', $response);
     }
 
     public function testDoesNotFindAnEntryWithLookupWhenNoneExists()
@@ -147,7 +147,7 @@ class StoreTest extends \PHPUnit_Framework_TestCase
         $this->storeSimpleEntry();
         $this->store->invalidate($this->request);
         $response = $this->store->lookup($this->request);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Response', $response);
         $this->assertFalse($response->isFresh());
     }
 

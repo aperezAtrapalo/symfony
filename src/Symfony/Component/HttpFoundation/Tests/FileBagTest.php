@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\FileBag;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\HttpFoundation\FileBag;
 
 /**
  * FileBagTest.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Bulat Shakirzyanov <mallluhuct@gmail.com>
  */
 class FileBagTest extends \PHPUnit_Framework_TestCase

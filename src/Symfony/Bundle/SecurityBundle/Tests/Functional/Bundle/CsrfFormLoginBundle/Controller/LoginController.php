@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Controller;
+namespace Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareTrait;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Security\Core\Exception\AccessDeniedException;
 
 class LoginController implements ContainerAwareInterface
 {
@@ -22,7 +22,7 @@ class LoginController implements ContainerAwareInterface
 
     public function loginAction()
     {
-        $form = $this->container->get('form.factory')->create('Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType');
+        $form = $this->container->get('form.factory')->create('Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType');
 
         return $this->container->get('templating')->renderResponse('CsrfFormLoginBundle:Login:login.html.twig', array(
             'form' => $form->createView(),

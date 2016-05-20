@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess;
+namespace Makhan\Component\PropertyAccess;
 
-use Symfony\Component\Inflector\Inflector;
+use Makhan\Component\Inflector\Inflector;
 
 /**
  * Creates singulars from plurals.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
- * @deprecated Deprecated since version 3.1, to be removed in 4.0. Use {@see Symfony\Component\Inflector\Inflector} instead.
+ * @deprecated Deprecated since version 3.1, to be removed in 4.0. Use {@see Makhan\Component\Inflector\Inflector} instead.
  */
 class StringUtil
 {
@@ -40,11 +40,11 @@ class StringUtil
      * @return string|array The singular form or an array of possible singular
      *                      forms
      *
-     * @deprecated Deprecated since version 3.1, to be removed in 4.0. Use {@see Symfony\Component\Inflector\Inflector::singularize} instead.
+     * @deprecated Deprecated since version 3.1, to be removed in 4.0. Use {@see Makhan\Component\Inflector\Inflector::singularize} instead.
      */
     public static function singularify($plural)
     {
-        @trigger_error('StringUtil::singularify() is deprecated since version 3.1 and will be removed in 4.0. Use Symfony\Component\Inflector\Inflector::singularize instead.', E_USER_DEPRECATED);
+        @trigger_error('StringUtil::singularify() is deprecated since version 3.1 and will be removed in 4.0. Use Makhan\Component\Inflector\Inflector::singularize instead.', E_USER_DEPRECATED);
 
         return Inflector::singularize($plural);
     }

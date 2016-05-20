@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\NumberFormatter;
+namespace Makhan\Component\Intl\NumberFormatter;
 
-use Symfony\Component\Intl\Exception\NotImplementedException;
-use Symfony\Component\Intl\Exception\MethodNotImplementedException;
-use Symfony\Component\Intl\Exception\MethodArgumentNotImplementedException;
-use Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException;
-use Symfony\Component\Intl\Globals\IntlGlobals;
-use Symfony\Component\Intl\Intl;
-use Symfony\Component\Intl\Locale\Locale;
+use Makhan\Component\Intl\Exception\NotImplementedException;
+use Makhan\Component\Intl\Exception\MethodNotImplementedException;
+use Makhan\Component\Intl\Exception\MethodArgumentNotImplementedException;
+use Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException;
+use Makhan\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\Intl;
+use Makhan\Component\Intl\Locale\Locale;
 
 /**
  * Replacement for PHP's native {@link \NumberFormatter} class.

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler\Tests\Field;
+namespace Makhan\Component\DomCrawler\Tests\Field;
 
-use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use Makhan\Component\DomCrawler\Field\TextareaFormField;
 
 class TextareaFormFieldTest extends FormFieldTestCase
 {

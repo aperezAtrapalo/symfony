@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Dumper;
+namespace Makhan\Component\Translation\Dumper;
 
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Util\ArrayConverter;
-use Symfony\Component\Yaml\Yaml;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Util\ArrayConverter;
+use Makhan\Component\Yaml\Yaml;
 
 /**
  * YamlFileDumper generates yaml files from a message catalogue.
@@ -27,8 +27,8 @@ class YamlFileDumper extends FileDumper
      */
     public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = array())
     {
-        if (!class_exists('Symfony\Component\Yaml\Yaml')) {
-            throw new \LogicException('Dumping translations in the YAML format requires the Symfony Yaml component.');
+        if (!class_exists('Makhan\Component\Yaml\Yaml')) {
+            throw new \LogicException('Dumping translations in the YAML format requires the Makhan Yaml component.');
         }
 
         $data = $messages->all($domain);

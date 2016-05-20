@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Style\StyleInterface;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Console\Helper\Table;
+use Makhan\Component\Console\Style\StyleInterface;
+use Makhan\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
  * A console command for dumping available configuration reference.

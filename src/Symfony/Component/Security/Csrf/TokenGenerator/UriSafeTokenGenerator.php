@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Csrf\TokenGenerator;
+namespace Makhan\Component\Security\Csrf\TokenGenerator;
 
 /**
  * Generates CSRF tokens.
  *
  * @since  2.4
  *
- * @author Bernhard Schussek <bernhard.schussek@symfony.com>
+ * @author Bernhard Schussek <bernhard.schussek@makhan.com>
  */
 class UriSafeTokenGenerator implements TokenGeneratorInterface
 {

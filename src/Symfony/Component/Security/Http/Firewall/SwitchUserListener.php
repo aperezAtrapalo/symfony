@@ -1,40 +1,40 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use Makhan\Component\Security\Core\Exception\AccessDeniedException;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Core\User\UserCheckerInterface;
+use Makhan\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Role\SwitchUserRole;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Http\Event\SwitchUserEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\HttpFoundation\RedirectResponse;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\Role\SwitchUserRole;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Http\Event\SwitchUserEvent;
+use Makhan\Component\Security\Http\SecurityEvents;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * SwitchUserListener allows a user to impersonate another one temporarily
  * (like the Unix su command).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class SwitchUserListener implements ListenerInterface
 {

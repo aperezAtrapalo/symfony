@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Loader;
+namespace Makhan\Component\Routing\Loader;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Parser as YamlParser;
-use Symfony\Component\Config\Loader\FileLoader;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Yaml\Exception\ParseException;
+use Makhan\Component\Yaml\Parser as YamlParser;
+use Makhan\Component\Config\Loader\FileLoader;
 
 /**
  * YamlFileLoader loads Yaml routing files.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 class YamlFileLoader extends FileLoader

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DataCollector;
+namespace Makhan\Component\HttpKernel\Tests\DataCollector;
 
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\Debug\Exception\FlattenException;
+use Makhan\Component\HttpKernel\DataCollector\ExceptionDataCollector;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 class ExceptionDataCollectorTest extends \PHPUnit_Framework_TestCase
 {

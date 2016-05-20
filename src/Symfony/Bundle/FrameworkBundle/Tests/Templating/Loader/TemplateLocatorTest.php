@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating\Loader;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating\Loader;
 
-use Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateReference;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
 
 class TemplateLocatorTest extends TestCase
 {
@@ -75,7 +75,7 @@ class TemplateLocatorTest extends TestCase
     protected function getFileLocator()
     {
         return $this
-            ->getMockBuilder('Symfony\Component\Config\FileLocator')
+            ->getMockBuilder('Makhan\Component\Config\FileLocator')
             ->setMethods(array('locate'))
             ->setConstructorArgs(array('/path/to/fallback'))
             ->getMock()

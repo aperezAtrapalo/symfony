@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests\FatalErrorHandler;
+namespace Makhan\Component\Debug\Tests\FatalErrorHandler;
 
-use Symfony\Component\Debug\Exception\FatalErrorException;
-use Symfony\Component\Debug\FatalErrorHandler\UndefinedFunctionFatalErrorHandler;
+use Makhan\Component\Debug\Exception\FatalErrorException;
+use Makhan\Component\Debug\FatalErrorHandler\UndefinedFunctionFatalErrorHandler;
 
 class UndefinedFunctionFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,7 @@ class UndefinedFunctionFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $handler = new UndefinedFunctionFatalErrorHandler();
         $exception = $handler->handleError($error, new FatalErrorException('', 0, $error['type'], $error['file'], $error['line']));
 
-        $this->assertInstanceOf('Symfony\Component\Debug\Exception\UndefinedFunctionException', $exception);
+        $this->assertInstanceOf('Makhan\Component\Debug\Exception\UndefinedFunctionException', $exception);
         // class names are case insensitive and PHP/HHVM do not return the same
         $this->assertSame(strtolower($translatedMessage), strtolower($exception->getMessage()));
         $this->assertSame($error['type'], $exception->getSeverity());
@@ -42,7 +42,7 @@ class UndefinedFunctionFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Call to undefined function test_namespaced_function()',
                 ),
-                "Attempted to call function \"test_namespaced_function\" from the global namespace.\nDid you mean to call \"\\symfony\\component\\debug\\tests\\fatalerrorhandler\\test_namespaced_function\"?",
+                "Attempted to call function \"test_namespaced_function\" from the global namespace.\nDid you mean to call \"\\makhan\\component\\debug\\tests\\fatalerrorhandler\\test_namespaced_function\"?",
             ),
             array(
                 array(
@@ -51,7 +51,7 @@ class UndefinedFunctionFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Call to undefined function Foo\\Bar\\Baz\\test_namespaced_function()',
                 ),
-                "Attempted to call function \"test_namespaced_function\" from namespace \"Foo\\Bar\\Baz\".\nDid you mean to call \"\\symfony\\component\\debug\\tests\\fatalerrorhandler\\test_namespaced_function\"?",
+                "Attempted to call function \"test_namespaced_function\" from namespace \"Foo\\Bar\\Baz\".\nDid you mean to call \"\\makhan\\component\\debug\\tests\\fatalerrorhandler\\test_namespaced_function\"?",
             ),
             array(
                 array(

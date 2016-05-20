@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\ProxyManager\LazyProxy\Instantiator;
+namespace Makhan\Bridge\ProxyManager\LazyProxy\Instantiator;
 
 use ProxyManager\Configuration;
 use ProxyManager\Factory\LazyLoadingValueHolderFactory;
 use ProxyManager\GeneratorStrategy\EvaluatingGeneratorStrategy;
 use ProxyManager\Proxy\LazyLoadingInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\InstantiatorInterface;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\LazyProxy\Instantiator\InstantiatorInterface;
 
 /**
  * Runtime lazy loading proxy generator.

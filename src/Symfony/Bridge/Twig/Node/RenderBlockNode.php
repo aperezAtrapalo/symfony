@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Node;
+namespace Makhan\Bridge\Twig\Node;
 
 /**
- * Compiles a call to {@link \Symfony\Component\Form\FormRendererInterface::renderBlock()}.
+ * Compiles a call to {@link \Makhan\Component\Form\FormRendererInterface::renderBlock()}.
  *
  * The function name is used as block name. For example, if the function name
  * is "foo", the block "foo" will be rendered.

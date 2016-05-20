@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Loader;
+namespace Makhan\Component\Translation\Loader;
 
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Exception\InvalidResourceException;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Exception\InvalidResourceException;
+use Makhan\Component\Translation\Exception\NotFoundResourceException;
 
 /**
  * LoaderInterface is the interface implemented by all translation loaders.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 interface LoaderInterface
 {

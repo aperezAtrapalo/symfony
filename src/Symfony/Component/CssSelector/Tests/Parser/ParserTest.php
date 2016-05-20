@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\Tests\Parser;
+namespace Makhan\Component\CssSelector\Tests\Parser;
 
-use Symfony\Component\CssSelector\Exception\SyntaxErrorException;
-use Symfony\Component\CssSelector\Node\FunctionNode;
-use Symfony\Component\CssSelector\Node\SelectorNode;
-use Symfony\Component\CssSelector\Parser\Parser;
-use Symfony\Component\CssSelector\Parser\Token;
+use Makhan\Component\CssSelector\Exception\SyntaxErrorException;
+use Makhan\Component\CssSelector\Node\FunctionNode;
+use Makhan\Component\CssSelector\Node\SelectorNode;
+use Makhan\Component\CssSelector\Parser\Parser;
+use Makhan\Component\CssSelector\Parser\Token;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -88,7 +88,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
         /** @var FunctionNode $function */
         $function = $selectors[0]->getTree();
-        $this->setExpectedException('Symfony\Component\CssSelector\Exception\SyntaxErrorException');
+        $this->setExpectedException('Makhan\Component\CssSelector\Exception\SyntaxErrorException');
         Parser::parseSeries($function->getArguments());
     }
 

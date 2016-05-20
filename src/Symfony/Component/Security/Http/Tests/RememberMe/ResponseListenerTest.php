@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\RememberMe;
+namespace Makhan\Component\Security\Http\Tests\RememberMe;
 
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\Security\Http\RememberMe\ResponseListener;
-use Symfony\Component\Security\Http\RememberMe\RememberMeServicesInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Cookie;
-use Symfony\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\Security\Http\RememberMe\ResponseListener;
+use Makhan\Component\Security\Http\RememberMe\RememberMeServicesInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Cookie;
+use Makhan\Component\HttpKernel\KernelEvents;
 
 class ResponseListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -81,15 +81,15 @@ class ResponseListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getResponse()
     {
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
-        $response->headers = $this->getMock('Symfony\Component\HttpFoundation\ResponseHeaderBag');
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
+        $response->headers = $this->getMock('Makhan\Component\HttpFoundation\ResponseHeaderBag');
 
         return $response;
     }
 
     private function getEvent($request, $response, $type = HttpKernelInterface::MASTER_REQUEST)
     {
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\FilterResponseEvent')
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\FilterResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 

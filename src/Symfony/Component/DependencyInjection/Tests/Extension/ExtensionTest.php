@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Extension;
+namespace Makhan\Component\DependencyInjection\Tests\Extension;
 
 class ExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,12 +18,12 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsConfigEnabledReturnsTheResolvedValue($enabled)
     {
-        $pb = $this->getMockBuilder('Symfony\Component\DependencyInjection\ParameterBag\ParameterBag')
+        $pb = $this->getMockBuilder('Makhan\Component\DependencyInjection\ParameterBag\ParameterBag')
             ->setMethods(array('resolveValue'))
             ->getMock()
         ;
 
-        $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')
+        $container = $this->getMockBuilder('Makhan\Component\DependencyInjection\ContainerBuilder')
             ->setMethods(array('getParameterBag'))
             ->getMock()
         ;
@@ -39,12 +39,12 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($pb))
         ;
 
-        $extension = $this->getMockBuilder('Symfony\Component\DependencyInjection\Extension\Extension')
+        $extension = $this->getMockBuilder('Makhan\Component\DependencyInjection\Extension\Extension')
             ->setMethods(array())
             ->getMockForAbstractClass()
         ;
 
-        $r = new \ReflectionMethod('Symfony\Component\DependencyInjection\Extension\Extension', 'isConfigEnabled');
+        $r = new \ReflectionMethod('Makhan\Component\DependencyInjection\Extension\Extension', 'isConfigEnabled');
         $r->setAccessible(true);
 
         $r->invoke($extension, $container, array('enabled' => $enabled));
@@ -59,21 +59,21 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessage The config array has no 'enabled' key.
      */
     public function testIsConfigEnabledOnNonEnableableConfig()
     {
-        $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')
+        $container = $this->getMockBuilder('Makhan\Component\DependencyInjection\ContainerBuilder')
             ->getMock()
         ;
 
-        $extension = $this->getMockBuilder('Symfony\Component\DependencyInjection\Extension\Extension')
+        $extension = $this->getMockBuilder('Makhan\Component\DependencyInjection\Extension\Extension')
             ->setMethods(array())
             ->getMockForAbstractClass()
         ;
 
-        $r = new \ReflectionMethod('Symfony\Component\DependencyInjection\Extension\Extension', 'isConfigEnabled');
+        $r = new \ReflectionMethod('Makhan\Component\DependencyInjection\Extension\Extension', 'isConfigEnabled');
         $r->setAccessible(true);
 
         $r->invoke($extension, $container, array());

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
 /**
  * @author Stepan Anchugov <kixxx1@gmail.com>
@@ -17,17 +17,17 @@ namespace Symfony\Component\Form\Tests\Extension\Core\Type;
 class BirthdayTypeTest extends BaseTypeTest
 {
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testSetInvalidYearsOption()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\BirthdayType', null, array(
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\BirthdayType', null, array(
             'years' => 'bad value',
         ));
     }
 
     protected function getTestedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\BirthdayType';
+        return 'Makhan\Component\Form\Extension\Core\Type\BirthdayType';
     }
 }

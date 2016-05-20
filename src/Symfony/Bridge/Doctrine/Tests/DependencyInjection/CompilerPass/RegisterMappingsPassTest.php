@@ -1,10 +1,10 @@
 <?php
 
-namespace Symfony\Bridge\Doctrine\Tests\DependencyInjection\CompilerPass;
+namespace Makhan\Bridge\Doctrine\Tests\DependencyInjection\CompilerPass;
 
-use Symfony\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterMappingsPass;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterMappingsPass;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class RegisterMappingsPassTest extends \PHPUnit_Framework_TestCase
 {

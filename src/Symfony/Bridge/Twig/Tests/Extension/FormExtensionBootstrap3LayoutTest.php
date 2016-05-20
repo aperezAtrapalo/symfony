@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\FormExtension;
-use Symfony\Bridge\Twig\Form\TwigRenderer;
-use Symfony\Bridge\Twig\Form\TwigRendererEngine;
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
-use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Tests\AbstractBootstrap3LayoutTest;
+use Makhan\Bridge\Twig\Extension\FormExtension;
+use Makhan\Bridge\Twig\Form\TwigRenderer;
+use Makhan\Bridge\Twig\Form\TwigRendererEngine;
+use Makhan\Bridge\Twig\Extension\TranslationExtension;
+use Makhan\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
+use Makhan\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Tests\AbstractBootstrap3LayoutTest;
 
 class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
 {
@@ -35,7 +35,7 @@ class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
             'bootstrap_3_layout.html.twig',
             'custom_widgets.html.twig',
         ));
-        $renderer = new TwigRenderer($rendererEngine, $this->getMock('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface'));
+        $renderer = new TwigRenderer($rendererEngine, $this->getMock('Makhan\Component\Security\Csrf\CsrfTokenManagerInterface'));
 
         $this->extension = new FormExtension($renderer);
 
@@ -60,7 +60,7 @@ class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
 
     public function testStartTagHasNoActionAttributeWhenActionIsEmpty()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '',
         ));
@@ -72,7 +72,7 @@ class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
 
     public function testStartTagHasActionAttributeWhenActionIsZero()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '0',
         ));

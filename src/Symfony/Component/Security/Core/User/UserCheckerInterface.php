@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\User;
+namespace Makhan\Component\Security\Core\User;
 
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
+use Makhan\Component\Security\Core\Exception\AccountStatusException;
 
 /**
  * Implement to throw AccountStatusException during the authentication process.
@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\Exception\AccountStatusException;
  * Can be used when you want to check the account status, e.g when the account is
  * disabled or blocked. This should not be used to make authentication decisions.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 interface UserCheckerInterface
 {

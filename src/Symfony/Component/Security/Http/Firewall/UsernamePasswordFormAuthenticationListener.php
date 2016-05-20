@@ -1,38 +1,38 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
-use Symfony\Component\Security\Http\ParameterBagUtils;
-use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategyInterface;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Security\Csrf\CsrfToken;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
+use Makhan\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Makhan\Component\Security\Http\ParameterBagUtils;
+use Makhan\Component\Security\Http\Session\SessionAuthenticationStrategyInterface;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\Security\Core\Exception\InvalidCsrfTokenException;
+use Makhan\Component\Security\Core\Security;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * UsernamePasswordFormAuthenticationListener is the default implementation of
  * an authentication via a simple form composed of a username and a password.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class UsernamePasswordFormAuthenticationListener extends AbstractAuthenticationListener
 {

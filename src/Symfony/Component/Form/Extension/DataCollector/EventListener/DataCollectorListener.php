@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DataCollector\EventListener;
+namespace Makhan\Component\Form\Extension\DataCollector\EventListener;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\FormEvents;
 
 /**
  * Listener that invokes a data collector for the {@link FormEvents::POST_SET_DATA}

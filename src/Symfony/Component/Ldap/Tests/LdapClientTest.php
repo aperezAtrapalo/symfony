@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap\Tests;
+namespace Makhan\Component\Ldap\Tests;
 
-use Symfony\Component\Ldap\Adapter\CollectionInterface;
-use Symfony\Component\Ldap\Adapter\QueryInterface;
-use Symfony\Component\Ldap\Entry;
-use Symfony\Component\Ldap\LdapClient;
-use Symfony\Component\Ldap\LdapInterface;
+use Makhan\Component\Ldap\Adapter\CollectionInterface;
+use Makhan\Component\Ldap\Adapter\QueryInterface;
+use Makhan\Component\Ldap\Entry;
+use Makhan\Component\Ldap\LdapClient;
+use Makhan\Component\Ldap\LdapInterface;
 
 /**
  * @group legacy

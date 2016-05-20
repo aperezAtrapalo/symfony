@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Node;
+namespace Makhan\Bridge\Twig\Tests\Node;
 
-use Symfony\Bridge\Twig\Node\SearchAndRenderBlockNode;
+use Makhan\Bridge\Twig\Node\SearchAndRenderBlockNode;
 
 class SearchAndRenderBlockNodeTest extends \PHPUnit_Framework_TestCase
 {
@@ -157,7 +157,7 @@ class SearchAndRenderBlockNodeTest extends \PHPUnit_Framework_TestCase
 
         // "label" => null must not be included in the output!
         // Otherwise the default label is overwritten with null.
-        // https://github.com/symfony/symfony/issues/5029
+        // https://github.com/makhan/makhan/issues/5029
         $this->assertEquals(
             sprintf(
                 '$this->env->getExtension(\'form\')->renderer->searchAndRenderBlock(%s, \'label\', array("foo" => "bar"))',
@@ -214,7 +214,7 @@ class SearchAndRenderBlockNodeTest extends \PHPUnit_Framework_TestCase
 
         // "label" => null must not be included in the output!
         // Otherwise the default label is overwritten with null.
-        // https://github.com/symfony/symfony/issues/5029
+        // https://github.com/makhan/makhan/issues/5029
         $this->assertEquals(
             sprintf(
                 '$this->env->getExtension(\'form\')->renderer->searchAndRenderBlock(%s, \'label\', (twig_test_empty($_label_ = ((true) ? (null) : (null))) ? array() : array("label" => $_label_)))',
@@ -251,7 +251,7 @@ class SearchAndRenderBlockNodeTest extends \PHPUnit_Framework_TestCase
 
         // "label" => null must not be included in the output!
         // Otherwise the default label is overwritten with null.
-        // https://github.com/symfony/symfony/issues/5029
+        // https://github.com/makhan/makhan/issues/5029
         $this->assertEquals(
             sprintf(
                 '$this->env->getExtension(\'form\')->renderer->searchAndRenderBlock(%s, \'label\', array("foo" => "bar", "label" => "value in attributes") + (twig_test_empty($_label_ = ((true) ? (null) : (null))) ? array() : array("label" => $_label_)))',

@@ -1,10 +1,10 @@
 <?php
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Routing;
 
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
-use Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader;
-use Symfony\Component\Config\Loader\LoaderResolver;
+use Makhan\Bundle\FrameworkBundle\Controller\ControllerNameParser;
+use Makhan\Bundle\FrameworkBundle\Routing\DelegatingLoader;
+use Makhan\Component\Config\Loader\LoaderResolver;
 
 class DelegatingLoaderTest extends \PHPUnit_Framework_TestCase
 {

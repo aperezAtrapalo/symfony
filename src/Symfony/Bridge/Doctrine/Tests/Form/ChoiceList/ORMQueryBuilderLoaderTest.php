@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form\ChoiceList;
+namespace Makhan\Bridge\Doctrine\Tests\Form\ChoiceList;
 
-use Symfony\Bridge\Doctrine\Form\ChoiceList\ORMQueryBuilderLoader;
-use Symfony\Bridge\Doctrine\Test\DoctrineTestHelper;
+use Makhan\Bridge\Doctrine\Form\ChoiceList\ORMQueryBuilderLoader;
+use Makhan\Bridge\Doctrine\Test\DoctrineTestHelper;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Version;
 
@@ -20,12 +20,12 @@ class ORMQueryBuilderLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testIdentifierTypeIsStringArray()
     {
-        $this->checkIdentifierType('Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity', Connection::PARAM_STR_ARRAY);
+        $this->checkIdentifierType('Makhan\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity', Connection::PARAM_STR_ARRAY);
     }
 
     public function testIdentifierTypeIsIntegerArray()
     {
-        $this->checkIdentifierType('Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity', Connection::PARAM_INT_ARRAY);
+        $this->checkIdentifierType('Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity', Connection::PARAM_INT_ARRAY);
     }
 
     protected function checkIdentifierType($classname, $expectedType)
@@ -80,7 +80,7 @@ class ORMQueryBuilderLoaderTest extends \PHPUnit_Framework_TestCase
             ->willReturn($query);
 
         $qb->select('e')
-            ->from('Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity', 'e');
+            ->from('Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity', 'e');
 
         $loader = new ORMQueryBuilderLoader($qb);
         $loader->getEntitiesByIds('id', array(1, '', 2, 3, 'foo'));
@@ -114,7 +114,7 @@ class ORMQueryBuilderLoaderTest extends \PHPUnit_Framework_TestCase
             ->willReturn($query);
 
         $qb->select('e')
-            ->from('Symfony\Bridge\Doctrine\Tests\Fixtures\EmbeddedIdentifierEntity', 'e');
+            ->from('Makhan\Bridge\Doctrine\Tests\Fixtures\EmbeddedIdentifierEntity', 'e');
 
         $loader = new ORMQueryBuilderLoader($qb);
         $loader->getEntitiesByIds('id.value', array(1, '', 2, 3, 'foo'));

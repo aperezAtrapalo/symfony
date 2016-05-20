@@ -9,9 +9,9 @@
 | Scheme       | http|https                                              |
 | Method       | GET|HEAD                                                |
 | Requirements | name: [a-z]+                                            |
-| Class        | Symfony\Component\Routing\Route                         |
+| Class        | Makhan\Component\Routing\Route                         |
 | Defaults     | name: Joseph                                            |
-| Options      | compiler_class: Symfony\Component\Routing\RouteCompiler |
+| Options      | compiler_class: Makhan\Component\Routing\RouteCompiler |
 |              | opt1: val1                                              |
 |              | opt2: val2                                              |
 +--------------+---------------------------------------------------------+

@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Console;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Console;
 
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\Console\Tester\ApplicationTester;
+use Makhan\Bundle\FrameworkBundle\Console\Application;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Output\NullOutput;
+use Makhan\Component\Console\Tester\ApplicationTester;
 
 class ApplicationTest extends TestCase
 {
     public function testBundleInterfaceImplementation()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\BundleInterface');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\BundleInterface');
 
         $kernel = $this->getKernel(array($bundle), true);
 
@@ -32,7 +32,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleCommandsAreRegistered()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())->method('registerCommands');
 
         $kernel = $this->getKernel(array($bundle), true);
@@ -46,7 +46,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleCommandsAreRetrievable()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())->method('registerCommands');
 
         $kernel = $this->getKernel(array($bundle));
@@ -60,7 +60,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleSingleCommandIsRetrievable()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())->method('registerCommands');
 
         $kernel = $this->getKernel(array($bundle));
@@ -75,7 +75,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleCommandCanBeFound()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())->method('registerCommands');
 
         $kernel = $this->getKernel(array($bundle));
@@ -90,7 +90,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleCommandCanBeFoundByAlias()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())->method('registerCommands');
 
         $kernel = $this->getKernel(array($bundle));
@@ -106,7 +106,7 @@ class ApplicationTest extends TestCase
 
     public function testBundleCommandsHaveRightContainer()
     {
-        $command = $this->getMockForAbstractClass('Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand', array('foo'), '', true, true, true, array('setContainer'));
+        $command = $this->getMockForAbstractClass('Makhan\Bundle\FrameworkBundle\Command\ContainerAwareCommand', array('foo'), '', true, true, true, array('setContainer'));
         $command->setCode(function () {});
         $command->expects($this->exactly(2))->method('setContainer');
 
@@ -125,10 +125,10 @@ class ApplicationTest extends TestCase
 
     private function getKernel(array $bundles, $useDispatcher = false)
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
 
         if ($useDispatcher) {
-            $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+            $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
             $dispatcher
                 ->expects($this->atLeastOnce())
                 ->method('dispatch')
@@ -153,7 +153,7 @@ class ApplicationTest extends TestCase
             ->will($this->returnValue(array()))
         ;
 
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
         $kernel
             ->expects($this->any())
             ->method('getBundles')

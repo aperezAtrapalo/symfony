@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating\Helper;
 
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Extension\Templating\TemplatingExtension;
-use Symfony\Component\Form\Tests\AbstractTableLayoutTest;
-use Symfony\Bundle\FrameworkBundle\Tests\Templating\Helper\Fixtures\StubTemplateNameParser;
-use Symfony\Bundle\FrameworkBundle\Tests\Templating\Helper\Fixtures\StubTranslator;
-use Symfony\Component\Templating\PhpEngine;
-use Symfony\Component\Templating\Loader\FilesystemLoader;
-use Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Extension\Templating\TemplatingExtension;
+use Makhan\Component\Form\Tests\AbstractTableLayoutTest;
+use Makhan\Bundle\FrameworkBundle\Tests\Templating\Helper\Fixtures\StubTemplateNameParser;
+use Makhan\Bundle\FrameworkBundle\Tests\Templating\Helper\Fixtures\StubTranslator;
+use Makhan\Component\Templating\PhpEngine;
+use Makhan\Component\Templating\Loader\FilesystemLoader;
+use Makhan\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper;
 
 class FormHelperTableLayoutTest extends AbstractTableLayoutTest
 {
@@ -29,7 +29,7 @@ class FormHelperTableLayoutTest extends AbstractTableLayoutTest
 
     public function testStartTagHasNoActionAttributeWhenActionIsEmpty()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '',
         ));
@@ -41,7 +41,7 @@ class FormHelperTableLayoutTest extends AbstractTableLayoutTest
 
     public function testStartTagHasActionAttributeWhenActionIsZero()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '0',
         ));
@@ -55,7 +55,7 @@ class FormHelperTableLayoutTest extends AbstractTableLayoutTest
     {
         // should be moved to the Form component once absolute file paths are supported
         // by the default name parser in the Templating component
-        $reflClass = new \ReflectionClass('Symfony\Bundle\FrameworkBundle\FrameworkBundle');
+        $reflClass = new \ReflectionClass('Makhan\Bundle\FrameworkBundle\FrameworkBundle');
         $root = realpath(dirname($reflClass->getFileName()).'/Resources/views');
         $rootTheme = realpath(__DIR__.'/Resources');
         $templateNameParser = new StubTemplateNameParser($root, $rootTheme);

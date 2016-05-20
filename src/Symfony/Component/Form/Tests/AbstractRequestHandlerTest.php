@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormFactory;
-use Symfony\Component\Form\Forms;
-use Symfony\Component\Form\RequestHandlerInterface;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\FormFactory;
+use Makhan\Component\Form\Forms;
+use Makhan\Component\Form\RequestHandlerInterface;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -38,7 +38,7 @@ abstract class AbstractRequestHandlerTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->serverParams = $this->getMock(
-            'Symfony\Component\Form\Util\ServerParams',
+            'Makhan\Component\Form\Util\ServerParams',
             array('getNormalizedIniPostMaxSize', 'getContentLength')
         );
         $this->requestHandler = $this->getRequestHandler();
@@ -323,7 +323,7 @@ abstract class AbstractRequestHandlerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($iniMax));
 
         $options = array('post_max_size_message' => 'Max {{ max }}!');
-        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, $options);
+        $form = $this->factory->createNamed('name', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, $options);
         $this->setRequestData('POST', array(), array());
 
         $this->requestHandler->handleRequest($form, $this->request);
@@ -363,7 +363,7 @@ abstract class AbstractRequestHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function getMockForm($name, $method = null, $compound = true)
     {
-        $config = $this->getMock('Symfony\Component\Form\FormConfigInterface');
+        $config = $this->getMock('Makhan\Component\Form\FormConfigInterface');
         $config->expects($this->any())
             ->method('getMethod')
             ->will($this->returnValue($method));
@@ -371,7 +371,7 @@ abstract class AbstractRequestHandlerTest extends \PHPUnit_Framework_TestCase
             ->method('getCompound')
             ->will($this->returnValue($compound));
 
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
         $form->expects($this->any())
             ->method('getName')
             ->will($this->returnValue($name));

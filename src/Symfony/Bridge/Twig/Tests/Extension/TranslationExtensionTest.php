@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\MessageSelector;
-use Symfony\Component\Translation\Loader\ArrayLoader;
+use Makhan\Bridge\Twig\Extension\TranslationExtension;
+use Makhan\Component\Translation\Translator;
+use Makhan\Component\Translation\MessageSelector;
+use Makhan\Component\Translation\Loader\ArrayLoader;
 
 class TranslationExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -75,13 +75,13 @@ class TranslationExtensionTest extends \PHPUnit_Framework_TestCase
         return array(
             // trans tag
             array('{% trans %}Hello{% endtrans %}', 'Hello'),
-            array('{% trans %}%name%{% endtrans %}', 'Symfony', array('name' => 'Symfony')),
+            array('{% trans %}%name%{% endtrans %}', 'Makhan', array('name' => 'Makhan')),
 
             array('{% trans from elsewhere %}Hello{% endtrans %}', 'Hello'),
 
-            array('{% trans %}Hello %name%{% endtrans %}', 'Hello Symfony', array('name' => 'Symfony')),
-            array('{% trans with { \'%name%\': \'Symfony\' } %}Hello %name%{% endtrans %}', 'Hello Symfony'),
-            array('{% set vars = { \'%name%\': \'Symfony\' } %}{% trans with vars %}Hello %name%{% endtrans %}', 'Hello Symfony'),
+            array('{% trans %}Hello %name%{% endtrans %}', 'Hello Makhan', array('name' => 'Makhan')),
+            array('{% trans with { \'%name%\': \'Makhan\' } %}Hello %name%{% endtrans %}', 'Hello Makhan'),
+            array('{% set vars = { \'%name%\': \'Makhan\' } %}{% trans with vars %}Hello %name%{% endtrans %}', 'Hello Makhan'),
 
             array('{% trans into "fr"%}Hello{% endtrans %}', 'Hello'),
 
@@ -91,9 +91,9 @@ class TranslationExtensionTest extends \PHPUnit_Framework_TestCase
             array('{% transchoice count %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is 5 apples', array('count' => 5)),
             array('{% transchoice count %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples (%name%){% endtranschoice %}',
-                'There is 5 apples (Symfony)', array('count' => 5, 'name' => 'Symfony')),
-            array('{% transchoice count with { \'%name%\': \'Symfony\' } %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples (%name%){% endtranschoice %}',
-                'There is 5 apples (Symfony)', array('count' => 5)),
+                'There is 5 apples (Makhan)', array('count' => 5, 'name' => 'Makhan')),
+            array('{% transchoice count with { \'%name%\': \'Makhan\' } %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples (%name%){% endtranschoice %}',
+                'There is 5 apples (Makhan)', array('count' => 5)),
             array('{% transchoice count into "fr"%}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is no apples', array('count' => 0)),
             array('{% transchoice 5 into "fr"%}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
@@ -101,14 +101,14 @@ class TranslationExtensionTest extends \PHPUnit_Framework_TestCase
 
             // trans filter
             array('{{ "Hello"|trans }}', 'Hello'),
-            array('{{ name|trans }}', 'Symfony', array('name' => 'Symfony')),
-            array('{{ hello|trans({ \'%name%\': \'Symfony\' }) }}', 'Hello Symfony', array('hello' => 'Hello %name%')),
-            array('{% set vars = { \'%name%\': \'Symfony\' } %}{{ hello|trans(vars) }}', 'Hello Symfony', array('hello' => 'Hello %name%')),
+            array('{{ name|trans }}', 'Makhan', array('name' => 'Makhan')),
+            array('{{ hello|trans({ \'%name%\': \'Makhan\' }) }}', 'Hello Makhan', array('hello' => 'Hello %name%')),
+            array('{% set vars = { \'%name%\': \'Makhan\' } %}{{ hello|trans(vars) }}', 'Hello Makhan', array('hello' => 'Hello %name%')),
             array('{{ "Hello"|trans({}, "messages", "fr") }}', 'Hello'),
 
             // transchoice filter
             array('{{ "{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples"|transchoice(count) }}', 'There is 5 apples', array('count' => 5)),
-            array('{{ text|transchoice(5, {\'%name%\': \'Symfony\'}) }}', 'There is 5 apples (Symfony)', array('text' => '{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples (%name%)')),
+            array('{{ text|transchoice(5, {\'%name%\': \'Makhan\'}) }}', 'There is 5 apples (Makhan)', array('text' => '{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples (%name%)')),
             array('{{ "{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples"|transchoice(count, {}, "messages", "fr") }}', 'There is 5 apples', array('count' => 5)),
         );
     }

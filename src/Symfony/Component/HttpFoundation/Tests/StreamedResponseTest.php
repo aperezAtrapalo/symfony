@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\StreamedResponse;
 
 class StreamedResponseTest extends \PHPUnit_Framework_TestCase
 {
@@ -106,7 +106,7 @@ class StreamedResponseTest extends \PHPUnit_Framework_TestCase
     {
         $response = StreamedResponse::create(function () {}, 204);
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\StreamedResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\StreamedResponse', $response);
         $this->assertEquals(204, $response->getStatusCode());
     }
 }

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Symfony\Component\HttpFoundation\ExpressionRequestMatcher;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\ExpressionLanguage\ExpressionLanguage;
+use Makhan\Component\HttpFoundation\ExpressionRequestMatcher;
+use Makhan\Component\HttpFoundation\Request;
 
 class ExpressionRequestMatcherTest extends \PHPUnit_Framework_TestCase
 {

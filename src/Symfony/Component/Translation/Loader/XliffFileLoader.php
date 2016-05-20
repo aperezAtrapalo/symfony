@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Loader;
+namespace Makhan\Component\Translation\Loader;
 
-use Symfony\Component\Config\Util\XmlUtils;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Exception\InvalidResourceException;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Config\Util\XmlUtils;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Exception\InvalidResourceException;
+use Makhan\Component\Translation\Exception\NotFoundResourceException;
+use Makhan\Component\Config\Resource\FileResource;
 
 /**
  * XliffFileLoader loads translations from XLIFF files.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class XliffFileLoader implements LoaderInterface
 {
@@ -40,7 +40,7 @@ class XliffFileLoader implements LoaderInterface
         $catalogue = new MessageCatalogue($locale);
         $this->extract($resource, $catalogue, $domain);
 
-        if (class_exists('Symfony\Component\Config\Resource\FileResource')) {
+        if (class_exists('Makhan\Component\Config\Resource\FileResource')) {
             $catalogue->addResource(new FileResource($resource));
         }
 

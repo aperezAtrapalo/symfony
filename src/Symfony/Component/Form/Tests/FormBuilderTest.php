@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\ButtonBuilder;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\SubmitButtonBuilder;
+use Makhan\Component\Form\ButtonBuilder;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\SubmitButtonBuilder;
 
 class FormBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,8 +23,8 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->builder = new FormBuilder('name', null, $this->dispatcher, $this->factory);
     }
 
@@ -48,13 +48,13 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testAddNameNoStringAndNoInteger()
     {
-        $this->setExpectedException('Symfony\Component\Form\Exception\UnexpectedTypeException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\UnexpectedTypeException');
         $this->builder->add(true);
     }
 
     public function testAddTypeNoString()
     {
-        $this->setExpectedException('Symfony\Component\Form\Exception\UnexpectedTypeException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\UnexpectedTypeException');
         $this->builder->add('foo', 1234);
     }
 
@@ -67,21 +67,21 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testAddIsFluent()
     {
-        $builder = $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
+        $builder = $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType', array('bar' => 'baz'));
         $this->assertSame($builder, $this->builder);
     }
 
     public function testAdd()
     {
         $this->assertFalse($this->builder->has('foo'));
-        $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $this->assertTrue($this->builder->has('foo'));
     }
 
     public function testAddIntegerName()
     {
         $this->assertFalse($this->builder->has(0));
-        $this->builder->add(0, 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add(0, 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $this->assertTrue($this->builder->has(0));
     }
 
@@ -89,13 +89,13 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
     {
         $this->factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType')
+            ->with('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType')
             ->will($this->returnValue(new FormBuilder('foo', null, $this->dispatcher, $this->factory)));
 
         $this->assertCount(0, $this->builder->all());
         $this->assertFalse($this->builder->has('foo'));
 
-        $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $children = $this->builder->all();
 
         $this->assertTrue($this->builder->has('foo'));
@@ -104,13 +104,13 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /*
-     * https://github.com/symfony/symfony/issues/4693
+     * https://github.com/makhan/makhan/issues/4693
      */
     public function testMaintainOrderOfLazyAndExplicitChildren()
     {
-        $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $this->builder->add($this->getFormBuilder('bar'));
-        $this->builder->add('baz', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('baz', 'Makhan\Component\Form\Extension\Core\Type\TextType');
 
         $children = $this->builder->all();
 
@@ -120,13 +120,13 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
     public function testAddFormType()
     {
         $this->assertFalse($this->builder->has('foo'));
-        $this->builder->add('foo', $this->getMock('Symfony\Component\Form\FormTypeInterface'));
+        $this->builder->add('foo', $this->getMock('Makhan\Component\Form\FormTypeInterface'));
         $this->assertTrue($this->builder->has('foo'));
     }
 
     public function testRemove()
     {
-        $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $this->builder->remove('foo');
         $this->assertFalse($this->builder->has('foo'));
     }
@@ -137,20 +137,20 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->builder->has('foo'));
     }
 
-    // https://github.com/symfony/symfony/pull/4826
+    // https://github.com/makhan/makhan/pull/4826
     public function testRemoveAndGetForm()
     {
-        $this->builder->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $this->builder->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $this->builder->remove('foo');
         $form = $this->builder->getForm();
-        $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
+        $this->assertInstanceOf('Makhan\Component\Form\Form', $form);
     }
 
     public function testCreateNoTypeNo()
     {
         $this->factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array())
+            ->with('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array())
         ;
 
         $this->builder->create('foo');
@@ -164,13 +164,13 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testGetUnknown()
     {
-        $this->setExpectedException('Symfony\Component\Form\Exception\InvalidArgumentException', 'The child with the name "foo" does not exist.');
+        $this->setExpectedException('Makhan\Component\Form\Exception\InvalidArgumentException', 'The child with the name "foo" does not exist.');
         $this->builder->get('foo');
     }
 
     public function testGetExplicitType()
     {
-        $expectedType = 'Symfony\Component\Form\Extension\Core\Type\TextType';
+        $expectedType = 'Makhan\Component\Form\Extension\Core\Type\TextType';
         $expectedName = 'foo';
         $expectedOptions = array('bar' => 'baz');
 
@@ -221,7 +221,7 @@ class FormBuilderTest extends \PHPUnit_Framework_TestCase
 
     private function getFormBuilder($name = 'name')
     {
-        $mock = $this->getMockBuilder('Symfony\Component\Form\FormBuilder')
+        $mock = $this->getMockBuilder('Makhan\Component\Form\FormBuilder')
             ->disableOriginalConstructor()
             ->getMock();
 

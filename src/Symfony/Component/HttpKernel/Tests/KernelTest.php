@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests;
+namespace Makhan\Component\HttpKernel\Tests;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Symfony\Component\HttpKernel\Config\EnvParametersResource;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Tests\Fixtures\KernelForTest;
-use Symfony\Component\HttpKernel\Tests\Fixtures\KernelForOverrideName;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\HttpKernel\Bundle\BundleInterface;
+use Makhan\Component\HttpKernel\Config\EnvParametersResource;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Tests\Fixtures\KernelForTest;
+use Makhan\Component\HttpKernel\Tests\Fixtures\KernelForOverrideName;
 
 class KernelTest extends \PHPUnit_Framework_TestCase
 {
@@ -64,7 +64,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
     public function testBootSetsTheContainerToTheBundles()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())
             ->method('setContainer');
 
@@ -116,7 +116,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
     public function testEnvParametersResourceIsAdded()
     {
         $container = new ContainerBuilder();
-        $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\Tests\Fixtures\KernelForTest')
+        $kernel = $this->getMockBuilder('Makhan\Component\HttpKernel\Tests\Fixtures\KernelForTest')
             ->disableOriginalConstructor()
             ->setMethods(array('getContainerBuilder', 'prepareContainer', 'getCacheDir', 'getLogDir'))
             ->getMock();
@@ -161,7 +161,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
     public function testShutdownCallsShutdownOnAllBundles()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->once())
             ->method('shutdown');
 
@@ -173,7 +173,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
     public function testShutdownGivesNullContainerToAllBundles()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\Bundle');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\Bundle');
         $bundle->expects($this->at(3))
             ->method('setContainer')
             ->with(null);
@@ -193,7 +193,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $catch = true;
         $request = new Request();
 
-        $httpKernelMock = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernel')
+        $httpKernelMock = $this->getMockBuilder('Makhan\Component\HttpKernel\HttpKernel')
             ->disableOriginalConstructor()
             ->getMock();
         $httpKernelMock
@@ -215,7 +215,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $catch = true;
         $request = new Request();
 
-        $httpKernelMock = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernel')
+        $httpKernelMock = $this->getMockBuilder('Makhan\Component\HttpKernel\HttpKernel')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -700,7 +700,7 @@ EOF;
         $this->assertFalse($httpKernel->terminateCalled, 'terminate() is never called if the kernel class does not implement TerminableInterface');
 
         // implements TerminableInterface
-        $httpKernelMock = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernel')
+        $httpKernelMock = $this->getMockBuilder('Makhan\Component\HttpKernel\HttpKernel')
             ->disableOriginalConstructor()
             ->setMethods(array('terminate'))
             ->getMock();
@@ -726,7 +726,7 @@ EOF;
     protected function getBundle($dir = null, $parent = null, $className = null, $bundleName = null)
     {
         $bundle = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Bundle\BundleInterface')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Bundle\BundleInterface')
             ->setMethods(array('getPath', 'getParent', 'getName'))
             ->disableOriginalConstructor()
         ;
@@ -771,7 +771,7 @@ EOF;
         $methods[] = 'registerBundles';
 
         $kernel = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Kernel')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Kernel')
             ->setMethods($methods)
             ->setConstructorArgs(array('test', false))
             ->getMockForAbstractClass()
@@ -789,7 +789,7 @@ EOF;
 
     protected function getKernelForTest(array $methods = array())
     {
-        $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\Tests\Fixtures\KernelForTest')
+        $kernel = $this->getMockBuilder('Makhan\Component\HttpKernel\Tests\Fixtures\KernelForTest')
             ->setConstructorArgs(array('test', false))
             ->setMethods($methods)
             ->getMock();

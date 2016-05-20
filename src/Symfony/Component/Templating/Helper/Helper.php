@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+namespace Makhan\Component\Templating\Helper;
 
 /**
  * Helper is the base class for all helper classes.
@@ -17,7 +17,7 @@ namespace Symfony\Component\Templating\Helper;
  * Most of the time, a Helper is an adapter around an existing
  * class that exposes a read-only interface for templates.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Helper implements HelperInterface
 {

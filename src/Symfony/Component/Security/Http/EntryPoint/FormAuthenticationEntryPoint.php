@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\EntryPoint;
+namespace Makhan\Component\Security\Http\EntryPoint;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * FormAuthenticationEntryPoint starts an authentication via a login form.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class FormAuthenticationEntryPoint implements AuthenticationEntryPointInterface
 {

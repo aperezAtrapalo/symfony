@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Fixtures;
+namespace Makhan\Component\Validator\Tests\Fixtures;
 
-use Symfony\Component\Validator\Exception\NoSuchMetadataException;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\MetadataInterface;
+use Makhan\Component\Validator\Exception\NoSuchMetadataException;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\MetadataInterface;
 
 class FakeMetadataFactory implements MetadataFactoryInterface
 {

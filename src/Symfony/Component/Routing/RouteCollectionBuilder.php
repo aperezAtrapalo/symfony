@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing;
+namespace Makhan\Component\Routing;
 
-use Symfony\Component\Config\Exception\FileLoaderLoadException;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Resource\ResourceInterface;
+use Makhan\Component\Config\Exception\FileLoaderLoadException;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\Config\Resource\ResourceInterface;
 
 /**
  * Helps add and import routes into a RouteCollection.

@@ -1,32 +1,32 @@
 {
-    "name": "symfony/dom-crawler",
+    "name": "makhan/dom-crawler",
     "type": "library",
-    "description": "Symfony DomCrawler Component",
+    "description": "Makhan DomCrawler Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-mbstring": "~1.0"
+        "makhan/polyfill-mbstring": "~1.0"
     },
     "require-dev": {
-        "symfony/css-selector": "~2.8|~3.0"
+        "makhan/css-selector": "~2.8|~3.0"
     },
     "suggest": {
-        "symfony/css-selector": ""
+        "makhan/css-selector": ""
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\DomCrawler\\": "" },
+        "psr-4": { "Makhan\\Component\\DomCrawler\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

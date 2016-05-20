@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\Writer;
+namespace Makhan\Component\Translation\Tests\Writer;
 
-use Symfony\Component\Translation\Dumper\DumperInterface;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Writer\TranslationWriter;
+use Makhan\Component\Translation\Dumper\DumperInterface;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Writer\TranslationWriter;
 
 class TranslationWriterTest extends \PHPUnit_Framework_TestCase
 {
     public function testWriteTranslations()
     {
-        $dumper = $this->getMock('Symfony\Component\Translation\Dumper\DumperInterface');
+        $dumper = $this->getMock('Makhan\Component\Translation\Dumper\DumperInterface');
         $dumper
             ->expects($this->once())
             ->method('dump');

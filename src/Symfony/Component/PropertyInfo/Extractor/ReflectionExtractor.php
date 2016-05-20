@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Extractor;
+namespace Makhan\Component\PropertyInfo\Extractor;
 
-use Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface;
-use Symfony\Component\PropertyInfo\PropertyListExtractorInterface;
-use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\PropertyAccessExtractorInterface;
+use Makhan\Component\PropertyInfo\PropertyListExtractorInterface;
+use Makhan\Component\PropertyInfo\PropertyTypeExtractorInterface;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * Extracts PHP informations using the reflection API.

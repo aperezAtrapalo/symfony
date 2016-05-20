@@ -1,41 +1,41 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console;
+namespace Makhan\Component\Console;
 
-use Symfony\Component\Console\Exception\ExceptionInterface;
-use Symfony\Component\Console\Helper\DebugFormatterHelper;
-use Symfony\Component\Console\Helper\ProcessHelper;
-use Symfony\Component\Console\Helper\QuestionHelper;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputAwareInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Command\HelpCommand;
-use Symfony\Component\Console\Command\ListCommand;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Helper\FormatterHelper;
-use Symfony\Component\Console\Event\ConsoleCommandEvent;
-use Symfony\Component\Console\Event\ConsoleExceptionEvent;
-use Symfony\Component\Console\Event\ConsoleTerminateEvent;
-use Symfony\Component\Console\Exception\CommandNotFoundException;
-use Symfony\Component\Console\Exception\LogicException;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Console\Exception\ExceptionInterface;
+use Makhan\Component\Console\Helper\DebugFormatterHelper;
+use Makhan\Component\Console\Helper\ProcessHelper;
+use Makhan\Component\Console\Helper\QuestionHelper;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\ArgvInput;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputAwareInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Output\ConsoleOutput;
+use Makhan\Component\Console\Output\ConsoleOutputInterface;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Command\HelpCommand;
+use Makhan\Component\Console\Command\ListCommand;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Helper\FormatterHelper;
+use Makhan\Component\Console\Event\ConsoleCommandEvent;
+use Makhan\Component\Console\Event\ConsoleExceptionEvent;
+use Makhan\Component\Console\Event\ConsoleTerminateEvent;
+use Makhan\Component\Console\Exception\CommandNotFoundException;
+use Makhan\Component\Console\Exception\LogicException;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * An Application is the container for a collection of commands.
@@ -50,7 +50,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  *     $app->add(new SimpleCommand());
  *     $app->run();
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Application
 {

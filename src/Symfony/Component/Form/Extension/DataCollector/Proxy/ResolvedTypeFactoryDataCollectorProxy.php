@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DataCollector\Proxy;
+namespace Makhan\Component\Form\Extension\DataCollector\Proxy;
 
-use Symfony\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
-use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Component\Form\ResolvedFormTypeFactoryInterface;
-use Symfony\Component\Form\ResolvedFormTypeInterface;
+use Makhan\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
+use Makhan\Component\Form\FormTypeInterface;
+use Makhan\Component\Form\ResolvedFormTypeFactoryInterface;
+use Makhan\Component\Form\ResolvedFormTypeInterface;
 
 /**
  * Proxy that wraps resolved types into {@link ResolvedTypeDataCollectorProxy}

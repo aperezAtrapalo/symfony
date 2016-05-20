@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Firewall\LogoutListener;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Security\Http\Firewall\LogoutListener;
 
 class LogoutListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -146,7 +146,7 @@ class LogoutListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\LogoutException
+     * @expectedException \Makhan\Component\Security\Core\Exception\LogoutException
      */
     public function testCsrfValidationFails()
     {
@@ -172,17 +172,17 @@ class LogoutListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getTokenManager()
     {
-        return $this->getMock('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface');
+        return $this->getMock('Makhan\Component\Security\Csrf\CsrfTokenManagerInterface');
     }
 
     private function getTokenStorage()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
     }
 
     private function getGetResponseEvent()
     {
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -195,12 +195,12 @@ class LogoutListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getHandler()
     {
-        return $this->getMock('Symfony\Component\Security\Http\Logout\LogoutHandlerInterface');
+        return $this->getMock('Makhan\Component\Security\Http\Logout\LogoutHandlerInterface');
     }
 
     private function getHttpUtils()
     {
-        return $this->getMockBuilder('Symfony\Component\Security\Http\HttpUtils')
+        return $this->getMockBuilder('Makhan\Component\Security\Http\HttpUtils')
             ->disableOriginalConstructor()
             ->getMock();
     }
@@ -225,11 +225,11 @@ class LogoutListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getSuccessHandler()
     {
-        return $this->getMock('Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface');
+        return $this->getMock('Makhan\Component\Security\Http\Logout\LogoutSuccessHandlerInterface');
     }
 
     private function getToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 }

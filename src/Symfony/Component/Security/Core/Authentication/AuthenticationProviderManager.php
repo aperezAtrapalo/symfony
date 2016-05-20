@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authentication;
+namespace Makhan\Component\Security\Core\Authentication;
 
-use Symfony\Component\Security\Core\Event\AuthenticationFailureEvent;
-use Symfony\Component\Security\Core\Event\AuthenticationEvent;
-use Symfony\Component\Security\Core\AuthenticationEvents;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Exception\ProviderNotFoundException;
-use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Event\AuthenticationFailureEvent;
+use Makhan\Component\Security\Core\Event\AuthenticationEvent;
+use Makhan\Component\Security\Core\AuthenticationEvents;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Security\Core\Exception\AccountStatusException;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Core\Exception\ProviderNotFoundException;
+use Makhan\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * AuthenticationProviderManager uses a list of AuthenticationProviderInterface
  * instances to authenticate a Token.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class AuthenticationProviderManager implements AuthenticationManagerInterface

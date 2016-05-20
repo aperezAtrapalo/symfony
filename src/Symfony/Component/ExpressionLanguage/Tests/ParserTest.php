@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ExpressionLanguage\Tests;
+namespace Makhan\Component\ExpressionLanguage\Tests;
 
-use Symfony\Component\ExpressionLanguage\Parser;
-use Symfony\Component\ExpressionLanguage\Lexer;
-use Symfony\Component\ExpressionLanguage\Node;
+use Makhan\Component\ExpressionLanguage\Parser;
+use Makhan\Component\ExpressionLanguage\Lexer;
+use Makhan\Component\ExpressionLanguage\Node;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException        \Symfony\Component\ExpressionLanguage\SyntaxError
+     * @expectedException        \Makhan\Component\ExpressionLanguage\SyntaxError
      * @expectedExceptionMessage Variable "foo" is not valid around position 1.
      */
     public function testParseWithInvalidName()
@@ -29,7 +29,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\ExpressionLanguage\SyntaxError
+     * @expectedException        \Makhan\Component\ExpressionLanguage\SyntaxError
      * @expectedExceptionMessage Variable "foo" is not valid around position 1.
      */
     public function testParseWithZeroInNames()
@@ -164,7 +164,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getInvalidPostfixData
-     * @expectedException \Symfony\Component\ExpressionLanguage\SyntaxError
+     * @expectedException \Makhan\Component\ExpressionLanguage\SyntaxError
      */
     public function testParseWithInvalidPostfixData($expr, $names = array())
     {

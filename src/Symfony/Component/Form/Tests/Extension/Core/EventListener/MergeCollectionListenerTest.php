@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\EventListener;
+namespace Makhan\Component\Form\Tests\Extension\Core\EventListener;
 
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\Extension\Core\EventListener\MergeCollectionListener;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\Extension\Core\EventListener\MergeCollectionListener;
 
 abstract class MergeCollectionListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,8 +22,8 @@ abstract class MergeCollectionListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->form = $this->getForm('axes');
     }
 
@@ -45,7 +45,7 @@ abstract class MergeCollectionListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getMockForm()
     {
-        return $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        return $this->getMock('Makhan\Component\Form\Test\FormInterface');
     }
 
     public function getBooleanMatrix1()
@@ -192,7 +192,7 @@ abstract class MergeCollectionListenerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getBooleanMatrix2
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testRequireArrayOrTraversable($allowAdd, $allowDelete)
     {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache\Adapter;
+namespace Makhan\Component\Cache\Adapter;
 
-use Symfony\Component\Cache\Exception\InvalidArgumentException;
+use Makhan\Component\Cache\Exception\InvalidArgumentException;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -25,7 +25,7 @@ class FilesystemAdapter extends AbstractAdapter
         parent::__construct('', $defaultLifetime);
 
         if (!isset($directory[0])) {
-            $directory = sys_get_temp_dir().'/symfony-cache';
+            $directory = sys_get_temp_dir().'/makhan-cache';
         }
         if (isset($namespace[0])) {
             if (preg_match('#[^-+_.A-Za-z0-9]#', $namespace, $match)) {

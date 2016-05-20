@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Security\User;
+namespace Makhan\Bridge\Doctrine\Tests\Security\User;
 
-use Symfony\Bridge\Doctrine\Test\DoctrineTestHelper;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\User;
-use Symfony\Bridge\Doctrine\Security\User\EntityUserProvider;
+use Makhan\Bridge\Doctrine\Test\DoctrineTestHelper;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\User;
+use Makhan\Bridge\Doctrine\Security\User\EntityUserProvider;
 use Doctrine\ORM\Tools\SchemaTool;
 
 class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
@@ -30,7 +30,7 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
         $em->persist($user2);
         $em->flush();
 
-        $provider = new EntityUserProvider($this->getManager($em), 'Symfony\Bridge\Doctrine\Tests\Fixtures\User', 'name');
+        $provider = new EntityUserProvider($this->getManager($em), 'Makhan\Bridge\Doctrine\Tests\Fixtures\User', 'name');
 
         // try to change the user identity
         $user1->name = 'user2';
@@ -43,7 +43,7 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
         $em = DoctrineTestHelper::createTestEntityManager();
 
         $user1 = new User(null, null, 'user1');
-        $provider = new EntityUserProvider($this->getManager($em), 'Symfony\Bridge\Doctrine\Tests\Fixtures\User', 'name');
+        $provider = new EntityUserProvider($this->getManager($em), 'Makhan\Bridge\Doctrine\Tests\Fixtures\User', 'name');
 
         $this->setExpectedException(
             'InvalidArgumentException',
@@ -62,11 +62,11 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
         $em->persist($user1);
         $em->flush();
 
-        $provider = new EntityUserProvider($this->getManager($em), 'Symfony\Bridge\Doctrine\Tests\Fixtures\User', 'name');
+        $provider = new EntityUserProvider($this->getManager($em), 'Makhan\Bridge\Doctrine\Tests\Fixtures\User', 'name');
 
         $user2 = new User(1, 2, 'user2');
         $this->setExpectedException(
-            'Symfony\Component\Security\Core\Exception\UsernameNotFoundException',
+            'Makhan\Component\Security\Core\Exception\UsernameNotFoundException',
             'User with id {"id1":1,"id2":2} not found'
         );
         $provider->refreshUser($user2);
@@ -83,25 +83,25 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
         $em->flush();
         $em->clear();
 
-        $provider = new EntityUserProvider($this->getManager($em), 'Symfony\Bridge\Doctrine\Tests\Fixtures\User', 'name');
+        $provider = new EntityUserProvider($this->getManager($em), 'Makhan\Bridge\Doctrine\Tests\Fixtures\User', 'name');
 
-        $user2 = $em->getReference('Symfony\Bridge\Doctrine\Tests\Fixtures\User', array('id1' => 1, 'id2' => 1));
+        $user2 = $em->getReference('Makhan\Bridge\Doctrine\Tests\Fixtures\User', array('id1' => 1, 'id2' => 1));
         $this->assertTrue($provider->supportsClass(get_class($user2)));
     }
 
     public function testLoadUserByUserNameShouldLoadUserWhenProperInterfaceProvided()
     {
-        $repository = $this->getMock('\Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface');
+        $repository = $this->getMock('\Makhan\Bridge\Doctrine\Security\User\UserLoaderInterface');
         $repository->expects($this->once())
             ->method('loadUserByUsername')
             ->with('name')
             ->willReturn(
-                $this->getMock('\Symfony\Component\Security\Core\User\UserInterface')
+                $this->getMock('\Makhan\Component\Security\Core\User\UserInterface')
             );
 
         $provider = new EntityUserProvider(
             $this->getManager($this->getObjectManager($repository)),
-            'Symfony\Bridge\Doctrine\Tests\Fixtures\User'
+            'Makhan\Bridge\Doctrine\Tests\Fixtures\User'
         );
 
         $provider->loadUserByUsername('name');
@@ -112,11 +112,11 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoadUserByUserNameShouldDeclineInvalidInterface()
     {
-        $repository = $this->getMock('\Symfony\Component\Security\Core\User\AdvancedUserInterface');
+        $repository = $this->getMock('\Makhan\Component\Security\Core\User\AdvancedUserInterface');
 
         $provider = new EntityUserProvider(
             $this->getManager($this->getObjectManager($repository)),
-            'Symfony\Bridge\Doctrine\Tests\Fixtures\User'
+            'Makhan\Bridge\Doctrine\Tests\Fixtures\User'
         );
 
         $provider->loadUserByUsername('name');
@@ -149,7 +149,7 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
     {
         $schemaTool = new SchemaTool($em);
         $schemaTool->createSchema(array(
-            $em->getClassMetadata('Symfony\Bridge\Doctrine\Tests\Fixtures\User'),
+            $em->getClassMetadata('Makhan\Bridge\Doctrine\Tests\Fixtures\User'),
         ));
     }
 }

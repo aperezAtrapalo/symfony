@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Loader;
+namespace Makhan\Component\DependencyInjection\Loader;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\Loader\FileLoader as BaseFileLoader;
-use Symfony\Component\Config\FileLocatorInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\Config\Loader\FileLoader as BaseFileLoader;
+use Makhan\Component\Config\FileLocatorInterface;
 
 /**
  * FileLoader is the abstract class used by all built-in loaders that are file based.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class FileLoader extends BaseFileLoader
 {

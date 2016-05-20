@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form\Type;
+namespace Makhan\Bridge\Doctrine\Tests\Form\Type;
 
-use Symfony\Component\Form\Test\FormPerformanceTestCase;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
+use Makhan\Component\Form\Test\FormPerformanceTestCase;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
 use Doctrine\ORM\Tools\SchemaTool;
-use Symfony\Bridge\Doctrine\Test\DoctrineTestHelper;
-use Symfony\Component\Form\Extension\Core\CoreExtension;
-use Symfony\Bridge\Doctrine\Form\DoctrineOrmExtension;
+use Makhan\Bridge\Doctrine\Test\DoctrineTestHelper;
+use Makhan\Component\Form\Extension\Core\CoreExtension;
+use Makhan\Bridge\Doctrine\Form\DoctrineOrmExtension;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 class EntityTypePerformanceTest extends FormPerformanceTestCase
 {
-    const ENTITY_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity';
+    const ENTITY_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity';
 
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -90,7 +90,7 @@ class EntityTypePerformanceTest extends FormPerformanceTestCase
         $this->setMaxRunningTime(1);
 
         for ($i = 0; $i < 40; ++$i) {
-            $form = $this->factory->create('Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+            $form = $this->factory->create('Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
                 'class' => self::ENTITY_CLASS,
             ));
 
@@ -108,7 +108,7 @@ class EntityTypePerformanceTest extends FormPerformanceTestCase
         $this->setMaxRunningTime(1);
 
         for ($i = 0; $i < 40; ++$i) {
-            $form = $this->factory->create('Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+            $form = $this->factory->create('Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
                 'class' => self::ENTITY_CLASS,
                 'choices' => $choices,
             ));
@@ -127,7 +127,7 @@ class EntityTypePerformanceTest extends FormPerformanceTestCase
         $this->setMaxRunningTime(1);
 
         for ($i = 0; $i < 40; ++$i) {
-            $form = $this->factory->create('Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+            $form = $this->factory->create('Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
                     'class' => self::ENTITY_CLASS,
                     'preferred_choices' => $choices,
                 ));

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Firewall\RemoteUserAuthenticationListener;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Http\Firewall\RemoteUserAuthenticationListener;
 
 class RemoteUserAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,9 +24,9 @@ class RemoteUserAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request(array(), array(), array(), array(), array(), $serverVars);
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
 
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
 
         $listener = new RemoteUserAuthenticationListener(
             $tokenStorage,
@@ -42,15 +42,15 @@ class RemoteUserAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testGetPreAuthenticatedDataNoUser()
     {
         $request = new Request(array(), array(), array(), array(), array(), array());
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
 
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
 
         $listener = new RemoteUserAuthenticationListener(
             $tokenStorage,
@@ -71,9 +71,9 @@ class RemoteUserAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
         $request = new Request(array(), array(), array(), array(), array(), array(
             'TheUserKey' => 'TheUser',
         ));
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
 
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
 
         $listener = new RemoteUserAuthenticationListener(
             $tokenStorage,

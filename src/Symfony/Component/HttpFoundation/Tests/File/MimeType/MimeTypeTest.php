@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\File\MimeType;
+namespace Makhan\Component\HttpFoundation\Tests\File\MimeType;
 
-use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
-use Symfony\Component\HttpFoundation\File\MimeType\FileBinaryMimeTypeGuesser;
+use Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
+use Makhan\Component\HttpFoundation\File\MimeType\FileBinaryMimeTypeGuesser;
 
 /**
  * @requires extension fileinfo
@@ -28,7 +28,7 @@ class MimeTypeTest extends \PHPUnit_Framework_TestCase
 
     public function testGuessImageWithDirectory()
     {
-        $this->setExpectedException('Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException');
+        $this->setExpectedException('Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException');
 
         MimeTypeGuesser::getInstance()->guess(__DIR__.'/../Fixtures/directory');
     }
@@ -52,7 +52,7 @@ class MimeTypeTest extends \PHPUnit_Framework_TestCase
 
     public function testGuessWithIncorrectPath()
     {
-        $this->setExpectedException('Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException');
+        $this->setExpectedException('Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException');
         MimeTypeGuesser::getInstance()->guess(__DIR__.'/../Fixtures/not_here');
     }
 
@@ -71,7 +71,7 @@ class MimeTypeTest extends \PHPUnit_Framework_TestCase
         @chmod($path, 0333);
 
         if (substr(sprintf('%o', fileperms($path)), -4) == '0333') {
-            $this->setExpectedException('Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException');
+            $this->setExpectedException('Makhan\Component\HttpFoundation\File\Exception\AccessDeniedException');
             MimeTypeGuesser::getInstance()->guess($path);
         } else {
             $this->markTestSkipped('Can not verify chmod operations, change of file permissions failed');

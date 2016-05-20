@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Command;
+namespace Makhan\Bundle\TwigBundle\Command;
 
-use Symfony\Bridge\Twig\Command\DebugCommand as BaseDebugCommand;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Makhan\Bridge\Twig\Command\DebugCommand as BaseDebugCommand;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
  * Lists twig functions, filters, globals and tests present in the current project.

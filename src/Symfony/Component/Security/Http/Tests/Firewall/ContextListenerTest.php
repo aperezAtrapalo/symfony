@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Http\Firewall\ContextListener;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Session\Session;
+use Makhan\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\Security\Core\Authentication\Token\AnonymousToken;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Http\Firewall\ContextListener;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class ContextListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,7 +33,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
     public function testItRequiresContextKey()
     {
         new ContextListener(
-            $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
+            $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
             array(),
             ''
         );
@@ -41,12 +41,12 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage User provider "stdClass" must implement "Symfony\Component\Security\Core\User\UserProviderInterface
+     * @expectedExceptionMessage User provider "stdClass" must implement "Makhan\Component\Security\Core\User\UserProviderInterface
      */
     public function testUserProvidersNeedToImplementAnInterface()
     {
         new ContextListener(
-            $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
+            $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface'),
             array(new \stdClass()),
             'key123'
         );
@@ -60,7 +60,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         );
 
         $token = unserialize($session->get('_security_session'));
-        $this->assertInstanceOf('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $token);
         $this->assertEquals('test1', $token->getUsername());
     }
 
@@ -72,7 +72,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         );
 
         $token = unserialize($session->get('_security_session'));
-        $this->assertInstanceOf('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $token);
         $this->assertEquals('test1', $token->getUsername());
     }
 
@@ -102,7 +102,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         $request->setSession($session);
 
         $event = new FilterResponseEvent(
-            $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface'),
+            $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface'),
             $request,
             HttpKernelInterface::MASTER_REQUEST,
             new Response()
@@ -121,7 +121,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         $request->setSession($session);
 
         $event = new FilterResponseEvent(
-            $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface'),
+            $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface'),
             $request,
             HttpKernelInterface::MASTER_REQUEST,
             new Response()
@@ -138,12 +138,12 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidTokenInSession($token)
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-        $session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
+        $session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface');
 
         $event->expects($this->any())
             ->method('getRequest')
@@ -177,9 +177,9 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testHandleAddsKernelResponseListener()
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -190,7 +190,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
         $event->expects($this->any())
             ->method('getRequest')
-            ->will($this->returnValue($this->getMock('Symfony\Component\HttpFoundation\Request')));
+            ->will($this->returnValue($this->getMock('Makhan\Component\HttpFoundation\Request')));
 
         $dispatcher->expects($this->once())
             ->method('addListener')
@@ -201,15 +201,15 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testOnKernelResponseListenerRemovesItself()
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\FilterResponseEvent')
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\FilterResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 
         $listener = new ContextListener($tokenStorage, array(), 'key123', null, $dispatcher);
 
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $request->expects($this->any())
             ->method('hasSession')
             ->will($this->returnValue(true));
@@ -230,15 +230,15 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testHandleRemovesTokenIfNoPreviousSessionWasFound()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $request->expects($this->any())->method('hasPreviousSession')->will($this->returnValue(false));
 
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
         $event->expects($this->any())->method('getRequest')->will($this->returnValue($request));
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage->expects($this->once())->method('setToken')->with(null);
 
         $listener = new ContextListener($tokenStorage, array(), 'key123');
@@ -261,7 +261,7 @@ class ContextListenerTest extends \PHPUnit_Framework_TestCase
         $request->cookies->set('MOCKSESSID', true);
 
         $event = new FilterResponseEvent(
-            $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface'),
+            $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface'),
             $request,
             HttpKernelInterface::MASTER_REQUEST,
             new Response()

@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process\Tests;
+namespace Makhan\Component\Process\Tests;
 
-use Symfony\Component\Process\Exception\LogicException;
-use Symfony\Component\Process\Exception\ProcessTimedOutException;
-use Symfony\Component\Process\Exception\RuntimeException;
-use Symfony\Component\Process\InputStream;
-use Symfony\Component\Process\PhpExecutableFinder;
-use Symfony\Component\Process\Pipes\PipesInterface;
-use Symfony\Component\Process\Process;
+use Makhan\Component\Process\Exception\LogicException;
+use Makhan\Component\Process\Exception\ProcessTimedOutException;
+use Makhan\Component\Process\Exception\RuntimeException;
+use Makhan\Component\Process\InputStream;
+use Makhan\Component\Process\PhpExecutableFinder;
+use Makhan\Component\Process\Pipes\PipesInterface;
+use Makhan\Component\Process\Process;
 
 /**
  * @author Robert Schönthal <seroscho@googlemail.com>
@@ -35,7 +35,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
         self::$phpBin = getenv('SYMFONY_PROCESS_PHP_TEST_BINARY') ?: ('phpdbg' === PHP_SAPI ? 'php' : $phpBin->find());
         if ('\\' !== DIRECTORY_SEPARATOR) {
             // exec is mandatory to deal with sending a signal to the process
-            // see https://github.com/symfony/symfony/issues/5030 about prepending
+            // see https://github.com/makhan/makhan/issues/5030 about prepending
             // command with exec
             self::$phpBin = 'exec '.self::$phpBin;
         }
@@ -64,7 +64,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Process\Exception\InvalidArgumentException
      */
     public function testNegativeTimeoutFromConstructor()
     {
@@ -72,7 +72,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Process\Exception\InvalidArgumentException
      */
     public function testNegativeTimeoutFromSetter()
     {
@@ -229,7 +229,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage Input can not be set while the process is running.
      */
     public function testSetInputWhileRunningThrowsAnException()
@@ -249,8 +249,8 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideInvalidInputValues
-     * @expectedException \Symfony\Component\Process\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Symfony\Component\Process\Process::setInput only accepts strings, Traversable objects or stream resources.
+     * @expectedException \Makhan\Component\Process\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Makhan\Component\Process\Process::setInput only accepts strings, Traversable objects or stream resources.
      */
     public function testInvalidInput($value)
     {
@@ -461,7 +461,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Process\Exception\RuntimeException
      * @expectedExceptionMessage TTY mode is not supported on Windows platform.
      */
     public function testTTYInWindowsEnvironment()
@@ -516,7 +516,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\ProcessFailedException
+     * @expectedException \Makhan\Component\Process\Exception\ProcessFailedException
      */
     public function testMustRunThrowsException()
     {
@@ -689,7 +689,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Process\Exception\RuntimeException
      * @expectedExceptionMessage The process has been signaled
      */
     public function testProcessThrowsExceptionWhenExternallySignaled()
@@ -725,7 +725,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
+     * @expectedException \Makhan\Component\Process\Exception\ProcessTimedOutException
      * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
      */
     public function testRunProcessWithTimeout()
@@ -758,7 +758,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
+     * @expectedException \Makhan\Component\Process\Exception\ProcessTimedOutException
      * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
      */
     public function testCheckTimeoutOnStartedProcess()
@@ -823,7 +823,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
+     * @expectedException \Makhan\Component\Process\Exception\ProcessTimedOutException
      * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
      */
     public function testStartAfterATimeout()
@@ -904,7 +904,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage Can not send signal on a non running process.
      */
     public function testSignalProcessNotRunning()
@@ -919,7 +919,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     public function testMethodsThatNeedARunningProcess($method)
     {
         $process = $this->getProcess('foo');
-        $this->setExpectedException('Symfony\Component\Process\Exception\LogicException', sprintf('Process must be started before calling %s.', $method));
+        $this->setExpectedException('Makhan\Component\Process\Exception\LogicException', sprintf('Process must be started before calling %s.', $method));
         $process->{$method}();
     }
 
@@ -936,7 +936,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideMethodsThatNeedATerminatedProcess
-     * @expectedException Symfony\Component\Process\Exception\LogicException
+     * @expectedException Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage Process must be terminated before calling
      */
     public function testMethodsThatNeedATerminatedProcess($method)
@@ -966,7 +966,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideWrongSignal
-     * @expectedException \Symfony\Component\Process\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Process\Exception\RuntimeException
      */
     public function testWrongSignal($signal)
     {
@@ -1005,7 +1005,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Process\Exception\RuntimeException
      * @expectedExceptionMessage Disabling output while the process is running is not possible.
      */
     public function testDisableOutputWhileRunningThrowsException()
@@ -1016,7 +1016,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Process\Exception\RuntimeException
      * @expectedExceptionMessage Enabling output while the process is running is not possible.
      */
     public function testEnableOutputWhileRunningThrowsException()
@@ -1038,7 +1038,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage Output can not be disabled while an idle timeout is set.
      */
     public function testDisableOutputWhileIdleTimeoutIsSet()
@@ -1049,7 +1049,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage timeout can not be set while the output is disabled.
      */
     public function testSetIdleTimeoutWhileOutputIsDisabled()
@@ -1068,7 +1068,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideOutputFetchingMethods
-     * @expectedException \Symfony\Component\Process\Exception\LogicException
+     * @expectedException \Makhan\Component\Process\Exception\LogicException
      * @expectedExceptionMessage Output has been disabled.
      */
     public function testGetOutputWhileDisabled($fetchMethod)
@@ -1399,7 +1399,7 @@ class ProcessTest extends \PHPUnit_Framework_TestCase
             if (!$expectException) {
                 $this->markTestSkipped('PHP is compiled with --enable-sigchild.');
             } elseif (self::$notEnhancedSigchild) {
-                $this->setExpectedException('Symfony\Component\Process\Exception\RuntimeException', 'This PHP has been compiled with --enable-sigchild.');
+                $this->setExpectedException('Makhan\Component\Process\Exception\RuntimeException', 'This PHP has been compiled with --enable-sigchild.');
             }
         }
     }

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
 
 class DateTimeToStringTransformerTest extends DateTimeTestCase
 {
@@ -110,7 +110,7 @@ class DateTimeToStringTransformerTest extends DateTimeTestCase
     {
         $transformer = new DateTimeToStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $transformer->transform('1234');
     }
@@ -161,7 +161,7 @@ class DateTimeToStringTransformerTest extends DateTimeTestCase
     {
         $reverseTransformer = new DateTimeToStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $reverseTransformer->reverseTransform(1234);
     }
@@ -170,7 +170,7 @@ class DateTimeToStringTransformerTest extends DateTimeTestCase
     {
         $reverseTransformer = new DateTimeToStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $reverseTransformer->reverseTransform('2010-2010-2010');
     }
@@ -179,7 +179,7 @@ class DateTimeToStringTransformerTest extends DateTimeTestCase
     {
         $reverseTransformer = new DateTimeToStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $reverseTransformer->reverseTransform('2010-04-31');
     }

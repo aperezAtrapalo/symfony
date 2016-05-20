@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Formatter\OutputFormatter;
-use Symfony\Component\Console\Helper\QuestionHelper;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Helper\FormatterHelper;
-use Symfony\Component\Console\Output\StreamOutput;
-use Symfony\Component\Console\Question\ChoiceQuestion;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
-use Symfony\Component\Console\Question\Question;
+use Makhan\Component\Console\Formatter\OutputFormatter;
+use Makhan\Component\Console\Helper\QuestionHelper;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Helper\FormatterHelper;
+use Makhan\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Question\ChoiceQuestion;
+use Makhan\Component\Console\Question\ConfirmationQuestion;
+use Makhan\Component\Console\Question\Question;
 
 /**
  * @group tty
@@ -388,7 +388,7 @@ class QuestionHelperTest extends \PHPUnit_Framework_TestCase
             '  [<info>żółw  </info>] bar',
             '  [<info>łabądź</info>] baz',
         );
-        $output = $this->getMock('\Symfony\Component\Console\Output\OutputInterface');
+        $output = $this->getMock('\Makhan\Component\Console\Output\OutputInterface');
         $output->method('getFormatter')->willReturn(new OutputFormatter());
 
         $dialog = new QuestionHelper();
@@ -418,7 +418,7 @@ class QuestionHelperTest extends \PHPUnit_Framework_TestCase
 
     protected function createInputInterfaceMock($interactive = true)
     {
-        $mock = $this->getMock('Symfony\Component\Console\Input\InputInterface');
+        $mock = $this->getMock('Makhan\Component\Console\Input\InputInterface');
         $mock->expects($this->any())
             ->method('isInteractive')
             ->will($this->returnValue($interactive));

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Translation;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Translation;
 
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Translation\MessageSelector;
+use Makhan\Bundle\FrameworkBundle\Translation\Translator;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\Translation\MessageSelector;
 
 class TranslatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,7 +76,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foobarbax (sr@latin)', $translator->trans('foobarbax'));
 
         // do it another time as the cache is primed now
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $loader->expects($this->never())->method('load');
 
         $translator = $this->getTranslator($loader, array('cache_dir' => $this->tmpDir));
@@ -99,15 +99,15 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testTransWithCachingWithInvalidLocale()
     {
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
-        $translator = $this->getTranslator($loader, array('cache_dir' => $this->tmpDir), 'loader', '\Symfony\Bundle\FrameworkBundle\Tests\Translation\TranslatorWithInvalidLocale');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
+        $translator = $this->getTranslator($loader, array('cache_dir' => $this->tmpDir), 'loader', '\Makhan\Bundle\FrameworkBundle\Tests\Translation\TranslatorWithInvalidLocale');
 
         $translator->trans('foo');
     }
 
     public function testLoadResourcesWithoutCaching()
     {
-        $loader = new \Symfony\Component\Translation\Loader\YamlFileLoader();
+        $loader = new \Makhan\Component\Translation\Loader\YamlFileLoader();
         $resourceFiles = array(
             'fr' => array(
                 __DIR__.'/../Fixtures/Resources/translations/messages.fr.yml',
@@ -122,7 +122,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
 
     public function testGetDefaultLocale()
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $container
             ->expects($this->once())
             ->method('getParameter')
@@ -150,7 +150,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
 
     protected function getLoader()
     {
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $loader
             ->expects($this->at(0))
             ->method('load')
@@ -208,7 +208,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
 
     protected function getContainer($loader)
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $container
             ->expects($this->any())
             ->method('get')
@@ -218,7 +218,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         return $container;
     }
 
-    public function getTranslator($loader, $options = array(), $loaderFomat = 'loader', $translatorClass = '\Symfony\Bundle\FrameworkBundle\Translation\Translator')
+    public function getTranslator($loader, $options = array(), $loaderFomat = 'loader', $translatorClass = '\Makhan\Bundle\FrameworkBundle\Translation\Translator')
     {
         $translator = $this->createTranslator($loader, $options, $translatorClass, $loaderFomat);
 
@@ -237,7 +237,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
 
     public function testWarmup()
     {
-        $loader = new \Symfony\Component\Translation\Loader\YamlFileLoader();
+        $loader = new \Makhan\Component\Translation\Loader\YamlFileLoader();
         $resourceFiles = array(
             'fr' => array(
                 __DIR__.'/../Fixtures/Resources/translations/messages.fr.yml',
@@ -249,7 +249,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         $translator->setFallbackLocales(array('fr'));
         $translator->warmup($this->tmpDir);
 
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $loader
             ->expects($this->never())
             ->method('load');
@@ -260,7 +260,7 @@ class TranslatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('répertoire', $translator->trans('folder'));
     }
 
-    private function createTranslator($loader, $options, $translatorClass = '\Symfony\Bundle\FrameworkBundle\Translation\Translator', $loaderFomat = 'loader')
+    private function createTranslator($loader, $options, $translatorClass = '\Makhan\Bundle\FrameworkBundle\Translation\Translator', $loaderFomat = 'loader')
     {
         return new $translatorClass(
             $this->getContainer($loader),

@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Kernel;
+namespace Makhan\Bundle\FrameworkBundle\Kernel;
 
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\Routing\RouteCollectionBuilder;
 
 /**
  * A Kernel that provides configuration hooks.
  *
  * @author Ryan Weaver <ryan@knpuniversity.com>
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 trait MicroKernelTrait
 {

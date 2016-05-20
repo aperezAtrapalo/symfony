@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -54,7 +54,7 @@ interface FormTypeGuesserInterface
      * Example:
      *  You want a float greater than 5, 4.512313 is not valid but length(4.512314) > length(5)
      *
-     * @link https://github.com/symfony/symfony/pull/3927
+     * @link https://github.com/makhan/makhan/pull/3927
      *
      * @param string $class    The fully qualified class name
      * @param string $property The name of the property to guess for

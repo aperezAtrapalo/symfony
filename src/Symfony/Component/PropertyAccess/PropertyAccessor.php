@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess;
+namespace Makhan\Component\PropertyAccess;
 
-use Symfony\Component\Inflector\Inflector;
-use Symfony\Component\PropertyAccess\Exception\AccessException;
-use Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
-use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
-use Symfony\Component\PropertyAccess\Exception\NoSuchIndexException;
-use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
+use Makhan\Component\Inflector\Inflector;
+use Makhan\Component\PropertyAccess\Exception\AccessException;
+use Makhan\Component\PropertyAccess\Exception\InvalidArgumentException;
+use Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException;
+use Makhan\Component\PropertyAccess\Exception\NoSuchIndexException;
+use Makhan\Component\PropertyAccess\Exception\UnexpectedTypeException;
 
 /**
  * Default implementation of {@link PropertyAccessorInterface}.

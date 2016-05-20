@@ -1,4 +1,4 @@
-dn: dc=symfony,dc=com
+dn: dc=makhan,dc=com
 objectClass: dcObject
 objectClass: organizationalUnit
 ou: Organization

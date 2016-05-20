@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional;
+namespace Makhan\Bundle\SecurityBundle\Tests\Functional;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpKernel\Kernel;
+use Makhan\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\HttpKernel\Kernel;
 
 class WebTestCase extends BaseWebTestCase
 {
@@ -37,7 +37,7 @@ class WebTestCase extends BaseWebTestCase
     {
         require_once __DIR__.'/app/AppKernel.php';
 
-        return 'Symfony\Bundle\SecurityBundle\Tests\Functional\app\AppKernel';
+        return 'Makhan\Bundle\SecurityBundle\Tests\Functional\app\AppKernel';
     }
 
     protected static function createKernel(array $options = array())

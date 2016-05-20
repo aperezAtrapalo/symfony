@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DependencyInjection;
+namespace Makhan\Component\HttpKernel\Tests\DependencyInjection;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\DependencyInjection\FragmentRendererPass;
-use Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\DependencyInjection\FragmentRendererPass;
+use Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface;
 
 class FragmentRendererPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,10 +30,10 @@ class FragmentRendererPassTest extends \PHPUnit_Framework_TestCase
             'my_content_renderer' => array(array('alias' => 'foo')),
         );
 
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
 
         $builder = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
         $builder->expects($this->any())
@@ -59,17 +59,17 @@ class FragmentRendererPassTest extends \PHPUnit_Framework_TestCase
             'my_content_renderer' => array(array('alias' => 'foo')),
         );
 
-        $renderer = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $renderer = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $renderer
             ->expects($this->once())
             ->method('addMethodCall')
             ->with('addRendererService', array('foo', 'my_content_renderer'))
         ;
 
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $definition->expects($this->atLeastOnce())
             ->method('getClass')
-            ->will($this->returnValue('Symfony\Component\HttpKernel\Tests\DependencyInjection\RendererService'));
+            ->will($this->returnValue('Makhan\Component\HttpKernel\Tests\DependencyInjection\RendererService'));
         $definition
             ->expects($this->once())
             ->method('isPublic')
@@ -77,7 +77,7 @@ class FragmentRendererPassTest extends \PHPUnit_Framework_TestCase
         ;
 
         $builder = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
         $builder->expects($this->any())

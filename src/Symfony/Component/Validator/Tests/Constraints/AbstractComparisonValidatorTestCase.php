@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Intl\Util\IntlTestHelper;
-use Symfony\Component\Validator\Constraint;
+use Makhan\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Validator\Constraint;
 
 class ComparisonTest_Class
 {
@@ -65,7 +65,7 @@ abstract class AbstractComparisonValidatorTestCase extends AbstractConstraintVal
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testThrowsConstraintExceptionIfNoValueOrProperty()
     {

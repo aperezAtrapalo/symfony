@@ -1,18 +1,18 @@
 {
-    "name": "symfony/twig-bridge",
-    "type": "symfony-bridge",
-    "description": "Symfony Twig Bridge",
+    "name": "makhan/twig-bridge",
+    "type": "makhan-bridge",
+    "description": "Makhan Twig Bridge",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
@@ -20,38 +20,38 @@
         "twig/twig": "~1.23|~2.0"
     },
     "require-dev": {
-        "symfony/asset": "~2.8|~3.0",
-        "symfony/finder": "~2.8|~3.0",
-        "symfony/form": "~3.0.4",
-        "symfony/http-kernel": "~2.8|~3.0",
-        "symfony/polyfill-intl-icu": "~1.0",
-        "symfony/routing": "~2.8|~3.0",
-        "symfony/templating": "~2.8|~3.0",
-        "symfony/translation": "~2.8|~3.0",
-        "symfony/yaml": "~2.8|~3.0",
-        "symfony/security": "~2.8|~3.0",
-        "symfony/security-acl": "~2.8|~3.0",
-        "symfony/stopwatch": "~2.8|~3.0",
-        "symfony/console": "~2.8|~3.0",
-        "symfony/var-dumper": "~2.8|~3.0",
-        "symfony/expression-language": "~2.8|~3.0"
+        "makhan/asset": "~2.8|~3.0",
+        "makhan/finder": "~2.8|~3.0",
+        "makhan/form": "~3.0.4",
+        "makhan/http-kernel": "~2.8|~3.0",
+        "makhan/polyfill-intl-icu": "~1.0",
+        "makhan/routing": "~2.8|~3.0",
+        "makhan/templating": "~2.8|~3.0",
+        "makhan/translation": "~2.8|~3.0",
+        "makhan/yaml": "~2.8|~3.0",
+        "makhan/security": "~2.8|~3.0",
+        "makhan/security-acl": "~2.8|~3.0",
+        "makhan/stopwatch": "~2.8|~3.0",
+        "makhan/console": "~2.8|~3.0",
+        "makhan/var-dumper": "~2.8|~3.0",
+        "makhan/expression-language": "~2.8|~3.0"
     },
     "suggest": {
-        "symfony/finder": "",
-        "symfony/asset": "For using the AssetExtension",
-        "symfony/form": "For using the FormExtension",
-        "symfony/http-kernel": "For using the HttpKernelExtension",
-        "symfony/routing": "For using the RoutingExtension",
-        "symfony/templating": "For using the TwigEngine",
-        "symfony/translation": "For using the TranslationExtension",
-        "symfony/yaml": "For using the YamlExtension",
-        "symfony/security": "For using the SecurityExtension",
-        "symfony/stopwatch": "For using the StopwatchExtension",
-        "symfony/var-dumper": "For using the DumpExtension",
-        "symfony/expression-language": "For using the ExpressionExtension"
+        "makhan/finder": "",
+        "makhan/asset": "For using the AssetExtension",
+        "makhan/form": "For using the FormExtension",
+        "makhan/http-kernel": "For using the HttpKernelExtension",
+        "makhan/routing": "For using the RoutingExtension",
+        "makhan/templating": "For using the TwigEngine",
+        "makhan/translation": "For using the TranslationExtension",
+        "makhan/yaml": "For using the YamlExtension",
+        "makhan/security": "For using the SecurityExtension",
+        "makhan/stopwatch": "For using the StopwatchExtension",
+        "makhan/var-dumper": "For using the DumpExtension",
+        "makhan/expression-language": "For using the ExpressionExtension"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Bridge\\Twig\\": "" },
+        "psr-4": { "Makhan\\Bridge\\Twig\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

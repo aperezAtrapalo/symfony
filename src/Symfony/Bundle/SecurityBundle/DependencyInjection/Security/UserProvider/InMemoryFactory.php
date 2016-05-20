@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider;
+namespace Makhan\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider;
 
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Component\Config\Definition\Builder\NodeDefinition;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
 
 /**
  * InMemoryFactory creates services for the memory provider.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Christophe Coevoet <stof@notk.org>
  */
 class InMemoryFactory implements UserProviderFactoryInterface

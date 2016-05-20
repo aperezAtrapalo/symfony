@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional;
+namespace Makhan\Bundle\SecurityBundle\Tests\Functional;
 
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand;
-use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
-use Symfony\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder;
+use Makhan\Bundle\FrameworkBundle\Console\Application;
+use Makhan\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand;
+use Makhan\Component\Console\Tester\CommandTester;
+use Makhan\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Makhan\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder;
 
 /**
  * Tests UserPasswordEncoderCommand.
@@ -31,7 +31,7 @@ class UserPasswordEncoderCommandTest extends WebTestCase
         $this->passwordEncoderCommandTester->execute(array(
             'command' => 'security:encode-password',
             'password' => 'password',
-            'user-class' => 'Symfony\Component\Security\Core\User\User',
+            'user-class' => 'Makhan\Component\Security\Core\User\User',
             '--empty-salt' => true,
         ), array('decorated' => false));
         $expected = str_replace("\n", PHP_EOL, file_get_contents(__DIR__.'/app/PasswordEncode/emptysalt.txt'));

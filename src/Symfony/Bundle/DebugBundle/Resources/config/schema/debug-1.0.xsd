@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsd:schema xmlns="http://symfony.com/schema/dic/debug"
+<xsd:schema xmlns="http://makhan.com/schema/dic/debug"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://symfony.com/schema/dic/debug"
+    targetNamespace="http://makhan.com/schema/dic/debug"
     elementFormDefault="qualified">
 
     <xsd:element name="config" type="config" />

@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\DataCollector;
+namespace Makhan\Component\HttpKernel\DataCollector;
 
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\KernelInterface;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * ConfigDataCollector.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ConfigDataCollector extends DataCollector
 {
@@ -62,8 +62,8 @@ class ConfigDataCollector extends DataCollector
             'app_name' => $this->name,
             'app_version' => $this->version,
             'token' => $response->headers->get('X-Debug-Token'),
-            'symfony_version' => Kernel::VERSION,
-            'symfony_state' => 'unknown',
+            'makhan_version' => Kernel::VERSION,
+            'makhan_state' => 'unknown',
             'name' => isset($this->kernel) ? $this->kernel->getName() : 'n/a',
             'env' => isset($this->kernel) ? $this->kernel->getEnvironment() : 'n/a',
             'debug' => isset($this->kernel) ? $this->kernel->isDebug() : 'n/a',
@@ -83,7 +83,7 @@ class ConfigDataCollector extends DataCollector
                 $this->data['bundles'][$name] = $bundle->getPath();
             }
 
-            $this->data['symfony_state'] = $this->determineSymfonyState();
+            $this->data['makhan_state'] = $this->determineMakhanState();
         }
     }
 
@@ -108,23 +108,23 @@ class ConfigDataCollector extends DataCollector
     }
 
     /**
-     * Gets the Symfony version.
+     * Gets the Makhan version.
      *
-     * @return string The Symfony version
+     * @return string The Makhan version
      */
-    public function getSymfonyVersion()
+    public function getMakhanVersion()
     {
-        return $this->data['symfony_version'];
+        return $this->data['makhan_version'];
     }
 
     /**
-     * Returns the state of the current Symfony release.
+     * Returns the state of the current Makhan release.
      *
      * @return string One of: unknown, dev, stable, eom, eol
      */
-    public function getSymfonyState()
+    public function getMakhanState()
     {
-        return $this->data['symfony_state'];
+        return $this->data['makhan_state'];
     }
 
     public function setCacheVersionInfo($cacheVersionInfo)
@@ -266,11 +266,11 @@ class ConfigDataCollector extends DataCollector
     }
 
     /**
-     * Tries to retrieve information about the current Symfony version.
+     * Tries to retrieve information about the current Makhan version.
      *
      * @return string One of: dev, stable, eom, eol
      */
-    private function determineSymfonyState()
+    private function determineMakhanState()
     {
         $now = new \DateTime();
         $eom = \DateTime::createFromFormat('m/Y', Kernel::END_OF_MAINTENANCE)->modify('last day of this month');

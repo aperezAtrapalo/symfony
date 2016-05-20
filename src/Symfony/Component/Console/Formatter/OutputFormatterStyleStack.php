@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Formatter;
+namespace Makhan\Component\Console\Formatter;
 
-use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Makhan\Component\Console\Exception\InvalidArgumentException;
 
 /**
  * @author Jean-François Simon <contact@jfsimon.fr>

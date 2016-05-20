@@ -11,18 +11,18 @@ CHANGELOG
 
  * deprecated `getKey()` of the `AnonymousToken`, `RememberMeToken`,
    `AbstractRememberMeServices` and `DigestAuthenticationEntryPoint` classes in favor of `getSecret()`.
- * deprecated `Symfony\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface`, use
-   `Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface` instead
- * deprecated `Symfony\Component\Security\Core\Authentication\SimpleFormAuthenticatorInterface`, use
-   `Symfony\Component\Security\Http\Authentication\SimpleFormAuthenticatorInterface` instead
- * deprecated `Symfony\Component\Security\Core\Util\ClassUtils`, use
-   `Symfony\Component\Security\Acl\Util\ClassUtils` instead
- * deprecated the `Symfony\Component\Security\Core\Util\SecureRandom` class in favor of the `random_bytes()` function
+ * deprecated `Makhan\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface`, use
+   `Makhan\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface` instead
+ * deprecated `Makhan\Component\Security\Core\Authentication\SimpleFormAuthenticatorInterface`, use
+   `Makhan\Component\Security\Http\Authentication\SimpleFormAuthenticatorInterface` instead
+ * deprecated `Makhan\Component\Security\Core\Util\ClassUtils`, use
+   `Makhan\Component\Security\Acl\Util\ClassUtils` instead
+ * deprecated the `Makhan\Component\Security\Core\Util\SecureRandom` class in favor of the `random_bytes()` function
  * deprecated `supportsAttribute()` and `supportsClass()` methods of
-   `Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface` and
-   `Symfony\Component\Security\Core\Authorization\Voter\VoterInterface`.
+   `Makhan\Component\Security\Core\Authorization\AccessDecisionManagerInterface` and
+   `Makhan\Component\Security\Core\Authorization\Voter\VoterInterface`.
  * deprecated `getSupportedAttributes()` and `getSupportedClasses()` methods of
-   `Symfony\Component\Security\Core\Authorization\Voter\AbstractVoter`, use `supports()` instead.
+   `Makhan\Component\Security\Core\Authorization\Voter\AbstractVoter`, use `supports()` instead.
  * deprecated the `intention` option for all the authentication listeners,
    use the `csrf_token_id` option instead.
 
@@ -30,21 +30,21 @@ CHANGELOG
 -----
 
  * added LogoutUrlGenerator
- * added the triggering of the `Symfony\Component\Security\Http\SecurityEvents::INTERACTIVE_LOGIN` in `Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener`
- * The MaskBuilder logic has been abstracted in the `Symfony\Component\Security\Acl\Permission\AbstractMaskBuilder`
-   and described in the `Symfony\Component\Security\Acl\Permission\MaskBuilderInterface`
- * added interface `Symfony\Component\Security\Acl\Permission\MaskBuilderRetrievalInterface`
+ * added the triggering of the `Makhan\Component\Security\Http\SecurityEvents::INTERACTIVE_LOGIN` in `Makhan\Component\Security\Http\Firewall\SimplePreAuthenticationListener`
+ * The MaskBuilder logic has been abstracted in the `Makhan\Component\Security\Acl\Permission\AbstractMaskBuilder`
+   and described in the `Makhan\Component\Security\Acl\Permission\MaskBuilderInterface`
+ * added interface `Makhan\Component\Security\Acl\Permission\MaskBuilderRetrievalInterface`
 
 2.6.0
 -----
 
- * added Symfony\Component\Security\Http\Authentication\AuthenticationUtils
+ * added Makhan\Component\Security\Http\Authentication\AuthenticationUtils
  * Deprecated the `SecurityContext` class in favor of the `AuthorizationChecker` and `TokenStorage` classes
 
 2.4.0
 -----
 
- * Translations in the `src/Symfony/Component/Security/Resources/translations/` directory are deprecated, ones in `src/Symfony/Component/Security/Core/Resources/translations/` must be used instead.
+ * Translations in the `src/Makhan/Component/Security/Resources/translations/` directory are deprecated, ones in `src/Makhan/Component/Security/Core/Resources/translations/` must be used instead.
  * The switch user listener now preserves the query string when switching a user
  * The remember-me cookie hashes now use HMAC, which means that current cookies will be invalidated
  * added simpler customization options
@@ -63,8 +63,8 @@ CHANGELOG
 2.2.0
 -----
 
- * `Symfony\Component\Security\Http\Firewall` and
-   `Symfony\Component\Security\Http\RememberMe\ResponseListener` now
+ * `Makhan\Component\Security\Http\Firewall` and
+   `Makhan\Component\Security\Http\RememberMe\ResponseListener` now
    implements EventSubscriberInterface
  * added secure random number generator
  * added PBKDF2 Password encoder

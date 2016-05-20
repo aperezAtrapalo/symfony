@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Translation;
+namespace Makhan\Bridge\Twig\Translation;
 
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
-use Symfony\Component\Translation\Extractor\AbstractFileExtractor;
-use Symfony\Component\Translation\Extractor\ExtractorInterface;
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\Finder\SplFileInfo;
+use Makhan\Component\Translation\Extractor\AbstractFileExtractor;
+use Makhan\Component\Translation\Extractor\ExtractorInterface;
+use Makhan\Component\Translation\MessageCatalogue;
 
 /**
  * TwigExtractor extracts translation messages from a twig template.
  *
  * @author Michel Salib <michelsalib@hotmail.com>
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TwigExtractor extends AbstractFileExtractor implements ExtractorInterface
 {

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\FormLoginBundle\FormLoginBundle;
-use Symfony\Bundle\TwigBundle\TwigBundle;
-use Symfony\Bundle\SecurityBundle\SecurityBundle;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\FormLoginBundle\FormLoginBundle;
+use Makhan\Bundle\TwigBundle\TwigBundle;
+use Makhan\Bundle\SecurityBundle\SecurityBundle;
+use Makhan\Bundle\FrameworkBundle\FrameworkBundle;
 
 return array(
     new FrameworkBundle(),

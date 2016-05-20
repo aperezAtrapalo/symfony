@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
 
 $container = new ContainerBuilder();
 

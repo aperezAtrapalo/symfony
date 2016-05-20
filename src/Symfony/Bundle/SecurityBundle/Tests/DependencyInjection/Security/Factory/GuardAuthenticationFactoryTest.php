@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection\Security\Factory;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection\Security\Factory;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\GuardAuthenticationFactory;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\GuardAuthenticationFactory;
+use Makhan\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
 
 class GuardAuthenticationFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,7 +35,7 @@ class GuardAuthenticationFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @dataProvider getInvalidConfigurationTests
      */
     public function testAddInvalidConfiguration(array $inputConfig)

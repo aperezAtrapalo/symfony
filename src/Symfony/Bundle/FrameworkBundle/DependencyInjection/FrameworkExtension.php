@@ -1,39 +1,39 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\DependencyInjection;
+namespace Makhan\Bundle\FrameworkBundle\DependencyInjection;
 
 use Doctrine\Common\Annotations\Reader;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Config\Resource\DirectoryResource;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Serializer\Mapping\Factory\CacheClassMetadataFactory;
-use Symfony\Component\Serializer\Normalizer\DataUriNormalizer;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
-use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
-use Symfony\Component\Validator\Validation;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\DefinitionDecorator;
+use Makhan\Component\DependencyInjection\Exception\LogicException;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Config\Resource\DirectoryResource;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\HttpKernel\DependencyInjection\Extension;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Serializer\Mapping\Factory\CacheClassMetadataFactory;
+use Makhan\Component\Serializer\Normalizer\DataUriNormalizer;
+use Makhan\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Makhan\Component\Serializer\Normalizer\JsonSerializableNormalizer;
+use Makhan\Component\Validator\Validation;
 
 /**
  * FrameworkExtension.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Jeremy Mikola <jmikola@gmail.com>
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
@@ -105,7 +105,7 @@ class FrameworkExtension extends Extension
             $this->registerFormConfiguration($config, $container, $loader);
             $config['validation']['enabled'] = true;
 
-            if (!class_exists('Symfony\Component\Validator\Validation')) {
+            if (!class_exists('Makhan\Component\Validator\Validation')) {
                 throw new LogicException('The Validator component is required to use the Form component.');
             }
         }
@@ -165,32 +165,32 @@ class FrameworkExtension extends Extension
         }
 
         $this->addClassesToCompile(array(
-            'Symfony\\Component\\Config\\FileLocator',
+            'Makhan\\Component\\Config\\FileLocator',
 
-            'Symfony\\Component\\Debug\\ErrorHandler',
+            'Makhan\\Component\\Debug\\ErrorHandler',
 
-            'Symfony\\Component\\EventDispatcher\\Event',
-            'Symfony\\Component\\EventDispatcher\\ContainerAwareEventDispatcher',
+            'Makhan\\Component\\EventDispatcher\\Event',
+            'Makhan\\Component\\EventDispatcher\\ContainerAwareEventDispatcher',
 
-            'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener',
-            'Symfony\\Component\\HttpKernel\\EventListener\\RouterListener',
-            'Symfony\\Component\\HttpKernel\\Controller\\ControllerResolver',
-            'Symfony\\Component\\HttpKernel\\Controller\\ArgumentResolver',
-            'Symfony\\Component\\HttpKernel\\ControllerMetadata\\ArgumentMetadata',
-            'Symfony\\Component\\HttpKernel\\ControllerMetadata\\ArgumentMetadataFactory',
-            'Symfony\\Component\\HttpKernel\\Event\\KernelEvent',
-            'Symfony\\Component\\HttpKernel\\Event\\FilterControllerEvent',
-            'Symfony\\Component\\HttpKernel\\Event\\FilterResponseEvent',
-            'Symfony\\Component\\HttpKernel\\Event\\GetResponseEvent',
-            'Symfony\\Component\\HttpKernel\\Event\\GetResponseForControllerResultEvent',
-            'Symfony\\Component\\HttpKernel\\Event\\GetResponseForExceptionEvent',
-            'Symfony\\Component\\HttpKernel\\KernelEvents',
-            'Symfony\\Component\\HttpKernel\\Config\\FileLocator',
+            'Makhan\\Component\\HttpKernel\\EventListener\\ResponseListener',
+            'Makhan\\Component\\HttpKernel\\EventListener\\RouterListener',
+            'Makhan\\Component\\HttpKernel\\Controller\\ControllerResolver',
+            'Makhan\\Component\\HttpKernel\\Controller\\ArgumentResolver',
+            'Makhan\\Component\\HttpKernel\\ControllerMetadata\\ArgumentMetadata',
+            'Makhan\\Component\\HttpKernel\\ControllerMetadata\\ArgumentMetadataFactory',
+            'Makhan\\Component\\HttpKernel\\Event\\KernelEvent',
+            'Makhan\\Component\\HttpKernel\\Event\\FilterControllerEvent',
+            'Makhan\\Component\\HttpKernel\\Event\\FilterResponseEvent',
+            'Makhan\\Component\\HttpKernel\\Event\\GetResponseEvent',
+            'Makhan\\Component\\HttpKernel\\Event\\GetResponseForControllerResultEvent',
+            'Makhan\\Component\\HttpKernel\\Event\\GetResponseForExceptionEvent',
+            'Makhan\\Component\\HttpKernel\\KernelEvents',
+            'Makhan\\Component\\HttpKernel\\Config\\FileLocator',
 
-            'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
-            'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
+            'Makhan\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
+            'Makhan\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             // Cannot be included because annotations will parse the big compiled class file
-            // 'Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller',
+            // 'Makhan\\Bundle\\FrameworkBundle\\Controller\\Controller',
         ));
     }
 
@@ -322,7 +322,7 @@ class FrameworkExtension extends Extension
             if (isset($config['matcher']['service'])) {
                 $container->setAlias('profiler.request_matcher', $config['matcher']['service']);
             } elseif (isset($config['matcher']['ip']) || isset($config['matcher']['path']) || isset($config['matcher']['ips'])) {
-                $definition = $container->register('profiler.request_matcher', 'Symfony\\Component\\HttpFoundation\\RequestMatcher');
+                $definition = $container->register('profiler.request_matcher', 'Makhan\\Component\\HttpFoundation\\RequestMatcher');
                 $definition->setPublic(false);
 
                 if (isset($config['matcher']['ip'])) {
@@ -369,10 +369,10 @@ class FrameworkExtension extends Extension
         $container->setParameter('request_listener.https_port', $config['https_port']);
 
         $this->addClassesToCompile(array(
-            'Symfony\\Component\\Routing\\Generator\\UrlGenerator',
-            'Symfony\\Component\\Routing\\RequestContext',
-            'Symfony\\Component\\Routing\\Router',
-            'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher',
+            'Makhan\\Component\\Routing\\Generator\\UrlGenerator',
+            'Makhan\\Component\\Routing\\RequestContext',
+            'Makhan\\Component\\Routing\\Router',
+            'Makhan\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher',
             $container->findDefinition('router.default')->getClass(),
         ));
     }
@@ -418,12 +418,12 @@ class FrameworkExtension extends Extension
         $container->setParameter('session.save_path', $config['save_path']);
 
         $this->addClassesToCompile(array(
-            'Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener',
-            'Symfony\\Component\\HttpFoundation\\Session\\Storage\\NativeSessionStorage',
-            'Symfony\\Component\\HttpFoundation\\Session\\Storage\\PhpBridgeSessionStorage',
-            'Symfony\\Component\\HttpFoundation\\Session\\Storage\\Handler\\NativeFileSessionHandler',
-            'Symfony\\Component\\HttpFoundation\\Session\\Storage\\Proxy\\AbstractProxy',
-            'Symfony\\Component\\HttpFoundation\\Session\\Storage\\Proxy\\SessionHandlerProxy',
+            'Makhan\\Bundle\\FrameworkBundle\\EventListener\\SessionListener',
+            'Makhan\\Component\\HttpFoundation\\Session\\Storage\\NativeSessionStorage',
+            'Makhan\\Component\\HttpFoundation\\Session\\Storage\\PhpBridgeSessionStorage',
+            'Makhan\\Component\\HttpFoundation\\Session\\Storage\\Handler\\NativeFileSessionHandler',
+            'Makhan\\Component\\HttpFoundation\\Session\\Storage\\Proxy\\AbstractProxy',
+            'Makhan\\Component\\HttpFoundation\\Session\\Storage\\Proxy\\SessionHandlerProxy',
             $container->getDefinition('session')->getClass(),
         ));
 
@@ -513,9 +513,9 @@ class FrameworkExtension extends Extension
         }
 
         $this->addClassesToCompile(array(
-            'Symfony\\Bundle\\FrameworkBundle\\Templating\\GlobalVariables',
-            'Symfony\\Bundle\\FrameworkBundle\\Templating\\TemplateReference',
-            'Symfony\\Bundle\\FrameworkBundle\\Templating\\TemplateNameParser',
+            'Makhan\\Bundle\\FrameworkBundle\\Templating\\GlobalVariables',
+            'Makhan\\Bundle\\FrameworkBundle\\Templating\\TemplateReference',
+            'Makhan\\Bundle\\FrameworkBundle\\Templating\\TemplateNameParser',
             $container->findDefinition('templating.locator')->getClass(),
         ));
 
@@ -551,9 +551,9 @@ class FrameworkExtension extends Extension
             }
 
             $this->addClassesToCompile(array(
-                'Symfony\\Component\\Templating\\Storage\\FileStorage',
-                'Symfony\\Bundle\\FrameworkBundle\\Templating\\PhpEngine',
-                'Symfony\\Bundle\\FrameworkBundle\\Templating\\Loader\\FilesystemLoader',
+                'Makhan\\Component\\Templating\\Storage\\FileStorage',
+                'Makhan\\Bundle\\FrameworkBundle\\Templating\\PhpEngine',
+                'Makhan\\Bundle\\FrameworkBundle\\Templating\\Loader\\FilesystemLoader',
             ));
 
             if ($container->has('assets.packages')) {
@@ -673,18 +673,18 @@ class FrameworkExtension extends Extension
 
         // Discover translation directories
         $dirs = array();
-        if (class_exists('Symfony\Component\Validator\Validation')) {
-            $r = new \ReflectionClass('Symfony\Component\Validator\Validation');
+        if (class_exists('Makhan\Component\Validator\Validation')) {
+            $r = new \ReflectionClass('Makhan\Component\Validator\Validation');
 
             $dirs[] = dirname($r->getFileName()).'/Resources/translations';
         }
-        if (class_exists('Symfony\Component\Form\Form')) {
-            $r = new \ReflectionClass('Symfony\Component\Form\Form');
+        if (class_exists('Makhan\Component\Form\Form')) {
+            $r = new \ReflectionClass('Makhan\Component\Form\Form');
 
             $dirs[] = dirname($r->getFileName()).'/Resources/translations';
         }
-        if (class_exists('Symfony\Component\Security\Core\Exception\AuthenticationException')) {
-            $r = new \ReflectionClass('Symfony\Component\Security\Core\Exception\AuthenticationException');
+        if (class_exists('Makhan\Component\Security\Core\Exception\AuthenticationException')) {
+            $r = new \ReflectionClass('Makhan\Component\Security\Core\Exception\AuthenticationException');
 
             $dirs[] = dirname($r->getFileName()).'/../Resources/translations';
         }
@@ -799,8 +799,8 @@ class FrameworkExtension extends Extension
     {
         $files = array(array(), array());
 
-        if (interface_exists('Symfony\Component\Form\FormInterface')) {
-            $reflClass = new \ReflectionClass('Symfony\Component\Form\FormInterface');
+        if (interface_exists('Makhan\Component\Form\FormInterface')) {
+            $reflClass = new \ReflectionClass('Makhan\Component\Form\FormInterface');
             $files[0][] = dirname($reflClass->getFileName()).'/Resources/config/validation.xml';
             $container->addResource(new FileResource($files[0][0]));
         }
@@ -907,21 +907,21 @@ class FrameworkExtension extends Extension
             return;
         }
 
-        if (class_exists('Symfony\Component\Serializer\Normalizer\DataUriNormalizer')) {
+        if (class_exists('Makhan\Component\Serializer\Normalizer\DataUriNormalizer')) {
             // Run after serializer.normalizer.object
             $definition = $container->register('serializer.normalizer.data_uri', DataUriNormalizer::class);
             $definition->setPublic(false);
             $definition->addTag('serializer.normalizer', ['priority' => -920]);
         }
 
-        if (class_exists('Symfony\Component\Serializer\Normalizer\DateTimeNormalizer')) {
+        if (class_exists('Makhan\Component\Serializer\Normalizer\DateTimeNormalizer')) {
             // Run before serializer.normalizer.object
             $definition = $container->register('serializer.normalizer.datetime', DateTimeNormalizer::class);
             $definition->setPublic(false);
             $definition->addTag('serializer.normalizer', array('priority' => -910));
         }
 
-        if (class_exists('Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer')) {
+        if (class_exists('Makhan\Component\Serializer\Normalizer\JsonSerializableNormalizer')) {
             // Run before serializer.normalizer.object
             $definition = $container->register('serializer.normalizer.json_serializable', JsonSerializableNormalizer::class);
             $definition->setPublic(false);
@@ -934,7 +934,7 @@ class FrameworkExtension extends Extension
         $serializerLoaders = array();
         if (isset($config['enable_annotations']) && $config['enable_annotations']) {
             $annotationLoader = new Definition(
-                'Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader',
+                'Makhan\Component\Serializer\Mapping\Loader\AnnotationLoader',
                  array(new Reference('annotation_reader'))
             );
             $annotationLoader->setPublic(false);
@@ -948,7 +948,7 @@ class FrameworkExtension extends Extension
             $dirname = dirname($reflection->getFileName());
 
             if (is_file($file = $dirname.'/Resources/config/serialization.xml')) {
-                $definition = new Definition('Symfony\Component\Serializer\Mapping\Loader\XmlFileLoader', array(realpath($file)));
+                $definition = new Definition('Makhan\Component\Serializer\Mapping\Loader\XmlFileLoader', array(realpath($file)));
                 $definition->setPublic(false);
 
                 $serializerLoaders[] = $definition;
@@ -956,7 +956,7 @@ class FrameworkExtension extends Extension
             }
 
             if (is_file($file = $dirname.'/Resources/config/serialization.yml')) {
-                $definition = new Definition('Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader', array(realpath($file)));
+                $definition = new Definition('Makhan\Component\Serializer\Mapping\Loader\YamlFileLoader', array(realpath($file)));
                 $definition->setPublic(false);
 
                 $serializerLoaders[] = $definition;
@@ -965,13 +965,13 @@ class FrameworkExtension extends Extension
 
             if (is_dir($dir = $dirname.'/Resources/config/serialization')) {
                 foreach (Finder::create()->files()->in($dir)->name('*.xml') as $file) {
-                    $definition = new Definition('Symfony\Component\Serializer\Mapping\Loader\XmlFileLoader', array($file->getRealpath()));
+                    $definition = new Definition('Makhan\Component\Serializer\Mapping\Loader\XmlFileLoader', array($file->getRealpath()));
                     $definition->setPublic(false);
 
                     $serializerLoaders[] = $definition;
                 }
                 foreach (Finder::create()->files()->in($dir)->name('*.yml') as $file) {
-                    $definition = new Definition('Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader', array($file->getRealpath()));
+                    $definition = new Definition('Makhan\Component\Serializer\Mapping\Loader\YamlFileLoader', array($file->getRealpath()));
                     $definition->setPublic(false);
 
                     $serializerLoaders[] = $definition;
@@ -984,7 +984,7 @@ class FrameworkExtension extends Extension
         $chainLoader->replaceArgument(0, $serializerLoaders);
 
         if (isset($config['cache']) && $config['cache']) {
-            @trigger_error('The "framework.serializer.cache" option is deprecated since Symfony 3.1 and will be removed in 4.0. Configure the "cache.serializer" service under "framework.cache.pools" instead.', E_USER_DEPRECATED);
+            @trigger_error('The "framework.serializer.cache" option is deprecated since Makhan 3.1 and will be removed in 4.0. Configure the "cache.serializer" service under "framework.cache.pools" instead.', E_USER_DEPRECATED);
 
             $container->setParameter(
                 'serializer.mapping.cache.prefix',
@@ -1029,7 +1029,7 @@ class FrameworkExtension extends Extension
         $loader->load('property_info.xml');
 
         if (interface_exists('phpDocumentor\Reflection\DocBlockFactoryInterface')) {
-            $definition = $container->register('property_info.php_doc_extractor', 'Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor');
+            $definition = $container->register('property_info.php_doc_extractor', 'Makhan\Component\PropertyInfo\Extractor\PhpDocExtractor');
             $definition->addTag('property_info.description_extractor', array('priority' => -1000));
             $definition->addTag('property_info.type_extractor', array('priority' => -1001));
         }
@@ -1065,9 +1065,9 @@ class FrameworkExtension extends Extension
         $this->addClassesToCompile(array(
             'Psr\Cache\CacheItemInterface',
             'Psr\Cache\CacheItemPoolInterface',
-            'Symfony\Component\Cache\Adapter\AdapterInterface',
-            'Symfony\Component\Cache\Adapter\AbstractAdapter',
-            'Symfony\Component\Cache\CacheItem',
+            'Makhan\Component\Cache\Adapter\AdapterInterface',
+            'Makhan\Component\Cache\Adapter\AbstractAdapter',
+            'Makhan\Component\Cache\CacheItem',
         ));
     }
 
@@ -1099,6 +1099,6 @@ class FrameworkExtension extends Extension
 
     public function getNamespace()
     {
-        return 'http://symfony.com/schema/dic/symfony';
+        return 'http://makhan.com/schema/dic/makhan';
     }
 }

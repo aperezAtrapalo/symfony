@@ -4,12 +4,12 @@
 - Host Regex: #^localhost$#si
 - Scheme: http|https
 - Method: GET|HEAD
-- Class: Symfony\Component\Routing\Route
+- Class: Makhan\Component\Routing\Route
 - Defaults: 
     - `name`: Joseph
 - Requirements: 
     - `name`: [a-z]+
 - Options: 
-    - `compiler_class`: Symfony\Component\Routing\RouteCompiler
+    - `compiler_class`: Makhan\Component\Routing\RouteCompiler
     - `opt1`: val1
     - `opt2`: val2

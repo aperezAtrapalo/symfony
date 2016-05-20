@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition\Builder;
+namespace Makhan\Component\Config\Tests\Definition\Builder;
 
-use Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition as NumericNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\FloatNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\IntegerNodeDefinition as NumericNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\IntegerNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\FloatNodeDefinition;
 
 class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,7 +38,7 @@ class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The value 4 is too small for path "foo". Should be greater than or equal to 5
      */
     public function testIntegerMinAssertion()
@@ -48,7 +48,7 @@ class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The value 4 is too big for path "foo". Should be less than or equal to 3
      */
     public function testIntegerMaxAssertion()
@@ -65,7 +65,7 @@ class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The value 400 is too small for path "foo". Should be greater than or equal to 500
      */
     public function testFloatMinAssertion()
@@ -75,7 +75,7 @@ class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The value 4.3 is too big for path "foo". Should be less than or equal to 0.3
      */
     public function testFloatMaxAssertion()
@@ -92,7 +92,7 @@ class NumericNodeDefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\Config\Definition\Exception\InvalidDefinitionException
+     * @expectedException Makhan\Component\Config\Definition\Exception\InvalidDefinitionException
      * @expectedExceptionMessage ->cannotBeEmpty() is not applicable to NumericNodeDefinition.
      */
     public function testCannotBeEmptyThrowsAnException()

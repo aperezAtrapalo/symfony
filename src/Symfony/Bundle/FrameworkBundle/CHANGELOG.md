@@ -7,8 +7,8 @@ CHANGELOG
  * Added `Controller::json` to simplify creating JSON responses when using the Serializer component
  * Deprecated absolute template paths support in the template name parser
  * Deprecated using core form types without dependencies as services
- * Added `Symfony\Component\HttpHernel\DataCollector\RequestDataCollector::onKernelResponse()`
- * Added `Symfony\Bundle\FrameworkBundle\DataCollector\RequestDataCollector`
+ * Added `Makhan\Component\HttpHernel\DataCollector\RequestDataCollector::onKernelResponse()`
+ * Added `Makhan\Bundle\FrameworkBundle\DataCollector\RequestDataCollector`
  * Deprecated service `serializer.mapping.cache.apc` (use `serializer.mapping.cache.doctrine.apc` instead)
 
 3.0.0
@@ -51,7 +51,7 @@ CHANGELOG
  * Added `--no-backup` option to `translation:update` command
  * Added `config:debug` command
  * Added `yaml:lint` command
- * Deprecated the `RouterApacheDumperCommand` which will be removed in Symfony 3.0.
+ * Deprecated the `RouterApacheDumperCommand` which will be removed in Makhan 3.0.
 
 2.4.0
 -----
@@ -66,7 +66,7 @@ CHANGELOG
 
  * [BC BREAK] added a way to disable the profiler (when disabling the profiler, it is now completely removed)
    To get the same "disabled" behavior as before, set `enabled` to `true` and `collect` to `false`
- * [BC BREAK] the `Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\RegisterKernelListenersPass` was moved
+ * [BC BREAK] the `Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\RegisterKernelListenersPass` was moved
    to `Component\HttpKernel\DependencyInjection\RegisterListenersPass`
  * added ControllerNameParser::build() which converts a controller short notation (a:b:c) to a class::method notation
  * added possibility to run PHP built-in server in production environment
@@ -84,17 +84,17 @@ CHANGELOG
 -----
 
  * added a new `uri_signer` service to help sign URIs
- * deprecated `Symfony\Bundle\FrameworkBundle\HttpKernel::render()` and `Symfony\Bundle\FrameworkBundle\HttpKernel::forward()`
- * deprecated the `Symfony\Bundle\FrameworkBundle\HttpKernel` class in favor of `Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel`
+ * deprecated `Makhan\Bundle\FrameworkBundle\HttpKernel::render()` and `Makhan\Bundle\FrameworkBundle\HttpKernel::forward()`
+ * deprecated the `Makhan\Bundle\FrameworkBundle\HttpKernel` class in favor of `Makhan\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel`
  * added support for adding new HTTP content rendering strategies (like ESI and Hinclude)
    in the DIC via the `kernel.fragment_renderer` tag
- * [BC BREAK] restricted the `Symfony\Bundle\FrameworkBundle\HttpKernel::render()` method to only accept URIs or ControllerReference instances
-   * `Symfony\Bundle\FrameworkBundle\HttpKernel::render()` method signature changed and the first argument
+ * [BC BREAK] restricted the `Makhan\Bundle\FrameworkBundle\HttpKernel::render()` method to only accept URIs or ControllerReference instances
+   * `Makhan\Bundle\FrameworkBundle\HttpKernel::render()` method signature changed and the first argument
      must now be a URI or a ControllerReference instance (the `generateInternalUri()` method was removed)
-   * The internal routes (`Resources/config/routing/internal.xml`) have been removed and replaced with a listener (`Symfony\Component\HttpKernel\EventListener\FragmentListener`)
+   * The internal routes (`Resources/config/routing/internal.xml`) have been removed and replaced with a listener (`Makhan\Component\HttpKernel\EventListener\FragmentListener`)
    * The `render` method of the `actions` templating helper signature and arguments changed
- * replaced Symfony\Bundle\FrameworkBundle\Controller\TraceableControllerResolver by Symfony\Component\HttpKernel\Controller\TraceableControllerResolver
- * replaced Symfony\Component\HttpKernel\Debug\ContainerAwareTraceableEventDispatcher by Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
+ * replaced Makhan\Bundle\FrameworkBundle\Controller\TraceableControllerResolver by Makhan\Component\HttpKernel\Controller\TraceableControllerResolver
+ * replaced Makhan\Component\HttpKernel\Debug\ContainerAwareTraceableEventDispatcher by Makhan\Component\HttpKernel\Debug\TraceableEventDispatcher
  * added Client::enableProfiler()
  * a new parameter has been added to the DIC: `router.request_context.base_url`
    You can customize it for your functional tests or for generating URLs with
@@ -106,8 +106,8 @@ CHANGELOG
 
  * moved the translation files to the Form and Validator components
  * changed the default extension for XLIFF files from .xliff to .xlf
- * moved Symfony\Bundle\FrameworkBundle\ContainerAwareEventDispatcher to Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher
- * moved Symfony\Bundle\FrameworkBundle\Debug\TraceableEventDispatcher to Symfony\Component\EventDispatcher\ContainerAwareTraceableEventDispatcher
+ * moved Makhan\Bundle\FrameworkBundle\ContainerAwareEventDispatcher to Makhan\Component\EventDispatcher\ContainerAwareEventDispatcher
+ * moved Makhan\Bundle\FrameworkBundle\Debug\TraceableEventDispatcher to Makhan\Component\EventDispatcher\ContainerAwareTraceableEventDispatcher
  * added a router:match command
  * added a config:dump-reference command
  * added a server:run command
@@ -139,5 +139,5 @@ CHANGELOG
  * [BC BREAK] Kernel parameters are replaced by their value wherever they appear
    in Route patterns, requirements and defaults. Use '%%' as the escaped value for '%'.
  * [BC BREAK] Switched behavior of flash messages to expire flash messages on retrieval
-   using Symfony\Component\HttpFoundation\Session\Flash\FlashBag as opposed to on
+   using Makhan\Component\HttpFoundation\Session\Flash\FlashBag as opposed to on
    next pageload regardless of whether they are displayed or not.

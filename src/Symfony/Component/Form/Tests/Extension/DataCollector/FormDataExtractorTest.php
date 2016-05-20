@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\DataCollector;
+namespace Makhan\Component\Form\Tests\Extension\DataCollector;
 
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\Form\Extension\DataCollector\FormDataExtractor;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Tests\Fixtures\FixedDataTransformer;
-use Symfony\Component\HttpKernel\DataCollector\Util\ValueExporter;
+use Makhan\Component\Form\CallbackTransformer;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\Extension\DataCollector\FormDataExtractor;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Tests\Fixtures\FixedDataTransformer;
+use Makhan\Component\HttpKernel\DataCollector\Util\ValueExporter;
 
 class FormDataExtractorTest_SimpleValueExporter extends ValueExporter
 {
@@ -60,13 +60,13 @@ class FormDataExtractorTest extends \PHPUnit_Framework_TestCase
     {
         $this->valueExporter = new FormDataExtractorTest_SimpleValueExporter();
         $this->dataExtractor = new FormDataExtractor($this->valueExporter);
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
     }
 
     public function testExtractConfiguration()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
         $type->expects($this->any())
             ->method('getInnerType')
             ->will($this->returnValue(new \stdClass()));
@@ -87,7 +87,7 @@ class FormDataExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testExtractConfigurationSortsPassedOptions()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
         $type->expects($this->any())
             ->method('getInnerType')
             ->will($this->returnValue(new \stdClass()));
@@ -121,7 +121,7 @@ class FormDataExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testExtractConfigurationSortsResolvedOptions()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
         $type->expects($this->any())
             ->method('getInnerType')
             ->will($this->returnValue(new \stdClass()));
@@ -152,18 +152,18 @@ class FormDataExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testExtractConfigurationBuildsIdRecursively()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
         $type->expects($this->any())
             ->method('getInnerType')
             ->will($this->returnValue(new \stdClass()));
 
         $grandParent = $this->createBuilder('grandParent')
             ->setCompound(true)
-            ->setDataMapper($this->getMock('Symfony\Component\Form\DataMapperInterface'))
+            ->setDataMapper($this->getMock('Makhan\Component\Form\DataMapperInterface'))
             ->getForm();
         $parent = $this->createBuilder('parent')
             ->setCompound(true)
-            ->setDataMapper($this->getMock('Symfony\Component\Form\DataMapperInterface'))
+            ->setDataMapper($this->getMock('Makhan\Component\Form\DataMapperInterface'))
             ->getForm();
         $form = $this->createBuilder('name')
             ->setType($type)

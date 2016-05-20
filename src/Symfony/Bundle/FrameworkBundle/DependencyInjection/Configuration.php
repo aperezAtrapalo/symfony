@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\DependencyInjection;
+namespace Makhan\Bundle\FrameworkBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Makhan\Component\Config\Definition\Builder\TreeBuilder;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * FrameworkExtension configuration structure.
@@ -468,7 +468,7 @@ class Configuration implements ConfigurationInterface
                     ->info('validation configuration')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('cache')->defaultValue('validator.mapping.cache.symfony')->end()
+                        ->scalarNode('cache')->defaultValue('validator.mapping.cache.makhan')->end()
                         ->booleanNode('enable_annotations')->defaultFalse()->end()
                         ->arrayNode('static_method')
                             ->defaultValue(array('loadValidatorMetadata'))

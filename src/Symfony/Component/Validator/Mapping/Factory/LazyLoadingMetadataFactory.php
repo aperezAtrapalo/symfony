@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping\Factory;
+namespace Makhan\Component\Validator\Mapping\Factory;
 
-use Symfony\Component\Validator\Exception\NoSuchMetadataException;
-use Symfony\Component\Validator\Mapping\Cache\CacheInterface;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Mapping\Loader\LoaderInterface;
+use Makhan\Component\Validator\Exception\NoSuchMetadataException;
+use Makhan\Component\Validator\Mapping\Cache\CacheInterface;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\Loader\LoaderInterface;
 
 /**
  * Creates new {@link ClassMetadataInterface} instances.
@@ -116,7 +116,7 @@ class LazyLoadingMetadataFactory implements MetadataFactoryInterface
 
         // Include constraints from all implemented interfaces
         foreach ($metadata->getReflectionClass()->getInterfaces() as $interface) {
-            if ('Symfony\Component\Validator\GroupSequenceProviderInterface' === $interface->name) {
+            if ('Makhan\Component\Validator\GroupSequenceProviderInterface' === $interface->name) {
                 continue;
             }
             $metadata->mergeConstraints($this->getMetadataFor($interface->name));

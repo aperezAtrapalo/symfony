@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Session\Storage;
 
-use Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
-use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
+use Makhan\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
+use Makhan\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
 
 /**
- * Allows session to be started by PHP and managed by Symfony.
+ * Allows session to be started by PHP and managed by Makhan.
  *
  * @author Drak <drak@zikula.org>
  */

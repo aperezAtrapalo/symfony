@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\EventListener;
+namespace Makhan\Component\Form\Tests\Extension\Core\EventListener;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Form\Extension\Core\EventListener\ResizeFormListener;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\FormEvent;
+use Makhan\Component\Form\Extension\Core\EventListener\ResizeFormListener;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\FormEvent;
 
 class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,8 +24,8 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->form = $this->getBuilder()
             ->setCompound(true)
             ->setDataMapper($this->getDataMapper())
@@ -54,12 +54,12 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
      */
     private function getDataMapper()
     {
-        return $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        return $this->getMock('Makhan\Component\Form\DataMapperInterface');
     }
 
     protected function getMockForm()
     {
-        return $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        return $this->getMock('Makhan\Component\Form\Test\FormInterface');
     }
 
     public function testPreSetDataResizesForm()
@@ -87,7 +87,7 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testPreSetDataRequiresArrayOrTraversable()
     {
@@ -139,7 +139,7 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->form->has('1'));
     }
 
-    // fix for https://github.com/symfony/symfony/pull/493
+    // fix for https://github.com/makhan/makhan/pull/493
     public function testPreSubmitRemovesZeroKeys()
     {
         $this->form->add($this->getForm('0'));
@@ -189,7 +189,7 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->form->has('1'));
     }
 
-    // fixes https://github.com/symfony/symfony/pull/40
+    // fixes https://github.com/makhan/makhan/pull/40
     public function testPreSubmitDealsWithEmptyData()
     {
         $this->form->add($this->getForm('1'));
@@ -227,7 +227,7 @@ class ResizeFormListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testOnSubmitNormDataRequiresArrayOrTraversable()
     {

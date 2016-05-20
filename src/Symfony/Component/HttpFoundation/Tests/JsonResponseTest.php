@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Makhan\Component\HttpFoundation\JsonResponse;
 
 class JsonResponseTest extends \PHPUnit_Framework_TestCase
 {
@@ -92,7 +92,7 @@ class JsonResponseTest extends \PHPUnit_Framework_TestCase
     {
         $response = JsonResponse::create(array('foo' => 'bar'), 204);
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertEquals('{"foo":"bar"}', $response->getContent());
         $this->assertEquals(204, $response->getStatusCode());
     }
@@ -100,40 +100,40 @@ class JsonResponseTest extends \PHPUnit_Framework_TestCase
     public function testStaticCreateEmptyJsonObject()
     {
         $response = JsonResponse::create();
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('{}', $response->getContent());
     }
 
     public function testStaticCreateJsonArray()
     {
         $response = JsonResponse::create(array(0, 1, 2, 3));
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('[0,1,2,3]', $response->getContent());
     }
 
     public function testStaticCreateJsonObject()
     {
         $response = JsonResponse::create(array('foo' => 'bar'));
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('{"foo":"bar"}', $response->getContent());
     }
 
     public function testStaticCreateWithSimpleTypes()
     {
         $response = JsonResponse::create('foo');
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('"foo"', $response->getContent());
 
         $response = JsonResponse::create(0);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('0', $response->getContent());
 
         $response = JsonResponse::create(0.1);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('0.1', $response->getContent());
 
         $response = JsonResponse::create(true);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\JsonResponse', $response);
         $this->assertSame('true', $response->getContent());
     }
 

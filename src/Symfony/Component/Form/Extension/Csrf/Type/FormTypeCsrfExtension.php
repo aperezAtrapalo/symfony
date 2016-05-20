@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Csrf\Type;
+namespace Makhan\Component\Form\Extension\Csrf\Type;
 
-use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\Csrf\EventListener\CsrfValidationListener;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Translation\TranslatorInterface;
+use Makhan\Component\Form\AbstractTypeExtension;
+use Makhan\Component\Form\Extension\Csrf\EventListener\CsrfValidationListener;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Translation\TranslatorInterface;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -97,7 +97,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
             $tokenId = $options['csrf_token_id'] ?: ($form->getName() ?: get_class($form->getConfig()->getType()->getInnerType()));
             $data = (string) $options['csrf_token_manager']->getToken($tokenId);
 
-            $csrfForm = $factory->createNamed($options['csrf_field_name'], 'Symfony\Component\Form\Extension\Core\Type\HiddenType', $data, array(
+            $csrfForm = $factory->createNamed($options['csrf_field_name'], 'Makhan\Component\Form\Extension\Core\Type\HiddenType', $data, array(
                 'mapped' => false,
             ));
 
@@ -124,6 +124,6 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return 'Makhan\Component\Form\Extension\Core\Type\FormType';
     }
 }

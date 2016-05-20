@@ -1,25 +1,25 @@
 {
-    "name": "symfony/options-resolver",
+    "name": "makhan/options-resolver",
     "type": "library",
-    "description": "Symfony OptionsResolver Component",
+    "description": "Makhan OptionsResolver Component",
     "keywords": ["options", "config", "configuration"],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\OptionsResolver\\": "" },
+        "psr-4": { "Makhan\\Component\\OptionsResolver\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

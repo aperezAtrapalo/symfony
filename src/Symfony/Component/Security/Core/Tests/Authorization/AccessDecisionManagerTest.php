@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authorization;
+namespace Makhan\Component\Security\Core\Tests\Authorization;
 
-use Symfony\Component\Security\Core\Authorization\AccessDecisionManager;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
+use Makhan\Component\Security\Core\Authorization\AccessDecisionManager;
+use Makhan\Component\Security\Core\Authorization\Voter\VoterInterface;
 
 class AccessDecisionManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class AccessDecisionManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testStrategies($strategy, $voters, $allowIfAllAbstainDecisions, $allowIfEqualGrantedDeniedDecisions, $expected)
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $manager = new AccessDecisionManager($voters, $strategy, $allowIfAllAbstainDecisions, $allowIfEqualGrantedDeniedDecisions);
 
         $this->assertSame($expected, $manager->decide($token, array('ROLE_FOO')));
@@ -47,7 +47,7 @@ class AccessDecisionManagerTest extends \PHPUnit_Framework_TestCase
 
     public function getStrategiesWith2RolesTests()
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         return array(
             array($token, 'affirmative', $this->getVoter(VoterInterface::ACCESS_DENIED), false),
@@ -65,7 +65,7 @@ class AccessDecisionManagerTest extends \PHPUnit_Framework_TestCase
 
     protected function getVoterFor2Roles($token, $vote1, $vote2)
     {
-        $voter = $this->getMock('Symfony\Component\Security\Core\Authorization\Voter\VoterInterface');
+        $voter = $this->getMock('Makhan\Component\Security\Core\Authorization\Voter\VoterInterface');
         $voter->expects($this->any())
               ->method('vote')
               ->will($this->returnValueMap(array(
@@ -130,7 +130,7 @@ class AccessDecisionManagerTest extends \PHPUnit_Framework_TestCase
 
     protected function getVoter($vote)
     {
-        $voter = $this->getMock('Symfony\Component\Security\Core\Authorization\Voter\VoterInterface');
+        $voter = $this->getMock('Makhan\Component\Security\Core\Authorization\Voter\VoterInterface');
         $voter->expects($this->any())
               ->method('vote')
               ->will($this->returnValue($vote));

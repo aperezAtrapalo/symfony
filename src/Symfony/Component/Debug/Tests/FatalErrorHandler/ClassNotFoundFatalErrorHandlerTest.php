@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests\FatalErrorHandler;
+namespace Makhan\Component\Debug\Tests\FatalErrorHandler;
 
-use Symfony\Component\Debug\Exception\FatalErrorException;
-use Symfony\Component\ClassLoader\ClassLoader as SymfonyClassLoader;
-use Symfony\Component\Debug\FatalErrorHandler\ClassNotFoundFatalErrorHandler;
-use Symfony\Component\Debug\DebugClassLoader;
+use Makhan\Component\Debug\Exception\FatalErrorException;
+use Makhan\Component\ClassLoader\ClassLoader as MakhanClassLoader;
+use Makhan\Component\Debug\FatalErrorHandler\ClassNotFoundFatalErrorHandler;
+use Makhan\Component\Debug\DebugClassLoader;
 use Composer\Autoload\ClassLoader as ComposerClassLoader;
 
 class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
@@ -32,7 +32,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
             }
 
             if ($function[0] instanceof ComposerClassLoader) {
-                $function[0]->add('Symfony_Component_Debug_Tests_Fixtures', dirname(dirname(dirname(dirname(dirname(__DIR__))))));
+                $function[0]->add('Makhan_Component_Debug_Tests_Fixtures', dirname(dirname(dirname(dirname(dirname(__DIR__))))));
                 break;
             }
         }
@@ -60,7 +60,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
             array_map('spl_autoload_register', $autoloaders);
         }
 
-        $this->assertInstanceOf('Symfony\Component\Debug\Exception\ClassNotFoundException', $exception);
+        $this->assertInstanceOf('Makhan\Component\Debug\Exception\ClassNotFoundException', $exception);
         $this->assertSame($translatedMessage, $exception->getMessage());
         $this->assertSame($error['type'], $exception->getSeverity());
         $this->assertSame($error['file'], $exception->getFile());
@@ -69,12 +69,12 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function provideClassNotFoundData()
     {
-        $prefixes = array('Symfony\Component\Debug\Exception\\' => realpath(__DIR__.'/../../Exception'));
+        $prefixes = array('Makhan\Component\Debug\Exception\\' => realpath(__DIR__.'/../../Exception'));
 
-        $symfonyAutoloader = new SymfonyClassLoader();
-        $symfonyAutoloader->addPrefixes($prefixes);
+        $makhanAutoloader = new MakhanClassLoader();
+        $makhanAutoloader->addPrefixes($prefixes);
 
-        $debugClassLoader = new DebugClassLoader(array($symfonyAutoloader, 'loadClass'));
+        $debugClassLoader = new DebugClassLoader(array($makhanAutoloader, 'loadClass'));
 
         return array(
             array(
@@ -102,7 +102,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Class \'UndefinedFunctionException\' not found',
                 ),
-                "Attempted to load class \"UndefinedFunctionException\" from the global namespace.\nDid you forget a \"use\" statement for \"Symfony\Component\Debug\Exception\UndefinedFunctionException\"?",
+                "Attempted to load class \"UndefinedFunctionException\" from the global namespace.\nDid you forget a \"use\" statement for \"Makhan\Component\Debug\Exception\UndefinedFunctionException\"?",
             ),
             array(
                 array(
@@ -111,7 +111,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Class \'PEARClass\' not found',
                 ),
-                "Attempted to load class \"PEARClass\" from the global namespace.\nDid you forget a \"use\" statement for \"Symfony_Component_Debug_Tests_Fixtures_PEARClass\"?",
+                "Attempted to load class \"PEARClass\" from the global namespace.\nDid you forget a \"use\" statement for \"Makhan_Component_Debug_Tests_Fixtures_PEARClass\"?",
             ),
             array(
                 array(
@@ -120,7 +120,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Class \'Foo\\Bar\\UndefinedFunctionException\' not found',
                 ),
-                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Symfony\Component\Debug\Exception\UndefinedFunctionException\"?",
+                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Makhan\Component\Debug\Exception\UndefinedFunctionException\"?",
             ),
             array(
                 array(
@@ -129,8 +129,8 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Class \'Foo\\Bar\\UndefinedFunctionException\' not found',
                 ),
-                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Symfony\Component\Debug\Exception\UndefinedFunctionException\"?",
-                array($symfonyAutoloader, 'loadClass'),
+                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Makhan\Component\Debug\Exception\UndefinedFunctionException\"?",
+                array($makhanAutoloader, 'loadClass'),
             ),
             array(
                 array(
@@ -139,7 +139,7 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
                     'file' => 'foo.php',
                     'message' => 'Class \'Foo\\Bar\\UndefinedFunctionException\' not found',
                 ),
-                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Symfony\Component\Debug\Exception\UndefinedFunctionException\"?",
+                "Attempted to load class \"UndefinedFunctionException\" from namespace \"Foo\Bar\".\nDid you forget a \"use\" statement for \"Makhan\Component\Debug\Exception\UndefinedFunctionException\"?",
                 array($debugClassLoader, 'loadClass'),
             ),
             array(
@@ -173,6 +173,6 @@ class ClassNotFoundFatalErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $handler = new ClassNotFoundFatalErrorHandler();
         $exception = $handler->handleError($error, new FatalErrorException('', 0, $error['type'], $error['file'], $error['line']));
 
-        $this->assertInstanceOf('Symfony\Component\Debug\Exception\ClassNotFoundException', $exception);
+        $this->assertInstanceOf('Makhan\Component\Debug\Exception\ClassNotFoundException', $exception);
     }
 }

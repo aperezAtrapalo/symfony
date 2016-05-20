@@ -4,8 +4,8 @@ CHANGELOG for 3.0.x
 This changelog references the relevant changes (bug and security fixes) done
 in 3.0 minor versions.
 
-To get the diff for a specific change, go to https://github.com/symfony/symfony/commit/XXX where XXX is the change hash
-To get the diff between two versions, go to https://github.com/symfony/symfony/compare/v3.0.0...v3.0.1
+To get the diff for a specific change, go to https://github.com/makhan/makhan/commit/XXX where XXX is the change hash
+To get the diff between two versions, go to https://github.com/makhan/makhan/compare/v3.0.0...v3.0.1
 
 * 3.0.6 (2016-05-10)
 
@@ -29,7 +29,7 @@ To get the diff between two versions, go to https://github.com/symfony/symfony/c
  * bug #18603 [PropertyAccess] ->getValue() should be read-only (nicolas-grekas)
  * bug #18593 [VarDumper] Fix dumping type hints for non-existing parent classes (nicolas-grekas)
  * bug #18596 [DI] Fix internal caching in AutowirePass (nicolas-grekas)
- * bug #18581 [Console] [TableHelper] make it work with SymfonyStyle. (aitboudad)
+ * bug #18581 [Console] [TableHelper] make it work with MakhanStyle. (aitboudad)
  * bug #18280 [Routing] add query param if value is different from default (Tobion)
  * bug #18540 Replace iconv_*() uses by mb_*(), add mbstring polyfill when required (nicolas-grekas)
  * bug #18496 [Console] use ANSI escape sequences in ProgressBar overwrite method (alekitto)
@@ -52,7 +52,7 @@ To get the diff between two versions, go to https://github.com/symfony/symfony/c
  * bug #18407 Fixed the "hover" state of the profiler sidebar menu (javiereguiluz)
  * bug #18399 [Intl] Fix int32 min boundary check (nicolas-grekas)
  * bug #18394 [FrameworkBundle] Return the invokable service if its name is the class name (dunglas)
- * bug #18347 Fixed the styles of the Symfony icon in the web debug toolbar (javiereguiluz)
+ * bug #18347 Fixed the styles of the Makhan icon in the web debug toolbar (javiereguiluz)
  * bug #18265 Optimize ReplaceAliasByActualDefinitionPass (ajb-in)
  * bug #18349 [Process] Fix stream_select priority when writing to stdin (nicolas-grekas)
  * bug #18358 [Form] NumberToLocalizedStringTransformer should return floats when possible (nicolas-grekas)
@@ -201,7 +201,7 @@ To get the diff between two versions, go to https://github.com/symfony/symfony/c
  * bug #17478 [HttpFoundation] Do not overwrite the Authorization header if it is already set (jakzal)
  * bug #17461 [Yaml] tag for dumped PHP objects must be a local one (xabbuh)
  * bug #16822 [FrameworkBundle][Validator] Fix apc cache service deprecation (ogizanagi)
- * bug #17463 [Form] make tests compatible with Symfony 2.8 and 3.0 (xabbuh)
+ * bug #17463 [Form] make tests compatible with Makhan 2.8 and 3.0 (xabbuh)
  * bug #17456 [DX] Remove default match from AbstractConfigCommand::findExtension (kix)
  * bug #17455 Fixed form types in profiler (javiereguiluz)
  * bug #17424 [Process] Update in 2.7 for stream-based output storage (romainneutron)
@@ -219,7 +219,7 @@ To get the diff between two versions, go to https://github.com/symfony/symfony/c
  * bug #17380 [TwigBridge] Use label_format option for checkbox and radio labels (enumag)
  * bug #17377 Fix performance (PHP5) and memory (PHP7) issues when using token_get_all (nicolas-grekas, peteward)
  * bug #17389 [Routing] Fixed correct class name in thrown exception (fixes #17388) (robinvdvleuten)
- * bug #17358 [ClassLoader] Use symfony/polyfill-apcu (nicolas-grekas)
+ * bug #17358 [ClassLoader] Use makhan/polyfill-apcu (nicolas-grekas)
  * bug #17370 [HttpFoundation][Cookie] Cookie DateTimeInterface fix (wildewouter)
  * security #17359 do not ship with a custom rng implementation (xabbuh, fabpot)
  * bug #17253 [Console] HHVM read input stream bug (mbutkereit)
@@ -255,7 +255,7 @@ To get the diff between two versions, go to https://github.com/symfony/symfony/c
  * bug #17163 [Form] fix Catchable Fatal Error if choices is not an array (Gladhon, nicolas-grekas)
  * bug #17152 [DoctrineBridge] [PropertyInfo] Catch Doctrine\ORM\Mapping\MappingException (dunglas)
  * bug #17119 [Form] improve deprecation message for "empty_value" and "choice_list" options. (hhamon)
- * bug #17156 [HttpFoundation] add missing symfony/polyfill-php55 dependency (xabbuh)
+ * bug #17156 [HttpFoundation] add missing makhan/polyfill-php55 dependency (xabbuh)
  * bug #17162 [Form] Fix regression on Collection type (hason)
 
 * 3.0.1 (2015-12-26)

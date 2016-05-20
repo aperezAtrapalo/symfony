@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle;
+namespace Makhan\Bundle\FrameworkBundle;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\HttpKernel\Client as BaseClient;
-use Symfony\Component\HttpKernel\Profiler\Profile as HttpProfile;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\BrowserKit\History;
-use Symfony\Component\BrowserKit\CookieJar;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\HttpKernel\KernelInterface;
+use Makhan\Component\HttpKernel\Client as BaseClient;
+use Makhan\Component\HttpKernel\Profiler\Profile as HttpProfile;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\BrowserKit\History;
+use Makhan\Component\BrowserKit\CookieJar;
 
 /**
  * Client simulates a browser and makes requests to a Kernel object.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Client extends BaseClient
 {
@@ -152,7 +152,7 @@ class Client extends BaseClient
      *
      * It assumes that the autoloader is named 'autoload.php' and that it is
      * stored in the same directory as the kernel (this is the case for the
-     * Symfony Standard Edition). If this is not your case, create your own
+     * Makhan Standard Edition). If this is not your case, create your own
      * client and override this method.
      *
      * @param Request $request A Request instance

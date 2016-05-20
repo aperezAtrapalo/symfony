@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Encapsulates common logic of {@link FormType} and {@link ButtonType}.
  *
  * This type does not appear in the form's type inheritance chain and as such
- * cannot be extended (via {@link \Symfony\Component\Form\FormExtensionInterface}) nor themed.
+ * cannot be extended (via {@link \Makhan\Component\Form\FormExtensionInterface}) nor themed.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -99,7 +99,7 @@ abstract class BaseType extends AbstractType
             // Including the type is important too, because if rows of a
             // collection form have different types (dynamically), they should
             // be rendered differently.
-            // https://github.com/symfony/symfony/issues/5038
+            // https://github.com/makhan/makhan/issues/5038
             'cache_key' => $uniqueBlockPrefix.'_'.$form->getConfig()->getType()->getBlockPrefix(),
         ));
     }

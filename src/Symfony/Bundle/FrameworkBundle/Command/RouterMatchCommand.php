@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\Routing\Matcher\TraceableUrlMatcher;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Routing\RouterInterface;
+use Makhan\Component\Routing\Matcher\TraceableUrlMatcher;
 
 /**
  * A console command to test route matching.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class RouterMatchCommand extends ContainerAwareCommand
 {
@@ -64,7 +64,7 @@ The <info>%command.name%</info> shows which routes match a given request and whi
 
 or
 
-  <info>php %command.full_name% /foo --method POST --scheme https --host symfony.com --verbose</info>
+  <info>php %command.full_name% /foo --method POST --scheme https --host makhan.com --verbose</info>
 
 EOF
             )
@@ -76,7 +76,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
 
         $router = $this->getContainer()->get('router');
         $context = $router->getContext();

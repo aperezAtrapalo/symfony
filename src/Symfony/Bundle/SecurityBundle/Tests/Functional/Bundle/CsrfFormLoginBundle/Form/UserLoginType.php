@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form;
+namespace Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Security;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\FormEvents;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Security\Core\Security;
 
 /**
  * Form type for use with the Security component's form-based authentication
@@ -42,9 +42,9 @@ class UserLoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', 'Symfony\Component\Form\Extension\Core\Type\TextType')
-            ->add('password', 'Symfony\Component\Form\Extension\Core\Type\PasswordType')
-            ->add('_target_path', 'Symfony\Component\Form\Extension\Core\Type\HiddenType')
+            ->add('username', 'Makhan\Component\Form\Extension\Core\Type\TextType')
+            ->add('password', 'Makhan\Component\Form\Extension\Core\Type\PasswordType')
+            ->add('_target_path', 'Makhan\Component\Form\Extension\Core\Type\HiddenType')
         ;
 
         $request = $this->requestStack->getCurrentRequest();

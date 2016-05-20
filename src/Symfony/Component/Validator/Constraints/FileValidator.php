@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Constraints;
+namespace Makhan\Component\Validator\Constraints;
 
-use Symfony\Component\HttpFoundation\File\File as FileObject;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\HttpFoundation\File\File as FileObject;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>

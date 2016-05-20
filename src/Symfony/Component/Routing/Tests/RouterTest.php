@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests;
+namespace Makhan\Component\Routing\Tests;
 
-use Symfony\Component\Routing\Router;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\Router;
+use Makhan\Component\HttpFoundation\Request;
 
 class RouterTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +22,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->loader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $this->loader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         $this->router = new Router($this->loader, 'routing.yml');
     }
 
@@ -82,7 +82,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     {
         $this->router->setOption('resource_type', 'ResourceType');
 
-        $routeCollection = $this->getMock('Symfony\Component\Routing\RouteCollection');
+        $routeCollection = $this->getMock('Makhan\Component\Routing\RouteCollection');
 
         $this->loader->expects($this->once())
             ->method('load')->with('routing.yml', 'ResourceType')
@@ -100,9 +100,9 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
         $this->loader->expects($this->once())
             ->method('load')->with('routing.yml', null)
-            ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RouteCollection')));
+            ->will($this->returnValue($this->getMock('Makhan\Component\Routing\RouteCollection')));
 
-        $this->assertInstanceOf('Symfony\\Component\\Routing\\Matcher\\UrlMatcher', $this->router->getMatcher());
+        $this->assertInstanceOf('Makhan\\Component\\Routing\\Matcher\\UrlMatcher', $this->router->getMatcher());
     }
 
     public function provideMatcherOptionsPreventingCaching()
@@ -122,9 +122,9 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
         $this->loader->expects($this->once())
             ->method('load')->with('routing.yml', null)
-            ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RouteCollection')));
+            ->will($this->returnValue($this->getMock('Makhan\Component\Routing\RouteCollection')));
 
-        $this->assertInstanceOf('Symfony\\Component\\Routing\\Generator\\UrlGenerator', $this->router->getGenerator());
+        $this->assertInstanceOf('Makhan\\Component\\Routing\\Generator\\UrlGenerator', $this->router->getGenerator());
     }
 
     public function provideGeneratorOptionsPreventingCaching()
@@ -137,7 +137,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testMatchRequestWithUrlMatcherInterface()
     {
-        $matcher = $this->getMock('Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        $matcher = $this->getMock('Makhan\Component\Routing\Matcher\UrlMatcherInterface');
         $matcher->expects($this->once())->method('match');
 
         $p = new \ReflectionProperty($this->router, 'matcher');
@@ -149,7 +149,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testMatchRequestWithRequestMatcherInterface()
     {
-        $matcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $matcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $matcher->expects($this->once())->method('matchRequest');
 
         $p = new \ReflectionProperty($this->router, 'matcher');

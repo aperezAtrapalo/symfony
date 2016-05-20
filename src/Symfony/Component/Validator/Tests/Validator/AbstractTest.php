@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Validator;
+namespace Makhan\Component\Validator\Tests\Validator;
 
-use Symfony\Component\Validator\Constraints\Callback;
-use Symfony\Component\Validator\Constraints\GroupSequence;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Traverse;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
-use Symfony\Component\Validator\Tests\Fixtures\FailingConstraint;
-use Symfony\Component\Validator\Tests\Fixtures\Reference;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\Validator\Constraints\Callback;
+use Makhan\Component\Validator\Constraints\GroupSequence;
+use Makhan\Component\Validator\Constraints\NotNull;
+use Makhan\Component\Validator\Constraints\Traverse;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\ConstraintViolationInterface;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\Tests\Fixtures\Entity;
+use Makhan\Component\Validator\Tests\Fixtures\FailingConstraint;
+use Makhan\Component\Validator\Tests\Fixtures\Reference;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -411,7 +411,7 @@ abstract class AbstractTest extends AbstractValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testExpectTraversableIfTraversalEnabledOnClass()
     {
@@ -569,7 +569,7 @@ abstract class AbstractTest extends AbstractValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Validator\Exception\RuntimeException
      */
     public function testValidateFailsIfNoConstraintsAndNoObjectOrArray()
     {
@@ -601,8 +601,8 @@ abstract class AbstractTest extends AbstractValidatorTest
         $entity->initialized = false;
 
         // prepare initializers that set "initialized" to true
-        $initializer1 = $this->getMock('Symfony\\Component\\Validator\\ObjectInitializerInterface');
-        $initializer2 = $this->getMock('Symfony\\Component\\Validator\\ObjectInitializerInterface');
+        $initializer1 = $this->getMock('Makhan\\Component\\Validator\\ObjectInitializerInterface');
+        $initializer2 = $this->getMock('Makhan\\Component\\Validator\\ObjectInitializerInterface');
 
         $initializer1->expects($this->once())
             ->method('initialize')

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Routing\Annotation\Route;
+use Makhan\Component\Routing\Annotation\Route;
 
 class AnnotationClassLoaderTest extends AbstractAnnotationLoaderTest
 {
@@ -39,7 +39,7 @@ class AnnotationClassLoaderTest extends AbstractAnnotationLoaderTest
      */
     public function testLoadAbstractClass()
     {
-        $this->loader->load('Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\AbstractClass');
+        $this->loader->load('Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\AbstractClass');
     }
 
     /**
@@ -73,27 +73,27 @@ class AnnotationClassLoaderTest extends AbstractAnnotationLoaderTest
     {
         return array(
             array(
-                'Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
+                'Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
                 array('name' => 'route1', 'path' => '/path'),
                 array('arg2' => 'defaultValue2', 'arg3' => 'defaultValue3'),
             ),
             array(
-                'Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
+                'Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
                 array('defaults' => array('arg2' => 'foo'), 'requirements' => array('arg3' => '\w+')),
                 array('arg2' => 'defaultValue2', 'arg3' => 'defaultValue3'),
             ),
             array(
-                'Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
+                'Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
                 array('options' => array('foo' => 'bar')),
                 array('arg2' => 'defaultValue2', 'arg3' => 'defaultValue3'),
             ),
             array(
-                'Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
+                'Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
                 array('schemes' => array('https'), 'methods' => array('GET')),
                 array('arg2' => 'defaultValue2', 'arg3' => 'defaultValue3'),
             ),
             array(
-                'Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
+                'Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass',
                 array('condition' => 'context.getMethod() == "GET"'),
                 array('arg2' => 'defaultValue2', 'arg3' => 'defaultValue3'),
             ),
@@ -173,7 +173,7 @@ class AnnotationClassLoaderTest extends AbstractAnnotationLoaderTest
             ->will($this->returnValue(array($this->getAnnotatedRoute($methodRouteData))))
         ;
 
-        $routeCollection = $this->loader->load('Symfony\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass');
+        $routeCollection = $this->loader->load('Makhan\Component\Routing\Tests\Fixtures\AnnotatedClasses\BarClass');
         $route = $routeCollection->get($methodRouteData['name']);
 
         $this->assertSame($classRouteData['path'].$methodRouteData['path'], $route->getPath(), '->load concatenates class and method route path');

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormFactoryBuilder;
-use Symfony\Component\Form\Tests\Fixtures\FooType;
+use Makhan\Component\Form\FormFactoryBuilder;
+use Makhan\Component\Form\Tests\Fixtures\FooType;
 
 class FormFactoryBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,11 +22,11 @@ class FormFactoryBuilderTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $factory = new \ReflectionClass('Symfony\Component\Form\FormFactory');
+        $factory = new \ReflectionClass('Makhan\Component\Form\FormFactory');
         $this->registry = $factory->getProperty('registry');
         $this->registry->setAccessible(true);
 
-        $this->guesser = $this->getMock('Symfony\Component\Form\FormTypeGuesserInterface');
+        $this->guesser = $this->getMock('Makhan\Component\Form\FormTypeGuesserInterface');
         $this->type = new FooType();
     }
 

@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder;
+namespace Makhan\Component\Finder;
 
-use Symfony\Component\Finder\Comparator\DateComparator;
-use Symfony\Component\Finder\Comparator\NumberComparator;
-use Symfony\Component\Finder\Iterator\CustomFilterIterator;
-use Symfony\Component\Finder\Iterator\DateRangeFilterIterator;
-use Symfony\Component\Finder\Iterator\DepthRangeFilterIterator;
-use Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
-use Symfony\Component\Finder\Iterator\FilecontentFilterIterator;
-use Symfony\Component\Finder\Iterator\FilenameFilterIterator;
-use Symfony\Component\Finder\Iterator\SizeRangeFilterIterator;
-use Symfony\Component\Finder\Iterator\SortableIterator;
+use Makhan\Component\Finder\Comparator\DateComparator;
+use Makhan\Component\Finder\Comparator\NumberComparator;
+use Makhan\Component\Finder\Iterator\CustomFilterIterator;
+use Makhan\Component\Finder\Iterator\DateRangeFilterIterator;
+use Makhan\Component\Finder\Iterator\DepthRangeFilterIterator;
+use Makhan\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
+use Makhan\Component\Finder\Iterator\FilecontentFilterIterator;
+use Makhan\Component\Finder\Iterator\FilenameFilterIterator;
+use Makhan\Component\Finder\Iterator\SizeRangeFilterIterator;
+use Makhan\Component\Finder\Iterator\SortableIterator;
 
 /**
  * Finder allows to build rules to find files and directories.
@@ -33,7 +33,7 @@ use Symfony\Component\Finder\Iterator\SortableIterator;
  *
  * $finder = Finder::create()->files()->name('*.php')->in(__DIR__);
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Finder implements \IteratorAggregate, \Countable
 {

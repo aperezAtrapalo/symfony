@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Generator;
+namespace Makhan\Component\Routing\Generator;
 
-use Symfony\Component\Routing\Exception\InvalidParameterException;
-use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Symfony\Component\Routing\RequestContextAwareInterface;
+use Makhan\Component\Routing\Exception\InvalidParameterException;
+use Makhan\Component\Routing\Exception\MissingMandatoryParametersException;
+use Makhan\Component\Routing\Exception\RouteNotFoundException;
+use Makhan\Component\Routing\RequestContextAwareInterface;
 
 /**
  * UrlGeneratorInterface is the interface that all URL generator classes must implement.
@@ -26,7 +26,7 @@ use Symfony\Component\Routing\RequestContextAwareInterface;
  * less technical. Generating URIs, i.e. representation-independent resource identifiers,
  * is also possible.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 interface UrlGeneratorInterface extends RequestContextAwareInterface

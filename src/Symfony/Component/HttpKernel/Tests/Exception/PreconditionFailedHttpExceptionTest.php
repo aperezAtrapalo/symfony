@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
+use Makhan\Component\HttpKernel\Exception\PreconditionFailedHttpException;
 
 class PreconditionFailedHttpExceptionTest extends HttpExceptionTest
 {

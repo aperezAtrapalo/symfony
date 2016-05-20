@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Yaml;
+namespace Makhan\Component\Yaml;
 
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Exception\DumpException;
+use Makhan\Component\Yaml\Exception\ParseException;
+use Makhan\Component\Yaml\Exception\DumpException;
 
 /**
  * Inline implements a YAML parser/dumper for the YAML inline syntax.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  *
  * @internal
  */
@@ -300,7 +300,7 @@ class Inline
             }
 
             if ($output && '%' === $output[0]) {
-                @trigger_error('Not quoting a scalar starting with the "%" indicator character is deprecated since Symfony 3.1 and will throw a ParseException in 4.0.', E_USER_DEPRECATED);
+                @trigger_error('Not quoting a scalar starting with the "%" indicator character is deprecated since Makhan 3.1 and will throw a ParseException in 4.0.', E_USER_DEPRECATED);
             }
 
             if ($evaluate) {

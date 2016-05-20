@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Command\Command;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Command\Command;
 
 class HelperSetTest extends \PHPUnit_Framework_TestCase
 {
@@ -66,7 +66,7 @@ class HelperSetTest extends \PHPUnit_Framework_TestCase
             $this->fail('->get() throws InvalidArgumentException when helper not found');
         } catch (\Exception $e) {
             $this->assertInstanceOf('\InvalidArgumentException', $e, '->get() throws InvalidArgumentException when helper not found');
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\ExceptionInterface', $e, '->get() throws domain specific exception when helper not found');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\ExceptionInterface', $e, '->get() throws domain specific exception when helper not found');
             $this->assertContains('The helper "foo" is not defined.', $e->getMessage(), '->get() throws InvalidArgumentException when helper not found');
         }
     }
@@ -117,7 +117,7 @@ class HelperSetTest extends \PHPUnit_Framework_TestCase
      */
     private function getGenericMockHelper($name, HelperSet $helperset = null)
     {
-        $mock_helper = $this->getMock('\Symfony\Component\Console\Helper\HelperInterface');
+        $mock_helper = $this->getMock('\Makhan\Component\Console\Helper\HelperInterface');
         $mock_helper->expects($this->any())
             ->method('getName')
             ->will($this->returnValue($name));

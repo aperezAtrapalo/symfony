@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Validator;
+namespace Makhan\Component\Validator\Validator;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * A validator in a specific execution context.
@@ -39,7 +39,7 @@ interface ContextualValidatorInterface
      * Validates a value against a constraint or a list of constraints.
      *
      * If no constraint is passed, the constraint
-     * {@link \Symfony\Component\Validator\Constraints\Valid} is assumed.
+     * {@link \Makhan\Component\Validator\Constraints\Valid} is assumed.
      *
      * @param mixed                   $value       The value to validate
      * @param Constraint|Constraint[] $constraints The constraint(s) to validate

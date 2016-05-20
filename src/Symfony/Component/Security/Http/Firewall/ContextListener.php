@@ -1,36 +1,36 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
-use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
-use Symfony\Component\Security\Core\Authentication\Token\RememberMeToken;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolver;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
+use Makhan\Component\Security\Core\Authentication\Token\AnonymousToken;
+use Makhan\Component\Security\Core\Authentication\Token\RememberMeToken;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * ContextListener manages the SecurityContext persistence through a session.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class ContextListener implements ListenerInterface
@@ -52,7 +52,7 @@ class ContextListener implements ListenerInterface
 
         foreach ($userProviders as $userProvider) {
             if (!$userProvider instanceof UserProviderInterface) {
-                throw new \InvalidArgumentException(sprintf('User provider "%s" must implement "Symfony\Component\Security\Core\User\UserProviderInterface".', get_class($userProvider)));
+                throw new \InvalidArgumentException(sprintf('User provider "%s" must implement "Makhan\Component\Security\Core\User\UserProviderInterface".', get_class($userProvider)));
             }
         }
 

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Command;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Command;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Bundle\FrameworkBundle\Command\TranslationUpdateCommand;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\DependencyInjection;
-use Symfony\Component\HttpKernel;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Tester\CommandTester;
+use Makhan\Bundle\FrameworkBundle\Command\TranslationUpdateCommand;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\DependencyInjection;
+use Makhan\Component\HttpKernel;
 
 class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
 {
@@ -67,7 +67,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
 
     private function getContainer($extractedMessages = array(), $loadedMessages = array(), HttpKernel\KernelInterface $kernel = null)
     {
-        $translator = $this->getMockBuilder('Symfony\Component\Translation\Translator')
+        $translator = $this->getMockBuilder('Makhan\Component\Translation\Translator')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -76,7 +76,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
             ->method('getFallbackLocales')
             ->will($this->returnValue(array('en')));
 
-        $extractor = $this->getMock('Symfony\Component\Translation\Extractor\ExtractorInterface');
+        $extractor = $this->getMock('Makhan\Component\Translation\Extractor\ExtractorInterface');
         $extractor
             ->expects($this->any())
             ->method('extract')
@@ -86,7 +86,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
                 })
             );
 
-        $loader = $this->getMock('Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader');
+        $loader = $this->getMock('Makhan\Bundle\FrameworkBundle\Translation\TranslationLoader');
         $loader
             ->expects($this->any())
             ->method('loadMessages')
@@ -96,7 +96,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
                 })
             );
 
-        $writer = $this->getMock('Symfony\Component\Translation\Writer\TranslationWriter');
+        $writer = $this->getMock('Makhan\Component\Translation\Writer\TranslationWriter');
         $writer
             ->expects($this->any())
             ->method('getFormats')
@@ -105,7 +105,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
             );
 
         if (null === $kernel) {
-            $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+            $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
             $kernel
                 ->expects($this->any())
                 ->method('getBundle')
@@ -120,7 +120,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
             ->method('getRootDir')
             ->will($this->returnValue($this->translationDir));
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $container
             ->expects($this->any())
             ->method('get')
@@ -137,7 +137,7 @@ class TranslationUpdateCommandTest extends \PHPUnit_Framework_TestCase
 
     private function getBundle($path)
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\BundleInterface');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\BundleInterface');
         $bundle
             ->expects($this->any())
             ->method('getPath')

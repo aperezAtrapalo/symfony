@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
+class RepeatedTypeTest extends \Makhan\Component\Form\Test\TypeTestCase
 {
     protected $form;
 
@@ -19,8 +19,8 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
     {
         parent::setUp();
 
-        $this->form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $this->form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
         ));
         $this->form->setData(null);
     }
@@ -35,8 +35,8 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetOptions()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'options' => array('label' => 'Global'),
         ));
 
@@ -48,9 +48,9 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetOptionsPerChild()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
             // the global required value cannot be overridden
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'first_options' => array('label' => 'Test', 'required' => false),
             'second_options' => array('label' => 'Test2'),
         ));
@@ -63,9 +63,9 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetRequired()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
             'required' => false,
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
         ));
 
         $this->assertFalse($form['first']->isRequired());
@@ -73,41 +73,41 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testSetInvalidOptions()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'options' => 'bad value',
         ));
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testSetInvalidFirstOptions()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'first_options' => 'bad value',
         ));
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testSetInvalidSecondOptions()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'second_options' => 'bad value',
         ));
     }
 
     public function testSetErrorBubblingToTrue()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
             'error_bubbling' => true,
         ));
 
@@ -118,7 +118,7 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetErrorBubblingToFalse()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
             'error_bubbling' => false,
         ));
 
@@ -129,7 +129,7 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetErrorBubblingIndividually()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
             'error_bubbling' => true,
             'options' => array('error_bubbling' => false),
             'second_options' => array('error_bubbling' => true),
@@ -142,8 +142,8 @@ class RepeatedTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testSetOptionsPerChildAndOverwrite()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\RepeatedType', null, array(
-            'type' => 'Symfony\Component\Form\Extension\Core\Type\TextType',
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\RepeatedType', null, array(
+            'type' => 'Makhan\Component\Form\Extension\Core\Type\TextType',
             'options' => array('label' => 'Label'),
             'second_options' => array('label' => 'Second label'),
         ));

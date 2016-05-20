@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Comparator;
+namespace Makhan\Component\Finder\Comparator;
 
 /**
  * NumberComparator compiles a simple comparison to an anonymous
@@ -25,9 +25,9 @@ namespace Symfony\Component\Finder\Comparator;
  *
  * Based on the Perl Number::Compare module.
  *
- * @author    Fabien Potencier <fabien@symfony.com> PHP port
+ * @author    Fabien Potencier <fabien@makhan.com> PHP port
  * @author    Richard Clamp <richardc@unixbeard.net> Perl version
- * @copyright 2004-2005 Fabien Potencier <fabien@symfony.com>
+ * @copyright 2004-2005 Fabien Potencier <fabien@makhan.com>
  * @copyright 2002 Richard Clamp <richardc@unixbeard.net>
  *
  * @see http://physics.nist.gov/cuu/Units/binary.html

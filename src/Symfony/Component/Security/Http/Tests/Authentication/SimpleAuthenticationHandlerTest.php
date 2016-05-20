@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests;
+namespace Makhan\Component\Security\Http\Tests;
 
-use Symfony\Component\Security\Core\Authentication\SimpleAuthenticatorInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
-use Symfony\Component\Security\Http\Authentication\SimpleAuthenticationHandler;
+use Makhan\Component\Security\Core\Authentication\SimpleAuthenticatorInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
+use Makhan\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Makhan\Component\Security\Http\Authentication\SimpleAuthenticationHandler;
 
 class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,20 +33,20 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->successHandler = $this->getMock('Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface');
-        $this->failureHandler = $this->getMock('Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface');
+        $this->successHandler = $this->getMock('Makhan\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface');
+        $this->failureHandler = $this->getMock('Makhan\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface');
 
-        $this->request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-        $this->token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $this->request = $this->getMock('Makhan\Component\HttpFoundation\Request');
+        $this->token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         // No methods are invoked on the exception; we just assert on its class
         $this->authenticationException = new AuthenticationException();
 
-        $this->response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $this->response = $this->getMock('Makhan\Component\HttpFoundation\Response');
     }
 
     public function testOnAuthenticationSuccessFallsBackToDefaultHandlerIfSimpleIsNotASuccessHandler()
     {
-        $authenticator = $this->getMock('Symfony\Component\Security\Core\Authentication\SimpleAuthenticatorInterface');
+        $authenticator = $this->getMock('Makhan\Component\Security\Core\Authentication\SimpleAuthenticatorInterface');
 
         $this->successHandler->expects($this->once())
             ->method('onAuthenticationSuccess')
@@ -64,7 +64,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
         $this->successHandler->expects($this->never())
             ->method('onAuthenticationSuccess');
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestSuccessHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestSuccessHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationSuccess')
             ->with($this->request, $this->token)
@@ -85,7 +85,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
         $this->successHandler->expects($this->never())
             ->method('onAuthenticationSuccess');
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestSuccessHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestSuccessHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationSuccess')
             ->with($this->request, $this->token)
@@ -102,7 +102,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
             ->with($this->request, $this->token)
             ->will($this->returnValue($this->response));
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestSuccessHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestSuccessHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationSuccess')
             ->with($this->request, $this->token)
@@ -116,7 +116,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testOnAuthenticationFailureFallsBackToDefaultHandlerIfSimpleIsNotAFailureHandler()
     {
-        $authenticator = $this->getMock('Symfony\Component\Security\Core\Authentication\SimpleAuthenticatorInterface');
+        $authenticator = $this->getMock('Makhan\Component\Security\Core\Authentication\SimpleAuthenticatorInterface');
 
         $this->failureHandler->expects($this->once())
             ->method('onAuthenticationFailure')
@@ -134,7 +134,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
         $this->failureHandler->expects($this->never())
             ->method('onAuthenticationFailure');
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestFailureHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestFailureHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationFailure')
             ->with($this->request, $this->authenticationException)
@@ -155,7 +155,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
         $this->failureHandler->expects($this->never())
             ->method('onAuthenticationFailure');
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestFailureHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestFailureHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationFailure')
             ->with($this->request, $this->authenticationException)
@@ -172,7 +172,7 @@ class SimpleAuthenticationHandlerTest extends \PHPUnit_Framework_TestCase
             ->with($this->request, $this->authenticationException)
             ->will($this->returnValue($this->response));
 
-        $authenticator = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Tests\TestFailureHandlerInterface');
+        $authenticator = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Tests\TestFailureHandlerInterface');
         $authenticator->expects($this->once())
             ->method('onAuthenticationFailure')
             ->with($this->request, $this->authenticationException)

@@ -1,38 +1,38 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel;
+namespace Makhan\Component\HttpKernel;
 
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolverInterface;
+use Makhan\Component\HttpKernel\Controller\ControllerResolverInterface;
+use Makhan\Component\HttpKernel\Event\FilterControllerArgumentsEvent;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Makhan\Component\HttpKernel\Event\FilterControllerEvent;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\Event\FinishRequestEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\HttpKernel\Event\PostResponseEvent;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * HttpKernel notifies events to convert a Request object to a Response one.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HttpKernel implements HttpKernelInterface, TerminableInterface
 {

@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Validator;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Validator;
 
-use Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\Validator\Constraints\Blank as BlankConstraint;
+use Makhan\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\Validator\Constraints\Blank as BlankConstraint;
 
 class ConstraintValidatorFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetInstanceCreatesValidator()
     {
-        $class = get_class($this->getMockForAbstractClass('Symfony\\Component\\Validator\\ConstraintValidator'));
+        $class = get_class($this->getMockForAbstractClass('Makhan\\Component\\Validator\\ConstraintValidator'));
 
-        $constraint = $this->getMock('Symfony\\Component\\Validator\\Constraint');
+        $constraint = $this->getMock('Makhan\\Component\\Validator\\Constraint');
         $constraint
             ->expects($this->once())
             ->method('validatedBy')
@@ -43,17 +43,17 @@ class ConstraintValidatorFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $service = 'validator_constraint_service';
         $alias = 'validator_constraint_alias';
-        $validator = $this->getMockForAbstractClass('Symfony\\Component\\Validator\\ConstraintValidator');
+        $validator = $this->getMockForAbstractClass('Makhan\\Component\\Validator\\ConstraintValidator');
 
         // mock ContainerBuilder b/c it implements TaggedContainerInterface
-        $container = $this->getMock('Symfony\\Component\\DependencyInjection\\ContainerBuilder', array('get'));
+        $container = $this->getMock('Makhan\\Component\\DependencyInjection\\ContainerBuilder', array('get'));
         $container
             ->expects($this->once())
             ->method('get')
             ->with($service)
             ->will($this->returnValue($validator));
 
-        $constraint = $this->getMock('Symfony\\Component\\Validator\\Constraint');
+        $constraint = $this->getMock('Makhan\\Component\\Validator\\Constraint');
         $constraint
             ->expects($this->once())
             ->method('validatedBy')

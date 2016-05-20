@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\HttpFoundation;
+namespace Makhan\Component\Form\Extension\HttpFoundation;
 
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\RequestHandlerInterface;
-use Symfony\Component\Form\Util\ServerParams;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\RequestHandlerInterface;
+use Makhan\Component\Form\Util\ServerParams;
+use Makhan\Component\HttpFoundation\Request;
 
 /**
  * A request processor using the {@link Request} class of the HttpFoundation
@@ -45,7 +45,7 @@ class HttpFoundationRequestHandler implements RequestHandlerInterface
     public function handleRequest(FormInterface $form, $request = null)
     {
         if (!$request instanceof Request) {
-            throw new UnexpectedTypeException($request, 'Symfony\Component\HttpFoundation\Request');
+            throw new UnexpectedTypeException($request, 'Makhan\Component\HttpFoundation\Request');
         }
 
         $name = $form->getName();

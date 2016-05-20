@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Exception\LogoutException;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
-use Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
-use Symfony\Component\Security\Http\ParameterBagUtils;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Exception\LogoutException;
+use Makhan\Component\Security\Csrf\CsrfToken;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\Security\Http\Logout\LogoutHandlerInterface;
+use Makhan\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
+use Makhan\Component\Security\Http\ParameterBagUtils;
 
 /**
  * LogoutListener logout users.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class LogoutListener implements ListenerInterface
 {

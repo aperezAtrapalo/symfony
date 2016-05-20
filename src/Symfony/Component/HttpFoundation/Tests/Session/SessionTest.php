@@ -1,37 +1,37 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\Session;
+namespace Makhan\Component\HttpFoundation\Tests\Session;
 
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
+use Makhan\Component\HttpFoundation\Session\Session;
+use Makhan\Component\HttpFoundation\Session\Flash\FlashBag;
+use Makhan\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Makhan\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 
 /**
  * SessionTest.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Robert Schönthal <seroscho@googlemail.com>
  * @author Drak <drak@zikula.org>
  */
 class SessionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface
+     * @var \Makhan\Component\HttpFoundation\Session\Storage\SessionStorageInterface
      */
     protected $storage;
 
     /**
-     * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
+     * @var \Makhan\Component\HttpFoundation\Session\SessionInterface
      */
     protected $session;
 
@@ -105,8 +105,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
     public function testReplace()
     {
-        $this->session->replace(array('happiness' => 'be good', 'symfony' => 'awesome'));
-        $this->assertEquals(array('happiness' => 'be good', 'symfony' => 'awesome'), $this->session->all());
+        $this->session->replace(array('happiness' => 'be good', 'makhan' => 'awesome'));
+        $this->assertEquals(array('happiness' => 'be good', 'makhan' => 'awesome'), $this->session->all());
         $this->session->replace(array());
         $this->assertEquals(array(), $this->session->all());
     }
@@ -136,7 +136,7 @@ class SessionTest extends \PHPUnit_Framework_TestCase
         return array(
             array('foo', 'bar', array('foo' => 'bar')),
             array('foo.bar', 'too much beer', array('foo.bar' => 'too much beer')),
-            array('great', 'symfony is great', array('great' => 'symfony is great')),
+            array('great', 'makhan is great', array('great' => 'makhan is great')),
         );
     }
 
@@ -187,12 +187,12 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
     public function testGetFlashBag()
     {
-        $this->assertInstanceOf('Symfony\\Component\\HttpFoundation\\Session\\Flash\\FlashBagInterface', $this->session->getFlashBag());
+        $this->assertInstanceOf('Makhan\\Component\\HttpFoundation\\Session\\Flash\\FlashBagInterface', $this->session->getFlashBag());
     }
 
     public function testGetIterator()
     {
-        $attributes = array('hello' => 'world', 'symfony' => 'rocks');
+        $attributes = array('hello' => 'world', 'makhan' => 'rocks');
         foreach ($attributes as $key => $val) {
             $this->session->set($key, $val);
         }
@@ -209,13 +209,13 @@ class SessionTest extends \PHPUnit_Framework_TestCase
     public function testGetCount()
     {
         $this->session->set('hello', 'world');
-        $this->session->set('symfony', 'rocks');
+        $this->session->set('makhan', 'rocks');
 
         $this->assertCount(2, $this->session);
     }
 
     public function testGetMeta()
     {
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\MetadataBag', $this->session->getMetadataBag());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\MetadataBag', $this->session->getMetadataBag());
     }
 }

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug;
+namespace Makhan\Component\Debug;
 
 /**
  * Autoloader checking if the class is really defined in the file found.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Debug;
  * and will throw an exception if a file is found but does
  * not declare the class.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Christophe Coevoet <stof@notk.org>
  * @author Nicolas Grekas <p@tchwork.com>
  */
@@ -81,7 +81,7 @@ class DebugClassLoader
     public static function enable()
     {
         // Ensures we don't hit https://bugs.php.net/42098
-        class_exists('Symfony\Component\Debug\ErrorHandler');
+        class_exists('Makhan\Component\Debug\ErrorHandler');
         class_exists('Psr\Log\LogLevel');
 
         if (!is_array($functions = spl_autoload_functions())) {
@@ -173,10 +173,10 @@ class DebugClassLoader
                     $ns = '';
                 } else {
                     switch ($ns = substr($name, 0, $len)) {
-                        case 'Symfony\Bridge\\':
-                        case 'Symfony\Bundle\\':
-                        case 'Symfony\Component\\':
-                            $ns = 'Symfony\\';
+                        case 'Makhan\Bridge\\':
+                        case 'Makhan\Bundle\\':
+                        case 'Makhan\Component\\':
+                            $ns = 'Makhan\\';
                             $len = strlen($ns);
                             break;
                     }

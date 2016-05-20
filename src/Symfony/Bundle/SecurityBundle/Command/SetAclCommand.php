@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Command;
+namespace Makhan\Bundle\SecurityBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
-use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
-use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
-use Symfony\Component\Security\Acl\Exception\AclAlreadyExistsException;
-use Symfony\Component\Security\Acl\Permission\MaskBuilder;
-use Symfony\Component\Security\Acl\Model\MutableAclProviderInterface;
+use Makhan\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Security\Acl\Domain\ObjectIdentity;
+use Makhan\Component\Security\Acl\Domain\RoleSecurityIdentity;
+use Makhan\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Makhan\Component\Security\Acl\Exception\AclAlreadyExistsException;
+use Makhan\Component\Security\Acl\Permission\MaskBuilder;
+use Makhan\Component\Security\Acl\Model\MutableAclProviderInterface;
 
 /**
  * Sets ACL for objects.
@@ -62,7 +62,7 @@ The ACL system must have been initialized with the <info>init:acl</info> command
 To set <comment>VIEW</comment> and <comment>EDIT</comment> permissions for the user <comment>kevin</comment> on the instance of
 <comment>Acme\MyClass</comment> having the identifier <comment>42</comment>:
 
-  <info>php %command.full_name% --user=Symfony/Component/Security/Core/User/User:kevin VIEW EDIT Acme/MyClass:42</info>
+  <info>php %command.full_name% --user=Makhan/Component/Security/Core/User/User:kevin VIEW EDIT Acme/MyClass:42</info>
 
 Note that you can use <comment>/</comment> instead of <comment>\\ </comment>for the namespace delimiter to avoid any
 problem.
@@ -73,7 +73,7 @@ To set permissions for a role, use the <info>--role</info> option:
 
 To set permissions at the class scope, use the <info>--class-scope</info> option:
 
-  <info>php %command.full_name% --class-scope --user=Symfony/Component/Security/Core/User/User:anne OWNER Acme/MyClass:42</info>
+  <info>php %command.full_name% --class-scope --user=Makhan/Component/Security/Core/User/User:anne OWNER Acme/MyClass:42</info>
   
 EOF
             )
@@ -134,7 +134,7 @@ EOF
             }
         }
 
-        /** @var $container \Symfony\Component\DependencyInjection\ContainerInterface */
+        /** @var $container \Makhan\Component\DependencyInjection\ContainerInterface */
         $container = $this->getContainer();
         /** @var $aclProvider MutableAclProviderInterface */
         $aclProvider = $container->get('security.acl.provider');

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\User;
+namespace Makhan\Component\Security\Core\User;
 
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
 
 /**
  * Represents a class that loads UserInterface objects from some source for the authentication system.
@@ -29,7 +29,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
  *
  * @see UserInterface
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 interface UserProviderInterface
 {

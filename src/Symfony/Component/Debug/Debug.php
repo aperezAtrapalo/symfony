@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug;
+namespace Makhan\Component\Debug;
 
 /**
  * Registers all the debug tools.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Debug
 {
@@ -25,7 +25,7 @@ class Debug
      *
      * This method registers an error handler and an exception handler.
      *
-     * If the Symfony ClassLoader component is available, a special
+     * If the Makhan ClassLoader component is available, a special
      * class loader is also registered.
      *
      * @param int  $errorReportingLevel The level of error reporting you want

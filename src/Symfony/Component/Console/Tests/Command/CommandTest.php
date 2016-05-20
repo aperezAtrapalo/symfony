@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Command;
+namespace Makhan\Component\Console\Tests\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\FormatterHelper;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\StringInput;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\Console\Tester\CommandTester;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Helper\FormatterHelper;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\StringInput;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Output\NullOutput;
+use Makhan\Component\Console\Tester\CommandTester;
 
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,7 +41,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LogicException
-     * @expectedExceptionMessage The command defined in "Symfony\Component\Console\Command\Command" cannot have an empty name.
+     * @expectedExceptionMessage The command defined in "Makhan\Component\Console\Command\Command" cannot have an empty name.
      */
     public function testCommandNameCannotBeEmpty()
     {
@@ -257,7 +257,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        Symfony\Component\Console\Exception\InvalidOptionException
+     * @expectedException        Makhan\Component\Console\Exception\InvalidOptionException
      * @expectedExceptionMessage The "--bar" option does not exist.
      */
     public function testRunWithInvalidOption()

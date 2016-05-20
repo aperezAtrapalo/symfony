@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Generator;
+namespace Makhan\Component\Routing\Tests\Generator;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\Generator\UrlGenerator;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Component\Routing\RequestContext;
 
 class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,7 +76,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testRelativeUrlWithNullParameterButNotOptional()
     {
@@ -162,7 +162,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\RouteNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\RouteNotFoundException
      */
     public function testGenerateWithoutRoutes()
     {
@@ -171,7 +171,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\MissingMandatoryParametersException
+     * @expectedException \Makhan\Component\Routing\Exception\MissingMandatoryParametersException
      */
     public function testGenerateForRouteWithoutMandatoryParameter()
     {
@@ -180,7 +180,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testGenerateForRouteWithInvalidOptionalParameter()
     {
@@ -189,7 +189,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testGenerateForRouteWithInvalidParameter()
     {
@@ -225,7 +225,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testGenerateForRouteWithInvalidMandatoryParameter()
     {
@@ -234,7 +234,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testRequiredParamAndEmptyPassed()
     {
@@ -358,7 +358,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
 
         // The default requirement for 'x' should not allow the separator '.' in this case because it would otherwise match everything
         // and following optional variables like _format could never match.
-        $this->setExpectedException('Symfony\Component\Routing\Exception\InvalidParameterException');
+        $this->setExpectedException('Makhan\Component\Routing\Exception\InvalidParameterException');
         $generator->generate('test', array('x' => 'do.t', 'y' => '123', 'z' => 'bar', '_format' => 'xml'));
     }
 
@@ -388,7 +388,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testDefaultRequirementOfVariableDisallowsSlash()
     {
@@ -397,7 +397,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testDefaultRequirementOfVariableDisallowsNextSeparator()
     {
@@ -427,7 +427,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testUrlWithInvalidParameterInHost()
     {
@@ -436,7 +436,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testUrlWithInvalidParameterInHostWhenParamHasADefaultValue()
     {
@@ -445,7 +445,7 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\InvalidParameterException
+     * @expectedException \Makhan\Component\Routing\Exception\InvalidParameterException
      */
     public function testUrlWithInvalidParameterEqualsDefaultValueInHost()
     {
@@ -495,13 +495,13 @@ class UrlGeneratorTest extends \PHPUnit_Framework_TestCase
         $routes->add('scheme', new Route('/{author}/blog', array(), array(), array(), '', array('https')));
         $routes->add('unrelated', new Route('/about'));
 
-        $generator = $this->getGenerator($routes, array('host' => 'example.com', 'pathInfo' => '/fabien/symfony-is-great/'));
+        $generator = $this->getGenerator($routes, array('host' => 'example.com', 'pathInfo' => '/fabien/makhan-is-great/'));
 
         $this->assertSame('comments', $generator->generate('comments',
-            array('author' => 'fabien', 'article' => 'symfony-is-great'), UrlGeneratorInterface::RELATIVE_PATH)
+            array('author' => 'fabien', 'article' => 'makhan-is-great'), UrlGeneratorInterface::RELATIVE_PATH)
         );
         $this->assertSame('comments?page=2', $generator->generate('comments',
-            array('author' => 'fabien', 'article' => 'symfony-is-great', 'page' => 2), UrlGeneratorInterface::RELATIVE_PATH)
+            array('author' => 'fabien', 'article' => 'makhan-is-great', 'page' => 2), UrlGeneratorInterface::RELATIVE_PATH)
         );
         $this->assertSame('../twig-is-great/', $generator->generate('article',
             array('author' => 'fabien', 'article' => 'twig-is-great'), UrlGeneratorInterface::RELATIVE_PATH)

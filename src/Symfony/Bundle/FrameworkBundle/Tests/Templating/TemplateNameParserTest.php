@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Component\Templating\TemplateReference as BaseTemplateReference;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateNameParser;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateReference;
+use Makhan\Component\Templating\TemplateReference as BaseTemplateReference;
 
 class TemplateNameParserTest extends TestCase
 {
@@ -22,7 +22,7 @@ class TemplateNameParserTest extends TestCase
 
     protected function setUp()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
         $kernel
             ->expects($this->any())
             ->method('getBundle')
@@ -107,7 +107,7 @@ class TemplateNameParserTest extends TestCase
         $this->assertSame($logicalName, $template->getLogicalName());
         $this->assertSame($path, $template->getPath());
         $this->assertCount(1, $deprecations);
-        $this->assertContains('Absolute template path support is deprecated since Symfony 3.1 and will be removed in 4.0.', $deprecations[0]);
+        $this->assertContains('Absolute template path support is deprecated since Makhan 3.1 and will be removed in 4.0.', $deprecations[0]);
     }
 
     public function provideAbsolutePaths()

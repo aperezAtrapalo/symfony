@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Authentication;
+namespace Makhan\Component\Security\Http\Tests\Authentication;
 
-use Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler;
+use Makhan\Component\Security\Core\Security;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 class DefaultAuthenticationFailureHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,14 +26,14 @@ class DefaultAuthenticationFailureHandlerTest extends \PHPUnit_Framework_TestCas
 
     protected function setUp()
     {
-        $this->httpKernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
-        $this->httpUtils = $this->getMock('Symfony\Component\Security\Http\HttpUtils');
+        $this->httpKernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
+        $this->httpUtils = $this->getMock('Makhan\Component\Security\Http\HttpUtils');
         $this->logger = $this->getMock('Psr\Log\LoggerInterface');
 
-        $this->session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
-        $this->request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $this->session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface');
+        $this->request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $this->request->expects($this->any())->method('getSession')->will($this->returnValue($this->session));
-        $this->exception = $this->getMock('Symfony\Component\Security\Core\Exception\AuthenticationException', array('getMessage'));
+        $this->exception = $this->getMock('Makhan\Component\Security\Core\Exception\AuthenticationException', array('getMessage'));
     }
 
     public function testForward()
@@ -47,7 +47,7 @@ class DefaultAuthenticationFailureHandlerTest extends \PHPUnit_Framework_TestCas
             ->method('createRequest')->with($this->request, '/login')
             ->will($this->returnValue($subRequest));
 
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
         $this->httpKernel->expects($this->once())
             ->method('handle')->with($subRequest, HttpKernelInterface::SUB_REQUEST)
             ->will($this->returnValue($response));
@@ -60,7 +60,7 @@ class DefaultAuthenticationFailureHandlerTest extends \PHPUnit_Framework_TestCas
 
     public function testRedirect()
     {
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
         $this->httpUtils->expects($this->once())
             ->method('createRedirectResponse')->with($this->request, '/login')
             ->will($this->returnValue($response));
@@ -180,8 +180,8 @@ class DefaultAuthenticationFailureHandlerTest extends \PHPUnit_Framework_TestCas
 
     private function getRequest()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-        $request->attributes = $this->getMock('Symfony\Component\HttpFoundation\ParameterBag');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
+        $request->attributes = $this->getMock('Makhan\Component\HttpFoundation\ParameterBag');
 
         return $request;
     }

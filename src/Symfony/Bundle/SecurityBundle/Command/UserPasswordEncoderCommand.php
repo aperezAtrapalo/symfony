@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Command;
+namespace Makhan\Bundle\SecurityBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Makhan\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Question\Question;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 /**
  * Encode a user's password.
@@ -36,7 +36,7 @@ class UserPasswordEncoderCommand extends ContainerAwareCommand
             ->setName('security:encode-password')
             ->setDescription('Encodes a password.')
             ->addArgument('password', InputArgument::OPTIONAL, 'The plain password to encode.')
-            ->addArgument('user-class', InputArgument::OPTIONAL, 'The User entity class path associated with the encoder used to encode the password.', 'Symfony\Component\Security\Core\User\User')
+            ->addArgument('user-class', InputArgument::OPTIONAL, 'The User entity class path associated with the encoder used to encode the password.', 'Makhan\Component\Security\Core\User\User')
             ->addOption('empty-salt', null, InputOption::VALUE_NONE, 'Do not generate a salt or let the encoder generate one.')
             ->setHelp(<<<EOF
 
@@ -51,11 +51,11 @@ Suppose that you have the following security configuration in your application:
 # app/config/security.yml
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Makhan\Component\Security\Core\User\User: plaintext
         AppBundle\Entity\User: bcrypt
 </comment>
 
-If you execute the command non-interactively, the default Symfony User class
+If you execute the command non-interactively, the default Makhan User class
 is used and a random salt is generated to encode the password:
 
   <info>php %command.full_name% --no-interaction [password]</info>
@@ -84,9 +84,9 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
 
-        $input->isInteractive() ? $io->title('Symfony Password Encoder Utility') : $io->newLine();
+        $input->isInteractive() ? $io->title('Makhan Password Encoder Utility') : $io->newLine();
 
         $password = $input->getArgument('password');
         $userClass = $input->getArgument('user-class');

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\Tests\Parser;
+namespace Makhan\Component\CssSelector\Tests\Parser;
 
-use Symfony\Component\CssSelector\Parser\Token;
-use Symfony\Component\CssSelector\Parser\TokenStream;
+use Makhan\Component\CssSelector\Parser\Token;
+use Makhan\Component\CssSelector\Parser\TokenStream;
 
 class TokenStreamTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,7 +52,7 @@ class TokenStreamTest extends \PHPUnit_Framework_TestCase
 
     public function testFailToGetNextIdentifier()
     {
-        $this->setExpectedException('Symfony\Component\CssSelector\Exception\SyntaxErrorException');
+        $this->setExpectedException('Makhan\Component\CssSelector\Exception\SyntaxErrorException');
 
         $stream = new TokenStream();
         $stream->push(new Token(Token::TYPE_DELIMITER, '.', 2));
@@ -72,7 +72,7 @@ class TokenStreamTest extends \PHPUnit_Framework_TestCase
 
     public function testFailToGetNextIdentifierOrStar()
     {
-        $this->setExpectedException('Symfony\Component\CssSelector\Exception\SyntaxErrorException');
+        $this->setExpectedException('Makhan\Component\CssSelector\Exception\SyntaxErrorException');
 
         $stream = new TokenStream();
         $stream->push(new Token(Token::TYPE_DELIMITER, '.', 2));

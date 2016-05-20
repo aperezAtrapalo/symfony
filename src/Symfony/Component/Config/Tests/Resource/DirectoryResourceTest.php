@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Resource;
+namespace Makhan\Component\Config\Tests\Resource;
 
-use Symfony\Component\Config\Resource\DirectoryResource;
+use Makhan\Component\Config\Resource\DirectoryResource;
 
 class DirectoryResourceTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class DirectoryResourceTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->directory = sys_get_temp_dir().DIRECTORY_SEPARATOR.'symfonyDirectoryIterator';
+        $this->directory = sys_get_temp_dir().DIRECTORY_SEPARATOR.'makhanDirectoryIterator';
         if (!file_exists($this->directory)) {
             mkdir($this->directory);
         }

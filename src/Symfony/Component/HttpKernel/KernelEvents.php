@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel;
+namespace Makhan\Component\HttpKernel;
 
 /**
  * Contains all events thrown in the HttpKernel component.
@@ -25,7 +25,7 @@ final class KernelEvents
      * This event allows you to create a response for a request before any
      * other code in the framework is executed.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\GetResponseEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\GetResponseEvent")
      *
      * @var string
      */
@@ -37,7 +37,7 @@ final class KernelEvents
      * This event allows you to create a response for a thrown exception or
      * to modify the thrown exception.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent")
      *
      * @var string
      */
@@ -50,7 +50,7 @@ final class KernelEvents
      * This event allows you to create a response for the return value of the
      * controller.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\GetResponseForControllerResultEvent")
      *
      * @var string
      */
@@ -63,7 +63,7 @@ final class KernelEvents
      * This event allows you to change the controller that will handle the
      * request.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\FilterControllerEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\FilterControllerEvent")
      *
      * @var string
      */
@@ -74,7 +74,7 @@ final class KernelEvents
      *
      * This event allows you to change the arguments that will be passed to
      * the controller. The event listener method receives a
-     * Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent instance.
+     * Makhan\Component\HttpKernel\Event\FilterControllerArgumentsEvent instance.
      *
      * @Event
      *
@@ -89,7 +89,7 @@ final class KernelEvents
      * This event allows you to modify or replace the response that will be
      * replied.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\FilterResponseEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\FilterResponseEvent")
      *
      * @var string
      */
@@ -100,7 +100,7 @@ final class KernelEvents
      *
      * This event allows you to run expensive post-response jobs.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\PostResponseEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\PostResponseEvent")
      *
      * @var string
      */
@@ -112,7 +112,7 @@ final class KernelEvents
      * This event allows you to reset the global and environmental state of
      * the application, when it was changed during the request.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\FinishRequestEvent")
+     * @Event("Makhan\Component\HttpKernel\Event\FinishRequestEvent")
      *
      * @var string
      */

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * This code is partially based on the Rack-Cache library by Ryan Tomayko,
  * which is released under the MIT license.
@@ -12,15 +12,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\HttpCache;
+namespace Makhan\Component\HttpKernel\HttpCache;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * Store implements all the logic for storing cache metadata (Request and Response headers).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Store implements StoreInterface
 {

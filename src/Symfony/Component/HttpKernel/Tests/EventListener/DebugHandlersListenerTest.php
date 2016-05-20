@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Event\ConsoleEvent;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\ConsoleEvents;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Debug\ErrorHandler;
-use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\KernelEvent;
-use Symfony\Component\HttpKernel\EventListener\DebugHandlersListener;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
+use Makhan\Component\Console\Event\ConsoleEvent;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\ConsoleEvents;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Input\ArgvInput;
+use Makhan\Component\Console\Output\ConsoleOutput;
+use Makhan\Component\Debug\ErrorHandler;
+use Makhan\Component\Debug\ExceptionHandler;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Event\KernelEvent;
+use Makhan\Component\HttpKernel\EventListener\DebugHandlersListener;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\KernelEvents;
 
 /**
  * DebugHandlersListenerTest.
@@ -70,7 +70,7 @@ class DebugHandlersListenerTest extends \PHPUnit_Framework_TestCase
         $listener = new DebugHandlersListener(null);
         $eHandler = new ErrorHandler();
         $event = new KernelEvent(
-            $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface'),
+            $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface'),
             Request::create('/'),
             HttpKernelInterface::MASTER_REQUEST
         );
@@ -94,7 +94,7 @@ class DebugHandlersListenerTest extends \PHPUnit_Framework_TestCase
     {
         $dispatcher = new EventDispatcher();
         $listener = new DebugHandlersListener(null);
-        $app = $this->getMock('Symfony\Component\Console\Application');
+        $app = $this->getMock('Makhan\Component\Console\Application');
         $app->expects($this->once())->method('getHelperSet')->will($this->returnValue(new HelperSet()));
         $command = new Command(__FUNCTION__);
         $command->setApplication($app);

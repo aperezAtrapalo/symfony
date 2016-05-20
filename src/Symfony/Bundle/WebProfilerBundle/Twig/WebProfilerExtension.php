@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Twig;
+namespace Makhan\Bundle\WebProfilerBundle\Twig;
 
-use Symfony\Component\HttpKernel\DataCollector\Util\ValueExporter;
+use Makhan\Component\HttpKernel\DataCollector\Util\ValueExporter;
 
 /**
  * Twig extension for the profiler.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class WebProfilerExtension extends \Twig_Extension
 {

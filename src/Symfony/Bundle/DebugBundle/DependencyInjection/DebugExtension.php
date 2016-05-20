@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\DebugBundle\DependencyInjection;
+namespace Makhan\Bundle\DebugBundle\DependencyInjection;
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Extension\Extension;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\Reference;
 
 /**
  * DebugExtension.
@@ -62,6 +62,6 @@ class DebugExtension extends Extension
      */
     public function getNamespace()
     {
-        return 'http://symfony.com/schema/dic/debug';
+        return 'http://makhan.com/schema/dic/debug';
     }
 }

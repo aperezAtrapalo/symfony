@@ -1,36 +1,36 @@
 {
-    "name": "symfony/console",
+    "name": "makhan/console",
     "type": "library",
-    "description": "Symfony Console Component",
+    "description": "Makhan Console Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-mbstring": "~1.0"
+        "makhan/polyfill-mbstring": "~1.0"
     },
     "require-dev": {
-        "symfony/event-dispatcher": "~2.8|~3.0",
-        "symfony/process": "~2.8|~3.0",
+        "makhan/event-dispatcher": "~2.8|~3.0",
+        "makhan/process": "~2.8|~3.0",
         "psr/log": "~1.0"
     },
     "suggest": {
-        "symfony/event-dispatcher": "",
-        "symfony/process": "",
+        "makhan/event-dispatcher": "",
+        "makhan/process": "",
         "psr/log": "For using the console logger"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Console\\": "" },
+        "psr-4": { "Makhan\\Component\\Console\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

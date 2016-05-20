@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Csrf;
+namespace Makhan\Component\Security\Csrf;
 
-use Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator;
-use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
-use Symfony\Component\Security\Csrf\TokenStorage\NativeSessionTokenStorage;
-use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
+use Makhan\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator;
+use Makhan\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
+use Makhan\Component\Security\Csrf\TokenStorage\NativeSessionTokenStorage;
+use Makhan\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 
 /**
  * Default implementation of {@link CsrfTokenManagerInterface}.

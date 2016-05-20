@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\ChoiceList\Factory;
+namespace Makhan\Component\Form\Tests\ChoiceList\Factory;
 
-use Symfony\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
-use Symfony\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
+use Makhan\Component\PropertyAccess\PropertyPath;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -31,7 +31,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->decoratedFactory = $this->getMock('Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface');
+        $this->decoratedFactory = $this->getMock('Makhan\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface');
         $this->factory = new PropertyAccessDecorator($this->decoratedFactory);
     }
 
@@ -80,7 +80,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateFromLoaderPropertyPath()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createListFromLoader')
@@ -97,7 +97,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateFromLoaderPropertyPathWithCallableString()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createListFromLoader')
@@ -107,7 +107,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('RESULT', $this->factory->createListFromLoader($loader, 'end'));
     }
 
-    // https://github.com/symfony/symfony/issues/5494
+    // https://github.com/makhan/makhan/issues/5494
     public function testCreateFromChoicesAssumeNullIfValuePropertyPathUnreadable()
     {
         $choices = array(null);
@@ -122,10 +122,10 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array(null), $this->factory->createListFromChoices($choices, 'property'));
     }
 
-    // https://github.com/symfony/symfony/issues/5494
+    // https://github.com/makhan/makhan/issues/5494
     public function testCreateFromChoiceLoaderAssumeNullIfValuePropertyPathUnreadable()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createListFromLoader')
@@ -139,7 +139,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateFromLoaderPropertyPathInstance()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createListFromLoader')
@@ -153,7 +153,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewPreferredChoicesAsPropertyPath()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -173,7 +173,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateViewPreferredChoicesAsPropertyPathWithCallableString()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -188,7 +188,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewPreferredChoicesAsPropertyPathInstance()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -203,10 +203,10 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
         ));
     }
 
-    // https://github.com/symfony/symfony/issues/5494
+    // https://github.com/makhan/makhan/issues/5494
     public function testCreateViewAssumeNullIfPreferredChoicesPropertyPathUnreadable()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -223,7 +223,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewLabelsAsPropertyPath()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -244,7 +244,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateViewLabelsAsPropertyPathWithCallableString()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -260,7 +260,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewLabelsAsPropertyPathInstance()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -278,7 +278,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewIndicesAsPropertyPath()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -300,7 +300,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateViewIndicesAsPropertyPathWithCallableString()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -317,7 +317,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewIndicesAsPropertyPathInstance()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -336,7 +336,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewGroupsAsPropertyPath()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -359,7 +359,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateViewGroupsAsPropertyPathWithCallableString()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -377,7 +377,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewGroupsAsPropertyPathInstance()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -395,10 +395,10 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
         ));
     }
 
-    // https://github.com/symfony/symfony/issues/5494
+    // https://github.com/makhan/makhan/issues/5494
     public function testCreateViewAssumeNullIfGroupsPropertyPathUnreadable()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -418,7 +418,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewAttrAsPropertyPath()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -442,7 +442,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateViewAttrAsPropertyPathWithCallableString()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')
@@ -461,7 +461,7 @@ class PropertyAccessDecoratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateViewAttrAsPropertyPathInstance()
     {
-        $list = $this->getMock('Symfony\Component\Form\ChoiceList\ChoiceListInterface');
+        $list = $this->getMock('Makhan\Component\Form\ChoiceList\ChoiceListInterface');
 
         $this->decoratedFactory->expects($this->once())
             ->method('createView')

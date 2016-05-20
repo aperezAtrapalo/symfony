@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Templating\Helper;
+namespace Makhan\Bundle\SecurityBundle\Templating\Helper;
 
-use Symfony\Component\Security\Acl\Voter\FieldVote;
-use Symfony\Component\Templating\Helper\Helper;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Makhan\Component\Security\Acl\Voter\FieldVote;
+use Makhan\Component\Templating\Helper\Helper;
+use Makhan\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 /**
  * SecurityHelper provides read-only access to the security checker.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class SecurityHelper extends Helper
 {

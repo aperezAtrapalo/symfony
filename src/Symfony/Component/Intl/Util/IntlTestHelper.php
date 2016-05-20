@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Util;
+namespace Makhan\Component\Intl\Util;
 
-use Symfony\Component\Intl\Intl;
+use Makhan\Component\Intl\Intl;
 
 /**
  * Helper class for preparing test cases that rely on the Intl component.

@@ -46,7 +46,7 @@ CHANGELOG
 
  * added support for ranges of IPs in trusted proxies
  * `UploadedFile::isValid` now returns false if the file was not uploaded via HTTP (in a non-test mode)
- * Improved error-handling of `\Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler`
+ * Improved error-handling of `\Makhan\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler`
    to ensure the supplied PDO handler throws Exceptions on error (as the class expects). Added related test cases
    to verify that Exceptions are properly thrown when the PDO queries fail.
 
@@ -83,10 +83,10 @@ CHANGELOG
  * added ResponseHeaderBag::makeDisposition() (implements RFC 6266)
  * made mimetype to extension conversion configurable
  * [BC BREAK] Moved all session related classes and interfaces into own namespace, as
-   `Symfony\Component\HttpFoundation\Session` and renamed classes accordingly.
-   Session handlers are located in the subnamespace `Symfony\Component\HttpFoundation\Session\Handler`.
+   `Makhan\Component\HttpFoundation\Session` and renamed classes accordingly.
+   Session handlers are located in the subnamespace `Makhan\Component\HttpFoundation\Session\Handler`.
  * SessionHandlers must implement `\SessionHandlerInterface` or extend from the
-   `Symfony\Component\HttpFoundation\Storage\Handler\NativeSessionHandler` base class.
+   `Makhan\Component\HttpFoundation\Storage\Handler\NativeSessionHandler` base class.
  * Added internal storage driver proxy mechanism for forward compatibility with
    PHP 5.4 `\SessionHandler` class.
  * Added session handlers for custom Memcache, Memcached and Null session save handlers.
@@ -116,12 +116,12 @@ CHANGELOG
   `SessionBagInterface` implementations.
  * Added `FlashBag`. Flashes expire when retrieved by `get()` or `all()`. This
    implementation is ESI compatible.
- * Added `AutoExpireFlashBag` (default) to replicate Symfony 2.0.x auto expire
+ * Added `AutoExpireFlashBag` (default) to replicate Makhan 2.0.x auto expire
    behaviour of messages auto expiring after one page page load.  Messages must
    be retrieved by `get()` or `all()`.
- * Added `Symfony\Component\HttpFoundation\Attribute\AttributeBag` to replicate
+ * Added `Makhan\Component\HttpFoundation\Attribute\AttributeBag` to replicate
    attributes storage behaviour from 2.0.x (default).
- * Added `Symfony\Component\HttpFoundation\Attribute\NamespacedAttributeBag` for
+ * Added `Makhan\Component\HttpFoundation\Attribute\NamespacedAttributeBag` for
    namespace session attributes.
  * Flash API can stores messages in an array so there may be multiple messages
    per flash type.  The old `Session` class API remains without BC break as it

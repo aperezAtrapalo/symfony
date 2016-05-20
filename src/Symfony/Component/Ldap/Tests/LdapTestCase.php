@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Component\Ldap\Tests;
+namespace Makhan\Component\Ldap\Tests;
 
 class LdapTestCase extends \PHPUnit_Framework_TestCase
 {

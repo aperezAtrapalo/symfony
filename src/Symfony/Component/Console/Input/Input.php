@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Input;
+namespace Makhan\Component\Console\Input;
 
-use Symfony\Component\Console\Exception\InvalidArgumentException;
-use Symfony\Component\Console\Exception\RuntimeException;
+use Makhan\Component\Console\Exception\InvalidArgumentException;
+use Makhan\Component\Console\Exception\RuntimeException;
 
 /**
  * Input is the base class for all concrete Input classes.
@@ -23,7 +23,7 @@ use Symfony\Component\Console\Exception\RuntimeException;
  *  * `StringInput`: The input is provided as a string
  *  * `ArrayInput`: The input is provided as an array
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Input implements InputInterface
 {

@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Component\Form\FormView;
-use Symfony\Bridge\Twig\Form\TwigRenderer;
-use Symfony\Bridge\Twig\Form\TwigRendererEngine;
-use Symfony\Bridge\Twig\Extension\FormExtension;
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Component\Form\Tests\AbstractTableLayoutTest;
-use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
-use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
+use Makhan\Component\Form\FormView;
+use Makhan\Bridge\Twig\Form\TwigRenderer;
+use Makhan\Bridge\Twig\Form\TwigRendererEngine;
+use Makhan\Bridge\Twig\Extension\FormExtension;
+use Makhan\Bridge\Twig\Extension\TranslationExtension;
+use Makhan\Component\Form\Tests\AbstractTableLayoutTest;
+use Makhan\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
+use Makhan\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
 
 class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
 {
@@ -35,7 +35,7 @@ class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
             'form_table_layout.html.twig',
             'custom_widgets.html.twig',
         ));
-        $renderer = new TwigRenderer($rendererEngine, $this->getMock('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface'));
+        $renderer = new TwigRenderer($rendererEngine, $this->getMock('Makhan\Component\Security\Csrf\CsrfTokenManagerInterface'));
 
         $this->extension = new FormExtension($renderer);
 
@@ -61,7 +61,7 @@ class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
 
     public function testStartTagHasNoActionAttributeWhenActionIsEmpty()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '',
         ));
@@ -73,7 +73,7 @@ class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
 
     public function testStartTagHasActionAttributeWhenActionIsZero()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'method' => 'get',
             'action' => '0',
         ));

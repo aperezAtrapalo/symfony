@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\TwigBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
 
 class TwigLoaderPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,7 +32,7 @@ class TwigLoaderPassTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->builder = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'setAlias', 'getDefinition')
         );
         $this->chainLoader = new Definition('loader');
@@ -135,7 +135,7 @@ class TwigLoaderPassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\LogicException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\LogicException
      */
     public function testMapperPassWithZeroTaggedLoaders()
     {

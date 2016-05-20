@@ -1,37 +1,37 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle;
+namespace Makhan\Bundle\SecurityBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\AddSecurityVotersPass;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginLdapFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicLdapFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpDigestFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RememberMeFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\X509Factory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RemoteUserFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SimplePreAuthenticationFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SimpleFormFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\InMemoryFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\GuardAuthenticationFactory;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\LdapFactory;
+use Makhan\Component\HttpKernel\Bundle\Bundle;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Compiler\AddSecurityVotersPass;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginLdapFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicLdapFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpDigestFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RememberMeFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\X509Factory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RemoteUserFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SimplePreAuthenticationFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SimpleFormFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\InMemoryFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\GuardAuthenticationFactory;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\LdapFactory;
 
 /**
  * Bundle.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class SecurityBundle extends Bundle
 {

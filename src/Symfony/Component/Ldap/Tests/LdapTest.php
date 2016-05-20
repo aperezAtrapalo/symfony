@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap\Tests;
+namespace Makhan\Component\Ldap\Tests;
 
-use Symfony\Component\Ldap\Adapter\AdapterInterface;
-use Symfony\Component\Ldap\Adapter\ConnectionInterface;
-use Symfony\Component\Ldap\Exception\DriverNotFoundException;
-use Symfony\Component\Ldap\Ldap;
+use Makhan\Component\Ldap\Adapter\AdapterInterface;
+use Makhan\Component\Ldap\Adapter\ConnectionInterface;
+use Makhan\Component\Ldap\Exception\DriverNotFoundException;
+use Makhan\Component\Ldap\Ldap;
 
 class LdapTest extends \PHPUnit_Framework_TestCase
 {

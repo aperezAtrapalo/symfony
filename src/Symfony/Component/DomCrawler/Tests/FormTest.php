@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler\Tests;
+namespace Makhan\Component\DomCrawler\Tests;
 
-use Symfony\Component\DomCrawler\Form;
-use Symfony\Component\DomCrawler\FormFieldRegistry;
-use Symfony\Component\DomCrawler\Field;
+use Makhan\Component\DomCrawler\Form;
+use Makhan\Component\DomCrawler\FormFieldRegistry;
+use Makhan\Component\DomCrawler\Field;
 
 class FormTest extends \PHPUnit_Framework_TestCase
 {
     public static function setUpBeforeClass()
     {
         // Ensure that the private helper class FormFieldRegistry is loaded
-        class_exists('Symfony\\Component\\DomCrawler\\Form');
+        class_exists('Makhan\\Component\\DomCrawler\\Form');
     }
 
     public function testConstructorThrowsExceptionIfTheNodeHasNoFormAncestor()
@@ -639,7 +639,7 @@ class FormTest extends \PHPUnit_Framework_TestCase
     {
         $form = $this->createForm('<form method="post"><input type="text" name="bar" value="bar" /><input type="submit" /></form>');
 
-        $this->assertInstanceOf('Symfony\\Component\\DomCrawler\\Field\\InputFormField', $form->get('bar'), '->get() returns the field object associated with the given name');
+        $this->assertInstanceOf('Makhan\\Component\\DomCrawler\\Field\\InputFormField', $form->get('bar'), '->get() returns the field object associated with the given name');
 
         try {
             $form->get('foo');
@@ -655,7 +655,7 @@ class FormTest extends \PHPUnit_Framework_TestCase
 
         $fields = $form->all();
         $this->assertCount(1, $fields, '->all() return an array of form field objects');
-        $this->assertInstanceOf('Symfony\\Component\\DomCrawler\\Field\\InputFormField', $fields['bar'], '->all() return an array of form field objects');
+        $this->assertInstanceOf('Makhan\\Component\\DomCrawler\\Field\\InputFormField', $fields['bar'], '->all() return an array of form field objects');
     }
 
     public function testSubmitWithoutAFormButton()
@@ -850,13 +850,13 @@ class FormTest extends \PHPUnit_Framework_TestCase
         ');
         $form = new Form($dom->getElementsByTagName('form')->item(0), 'http://example.com');
 
-        $this->assertInstanceOf('Symfony\Component\DomCrawler\Field\ChoiceFormField', $form->get('option'));
+        $this->assertInstanceOf('Makhan\Component\DomCrawler\Field\ChoiceFormField', $form->get('option'));
     }
 
     protected function getFormFieldMock($name, $value = null)
     {
         $field = $this
-            ->getMockBuilder('Symfony\\Component\\DomCrawler\\Field\\FormField')
+            ->getMockBuilder('Makhan\\Component\\DomCrawler\\Field\\FormField')
             ->setMethods(array('getName', 'getValue', 'setValue', 'initialize'))
             ->disableOriginalConstructor()
             ->getMock()

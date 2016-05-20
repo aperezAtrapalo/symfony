@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\Tests;
+namespace Makhan\Component\CssSelector\Tests;
 
-use Symfony\Component\CssSelector\CssSelectorConverter;
+use Makhan\Component\CssSelector\CssSelectorConverter;
 
 class CssSelectorConverterTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,7 +35,7 @@ class CssSelectorConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\CssSelector\Exception\ParseException
+     * @expectedException \Makhan\Component\CssSelector\Exception\ParseException
      * @expectedExceptionMessage Expected identifier, but <eof at 3> found.
      */
     public function testParseExceptions()

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Compiler;
+namespace Makhan\Component\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Replaces all references to aliases with references to the actual service.

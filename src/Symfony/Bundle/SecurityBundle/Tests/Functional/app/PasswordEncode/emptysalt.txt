@@ -1,11 +1,11 @@
 
-Symfony Password Encoder Utility
+Makhan Password Encoder Utility
 ================================
 
  ------------------ ------------------------------------------------------------------ 
   Key                Value                                                             
  ------------------ ------------------------------------------------------------------ 
-  Encoder used       Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder  
+  Encoder used       Makhan\Component\Security\Core\Encoder\PlaintextPasswordEncoder
   Encoded password   password                                                          
  ------------------ ------------------------------------------------------------------ 
 

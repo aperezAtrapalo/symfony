@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Tests\Caster;
+namespace Makhan\Component\VarDumper\Tests\Caster;
 
-use Symfony\Component\VarDumper\Caster\PdoCaster;
-use Symfony\Component\VarDumper\Cloner\Stub;
+use Makhan\Component\VarDumper\Caster\PdoCaster;
+use Makhan\Component\VarDumper\Cloner\Stub;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -29,10 +29,10 @@ class PdoCasterTest extends \PHPUnit_Framework_TestCase
 
         $cast = PdoCaster::castPdo($pdo, array(), new Stub(), false);
 
-        $this->assertInstanceOf('Symfony\Component\VarDumper\Caster\EnumStub', $cast["\0~\0attributes"]);
+        $this->assertInstanceOf('Makhan\Component\VarDumper\Caster\EnumStub', $cast["\0~\0attributes"]);
 
         $attr = $cast["\0~\0attributes"] = $cast["\0~\0attributes"]->value;
-        $this->assertInstanceOf('Symfony\Component\VarDumper\Caster\ConstStub', $attr['CASE']);
+        $this->assertInstanceOf('Makhan\Component\VarDumper\Caster\ConstStub', $attr['CASE']);
         $this->assertSame('NATURAL', $attr['CASE']->class);
         $this->assertSame('BOTH', $attr['DEFAULT_FETCH_MODE']->class);
 

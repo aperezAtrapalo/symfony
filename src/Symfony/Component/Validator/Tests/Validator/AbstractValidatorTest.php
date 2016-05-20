@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Validator;
+namespace Makhan\Component\Validator\Tests\Validator;
 
-use Symfony\Component\Validator\Constraints\Callback;
-use Symfony\Component\Validator\Constraints\GroupSequence;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
-use Symfony\Component\Validator\Tests\Fixtures\FakeMetadataFactory;
-use Symfony\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity;
-use Symfony\Component\Validator\Tests\Fixtures\Reference;
+use Makhan\Component\Validator\Constraints\Callback;
+use Makhan\Component\Validator\Constraints\GroupSequence;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\ConstraintViolationInterface;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Tests\Fixtures\Entity;
+use Makhan\Component\Validator\Tests\Fixtures\FakeMetadataFactory;
+use Makhan\Component\Validator\Tests\Fixtures\GroupSequenceProviderEntity;
+use Makhan\Component\Validator\Tests\Fixtures\Reference;
 
 /**
  * @since  2.5
@@ -29,9 +29,9 @@ use Symfony\Component\Validator\Tests\Fixtures\Reference;
  */
 abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
 {
-    const ENTITY_CLASS = 'Symfony\Component\Validator\Tests\Fixtures\Entity';
+    const ENTITY_CLASS = 'Makhan\Component\Validator\Tests\Fixtures\Entity';
 
-    const REFERENCE_CLASS = 'Symfony\Component\Validator\Tests\Fixtures\Reference';
+    const REFERENCE_CLASS = 'Makhan\Component\Validator\Tests\Fixtures\Reference';
 
     /**
      * @var FakeMetadataFactory
@@ -501,7 +501,7 @@ abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\NoSuchMetadataException
+     * @expectedException \Makhan\Component\Validator\Exception\NoSuchMetadataException
      */
     public function testFailOnScalarReferences()
     {
@@ -551,7 +551,7 @@ abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($violations[0]->getCode());
     }
 
-    // https://github.com/symfony/symfony/issues/6246
+    // https://github.com/makhan/makhan/issues/6246
     public function testRecursiveArrayReference()
     {
         $entity = new Entity();
@@ -716,7 +716,7 @@ abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\NoSuchMetadataException
+     * @expectedException \Makhan\Component\Validator\Exception\NoSuchMetadataException
      */
     public function testMetadataMustExistIfTraversalIsDisabled()
     {
@@ -821,7 +821,7 @@ abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * https://github.com/symfony/symfony/issues/11604.
+     * https://github.com/makhan/makhan/issues/11604.
      */
     public function testValidatePropertyWithoutConstraints()
     {
@@ -933,7 +933,7 @@ abstract class AbstractValidatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * https://github.com/symfony/symfony/issues/11604.
+     * https://github.com/makhan/makhan/issues/11604.
      */
     public function testValidatePropertyValueWithoutConstraints()
     {

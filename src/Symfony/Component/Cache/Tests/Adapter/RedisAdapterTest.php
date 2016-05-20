@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache\Tests\Adapter;
+namespace Makhan\Component\Cache\Tests\Adapter;
 
-use Symfony\Component\Cache\Adapter\RedisAdapter;
+use Makhan\Component\Cache\Adapter\RedisAdapter;
 
 class RedisAdapterTest extends AbstractRedisAdapterTest
 {
@@ -44,7 +44,7 @@ class RedisAdapterTest extends AbstractRedisAdapterTest
 
     /**
      * @dataProvider provideFailedCreateConnection
-     * @expectedException Symfony\Component\Cache\Exception\InvalidArgumentException
+     * @expectedException Makhan\Component\Cache\Exception\InvalidArgumentException
      * @expectedExceptionMessage Redis connection failed
      */
     public function testFailedCreateConnection($dsn)
@@ -63,7 +63,7 @@ class RedisAdapterTest extends AbstractRedisAdapterTest
 
     /**
      * @dataProvider provideInvalidCreateConnection
-     * @expectedException Symfony\Component\Cache\Exception\InvalidArgumentException
+     * @expectedException Makhan\Component\Cache\Exception\InvalidArgumentException
      * @expectedExceptionMessage Invalid Redis DSN
      */
     public function testInvalidCreateConnection($dsn)

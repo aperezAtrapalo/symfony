@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests;
+namespace Makhan\Component\Translation\Tests;
 
-use Symfony\Component\Intl\Util\IntlTestHelper;
-use Symfony\Component\Translation\IdentityTranslator;
+use Makhan\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Translation\IdentityTranslator;
 
 class IdentityTranslatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -74,8 +74,8 @@ class IdentityTranslatorTest extends \PHPUnit_Framework_TestCase
     public function getTransTests()
     {
         return array(
-            array('Symfony is great!', 'Symfony is great!', array()),
-            array('Symfony is awesome!', 'Symfony is %what%!', array('%what%' => 'awesome')),
+            array('Makhan is great!', 'Makhan is great!', array()),
+            array('Makhan is awesome!', 'Makhan is %what%!', array('%what%' => 'awesome')),
         );
     }
 

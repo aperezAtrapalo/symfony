@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ExpressionLanguage\Tests;
+namespace Makhan\Component\ExpressionLanguage\Tests;
 
-use Symfony\Component\ExpressionLanguage\Lexer;
-use Symfony\Component\ExpressionLanguage\Token;
-use Symfony\Component\ExpressionLanguage\TokenStream;
+use Makhan\Component\ExpressionLanguage\Lexer;
+use Makhan\Component\ExpressionLanguage\Token;
+use Makhan\Component\ExpressionLanguage\TokenStream;
 
 class LexerTest extends \PHPUnit_Framework_TestCase
 {

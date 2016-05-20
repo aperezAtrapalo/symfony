@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authentication\Provider;
+namespace Makhan\Component\Security\Core\Authentication\Provider;
 
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Core\User\UserCheckerInterface;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\Exception\AuthenticationServiceException;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 /**
  * DaoAuthenticationProvider uses a UserProviderInterface to retrieve the user
  * for a UsernamePasswordToken.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class DaoAuthenticationProvider extends UserAuthenticationProvider
 {

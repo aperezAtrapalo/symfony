@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\File;
+namespace Makhan\Component\HttpFoundation\File;
 
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
-use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
-use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use Makhan\Component\HttpFoundation\File\Exception\FileException;
+use Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException;
+use Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
+use Makhan\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
 /**
  * A file in the file system.

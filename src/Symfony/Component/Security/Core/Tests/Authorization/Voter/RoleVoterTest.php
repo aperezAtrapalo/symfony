@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authorization\Voter;
+namespace Makhan\Component\Security\Core\Tests\Authorization\Voter;
 
-use Symfony\Component\Security\Core\Authorization\Voter\RoleVoter;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
-use Symfony\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Authorization\Voter\RoleVoter;
+use Makhan\Component\Security\Core\Authorization\Voter\VoterInterface;
+use Makhan\Component\Security\Core\Role\Role;
 
 class RoleVoterTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,7 +44,7 @@ class RoleVoterTest extends \PHPUnit_Framework_TestCase
         foreach ($roles as $i => $role) {
             $roles[$i] = new Role($role);
         }
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $token->expects($this->once())
               ->method('getRoles')
               ->will($this->returnValue($roles));

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation;
+namespace Makhan\Component\HttpFoundation;
 
 /**
  * Response represents an HTTP response.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Response
 {
@@ -82,7 +82,7 @@ class Response
     const HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511;                             // RFC6585
 
     /**
-     * @var \Symfony\Component\HttpFoundation\ResponseHeaderBag
+     * @var \Makhan\Component\HttpFoundation\ResponseHeaderBag
      */
     public $headers;
 

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Session\Storage;
 
-use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
+use Makhan\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * StorageInterface.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Drak <drak@zikula.org>
  */
 interface SessionStorageInterface
@@ -79,8 +79,8 @@ interface SessionStorageInterface
      * Care: When regenerating the session ID no locking is involved in PHP's
      * session design. See https://bugs.php.net/bug.php?id=61470 for a discussion.
      * So you must make sure the regenerated session is saved BEFORE sending the
-     * headers with the new ID. Symfony's HttpKernel offers a listener for this.
-     * See Symfony\Component\HttpKernel\EventListener\SaveSessionListener.
+     * headers with the new ID. Makhan's HttpKernel offers a listener for this.
+     * See Makhan\Component\HttpKernel\EventListener\SaveSessionListener.
      * Otherwise session data could get lost again for concurrent requests with the
      * new ID. One result could be that you get logged out after just logging in.
      *

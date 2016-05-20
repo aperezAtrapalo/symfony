@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\EntryPoint;
+namespace Makhan\Component\Security\Http\Tests\EntryPoint;
 
-use Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint;
+use Makhan\Component\HttpFoundation\Request;
 
 class RetryAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,13 +24,13 @@ class RetryAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
         $entryPoint = new RetryAuthenticationEntryPoint($httpPort, $httpsPort);
         $response = $entryPoint->start($request);
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\RedirectResponse', $response);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\RedirectResponse', $response);
         $this->assertEquals($expectedUrl, $response->headers->get('Location'));
     }
 
     public function dataForStart()
     {
-        if (!class_exists('Symfony\Component\HttpFoundation\Request')) {
+        if (!class_exists('Makhan\Component\HttpFoundation\Request')) {
             return array(array());
         }
 

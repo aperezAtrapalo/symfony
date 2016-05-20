@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Exception;
+namespace Makhan\Component\Debug\Exception;
 
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Makhan\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * FlattenException wraps a PHP Exception to be able to serialize it.
  *
  * Basically, this class removes all objects from the trace.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class FlattenException
 {

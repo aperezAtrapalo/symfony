@@ -1,6 +1,6 @@
 
                                                                 
-  [Symfony\Component\Console\Exception\InvalidOptionException]  
+  [Makhan\Component\Console\Exception\InvalidOptionException]
   The "--foo" option does not exist.                            
                                                                 
 

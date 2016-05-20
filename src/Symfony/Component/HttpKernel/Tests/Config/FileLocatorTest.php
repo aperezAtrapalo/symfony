@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Config;
+namespace Makhan\Component\HttpKernel\Tests\Config;
 
-use Symfony\Component\HttpKernel\Config\FileLocator;
+use Makhan\Component\HttpKernel\Config\FileLocator;
 
 class FileLocatorTest extends \PHPUnit_Framework_TestCase
 {
     public function testLocate()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
         $kernel
             ->expects($this->atLeastOnce())
             ->method('locateResource')
@@ -35,7 +35,7 @@ class FileLocatorTest extends \PHPUnit_Framework_TestCase
 
     public function testLocateWithGlobalResourcePath()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
         $kernel
             ->expects($this->atLeastOnce())
             ->method('locateResource')

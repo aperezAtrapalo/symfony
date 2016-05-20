@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Monolog\Tests\Processor;
+namespace Makhan\Bridge\Monolog\Tests\Processor;
 
 use Monolog\Logger;
-use Symfony\Bridge\Monolog\Processor\WebProcessor;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Bridge\Monolog\Processor\WebProcessor;
+use Makhan\Component\HttpFoundation\Request;
 
 class WebProcessorTest extends \PHPUnit_Framework_TestCase
 {
@@ -87,7 +87,7 @@ class WebProcessorTest extends \PHPUnit_Framework_TestCase
         $request->server->replace($server);
         $request->headers->replace($server);
 
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
         $event->expects($this->any())

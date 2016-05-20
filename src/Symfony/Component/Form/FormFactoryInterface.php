@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -27,9 +27,9 @@ interface FormFactoryInterface
      *
      * @return FormInterface The form named after the type
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
      */
-    public function create($type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
+    public function create($type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
 
     /**
      * Returns a form.
@@ -43,9 +43,9 @@ interface FormFactoryInterface
      *
      * @return FormInterface The form
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
      */
-    public function createNamed($name, $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
+    public function createNamed($name, $type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
 
     /**
      * Returns a form for a property of a class.
@@ -59,7 +59,7 @@ interface FormFactoryInterface
      *
      * @return FormInterface The form named after the property
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the form type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the form type
      */
     public function createForProperty($class, $property, $data = null, array $options = array());
 
@@ -72,9 +72,9 @@ interface FormFactoryInterface
      *
      * @return FormBuilderInterface The form builder
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
      */
-    public function createBuilder($type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
+    public function createBuilder($type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
 
     /**
      * Returns a form builder.
@@ -86,9 +86,9 @@ interface FormFactoryInterface
      *
      * @return FormBuilderInterface The form builder
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the given type
      */
-    public function createNamedBuilder($name, $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
+    public function createNamedBuilder($name, $type = 'Makhan\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = array());
 
     /**
      * Returns a form builder for a property of a class.
@@ -103,7 +103,7 @@ interface FormFactoryInterface
      *
      * @return FormBuilderInterface The form builder named after the property
      *
-     * @throws \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the form type
+     * @throws \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException if any given option is not applicable to the form type
      */
     public function createBuilderForProperty($class, $property, $data = null, array $options = array());
 }

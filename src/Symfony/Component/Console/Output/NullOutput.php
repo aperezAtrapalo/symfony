@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Output;
+namespace Makhan\Component\Console\Output;
 
-use Symfony\Component\Console\Formatter\OutputFormatter;
-use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use Makhan\Component\Console\Formatter\OutputFormatter;
+use Makhan\Component\Console\Formatter\OutputFormatterInterface;
 
 /**
  * NullOutput suppresses all output.
  *
  *     $output = new NullOutput();
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 class NullOutput implements OutputInterface

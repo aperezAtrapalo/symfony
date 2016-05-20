@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation;
+namespace Makhan\Component\HttpFoundation;
 
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Makhan\Component\HttpFoundation\File\File;
+use Makhan\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * BinaryFileResponse represents an HTTP response delivering a file.

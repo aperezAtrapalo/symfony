@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Generator\Dumper;
+namespace Makhan\Component\Routing\Tests\Generator\Dumper;
 
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\Generator\Dumper\PhpGeneratorDumper;
+use Makhan\Component\Routing\RequestContext;
 
 class PhpGeneratorDumperTest extends \PHPUnit_Framework_TestCase
 {
@@ -128,7 +128,7 @@ class PhpGeneratorDumperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Routing\Exception\RouteNotFoundException
+     * @expectedException \Makhan\Component\Routing\Exception\RouteNotFoundException
      */
     public function testGenerateNonExistingRoute()
     {

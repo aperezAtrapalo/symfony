@@ -1,33 +1,33 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional;
+namespace Makhan\Bundle\SecurityBundle\Tests\Functional;
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\SecurityBundle\Command\InitAclCommand;
-use Symfony\Bundle\SecurityBundle\Command\SetAclCommand;
-use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
-use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
-use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
-use Symfony\Component\Security\Acl\Exception\NoAceFoundException;
-use Symfony\Component\Security\Acl\Permission\BasicPermissionMap;
+use Makhan\Bundle\FrameworkBundle\Console\Application;
+use Makhan\Bundle\SecurityBundle\Command\InitAclCommand;
+use Makhan\Bundle\SecurityBundle\Command\SetAclCommand;
+use Makhan\Component\Console\Tester\CommandTester;
+use Makhan\Component\Security\Acl\Domain\ObjectIdentity;
+use Makhan\Component\Security\Acl\Domain\RoleSecurityIdentity;
+use Makhan\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Makhan\Component\Security\Acl\Exception\NoAceFoundException;
+use Makhan\Component\Security\Acl\Permission\BasicPermissionMap;
 
 /**
  * Tests SetAclCommand.
@@ -37,8 +37,8 @@ use Symfony\Component\Security\Acl\Permission\BasicPermissionMap;
  */
 class SetAclCommandTest extends WebTestCase
 {
-    const OBJECT_CLASS = 'Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\AclBundle\Entity\Car';
-    const SECURITY_CLASS = 'Symfony\Component\Security\Core\User\User';
+    const OBJECT_CLASS = 'Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\AclBundle\Entity\Car';
+    const SECURITY_CLASS = 'Makhan\Component\Security\Core\User\User';
 
     protected function setUp()
     {
@@ -78,7 +78,7 @@ class SetAclCommandTest extends WebTestCase
         $securityIdentity2 = new UserSecurityIdentity($securityUsername2, self::SECURITY_CLASS);
         $permissionMap = new BasicPermissionMap();
 
-        /** @var \Symfony\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
+        /** @var \Makhan\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
         $aclProvider = $application->getKernel()->getContainer()->get('security.acl.provider');
         $acl = $aclProvider->findAcl($objectIdentity, array($securityIdentity1));
 
@@ -122,7 +122,7 @@ class SetAclCommandTest extends WebTestCase
         $roleSecurityIdentity = new RoleSecurityIdentity($role);
         $permissionMap = new BasicPermissionMap();
 
-        /** @var \Symfony\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
+        /** @var \Makhan\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
         $aclProvider = $application->getKernel()->getContainer()->get('security.acl.provider');
         $acl = $aclProvider->findAcl($objectIdentity, array($roleSecurityIdentity, $userSecurityIdentity));
 
@@ -165,7 +165,7 @@ class SetAclCommandTest extends WebTestCase
         $roleSecurityIdentity = new RoleSecurityIdentity($role);
         $permissionMap = new BasicPermissionMap();
 
-        /** @var \Symfony\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
+        /** @var \Makhan\Component\Security\Acl\Model\AclProviderInterface $aclProvider */
         $aclProvider = $application->getKernel()->getContainer()->get('security.acl.provider');
 
         $acl1 = $aclProvider->findAcl($objectIdentity1, array($roleSecurityIdentity));

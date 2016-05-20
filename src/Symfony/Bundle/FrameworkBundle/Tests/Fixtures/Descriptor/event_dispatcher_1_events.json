@@ -13,7 +13,7 @@
     "event2": [
         {
             "type": "object",
-            "name": "Symfony\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass",
+            "name": "Makhan\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass",
             "priority": 0
         }
     ]

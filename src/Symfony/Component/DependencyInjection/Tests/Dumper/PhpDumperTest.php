@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Dumper;
+namespace Makhan\Component\DependencyInjection\Tests\Dumper;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Variable;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Dumper\PhpDumper;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Variable;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 class PhpDumperTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,7 +33,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
         $dumper = new PhpDumper($container = new ContainerBuilder());
 
         $this->assertStringEqualsFile(self::$fixturesPath.'/php/services1.php', $dumper->dump(), '->dump() dumps an empty container as an empty PHP class');
-        $this->assertStringEqualsFile(self::$fixturesPath.'/php/services1-1.php', $dumper->dump(array('class' => 'Container', 'base_class' => 'AbstractContainer', 'namespace' => 'Symfony\Component\DependencyInjection\Dump')), '->dump() takes a class and a base_class options');
+        $this->assertStringEqualsFile(self::$fixturesPath.'/php/services1-1.php', $dumper->dump(array('class' => 'Container', 'base_class' => 'AbstractContainer', 'namespace' => 'Makhan\Component\DependencyInjection\Dump')), '->dump() takes a class and a base_class options');
 
         $container = new ContainerBuilder();
         new PhpDumper($container);
@@ -132,7 +132,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
             $dumper->dump();
             $this->fail('->dump() throws a RuntimeException if the container to be dumped has reference to objects or resources');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('\Symfony\Component\DependencyInjection\Exception\RuntimeException', $e, '->dump() throws a RuntimeException if the container to be dumped has reference to objects or resources');
+            $this->assertInstanceOf('\Makhan\Component\DependencyInjection\Exception\RuntimeException', $e, '->dump() throws a RuntimeException if the container to be dumped has reference to objects or resources');
             $this->assertEquals('Unable to dump a service container if a parameter is an object or a resource.', $e->getMessage(), '->dump() throws a RuntimeException if the container to be dumped has reference to objects or resources');
         }
     }
@@ -147,7 +147,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
 
     public function testAddServiceIdWithUnsupportedCharacters()
     {
-        $class = 'Symfony_DI_PhpDumper_Test_Unsupported_Characters';
+        $class = 'Makhan_DI_PhpDumper_Test_Unsupported_Characters';
         $container = new ContainerBuilder();
         $container->register('bar$', 'FooClass');
         $container->register('bar$!', 'FooClass');
@@ -160,7 +160,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
 
     public function testConflictingServiceIds()
     {
-        $class = 'Symfony_DI_PhpDumper_Test_Conflicting_Service_Ids';
+        $class = 'Makhan_DI_PhpDumper_Test_Conflicting_Service_Ids';
         $container = new ContainerBuilder();
         $container->register('foo_bar', 'FooClass');
         $container->register('foobar', 'FooClass');
@@ -173,14 +173,14 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
 
     public function testConflictingMethodsWithParent()
     {
-        $class = 'Symfony_DI_PhpDumper_Test_Conflicting_Method_With_Parent';
+        $class = 'Makhan_DI_PhpDumper_Test_Conflicting_Method_With_Parent';
         $container = new ContainerBuilder();
         $container->register('bar', 'FooClass');
         $container->register('foo_bar', 'FooClass');
         $dumper = new PhpDumper($container);
         eval('?>'.$dumper->dump(array(
             'class' => $class,
-            'base_class' => 'Symfony\Component\DependencyInjection\Tests\Fixtures\containers\CustomContainer',
+            'base_class' => 'Makhan\Component\DependencyInjection\Tests\Fixtures\containers\CustomContainer',
         )));
 
         $this->assertTrue(method_exists($class, 'getBar2Service'));
@@ -189,7 +189,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideInvalidFactories
-     * @expectedException Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException Makhan\Component\DependencyInjection\Exception\RuntimeException
      * @expectedExceptionMessage Cannot dump definition
      */
     public function testInvalidFactories($factory)
@@ -217,9 +217,9 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
         $container = include self::$fixturesPath.'/containers/container9.php';
         $container->compile();
         $dumper = new PhpDumper($container);
-        eval('?>'.$dumper->dump(array('class' => 'Symfony_DI_PhpDumper_Test_Aliases')));
+        eval('?>'.$dumper->dump(array('class' => 'Makhan_DI_PhpDumper_Test_Aliases')));
 
-        $container = new \Symfony_DI_PhpDumper_Test_Aliases();
+        $container = new \Makhan_DI_PhpDumper_Test_Aliases();
         $container->set('foo', $foo = new \stdClass());
         $this->assertSame($foo, $container->get('foo'));
         $this->assertSame($foo, $container->get('alias_for_foo'));
@@ -232,9 +232,9 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
         $container->compile();
 
         $dumper = new PhpDumper($container);
-        eval('?>'.$dumper->dump(array('class' => 'Symfony_DI_PhpDumper_Test_Frozen_No_Aliases')));
+        eval('?>'.$dumper->dump(array('class' => 'Makhan_DI_PhpDumper_Test_Frozen_No_Aliases')));
 
-        $container = new \Symfony_DI_PhpDumper_Test_Frozen_No_Aliases();
+        $container = new \Makhan_DI_PhpDumper_Test_Frozen_No_Aliases();
         $this->assertFalse($container->has('foo'));
     }
 
@@ -263,7 +263,7 @@ class PhpDumperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      */
     public function testCircularReference()
     {

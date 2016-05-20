@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle;
+namespace Makhan\Bundle\TwigBundle;
 
-use Symfony\Bridge\Twig\TwigEngine as BaseEngine;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Component\Templating\TemplateNameParserInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Config\FileLocatorInterface;
+use Makhan\Bridge\Twig\TwigEngine as BaseEngine;
+use Makhan\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateReference;
+use Makhan\Component\Templating\TemplateNameParserInterface;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Config\FileLocatorInterface;
 
 /**
  * This engine renders Twig templates.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TwigEngine extends BaseEngine implements EngineInterface
 {

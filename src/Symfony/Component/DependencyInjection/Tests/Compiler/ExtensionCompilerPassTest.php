@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Compiler;
+namespace Makhan\Component\DependencyInjection\Tests\Compiler;
 
-use Symfony\Component\DependencyInjection\Compiler\ExtensionCompilerPass;
+use Makhan\Component\DependencyInjection\Compiler\ExtensionCompilerPass;
 
 /**
  * @author Wouter J <wouter@wouterj.nl>
@@ -23,7 +23,7 @@ class ExtensionCompilerPassTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder');
+        $this->container = $this->getMock('Makhan\Component\DependencyInjection\ContainerBuilder');
         $this->pass = new ExtensionCompilerPass();
     }
 
@@ -46,7 +46,7 @@ class ExtensionCompilerPassTest extends \PHPUnit_Framework_TestCase
 
     private function createExtensionMock($hasInlineCompile)
     {
-        return $this->getMock('Symfony\Component\DependencyInjection\\'.(
+        return $this->getMock('Makhan\Component\DependencyInjection\\'.(
             $hasInlineCompile
             ? 'Compiler\CompilerPassInterface'
             : 'Extension\ExtensionInterface'

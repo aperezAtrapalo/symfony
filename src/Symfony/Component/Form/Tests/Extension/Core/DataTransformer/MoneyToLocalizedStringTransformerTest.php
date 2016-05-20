@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\MoneyToLocalizedStringTransformer;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Extension\Core\DataTransformer\MoneyToLocalizedStringTransformer;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class MoneyToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,7 +32,7 @@ class MoneyToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     {
         $transformer = new MoneyToLocalizedStringTransformer(null, null, null, 100);
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $transformer->transform('abcd');
     }
@@ -60,7 +60,7 @@ class MoneyToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     {
         $transformer = new MoneyToLocalizedStringTransformer(null, null, null, 100);
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $transformer->reverseTransform(12345);
     }

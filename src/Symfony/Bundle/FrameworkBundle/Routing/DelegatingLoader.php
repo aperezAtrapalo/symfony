@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Routing;
 
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
-use Symfony\Component\Config\Exception\FileLoaderLoadException;
-use Symfony\Component\Config\Loader\DelegatingLoader as BaseDelegatingLoader;
-use Symfony\Component\Config\Loader\LoaderResolverInterface;
+use Makhan\Bundle\FrameworkBundle\Controller\ControllerNameParser;
+use Makhan\Component\Config\Exception\FileLoaderLoadException;
+use Makhan\Component\Config\Loader\DelegatingLoader as BaseDelegatingLoader;
+use Makhan\Component\Config\Loader\LoaderResolverInterface;
 
 /**
  * DelegatingLoader delegates route loading to other loaders using a loader resolver.
@@ -22,7 +22,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
  * This implementation resolves the _controller attribute from the short notation
  * to the fully-qualified form (from a:b:c to class:method).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class DelegatingLoader extends BaseDelegatingLoader
 {

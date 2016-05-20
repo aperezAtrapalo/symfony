@@ -1,18 +1,18 @@
 {
-    "name": "symfony/debug",
+    "name": "makhan/debug",
     "type": "library",
-    "description": "Symfony Debug Component",
+    "description": "Makhan Debug Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
@@ -20,14 +20,14 @@
         "psr/log": "~1.0"
     },
     "conflict": {
-        "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+        "makhan/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
     },
     "require-dev": {
-        "symfony/class-loader": "~2.8|~3.0",
-        "symfony/http-kernel": "~2.8|~3.0"
+        "makhan/class-loader": "~2.8|~3.0",
+        "makhan/http-kernel": "~2.8|~3.0"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Debug\\": "" },
+        "psr-4": { "Makhan\\Component\\Debug\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

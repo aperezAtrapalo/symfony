@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process\Tests;
+namespace Makhan\Component\Process\Tests;
 
-use Symfony\Component\Process\Exception\ProcessFailedException;
+use Makhan\Component\Process\Exception\ProcessFailedException;
 
 /**
  * @author Sebastian Marek <proofek@gmail.com>
@@ -24,7 +24,7 @@ class ProcessFailedExceptionTest extends \PHPUnit_Framework_TestCase
     public function testProcessFailedExceptionThrowsException()
     {
         $process = $this->getMock(
-            'Symfony\Component\Process\Process',
+            'Makhan\Component\Process\Process',
             array('isSuccessful'),
             array('php')
         );
@@ -54,7 +54,7 @@ class ProcessFailedExceptionTest extends \PHPUnit_Framework_TestCase
         $workingDirectory = getcwd();
 
         $process = $this->getMock(
-            'Symfony\Component\Process\Process',
+            'Makhan\Component\Process\Process',
             array('isSuccessful', 'getOutput', 'getErrorOutput', 'getExitCode', 'getExitCodeText', 'isOutputDisabled', 'getWorkingDirectory'),
             array($cmd)
         );
@@ -106,7 +106,7 @@ class ProcessFailedExceptionTest extends \PHPUnit_Framework_TestCase
         $workingDirectory = getcwd();
 
         $process = $this->getMock(
-            'Symfony\Component\Process\Process',
+            'Makhan\Component\Process\Process',
             array('isSuccessful', 'isOutputDisabled', 'getExitCode', 'getExitCodeText', 'getOutput', 'getErrorOutput', 'getWorkingDirectory'),
             array($cmd)
         );

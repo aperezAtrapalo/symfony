@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\Form;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\Form\FormConfigBuilder;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\Form\Tests\Fixtures\FixedDataTransformer;
-use Symfony\Component\Form\Tests\Fixtures\FixedFilterListener;
+use Makhan\Component\Form\Form;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\FormEvents;
+use Makhan\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Form\FormConfigBuilder;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Form\Tests\Fixtures\FixedDataTransformer;
+use Makhan\Component\Form\Tests\Fixtures\FixedFilterListener;
 
 class SimpleFormTest_Countable implements \Countable
 {
@@ -75,7 +75,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException        \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException        \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage Unable to transform value for property path "name": No mapping for value "arg"
      */
     public function testDataTransformationFailure()
@@ -96,7 +96,7 @@ class SimpleFormTest extends AbstractFormTest
         $form->getData();
     }
 
-    // https://github.com/symfony/symfony/commit/d4f4038f6daf7cf88ca7c7ab089473cce5ebf7d8#commitcomment-1632879
+    // https://github.com/makhan/makhan/commit/d4f4038f6daf7cf88ca7c7ab089473cce5ebf7d8#commitcomment-1632879
     public function testDataIsInitializedFromSubmit()
     {
         $mock = $this->getMockBuilder('\stdClass')
@@ -118,7 +118,7 @@ class SimpleFormTest extends AbstractFormTest
         $form->submit('foobar');
     }
 
-    // https://github.com/symfony/symfony/pull/7789
+    // https://github.com/makhan/makhan/pull/7789
     public function testFalseIsConvertedToNull()
     {
         $mock = $this->getMockBuilder('\stdClass')
@@ -141,7 +141,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @expectedException \Makhan\Component\Form\Exception\AlreadySubmittedException
      */
     public function testSubmitThrowsExceptionIfAlreadySubmitted()
     {
@@ -340,7 +340,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @expectedException \Makhan\Component\Form\Exception\AlreadySubmittedException
      */
     public function testSetParentThrowsExceptionIfAlreadySubmitted()
     {
@@ -362,7 +362,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @expectedException \Makhan\Component\Form\Exception\AlreadySubmittedException
      */
     public function testSetDataThrowsExceptionIfAlreadySubmitted()
     {
@@ -658,7 +658,7 @@ class SimpleFormTest extends AbstractFormTest
             ->setEmptyData(function ($form) {
             // the form instance is passed to the closure to allow use
             // of form data when creating the empty value
-            $this->assertInstanceOf('Symfony\Component\Form\FormInterface', $form);
+            $this->assertInstanceOf('Makhan\Component\Form\FormInterface', $form);
 
             return 'foo';
         })
@@ -684,8 +684,8 @@ class SimpleFormTest extends AbstractFormTest
 
     public function testCreateView()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
-        $view = $this->getMock('Symfony\Component\Form\FormView');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
+        $view = $this->getMock('Makhan\Component\Form\FormView');
         $form = $this->getBuilder()->setType($type)->getForm();
 
         $type->expects($this->once())
@@ -698,10 +698,10 @@ class SimpleFormTest extends AbstractFormTest
 
     public function testCreateViewWithParent()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
-        $view = $this->getMock('Symfony\Component\Form\FormView');
-        $parentForm = $this->getMock('Symfony\Component\Form\Test\FormInterface');
-        $parentView = $this->getMock('Symfony\Component\Form\FormView');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
+        $view = $this->getMock('Makhan\Component\Form\FormView');
+        $parentForm = $this->getMock('Makhan\Component\Form\Test\FormInterface');
+        $parentView = $this->getMock('Makhan\Component\Form\FormView');
         $form = $this->getBuilder()->setType($type)->getForm();
         $form->setParent($parentForm);
 
@@ -719,9 +719,9 @@ class SimpleFormTest extends AbstractFormTest
 
     public function testCreateViewWithExplicitParent()
     {
-        $type = $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
-        $view = $this->getMock('Symfony\Component\Form\FormView');
-        $parentView = $this->getMock('Symfony\Component\Form\FormView');
+        $type = $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
+        $view = $this->getMock('Makhan\Component\Form\FormView');
+        $parentView = $this->getMock('Makhan\Component\Form\FormView');
         $form = $this->getBuilder()->setType($type)->getForm();
 
         $type->expects($this->once())
@@ -748,7 +748,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\LogicException
+     * @expectedException \Makhan\Component\Form\Exception\LogicException
      * @expectedExceptionMessage A form with an empty name cannot have a parent form.
      */
     public function testFormCannotHaveEmptyNameNotInRootLevel()
@@ -767,7 +767,7 @@ class SimpleFormTest extends AbstractFormTest
         $this->assertEquals(new PropertyPath('address.street'), $form->getPropertyPath());
     }
 
-    // see https://github.com/symfony/symfony/issues/3903
+    // see https://github.com/makhan/makhan/issues/3903
     public function testGetPropertyPathDefaultsToNameIfParentHasDataClass()
     {
         $parent = $this->getBuilder(null, null, 'stdClass')
@@ -780,7 +780,7 @@ class SimpleFormTest extends AbstractFormTest
         $this->assertEquals(new PropertyPath('name'), $form->getPropertyPath());
     }
 
-    // see https://github.com/symfony/symfony/issues/3903
+    // see https://github.com/makhan/makhan/issues/3903
     public function testGetPropertyPathDefaultsToIndexedNameIfParentDataClassIsNull()
     {
         $parent = $this->getBuilder()
@@ -860,7 +860,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\LogicException
+     * @expectedException \Makhan\Component\Form\Exception\LogicException
      */
     public function testViewDataMustBeObjectIfDataClassIsSet()
     {
@@ -875,7 +875,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testSetDataCannotInvokeItself()
     {
@@ -908,7 +908,7 @@ class SimpleFormTest extends AbstractFormTest
 
     public function testHandleRequestForwardsToRequestHandler()
     {
-        $handler = $this->getMock('Symfony\Component\Form\RequestHandlerInterface');
+        $handler = $this->getMock('Makhan\Component\Form\RequestHandlerInterface');
 
         $form = $this->getBuilder()
             ->setRequestHandler($handler)
@@ -945,7 +945,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testInheritDataDisallowsSetData()
     {
@@ -957,7 +957,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testGetDataRequiresParentToBeSetIfInheritData()
     {
@@ -969,7 +969,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testGetNormDataRequiresParentToBeSetIfInheritData()
     {
@@ -981,7 +981,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testGetViewDataRequiresParentToBeSetIfInheritData()
     {
@@ -1019,7 +1019,7 @@ class SimpleFormTest extends AbstractFormTest
     public function testInitializeSetsDefaultData()
     {
         $config = $this->getBuilder()->setData('DEFAULT')->getFormConfig();
-        $form = $this->getMock('Symfony\Component\Form\Form', array('setData'), array($config));
+        $form = $this->getMock('Makhan\Component\Form\Form', array('setData'), array($config));
 
         $form->expects($this->once())
             ->method('setData')
@@ -1030,7 +1030,7 @@ class SimpleFormTest extends AbstractFormTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testInitializeFailsIfParent()
     {

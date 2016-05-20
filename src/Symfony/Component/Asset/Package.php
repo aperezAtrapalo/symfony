@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Asset;
+namespace Makhan\Component\Asset;
 
-use Symfony\Component\Asset\Context\ContextInterface;
-use Symfony\Component\Asset\Context\NullContext;
-use Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface;
+use Makhan\Component\Asset\Context\ContextInterface;
+use Makhan\Component\Asset\Context\NullContext;
+use Makhan\Component\Asset\VersionStrategy\VersionStrategyInterface;
 
 /**
  * Basic package that adds a version to asset URLs.
  *
- * @author Kris Wallsmith <kris@symfony.com>
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Kris Wallsmith <kris@makhan.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Package implements PackageInterface
 {

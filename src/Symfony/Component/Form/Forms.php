@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Extension\Core\CoreExtension;
+use Makhan\Component\Form\Extension\Core\CoreExtension;
 
 /**
  * Entry point of the Form component.
@@ -19,15 +19,15 @@ use Symfony\Component\Form\Extension\Core\CoreExtension;
  * Use this class to conveniently create new form factories:
  *
  * <code>
- * use Symfony\Component\Form\Forms;
+ * use Makhan\Component\Form\Forms;
  *
  * $formFactory = Forms::createFormFactory();
  *
  * $form = $formFactory->createBuilder()
- *     ->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType')
- *     ->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType')
- *     ->add('age', 'Symfony\Component\Form\Extension\Core\Type\IntegerType')
- *     ->add('gender', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
+ *     ->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType')
+ *     ->add('lastName', 'Makhan\Component\Form\Extension\Core\Type\TextType')
+ *     ->add('age', 'Makhan\Component\Form\Extension\Core\Type\IntegerType')
+ *     ->add('gender', 'Makhan\Component\Form\Extension\Core\Type\ChoiceType', array(
  *         'choices' => array('Male' => 'm', 'Female' => 'f'),
  *     ))
  *     ->getForm();
@@ -59,8 +59,8 @@ use Symfony\Component\Form\Extension\Core\CoreExtension;
  * This extension needs a validator object to function properly:
  *
  * <code>
- * use Symfony\Component\Validator\Validation;
- * use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
+ * use Makhan\Component\Validator\Validation;
+ * use Makhan\Component\Form\Extension\Validator\ValidatorExtension;
  *
  * $validator = Validation::createValidator();
  * $formFactory = Forms::createFormFactoryBuilder()
@@ -74,7 +74,7 @@ use Symfony\Component\Form\Extension\Core\CoreExtension;
  * example for using the default layout with "<div>" tags:
  *
  * <code>
- * use Symfony\Component\Form\Extension\Templating\TemplatingExtension;
+ * use Makhan\Component\Form\Extension\Templating\TemplatingExtension;
  *
  * $formFactory = Forms::createFormFactoryBuilder()
  *     ->addExtension(new TemplatingExtension($engine, null, array(
@@ -86,7 +86,7 @@ use Symfony\Component\Form\Extension\Core\CoreExtension;
  * The next example shows how to include the "<table>" layout:
  *
  * <code>
- * use Symfony\Component\Form\Extension\Templating\TemplatingExtension;
+ * use Makhan\Component\Form\Extension\Templating\TemplatingExtension;
  *
  * $formFactory = Forms::createFormFactoryBuilder()
  *     ->addExtension(new TemplatingExtension($engine, null, array(

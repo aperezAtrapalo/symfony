@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tester;
+namespace Makhan\Component\Console\Tester;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\StreamOutput;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
 
 /**
  * Eases the testing of console commands.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class CommandTester
 {

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests;
+namespace Makhan\Component\Translation\Tests;
 
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\LoggingTranslator;
-use Symfony\Component\Translation\Loader\ArrayLoader;
+use Makhan\Component\Translation\Translator;
+use Makhan\Component\Translation\LoggingTranslator;
+use Makhan\Component\Translation\Loader\ArrayLoader;
 
 class LoggingTranslatorTest extends \PHPUnit_Framework_TestCase
 {

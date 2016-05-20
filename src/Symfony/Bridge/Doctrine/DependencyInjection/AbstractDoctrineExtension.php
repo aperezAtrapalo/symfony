@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\DependencyInjection;
+namespace Makhan\Bridge\Doctrine\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\HttpKernel\DependencyInjection\Extension;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\Config\Resource\FileResource;
 
 /**
  * This abstract classes groups common code that Doctrine Object Manager extensions (ORM, MongoDB, CouchDB) need.
@@ -317,7 +317,7 @@ abstract class AbstractDoctrineExtension extends Extension
      * @param string                                                  $cacheDriverServiceId The cache driver name.
      * @param string                                                  $objectManagerName    The object manager name.
      * @param array                                                   $cacheDriver          The cache driver mapping.
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container            The ContainerBuilder instance.
+     * @param \Makhan\Component\DependencyInjection\ContainerBuilder $container            The ContainerBuilder instance.
      *
      * @return string
      *

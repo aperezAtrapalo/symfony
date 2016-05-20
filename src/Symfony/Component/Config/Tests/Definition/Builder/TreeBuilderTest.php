@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition\Builder;
+namespace Makhan\Component\Config\Tests\Definition\Builder;
 
-use Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder as CustomNodeBuilder;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Makhan\Component\Config\Tests\Definition\Builder\NodeBuilder as CustomNodeBuilder;
+use Makhan\Component\Config\Definition\Builder\TreeBuilder;
 
 require __DIR__.'/../../Fixtures/Builder/NodeBuilder.php';
 require __DIR__.'/../../Fixtures/Builder/BarNodeDefinition.php';
@@ -27,11 +27,11 @@ class TreeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $nodeBuilder = $root->children();
 
-        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
+        $this->assertInstanceOf('Makhan\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
 
         $nodeBuilder = $nodeBuilder->arrayNode('deeper')->children();
 
-        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
+        $this->assertInstanceOf('Makhan\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
     }
 
     public function testOverrideABuiltInNodeType()
@@ -41,7 +41,7 @@ class TreeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $definition = $root->children()->variableNode('variable');
 
-        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\VariableNodeDefinition', $definition);
+        $this->assertInstanceOf('Makhan\Component\Config\Tests\Definition\Builder\VariableNodeDefinition', $definition);
     }
 
     public function testAddANodeType()
@@ -51,7 +51,7 @@ class TreeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $definition = $root->children()->barNode('variable');
 
-        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\BarNodeDefinition', $definition);
+        $this->assertInstanceOf('Makhan\Component\Config\Tests\Definition\Builder\BarNodeDefinition', $definition);
     }
 
     public function testCreateABuiltInNodeTypeWithACustomNodeBuilder()
@@ -61,7 +61,7 @@ class TreeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $definition = $root->children()->booleanNode('boolean');
 
-        $this->assertInstanceOf('Symfony\Component\Config\Definition\Builder\BooleanNodeDefinition', $definition);
+        $this->assertInstanceOf('Makhan\Component\Config\Definition\Builder\BooleanNodeDefinition', $definition);
     }
 
     public function testPrototypedArrayNodeUseTheCustomNodeBuilder()
@@ -78,7 +78,7 @@ class TreeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $builder->root('propagation')
             ->children()
-                ->setNodeClass('extended', 'Symfony\Component\Config\Tests\Definition\Builder\VariableNodeDefinition')
+                ->setNodeClass('extended', 'Makhan\Component\Config\Tests\Definition\Builder\VariableNodeDefinition')
                 ->node('foo', 'extended')->end()
                 ->arrayNode('child')
                     ->children()

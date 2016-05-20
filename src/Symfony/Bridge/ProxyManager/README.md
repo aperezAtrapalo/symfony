@@ -1,14 +1,14 @@
 ProxyManager Bridge
 ===================
 
-Provides integration for [ProxyManager][1] with various Symfony components.
+Provides integration for [ProxyManager][1] with various Makhan components.
 
 Resources
 ---------
 
-  * [Contributing](https://symfony.com/doc/current/contributing/index.html)
-  * [Report issues](https://github.com/symfony/symfony/issues) and
-    [send Pull Requests](https://github.com/symfony/symfony/pulls)
-    in the [main Symfony repository](https://github.com/symfony/symfony)
+  * [Contributing](https://makhan.com/doc/current/contributing/index.html)
+  * [Report issues](https://github.com/makhan/makhan/issues) and
+    [send Pull Requests](https://github.com/makhan/makhan/pulls)
+    in the [main Makhan repository](https://github.com/makhan/makhan)
 
 [1]: https://github.com/Ocramius/ProxyManager

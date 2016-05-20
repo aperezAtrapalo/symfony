@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\DebugBundle\DependencyInjection\Compiler;
+namespace Makhan\Bundle\DebugBundle\DependencyInjection\Compiler;
 
-use Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
+use Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Registers the file link format for the {@link \Symfony\Component\HttpKernel\DataCollector\DumpDataCollector}.
+ * Registers the file link format for the {@link \Makhan\Component\HttpKernel\DataCollector\DumpDataCollector}.
  *
  * @author Christian Flothmann <christian.flothmann@xabbuh.de>
  */

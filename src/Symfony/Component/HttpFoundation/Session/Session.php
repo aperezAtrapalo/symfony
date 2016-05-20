@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Session;
+namespace Makhan\Component\HttpFoundation\Session;
 
-use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use Makhan\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
+use Makhan\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Makhan\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
+use Makhan\Component\HttpFoundation\Session\Flash\FlashBag;
+use Makhan\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Makhan\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 
 /**
  * Session.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Drak <drak@zikula.org>
  */
 class Session implements SessionInterface, \IteratorAggregate, \Countable

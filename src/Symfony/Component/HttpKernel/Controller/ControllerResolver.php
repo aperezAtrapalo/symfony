@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Controller;
+namespace Makhan\Component\HttpKernel\Controller;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Request;
 
 /**
  * ControllerResolver.
@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  * the controller to execute and uses the request attributes to determine
  * the controller method arguments.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ControllerResolver implements ArgumentResolverInterface, ControllerResolverInterface
 {

@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Templating;
 
-use Symfony\Component\Templating\PhpEngine as BasePhpEngine;
-use Symfony\Component\Templating\Loader\LoaderInterface;
-use Symfony\Component\Templating\TemplateNameParserInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\Templating\PhpEngine as BasePhpEngine;
+use Makhan\Component\Templating\Loader\LoaderInterface;
+use Makhan\Component\Templating\TemplateNameParserInterface;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
- * This engine knows how to render Symfony templates.
+ * This engine knows how to render Makhan templates.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class PhpEngine extends BasePhpEngine implements EngineInterface
 {

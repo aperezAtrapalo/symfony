@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\Util\ServerParams;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\Util\ServerParams;
 
 /**
  * A request handler using PHP's super globals $_GET, $_POST and $_SERVER.
@@ -159,7 +159,7 @@ class NativeRequestHandler implements RequestHandlerInterface
      * It's safe to pass an already converted array, in which case this method
      * just returns the original array unmodified.
      *
-     * This method is identical to {@link \Symfony\Component\HttpFoundation\FileBag::fixPhpFilesArray}
+     * This method is identical to {@link \Makhan\Component\HttpFoundation\FileBag::fixPhpFilesArray}
      * and should be kept as such in order to port fixes quickly and easily.
      *
      * @param array $data

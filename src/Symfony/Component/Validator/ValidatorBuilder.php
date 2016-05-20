@@ -1,35 +1,35 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator;
+namespace Makhan\Component\Validator;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\CachedReader;
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Cache\ArrayCache;
-use Symfony\Component\Translation\IdentityTranslator;
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Context\ExecutionContextFactory;
-use Symfony\Component\Validator\Exception\ValidatorException;
-use Symfony\Component\Validator\Mapping\Cache\CacheInterface;
-use Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\Mapping\Loader\AnnotationLoader;
-use Symfony\Component\Validator\Mapping\Loader\LoaderChain;
-use Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader;
-use Symfony\Component\Validator\Mapping\Loader\XmlFileLoader;
-use Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader;
-use Symfony\Component\Validator\Mapping\Loader\YamlFileLoader;
-use Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader;
-use Symfony\Component\Validator\Validator\RecursiveValidator;
+use Makhan\Component\Translation\IdentityTranslator;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Component\Validator\Context\ExecutionContextFactory;
+use Makhan\Component\Validator\Exception\ValidatorException;
+use Makhan\Component\Validator\Mapping\Cache\CacheInterface;
+use Makhan\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\Mapping\Loader\AnnotationLoader;
+use Makhan\Component\Validator\Mapping\Loader\LoaderChain;
+use Makhan\Component\Validator\Mapping\Loader\StaticMethodLoader;
+use Makhan\Component\Validator\Mapping\Loader\XmlFileLoader;
+use Makhan\Component\Validator\Mapping\Loader\XmlFilesLoader;
+use Makhan\Component\Validator\Mapping\Loader\YamlFileLoader;
+use Makhan\Component\Validator\Mapping\Loader\YamlFilesLoader;
+use Makhan\Component\Validator\Validator\RecursiveValidator;
 
 /**
  * The default implementation of {@link ValidatorBuilderInterface}.
@@ -329,7 +329,7 @@ class ValidatorBuilder implements ValidatorBuilderInterface
         if (null === $translator) {
             $translator = new IdentityTranslator();
             // Force the locale to be 'en' when no translator is provided rather than relying on the Intl default locale
-            // This avoids depending on Intl or the stub implementation being available. It also ensures that Symfony
+            // This avoids depending on Intl or the stub implementation being available. It also ensures that Makhan
             // validation messages are pluralized properly even when the default locale gets changed because they are in
             // English.
             $translator->setLocale('en');

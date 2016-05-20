@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Loader;
+namespace Makhan\Component\Config\Loader;
 
 /**
  * LoaderResolver selects a loader for a given resource.
@@ -17,7 +17,7 @@ namespace Symfony\Component\Config\Loader;
  * A resource can be anything (e.g. a full path to a config file or a Closure).
  * Each loader determines whether it can load a resource and how.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class LoaderResolver implements LoaderResolverInterface
 {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Output;
+namespace Makhan\Component\Console\Output;
 
-use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use Makhan\Component\Console\Formatter\OutputFormatterInterface;
 
 /**
  * ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.
@@ -25,7 +25,7 @@ use Symfony\Component\Console\Formatter\OutputFormatterInterface;
  *     $output = new StreamOutput(fopen('php://stdout', 'w'));
  *     $stdErr = new StreamOutput(fopen('php://stderr', 'w'));
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ConsoleOutput extends StreamOutput implements ConsoleOutputInterface
 {

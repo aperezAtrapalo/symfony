@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests;
+namespace Makhan\Component\Debug\Tests;
 
-use Symfony\Component\Debug\DebugClassLoader;
-use Symfony\Component\Debug\ErrorHandler;
-use Symfony\Component\Debug\Exception\ContextErrorException;
+use Makhan\Component\Debug\DebugClassLoader;
+use Makhan\Component\Debug\ErrorHandler;
+use Makhan\Component\Debug\Exception\ContextErrorException;
 
 class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -50,7 +50,7 @@ class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
                 $reflProp = $reflClass->getProperty('classLoader');
                 $reflProp->setAccessible(true);
 
-                $this->assertNotInstanceOf('Symfony\Component\Debug\DebugClassLoader', $reflProp->getValue($function[0]));
+                $this->assertNotInstanceOf('Makhan\Component\Debug\DebugClassLoader', $reflProp->getValue($function[0]));
 
                 return;
             }
@@ -86,7 +86,7 @@ class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
     {
         // the ContextErrorException must not be loaded to test the workaround
         // for https://bugs.php.net/65322.
-        if (class_exists('Symfony\Component\Debug\Exception\ContextErrorException', false)) {
+        if (class_exists('Makhan\Component\Debug\Exception\ContextErrorException', false)) {
             $this->markTestSkipped('The ContextErrorException class is already loaded.');
         }
         if (defined('HHVM_VERSION')) {
@@ -185,7 +185,7 @@ class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
 
         $xError = array(
             'type' => E_USER_DEPRECATED,
-            'message' => 'The Test\Symfony\Component\Debug\Tests\\'.$class.' class '.$type.' Symfony\Component\Debug\Tests\Fixtures\\'.$super.' that is deprecated but this is a test deprecation notice.',
+            'message' => 'The Test\Makhan\Component\Debug\Tests\\'.$class.' class '.$type.' Makhan\Component\Debug\Tests\Fixtures\\'.$super.' that is deprecated but this is a test deprecation notice.',
         );
 
         $this->assertSame($xError, $lastError);
@@ -227,7 +227,7 @@ class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
         $e = error_reporting(0);
         trigger_error('', E_USER_NOTICE);
 
-        class_exists('Symfony\Bridge\Debug\Tests\Fixtures\ExtendsDeprecatedParent', true);
+        class_exists('Makhan\Bridge\Debug\Tests\Fixtures\ExtendsDeprecatedParent', true);
 
         error_reporting($e);
         restore_error_handler();
@@ -263,7 +263,7 @@ class DebugClassLoaderTest extends \PHPUnit_Framework_TestCase
 
         $xError = array(
             'type' => E_USER_DEPRECATED,
-            'message' => 'Test\Symfony\Component\Debug\Tests\Float uses a reserved class name (Float) that will break on PHP 7 and higher',
+            'message' => 'Test\Makhan\Component\Debug\Tests\Float uses a reserved class name (Float) that will break on PHP 7 and higher',
         );
 
         $this->assertSame($xError, $lastError);
@@ -301,8 +301,8 @@ class ClassLoader
             return $fixtureDir.'notPsr0Bis.php';
         } elseif (__NAMESPACE__.'\Fixtures\DeprecatedInterface' === $class) {
             return $fixtureDir.'DeprecatedInterface.php';
-        } elseif ('Symfony\Bridge\Debug\Tests\Fixtures\ExtendsDeprecatedParent' === $class) {
-            eval('namespace Symfony\Bridge\Debug\Tests\Fixtures; class ExtendsDeprecatedParent extends \\'.__NAMESPACE__.'\Fixtures\DeprecatedClass {}');
+        } elseif ('Makhan\Bridge\Debug\Tests\Fixtures\ExtendsDeprecatedParent' === $class) {
+            eval('namespace Makhan\Bridge\Debug\Tests\Fixtures; class ExtendsDeprecatedParent extends \\'.__NAMESPACE__.'\Fixtures\DeprecatedClass {}');
         } elseif ('Test\\'.__NAMESPACE__.'\DeprecatedParentClass' === $class) {
             eval('namespace Test\\'.__NAMESPACE__.'; class DeprecatedParentClass extends \\'.__NAMESPACE__.'\Fixtures\DeprecatedClass {}');
         } elseif ('Test\\'.__NAMESPACE__.'\DeprecatedInterfaceClass' === $class) {

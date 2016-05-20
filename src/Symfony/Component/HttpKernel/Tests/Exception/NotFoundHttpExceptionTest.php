@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class NotFoundHttpExceptionTest extends HttpExceptionTest
 {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Locale;
+namespace Makhan\Component\Intl\Locale;
 
-use Symfony\Component\Intl\Exception\MethodNotImplementedException;
+use Makhan\Component\Intl\Exception\MethodNotImplementedException;
 
 /**
  * Replacement for PHP's native {@link \Locale} class.

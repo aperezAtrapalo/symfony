@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://symfony.com/schema/dic/services"
+<container xmlns="http://makhan.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
+        <service id="web_profiler.controller.profiler" class="Makhan\Bundle\WebProfilerBundle\Controller\ProfilerController">
             <argument type="service" id="router" on-invalid="null" />
             <argument type="service" id="profiler" on-invalid="null" />
             <argument type="service" id="twig" />
@@ -13,19 +13,19 @@
             <argument>%web_profiler.debug_toolbar.position%</argument>
         </service>
 
-        <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController">
+        <service id="web_profiler.controller.router" class="Makhan\Bundle\WebProfilerBundle\Controller\RouterController">
             <argument type="service" id="profiler" on-invalid="null" />
             <argument type="service" id="twig" />
             <argument type="service" id="router" on-invalid="null" />
         </service>
 
-        <service id="web_profiler.controller.exception" class="Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController">
+        <service id="web_profiler.controller.exception" class="Makhan\Bundle\WebProfilerBundle\Controller\ExceptionController">
             <argument type="service" id="profiler" on-invalid="null" />
             <argument type="service" id="twig" />
             <argument>%kernel.debug%</argument>
         </service>
 
-        <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
+        <service id="twig.extension.webprofiler" class="Makhan\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
             <tag name="twig.extension" />
         </service>
     </services>

@@ -1,37 +1,37 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection;
+namespace Makhan\Component\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Compiler\Compiler;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
-use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
-use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Config\Resource\ResourceInterface;
-use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\InstantiatorInterface;
-use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
-use Symfony\Component\ExpressionLanguage\Expression;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\DependencyInjection\Compiler\Compiler;
+use Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Makhan\Component\DependencyInjection\Compiler\PassConfig;
+use Makhan\Component\DependencyInjection\Exception\BadMethodCallException;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\LogicException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException;
+use Makhan\Component\DependencyInjection\Extension\ExtensionInterface;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Config\Resource\ResourceInterface;
+use Makhan\Component\DependencyInjection\LazyProxy\Instantiator\InstantiatorInterface;
+use Makhan\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
+use Makhan\Component\ExpressionLanguage\Expression;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
  * ContainerBuilder is a DI container that provides an API to easily describe services.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ContainerBuilder extends Container implements TaggedContainerInterface
 {
@@ -1063,8 +1063,8 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
     private function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $this->expressionLanguage = new ExpressionLanguage(null, $this->expressionLanguageProviders);
         }

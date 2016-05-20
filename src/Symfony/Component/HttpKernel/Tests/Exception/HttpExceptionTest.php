@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use Makhan\Component\HttpKernel\Exception\HttpException;
 
 class HttpExceptionTest extends \PHPUnit_Framework_TestCase
 {

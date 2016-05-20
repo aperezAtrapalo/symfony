@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Kernel;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Kernel;
 
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Makhan\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Makhan\Bundle\FrameworkBundle\FrameworkBundle;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\Routing\RouteCollectionBuilder;
 
 class ConcreteMicroKernel extends Kernel
 {

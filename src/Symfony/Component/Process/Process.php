@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process;
+namespace Makhan\Component\Process;
 
-use Symfony\Component\Process\Exception\InvalidArgumentException;
-use Symfony\Component\Process\Exception\LogicException;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Exception\ProcessTimedOutException;
-use Symfony\Component\Process\Exception\RuntimeException;
-use Symfony\Component\Process\Pipes\PipesInterface;
-use Symfony\Component\Process\Pipes\UnixPipes;
-use Symfony\Component\Process\Pipes\WindowsPipes;
+use Makhan\Component\Process\Exception\InvalidArgumentException;
+use Makhan\Component\Process\Exception\LogicException;
+use Makhan\Component\Process\Exception\ProcessFailedException;
+use Makhan\Component\Process\Exception\ProcessTimedOutException;
+use Makhan\Component\Process\Exception\RuntimeException;
+use Makhan\Component\Process\Pipes\PipesInterface;
+use Makhan\Component\Process\Pipes\UnixPipes;
+use Makhan\Component\Process\Pipes\WindowsPipes;
 
 /**
  * Process is a thin wrapper around proc_* functions to easily
  * start independent PHP processes.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Romain Neutron <imprec@gmail.com>
  */
 class Process implements \IteratorAggregate

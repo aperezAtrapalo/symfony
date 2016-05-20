@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\Security\Http\Event\SwitchUserEvent;
-use Symfony\Component\Security\Http\Firewall\SwitchUserListener;
-use Symfony\Component\Security\Http\SecurityEvents;
+use Makhan\Component\Security\Http\Event\SwitchUserEvent;
+use Makhan\Component\Security\Http\Firewall\SwitchUserListener;
+use Makhan\Component\Security\Http\SecurityEvents;
 
 class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,13 +31,13 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $this->userProvider = $this->getMock('Symfony\Component\Security\Core\User\UserProviderInterface');
-        $this->userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
-        $this->accessDecisionManager = $this->getMock('Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface');
-        $this->request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-        $this->request->query = $this->getMock('Symfony\Component\HttpFoundation\ParameterBag');
-        $this->request->server = $this->getMock('Symfony\Component\HttpFoundation\ServerBag');
+        $this->tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $this->userProvider = $this->getMock('Makhan\Component\Security\Core\User\UserProviderInterface');
+        $this->userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
+        $this->accessDecisionManager = $this->getMock('Makhan\Component\Security\Core\Authorization\AccessDecisionManagerInterface');
+        $this->request = $this->getMock('Makhan\Component\HttpFoundation\Request');
+        $this->request->query = $this->getMock('Makhan\Component\HttpFoundation\ParameterBag');
+        $this->request->server = $this->getMock('Makhan\Component\HttpFoundation\ServerBag');
         $this->event = $this->getEvent($this->request);
     }
 
@@ -62,11 +62,11 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException
      */
     public function testExitUserThrowsAuthenticationExceptionIfOriginalTokenCannotBeFound()
     {
-        $token = $this->getToken(array($this->getMock('Symfony\Component\Security\Core\Role\RoleInterface')));
+        $token = $this->getToken(array($this->getMock('Makhan\Component\Security\Core\Role\RoleInterface')));
 
         $this->tokenStorage->expects($this->any())->method('getToken')->will($this->returnValue($token));
         $this->request->expects($this->any())->method('get')->with('_switch_user')->will($this->returnValue('_exit'));
@@ -78,7 +78,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
     public function testExitUserUpdatesToken()
     {
         $originalToken = $this->getToken();
-        $role = $this->getMockBuilder('Symfony\Component\Security\Core\Role\SwitchUserRole')
+        $role = $this->getMockBuilder('Makhan\Component\Security\Core\Role\SwitchUserRole')
             ->disableOriginalConstructor()
             ->getMock();
         $role->expects($this->any())->method('getSource')->will($this->returnValue($originalToken));
@@ -96,7 +96,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
         $this->tokenStorage->expects($this->once())
             ->method('setToken')->with($originalToken);
         $this->event->expects($this->once())
-            ->method('setResponse')->with($this->isInstanceOf('Symfony\Component\HttpFoundation\RedirectResponse'));
+            ->method('setResponse')->with($this->isInstanceOf('Makhan\Component\HttpFoundation\RedirectResponse'));
 
         $listener = new SwitchUserListener($this->tokenStorage, $this->userProvider, $this->userChecker, 'provider123', $this->accessDecisionManager);
         $listener->handle($this->event);
@@ -104,8 +104,8 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testExitUserDispatchesEventWithRefreshedUser()
     {
-        $originalUser = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
-        $refreshedUser = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $originalUser = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
+        $refreshedUser = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $this
             ->userProvider
             ->expects($this->any())
@@ -118,7 +118,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getUser')
             ->willReturn($originalUser);
         $role = $this
-            ->getMockBuilder('Symfony\Component\Security\Core\Role\SwitchUserRole')
+            ->getMockBuilder('Makhan\Component\Security\Core\Role\SwitchUserRole')
             ->disableOriginalConstructor()
             ->getMock();
         $role->expects($this->any())->method('getSource')->willReturn($originalToken);
@@ -145,7 +145,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
             ->method('all')
             ->will($this->returnValue(array()));
 
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $dispatcher
             ->expects($this->once())
             ->method('dispatch')
@@ -171,7 +171,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getUser')
             ->willReturn($originalUser);
         $role = $this
-            ->getMockBuilder('Symfony\Component\Security\Core\Role\SwitchUserRole')
+            ->getMockBuilder('Makhan\Component\Security\Core\Role\SwitchUserRole')
             ->disableOriginalConstructor()
             ->getMock();
         $role
@@ -201,7 +201,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getUri')
             ->willReturn('/');
 
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $dispatcher
             ->expects($this->never())
             ->method('dispatch')
@@ -212,11 +212,11 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\AccessDeniedException
+     * @expectedException \Makhan\Component\Security\Core\Exception\AccessDeniedException
      */
     public function testSwitchUserIsDisallowed()
     {
-        $token = $this->getToken(array($this->getMock('Symfony\Component\Security\Core\Role\RoleInterface')));
+        $token = $this->getToken(array($this->getMock('Makhan\Component\Security\Core\Role\RoleInterface')));
 
         $this->tokenStorage->expects($this->any())->method('getToken')->will($this->returnValue($token));
         $this->request->expects($this->any())->method('get')->with('_switch_user')->will($this->returnValue('kuba'));
@@ -231,8 +231,8 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testSwitchUser()
     {
-        $token = $this->getToken(array($this->getMock('Symfony\Component\Security\Core\Role\RoleInterface')));
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $token = $this->getToken(array($this->getMock('Makhan\Component\Security\Core\Role\RoleInterface')));
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user->expects($this->any())->method('getRoles')->will($this->returnValue(array()));
 
         $this->tokenStorage->expects($this->any())->method('getToken')->will($this->returnValue($token));
@@ -253,7 +253,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
         $this->userChecker->expects($this->once())
             ->method('checkPostAuth')->with($user);
         $this->tokenStorage->expects($this->once())
-            ->method('setToken')->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken'));
+            ->method('setToken')->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken'));
 
         $listener = new SwitchUserListener($this->tokenStorage, $this->userProvider, $this->userChecker, 'provider123', $this->accessDecisionManager);
         $listener->handle($this->event);
@@ -261,8 +261,8 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testSwitchUserKeepsOtherQueryStringParameters()
     {
-        $token = $this->getToken(array($this->getMock('Symfony\Component\Security\Core\Role\RoleInterface')));
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $token = $this->getToken(array($this->getMock('Makhan\Component\Security\Core\Role\RoleInterface')));
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user->expects($this->any())->method('getRoles')->will($this->returnValue(array()));
 
         $this->tokenStorage->expects($this->any())->method('getToken')->will($this->returnValue($token));
@@ -282,7 +282,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
         $this->userChecker->expects($this->once())
             ->method('checkPostAuth')->with($user);
         $this->tokenStorage->expects($this->once())
-            ->method('setToken')->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken'));
+            ->method('setToken')->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken'));
 
         $listener = new SwitchUserListener($this->tokenStorage, $this->userProvider, $this->userChecker, 'provider123', $this->accessDecisionManager);
         $listener->handle($this->event);
@@ -290,7 +290,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getEvent($request)
     {
-        $event = $this->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+        $event = $this->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -303,7 +303,7 @@ class SwitchUserListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getToken(array $roles = array())
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $token->expects($this->any())
             ->method('getRoles')
             ->will($this->returnValue($roles));

@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Loader;
+namespace Makhan\Component\Routing\Loader;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Config\Resource\DirectoryResource;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Config\Resource\DirectoryResource;
 
 /**
  * AnnotationDirectoryLoader loads routing information from annotations set
  * on PHP classes and methods.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class AnnotationDirectoryLoader extends AnnotationFileLoader
 {

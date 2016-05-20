@@ -16,7 +16,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony ExpressionLanguage Component Test Suite">
+        <testsuite name="Makhan ExpressionLanguage Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

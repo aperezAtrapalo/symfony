@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication\Provider;
+namespace Makhan\Component\Security\Core\Tests\Authentication\Provider;
 
-use Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider;
-use Symfony\Component\Security\Core\Exception\DisabledException;
-use Symfony\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider;
+use Makhan\Component\Security\Core\Exception\DisabledException;
+use Makhan\Component\Security\Core\Role\Role;
 
 class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,19 +22,19 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
         $provider = $this->getProvider();
 
         $this->assertTrue($provider->supports($this->getSupportedToken()));
-        $this->assertFalse($provider->supports($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $this->assertFalse($provider->supports($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
     }
 
     public function testAuthenticateWhenTokenIsNotSupported()
     {
         $provider = $this->getProvider();
 
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $this->assertNull($provider->authenticate($token));
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testAuthenticateWhenSecretsDoNotMatch()
     {
@@ -45,11 +45,11 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\DisabledException
+     * @expectedException \Makhan\Component\Security\Core\Exception\DisabledException
      */
     public function testAuthenticateWhenPreChecksFails()
     {
-        $userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
+        $userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
         $userChecker->expects($this->once())
             ->method('checkPreAuth')
             ->will($this->throwException(new DisabledException()));
@@ -61,7 +61,7 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testAuthenticate()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user->expects($this->exactly(2))
              ->method('getRoles')
              ->will($this->returnValue(array('ROLE_FOO')));
@@ -71,7 +71,7 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
         $token = $this->getSupportedToken($user);
         $authToken = $provider->authenticate($token);
 
-        $this->assertInstanceOf('Symfony\Component\Security\Core\Authentication\Token\RememberMeToken', $authToken);
+        $this->assertInstanceOf('Makhan\Component\Security\Core\Authentication\Token\RememberMeToken', $authToken);
         $this->assertSame($user, $authToken->getUser());
         $this->assertEquals(array(new Role('ROLE_FOO')), $authToken->getRoles());
         $this->assertEquals('', $authToken->getCredentials());
@@ -80,14 +80,14 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     protected function getSupportedToken($user = null, $secret = 'test')
     {
         if (null === $user) {
-            $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+            $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
             $user
                 ->expects($this->any())
                 ->method('getRoles')
                 ->will($this->returnValue(array()));
         }
 
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\RememberMeToken', array('getProviderKey'), array($user, 'foo', $secret));
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\RememberMeToken', array('getProviderKey'), array($user, 'foo', $secret));
         $token
             ->expects($this->once())
             ->method('getProviderKey')
@@ -99,7 +99,7 @@ class RememberMeAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     protected function getProvider($userChecker = null, $key = 'test')
     {
         if (null === $userChecker) {
-            $userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
+            $userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
         }
 
         return new RememberMeAuthenticationProvider($userChecker, $key, 'foo');

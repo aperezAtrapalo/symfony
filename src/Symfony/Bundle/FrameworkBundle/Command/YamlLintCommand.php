@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Parser;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\Yaml\Exception\ParseException;
+use Makhan\Component\Yaml\Parser;
 
 /**
  * Validates YAML files syntax and outputs encountered errors.
@@ -62,7 +62,7 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
         $filename = $input->getArgument('filename');
 
         if (!$filename) {
@@ -112,7 +112,7 @@ EOF
         return array('file' => $file, 'valid' => true);
     }
 
-    private function display(InputInterface $input, OutputInterface $output, SymfonyStyle $io, $files)
+    private function display(InputInterface $input, OutputInterface $output, MakhanStyle $io, $files)
     {
         switch ($input->getOption('format')) {
             case 'txt':
@@ -124,7 +124,7 @@ EOF
         }
     }
 
-    private function displayTxt(OutputInterface $output, SymfonyStyle $io, $filesInfo)
+    private function displayTxt(OutputInterface $output, MakhanStyle $io, $filesInfo)
     {
         $errors = 0;
 

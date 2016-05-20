@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Fixtures\Controller;
+namespace Makhan\Component\HttpKernel\Tests\Fixtures\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Request;
 
 class ExtendingRequest extends Request
 {

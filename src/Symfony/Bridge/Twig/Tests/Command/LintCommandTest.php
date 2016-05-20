@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Command;
+namespace Makhan\Bridge\Twig\Tests\Command;
 
-use Symfony\Bridge\Twig\Command\LintCommand;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Tester\CommandTester;
+use Makhan\Bridge\Twig\Command\LintCommand;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Tester\CommandTester;
 
 class LintCommandTest extends \PHPUnit_Framework_TestCase
 {

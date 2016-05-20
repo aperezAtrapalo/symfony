@@ -4,4 +4,4 @@ CHANGELOG
 2.3.0
 -----
 
- * First introduction of `Symfony\Bridge\ProxyManager`
+ * First introduction of `Makhan\Bridge\ProxyManager`

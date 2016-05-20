@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Loader;
+namespace Makhan\Component\Translation\Loader;
 
-use Symfony\Component\Translation\Exception\InvalidResourceException;
-use Symfony\Component\Yaml\Parser as YamlParser;
-use Symfony\Component\Yaml\Exception\ParseException;
+use Makhan\Component\Translation\Exception\InvalidResourceException;
+use Makhan\Component\Yaml\Parser as YamlParser;
+use Makhan\Component\Yaml\Exception\ParseException;
 
 /**
  * YamlFileLoader loads translations from Yaml files.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class YamlFileLoader extends FileLoader
 {
@@ -30,8 +30,8 @@ class YamlFileLoader extends FileLoader
     protected function loadResource($resource)
     {
         if (null === $this->yamlParser) {
-            if (!class_exists('Symfony\Component\Yaml\Parser')) {
-                throw new \LogicException('Loading translations from the YAML format requires the Symfony Yaml component.');
+            if (!class_exists('Makhan\Component\Yaml\Parser')) {
+                throw new \LogicException('Loading translations from the YAML format requires the Makhan Yaml component.');
             }
 
             $this->yamlParser = new YamlParser();

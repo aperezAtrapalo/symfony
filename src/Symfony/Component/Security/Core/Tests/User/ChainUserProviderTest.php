@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\User;
+namespace Makhan\Component\Security\Core\Tests\User;
 
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\ChainUserProvider;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\User\ChainUserProvider;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class ChainUserProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -40,7 +40,7 @@ class ChainUserProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UsernameNotFoundException
      */
     public function testLoadUserByUsernameThrowsUsernameNotFoundException()
     {
@@ -105,7 +105,7 @@ class ChainUserProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UnsupportedUserException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UnsupportedUserException
      */
     public function testRefreshUserThrowsUnsupportedUserException()
     {
@@ -173,11 +173,11 @@ class ChainUserProviderTest extends \PHPUnit_Framework_TestCase
 
     protected function getAccount()
     {
-        return $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        return $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
     }
 
     protected function getProvider()
     {
-        return $this->getMock('Symfony\Component\Security\Core\User\UserProviderInterface');
+        return $this->getMock('Makhan\Component\Security\Core\User\UserProviderInterface');
     }
 }

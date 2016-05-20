@@ -8,7 +8,7 @@ CHANGELOG
  * deprecated support for data objects that implements both `Traversable` and
    `ArrayAccess` in `ResizeFormListener::preSubmit` method
  * Using callable strings as choice options in `ChoiceType` has been deprecated
-   and will be used as `PropertyPath` instead of callable in Symfony 4.0.
+   and will be used as `PropertyPath` instead of callable in Makhan 4.0.
  * implemented `DataTransformerInterface` in `TextType`
  * deprecated caching loaded choice list in `LazyChoiceList::$loadedList`
 
@@ -40,8 +40,8 @@ CHANGELOG
  * deprecated option "precision" in favor of "scale"
  * deprecated the overwriting of AbstractType::setDefaultOptions() in favor of overwriting AbstractType::configureOptions().
  * deprecated the overwriting of AbstractTypeExtension::setDefaultOptions() in favor of overwriting AbstractTypeExtension::configureOptions().
- * added new ChoiceList interface and implementations in the Symfony\Component\Form\ChoiceList namespace
- * added new ChoiceView in the Symfony\Component\Form\ChoiceList\View namespace
+ * added new ChoiceList interface and implementations in the Makhan\Component\Form\ChoiceList namespace
+ * added new ChoiceView in the Makhan\Component\Form\ChoiceList\View namespace
  * choice groups are now represented by ChoiceGroupView objects in the view
  * deprecated the old ChoiceList interface and implementations
  * deprecated the old ChoiceView class
@@ -81,7 +81,7 @@ CHANGELOG
  * form errors now reference their cause (constraint violation, exception, ...)
  * form errors now remember which form they were originally added to
  * [BC BREAK] added two optional parameters to FormInterface::getErrors() and
-   changed the method to return a Symfony\Component\Form\FormErrorIterator
+   changed the method to return a Makhan\Component\Form\FormErrorIterator
    instance instead of an array
  * errors mapped to unsubmitted forms are discarded now
  * ObjectChoiceList now compares choices by their value, if a value path is
@@ -99,8 +99,8 @@ CHANGELOG
 2.3.0
 -----
 
- * deprecated FormPerformanceTestCase and FormIntegrationTestCase in the Symfony\Component\Form\Tests namespace and moved them to the Symfony\Component\Form\Test namespace
- * deprecated TypeTestCase in the Symfony\Component\Form\Tests\Extension\Core\Type namespace and moved it to the Symfony\Component\Form\Test namespace
+ * deprecated FormPerformanceTestCase and FormIntegrationTestCase in the Makhan\Component\Form\Tests namespace and moved them to the Makhan\Component\Form\Test namespace
+ * deprecated TypeTestCase in the Makhan\Component\Form\Tests\Extension\Core\Type namespace and moved it to the Makhan\Component\Form\Test namespace
  * changed FormRenderer::humanize() to humanize also camel cased field name
  * added RequestHandlerInterface and FormInterface::handleRequest()
  * deprecated passing a Request instance to FormInterface::bind()
@@ -144,7 +144,7 @@ CHANGELOG
  * the PropertyPath class and related classes were moved to a dedicated
    PropertyAccess component. During the move, InvalidPropertyException was
    renamed to NoSuchPropertyException. FormUtil was split: FormUtil::singularify()
-   can now be found in Symfony\Component\PropertyAccess\StringUtil. The methods
+   can now be found in Makhan\Component\PropertyAccess\StringUtil. The methods
    getValue() and setValue() from PropertyPath were extracted into a new class
    PropertyAccessor.
  * added an optional PropertyAccessorInterface parameter to FormType,

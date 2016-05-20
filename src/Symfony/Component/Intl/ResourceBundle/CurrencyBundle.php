@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\ResourceBundle;
+namespace Makhan\Component\Intl\ResourceBundle;
 
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
-use Symfony\Component\Intl\Data\Provider\CurrencyDataProvider;
-use Symfony\Component\Intl\Data\Provider\LocaleDataProvider;
-use Symfony\Component\Intl\Exception\MissingResourceException;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
+use Makhan\Component\Intl\Data\Provider\CurrencyDataProvider;
+use Makhan\Component\Intl\Data\Provider\LocaleDataProvider;
+use Makhan\Component\Intl\Exception\MissingResourceException;
 
 /**
  * Default implementation of {@link CurrencyBundleInterface}.

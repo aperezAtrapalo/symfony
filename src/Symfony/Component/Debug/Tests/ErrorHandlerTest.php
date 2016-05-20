@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests;
+namespace Makhan\Component\Debug\Tests;
 
 use Psr\Log\LogLevel;
-use Symfony\Component\Debug\ErrorHandler;
-use Symfony\Component\Debug\BufferingLogger;
-use Symfony\Component\Debug\Exception\ContextErrorException;
+use Makhan\Component\Debug\ErrorHandler;
+use Makhan\Component\Debug\BufferingLogger;
+use Makhan\Component\Debug\Exception\ContextErrorException;
 
 /**
  * ErrorHandlerTest.
@@ -29,7 +29,7 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $handler = ErrorHandler::register();
 
         try {
-            $this->assertInstanceOf('Symfony\Component\Debug\ErrorHandler', $handler);
+            $this->assertInstanceOf('Makhan\Component\Debug\ErrorHandler', $handler);
             $this->assertSame($handler, ErrorHandler::register());
 
             $newHandler = new ErrorHandler();
@@ -80,7 +80,7 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
             $trace = $exception->getTrace();
             $this->assertEquals(__FILE__, $trace[0]['file']);
-            $this->assertEquals('Symfony\Component\Debug\ErrorHandler', $trace[0]['class']);
+            $this->assertEquals('Makhan\Component\Debug\ErrorHandler', $trace[0]['class']);
             $this->assertEquals('handleError', $trace[0]['function']);
             $this->assertEquals('->', $trace[0]['type']);
 
@@ -462,7 +462,7 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
         $handler->handleException($exception);
 
-        $this->assertInstanceOf('Symfony\Component\Debug\Exception\ClassNotFoundException', $args[0]);
+        $this->assertInstanceOf('Makhan\Component\Debug\Exception\ClassNotFoundException', $args[0]);
         $this->assertSame("Attempted to load class \"Foo\" from the global namespace.\nDid you forget a \"use\" statement?", $args[0]->getMessage());
     }
 

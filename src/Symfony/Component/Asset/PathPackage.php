@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Asset;
+namespace Makhan\Component\Asset;
 
-use Symfony\Component\Asset\Context\ContextInterface;
-use Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface;
+use Makhan\Component\Asset\Context\ContextInterface;
+use Makhan\Component\Asset\VersionStrategy\VersionStrategyInterface;
 
 /**
  * Package that adds a base path to asset URLs in addition to a version.
@@ -22,7 +22,7 @@ use Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface;
  * allow a website to be hosted easily under any given path under the Web
  * Server root directory.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class PathPackage extends Package
 {

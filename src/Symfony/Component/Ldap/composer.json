@@ -1,9 +1,9 @@
 {
-    "name": "symfony/ldap",
+    "name": "makhan/ldap",
     "type": "library",
     "description": "An abstraction in front of PHP's LDAP functions, compatible with PHP 5.3.9 onwards.",
     "keywords": ["ldap", "active directory"],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
@@ -11,18 +11,18 @@
             "email": "charles@sarraz.in"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-php56": "~1.0",
-        "symfony/options-resolver": "~2.8|~3.0",
+        "makhan/polyfill-php56": "~1.0",
+        "makhan/options-resolver": "~2.8|~3.0",
         "ext-ldap": "*"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Ldap\\": "" },
+        "psr-4": { "Makhan\\Component\\Ldap\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap\Adapter\ExtLdap;
+namespace Makhan\Component\Ldap\Adapter\ExtLdap;
 
-use Symfony\Component\Ldap\Exception\LdapException;
+use Makhan\Component\Ldap\Exception\LdapException;
 
 /**
  * A class representing the Ldap extension's options, which can be used with

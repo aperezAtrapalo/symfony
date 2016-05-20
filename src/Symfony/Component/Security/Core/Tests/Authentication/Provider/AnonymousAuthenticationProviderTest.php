@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication\Provider;
+namespace Makhan\Component\Security\Core\Tests\Authentication\Provider;
 
-use Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider;
+use Makhan\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider;
 
 class AnonymousAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -20,18 +20,18 @@ class AnonymousAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
         $provider = $this->getProvider('foo');
 
         $this->assertTrue($provider->supports($this->getSupportedToken('foo')));
-        $this->assertFalse($provider->supports($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $this->assertFalse($provider->supports($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
     }
 
     public function testAuthenticateWhenTokenIsNotSupported()
     {
         $provider = $this->getProvider('foo');
 
-        $this->assertNull($provider->authenticate($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $this->assertNull($provider->authenticate($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testAuthenticateWhenSecretIsNotValid()
     {
@@ -50,7 +50,7 @@ class AnonymousAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 
     protected function getSupportedToken($secret)
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\AnonymousToken', array('getSecret'), array(), '', false);
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\AnonymousToken', array('getSecret'), array(), '', false);
         $token->expects($this->any())
               ->method('getSecret')
               ->will($this->returnValue($secret))

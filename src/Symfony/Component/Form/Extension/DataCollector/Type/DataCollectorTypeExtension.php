@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DataCollector\Type;
+namespace Makhan\Component\Form\Extension\DataCollector\Type;
 
-use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\Extension\DataCollector\EventListener\DataCollectorListener;
-use Symfony\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
-use Symfony\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\AbstractTypeExtension;
+use Makhan\Component\Form\Extension\DataCollector\EventListener\DataCollectorListener;
+use Makhan\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
+use Makhan\Component\Form\FormBuilderInterface;
 
 /**
  * Type extension for collecting data of a form with this type.
@@ -27,7 +27,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class DataCollectorTypeExtension extends AbstractTypeExtension
 {
     /**
-     * @var \Symfony\Component\EventDispatcher\EventSubscriberInterface
+     * @var \Makhan\Component\EventDispatcher\EventSubscriberInterface
      */
     private $listener;
 
@@ -49,6 +49,6 @@ class DataCollectorTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return 'Makhan\Component\Form\Extension\Core\Type\FormType';
     }
 }

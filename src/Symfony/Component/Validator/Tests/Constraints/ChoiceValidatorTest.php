@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\ChoiceValidator;
+use Makhan\Component\Validator\Constraints\Choice;
+use Makhan\Component\Validator\Constraints\ChoiceValidator;
 
 function choice_callback()
 {
@@ -32,7 +32,7 @@ class ChoiceValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Validator\Exception\UnexpectedTypeException
      */
     public function testExpectArrayIfMultipleIsTrue()
     {
@@ -52,7 +52,7 @@ class ChoiceValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testChoicesOrCallbackExpected()
     {
@@ -60,7 +60,7 @@ class ChoiceValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testValidCallbackExpected()
     {

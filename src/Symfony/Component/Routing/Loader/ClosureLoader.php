@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Loader;
+namespace Makhan\Component\Routing\Loader;
 
-use Symfony\Component\Config\Loader\Loader;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\Config\Loader\Loader;
+use Makhan\Component\Routing\RouteCollection;
 
 /**
  * ClosureLoader loads routes from a PHP closure.
  *
  * The Closure must return a RouteCollection instance.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ClosureLoader extends Loader
 {

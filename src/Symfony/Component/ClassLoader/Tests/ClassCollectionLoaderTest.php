@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ClassLoader\Tests;
+namespace Makhan\Component\ClassLoader\Tests;
 
-use Symfony\Component\ClassLoader\ClassCollectionLoader;
+use Makhan\Component\ClassLoader\ClassCollectionLoader;
 
 require_once __DIR__.'/Fixtures/ClassesWithParents/GInterface.php';
 require_once __DIR__.'/Fixtures/ClassesWithParents/CInterface.php';
@@ -24,18 +24,18 @@ class ClassCollectionLoaderTest extends \PHPUnit_Framework_TestCase
     {
         require_once __DIR__.'/Fixtures/deps/traits.php';
 
-        $r = new \ReflectionClass('Symfony\Component\ClassLoader\ClassCollectionLoader');
+        $r = new \ReflectionClass('Makhan\Component\ClassLoader\ClassCollectionLoader');
         $m = $r->getMethod('getOrderedClasses');
         $m->setAccessible(true);
 
-        $ordered = $m->invoke('Symfony\Component\ClassLoader\ClassCollectionLoader', array('CTFoo'));
+        $ordered = $m->invoke('Makhan\Component\ClassLoader\ClassCollectionLoader', array('CTFoo'));
 
         $this->assertEquals(
             array('TD', 'TC', 'TB', 'TA', 'TZ', 'CTFoo'),
             array_map(function ($class) { return $class->getName(); }, $ordered)
         );
 
-        $ordered = $m->invoke('Symfony\Component\ClassLoader\ClassCollectionLoader', array('CTBar'));
+        $ordered = $m->invoke('Makhan\Component\ClassLoader\ClassCollectionLoader', array('CTBar'));
 
         $this->assertEquals(
             array('TD', 'TZ', 'TC', 'TB', 'TA', 'CTBar'),
@@ -55,11 +55,11 @@ class ClassCollectionLoaderTest extends \PHPUnit_Framework_TestCase
             'ClassesWithParents\\A',
         );
 
-        $r = new \ReflectionClass('Symfony\Component\ClassLoader\ClassCollectionLoader');
+        $r = new \ReflectionClass('Makhan\Component\ClassLoader\ClassCollectionLoader');
         $m = $r->getMethod('getOrderedClasses');
         $m->setAccessible(true);
 
-        $ordered = $m->invoke('Symfony\Component\ClassLoader\ClassCollectionLoader', $classes);
+        $ordered = $m->invoke('Makhan\Component\ClassLoader\ClassCollectionLoader', $classes);
 
         $this->assertEquals($expected, array_map(function ($class) { return $class->getName(); }, $ordered));
     }
@@ -112,11 +112,11 @@ class ClassCollectionLoaderTest extends \PHPUnit_Framework_TestCase
             'ClassesWithParents\\E',
         );
 
-        $r = new \ReflectionClass('Symfony\Component\ClassLoader\ClassCollectionLoader');
+        $r = new \ReflectionClass('Makhan\Component\ClassLoader\ClassCollectionLoader');
         $m = $r->getMethod('getOrderedClasses');
         $m->setAccessible(true);
 
-        $ordered = $m->invoke('Symfony\Component\ClassLoader\ClassCollectionLoader', $classes);
+        $ordered = $m->invoke('Makhan\Component\ClassLoader\ClassCollectionLoader', $classes);
 
         $this->assertEquals($expected, array_map(function ($class) { return $class->getName(); }, $ordered));
     }
@@ -151,11 +151,11 @@ class ClassCollectionLoaderTest extends \PHPUnit_Framework_TestCase
             'ClassesWithParents\\G',
         );
 
-        $r = new \ReflectionClass('Symfony\Component\ClassLoader\ClassCollectionLoader');
+        $r = new \ReflectionClass('Makhan\Component\ClassLoader\ClassCollectionLoader');
         $m = $r->getMethod('getOrderedClasses');
         $m->setAccessible(true);
 
-        $ordered = $m->invoke('Symfony\Component\ClassLoader\ClassCollectionLoader', $classes);
+        $ordered = $m->invoke('Makhan\Component\ClassLoader\ClassCollectionLoader', $classes);
 
         $this->assertEquals($expected, array_map(function ($class) { return $class->getName(); }, $ordered));
     }

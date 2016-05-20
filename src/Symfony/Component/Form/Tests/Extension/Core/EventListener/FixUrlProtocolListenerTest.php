@@ -1,54 +1,54 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\EventListener;
+namespace Makhan\Component\Form\Tests\Extension\Core\EventListener;
 
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\Extension\Core\EventListener\FixUrlProtocolListener;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\Extension\Core\EventListener\FixUrlProtocolListener;
 
 class FixUrlProtocolListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testFixHttpUrl()
     {
-        $data = 'www.symfony.com';
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        $data = 'www.makhan.com';
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
         $event = new FormEvent($form, $data);
 
         $filter = new FixUrlProtocolListener('http');
         $filter->onSubmit($event);
 
-        $this->assertEquals('http://www.symfony.com', $event->getData());
+        $this->assertEquals('http://www.makhan.com', $event->getData());
     }
 
     public function testSkipKnownUrl()
     {
-        $data = 'http://www.symfony.com';
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        $data = 'http://www.makhan.com';
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
         $event = new FormEvent($form, $data);
 
         $filter = new FixUrlProtocolListener('http');
         $filter->onSubmit($event);
 
-        $this->assertEquals('http://www.symfony.com', $event->getData());
+        $this->assertEquals('http://www.makhan.com', $event->getData());
     }
 
     public function testSkipOtherProtocol()
     {
-        $data = 'ftp://www.symfony.com';
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
+        $data = 'ftp://www.makhan.com';
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
         $event = new FormEvent($form, $data);
 
         $filter = new FixUrlProtocolListener('http');
         $filter->onSubmit($event);
 
-        $this->assertEquals('ftp://www.symfony.com', $event->getData());
+        $this->assertEquals('ftp://www.makhan.com', $event->getData());
     }
 }

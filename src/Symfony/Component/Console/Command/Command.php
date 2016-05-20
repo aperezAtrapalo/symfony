@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Command;
+namespace Makhan\Component\Console\Command;
 
-use Symfony\Component\Console\Exception\ExceptionInterface;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Exception\InvalidArgumentException;
-use Symfony\Component\Console\Exception\LogicException;
+use Makhan\Component\Console\Exception\ExceptionInterface;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Exception\InvalidArgumentException;
+use Makhan\Component\Console\Exception\LogicException;
 
 /**
  * Base class for all commands.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Command
 {

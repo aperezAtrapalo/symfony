@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\ControllerMetadata;
+namespace Makhan\Component\HttpKernel\Tests\ControllerMetadata;
 
 use Fake\ImportedAndFake;
-use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\BasicTypesController;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
+use Makhan\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use Makhan\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
+use Makhan\Component\HttpKernel\Tests\Fixtures\Controller\BasicTypesController;
+use Makhan\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
 
 class ArgumentMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 {

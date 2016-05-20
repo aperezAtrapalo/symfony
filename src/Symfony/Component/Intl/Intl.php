@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl;
+namespace Makhan\Component\Intl;
 
-use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
-use Symfony\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
-use Symfony\Component\Intl\Data\Provider\ScriptDataProvider;
-use Symfony\Component\Intl\ResourceBundle\CurrencyBundle;
-use Symfony\Component\Intl\ResourceBundle\CurrencyBundleInterface;
-use Symfony\Component\Intl\ResourceBundle\LanguageBundle;
-use Symfony\Component\Intl\ResourceBundle\LanguageBundleInterface;
-use Symfony\Component\Intl\ResourceBundle\LocaleBundle;
-use Symfony\Component\Intl\ResourceBundle\LocaleBundleInterface;
-use Symfony\Component\Intl\ResourceBundle\RegionBundle;
-use Symfony\Component\Intl\ResourceBundle\RegionBundleInterface;
+use Makhan\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
+use Makhan\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
+use Makhan\Component\Intl\Data\Provider\ScriptDataProvider;
+use Makhan\Component\Intl\ResourceBundle\CurrencyBundle;
+use Makhan\Component\Intl\ResourceBundle\CurrencyBundleInterface;
+use Makhan\Component\Intl\ResourceBundle\LanguageBundle;
+use Makhan\Component\Intl\ResourceBundle\LanguageBundleInterface;
+use Makhan\Component\Intl\ResourceBundle\LocaleBundle;
+use Makhan\Component\Intl\ResourceBundle\LocaleBundleInterface;
+use Makhan\Component\Intl\ResourceBundle\RegionBundle;
+use Makhan\Component\Intl\ResourceBundle\RegionBundleInterface;
 
 /**
  * Gives access to internationalization data.

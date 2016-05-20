@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Validator\Constraints;
+namespace Makhan\Bridge\Doctrine\Validator\Constraints;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use Symfony\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\ConstraintValidator;
 
 /**
  * Unique Entity Validator checks if one or a set of fields contain unique values.

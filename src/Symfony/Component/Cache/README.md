@@ -1,4 +1,4 @@
-Symfony PSR-6 implementation for caching
+Makhan PSR-6 implementation for caching
 ========================================
 
 This component provides a strict [PSR-6](http://www.php-fig.org/psr/psr-6/)

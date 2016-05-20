@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Guard\Tests\Authenticator;
+namespace Makhan\Component\Security\Guard\Tests\Authenticator;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
+use Makhan\Component\HttpFoundation\RedirectResponse;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 
 class AbstractFormLoginAuthenticatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,13 +25,13 @@ class AbstractFormLoginAuthenticatorTest extends \PHPUnit_Framework_TestCase
     public function testLegacyWithLoginUrl()
     {
         $request = new Request();
-        $request->setSession($this->getMock('Symfony\Component\HttpFoundation\Session\Session'));
+        $request->setSession($this->getMock('Makhan\Component\HttpFoundation\Session\Session'));
 
         $authenticator = new LegacyFormLoginAuthenticator();
         /** @var RedirectResponse $actualResponse */
         $actualResponse = $authenticator->onAuthenticationSuccess(
             $request,
-            $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface'),
+            $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface'),
             'provider_key'
         );
 

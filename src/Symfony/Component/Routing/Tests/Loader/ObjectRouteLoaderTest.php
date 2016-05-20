@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Routing\Loader\ObjectRouteLoader;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Loader\ObjectRouteLoader;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 class ObjectRouteLoaderTest extends \PHPUnit_Framework_TestCase
 {

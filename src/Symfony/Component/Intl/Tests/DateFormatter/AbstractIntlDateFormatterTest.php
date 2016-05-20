@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\DateFormatter;
+namespace Makhan\Component\Intl\Tests\DateFormatter;
 
-use Symfony\Component\Intl\DateFormatter\IntlDateFormatter;
-use Symfony\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\DateFormatter\IntlDateFormatter;
+use Makhan\Component\Intl\Globals\IntlGlobals;
 
 /**
  * Test case for IntlDateFormatter implementations.
@@ -774,7 +774,7 @@ abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
     /*
-     * https://github.com/symfony/symfony/issues/4242
+     * https://github.com/makhan/makhan/issues/4242
      */
     public function testParseAfterError()
     {

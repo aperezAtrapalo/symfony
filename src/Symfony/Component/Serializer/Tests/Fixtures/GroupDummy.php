@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Fixtures;
+namespace Makhan\Component\Serializer\Tests\Fixtures;
 
-use Symfony\Component\Serializer\Annotation\Groups;
+use Makhan\Component\Serializer\Annotation\Groups;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -27,7 +27,7 @@ class GroupDummy extends GroupDummyParent implements GroupDummyInterface
      */
     protected $bar;
     private $fooBar;
-    private $symfony;
+    private $makhan;
 
     /**
      * @Groups({"b"})
@@ -68,13 +68,13 @@ class GroupDummy extends GroupDummyParent implements GroupDummyInterface
         return $this->fooBar;
     }
 
-    public function setSymfony($symfony)
+    public function setMakhan($makhan)
     {
-        $this->symfony = $symfony;
+        $this->makhan = $makhan;
     }
 
-    public function getSymfony()
+    public function getMakhan()
     {
-        return $this->symfony;
+        return $this->makhan;
     }
 }

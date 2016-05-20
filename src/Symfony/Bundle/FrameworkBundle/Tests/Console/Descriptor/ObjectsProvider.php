@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor;
 
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 class ObjectsProvider
 {
@@ -71,7 +71,7 @@ class ObjectsProvider
     public static function getContainerParameter()
     {
         $builder = new ContainerBuilder();
-        $builder->setParameter('database_name', 'symfony');
+        $builder->setParameter('database_name', 'makhan');
         $builder->setParameter('twig.form.resources', array(
             'bootstrap_3_horizontal_layout.html.twig',
             'bootstrap_3_layout.html.twig',
@@ -143,10 +143,10 @@ class ObjectsProvider
     {
         return array(
             'callable_1' => 'array_key_exists',
-            'callable_2' => array('Symfony\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass', 'staticMethod'),
+            'callable_2' => array('Makhan\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass', 'staticMethod'),
             'callable_3' => array(new CallableClass(), 'method'),
-            'callable_4' => 'Symfony\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass::staticMethod',
-            'callable_5' => array('Symfony\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\ExtendedCallableClass', 'parent::staticMethod'),
+            'callable_4' => 'Makhan\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass::staticMethod',
+            'callable_5' => array('Makhan\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\ExtendedCallableClass', 'parent::staticMethod'),
             'callable_6' => function () { return 'Closure'; },
             'callable_7' => new CallableClass(),
         );

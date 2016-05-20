@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpKernel\EventListener\AddRequestFormatsListener;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\EventListener\AddRequestFormatsListener;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\KernelEvents;
 
 /**
  * Test AddRequestFormatsListener class.
@@ -39,7 +39,7 @@ class AddRequestFormatsListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testIsAnEventSubscriber()
     {
-        $this->assertInstanceOf('Symfony\Component\EventDispatcher\EventSubscriberInterface', $this->listener);
+        $this->assertInstanceOf('Makhan\Component\EventDispatcher\EventSubscriberInterface', $this->listener);
     }
 
     public function testRegisteredEvent()
@@ -64,13 +64,13 @@ class AddRequestFormatsListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getRequestMock()
     {
-        return $this->getMock('Symfony\Component\HttpFoundation\Request');
+        return $this->getMock('Makhan\Component\HttpFoundation\Request');
     }
 
     protected function getGetResponseEventMock(Request $request)
     {
         $event = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Event\GetResponseEvent')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Event\GetResponseEvent')
             ->disableOriginalConstructor()
             ->getMock();
 

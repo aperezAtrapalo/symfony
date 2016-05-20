@@ -18,6 +18,6 @@
  ------- ----------------------------------------------------------------------------------- ---------- 
   [32mOrder[39m   [32mCallable[39m                                                                            [32mPriority[39m  
  ------- ----------------------------------------------------------------------------------- ---------- 
-  #1      Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass::__invoke()   0         
+  #1      Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass::__invoke()   0
  ------- ----------------------------------------------------------------------------------- ---------- 
 

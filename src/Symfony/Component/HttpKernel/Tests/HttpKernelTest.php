@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests;
+namespace Makhan\Component\HttpKernel\Tests;
 
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerArgumentsEvent;
-use Symfony\Component\HttpKernel\HttpKernel;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolverInterface;
+use Makhan\Component\HttpKernel\Controller\ControllerResolverInterface;
+use Makhan\Component\HttpKernel\Event\FilterControllerArgumentsEvent;
+use Makhan\Component\HttpKernel\HttpKernel;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Makhan\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\RedirectResponse;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class HttpKernelTest extends \PHPUnit_Framework_TestCase
 {
@@ -149,7 +149,7 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @expectedException \Makhan\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function testHandleWhenNoControllerIsFound()
     {
@@ -179,7 +179,7 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
     public function testHandleWhenTheControllerIsAFunction()
     {
         $dispatcher = new EventDispatcher();
-        $kernel = $this->getHttpKernel($dispatcher, 'Symfony\Component\HttpKernel\Tests\controller_func');
+        $kernel = $this->getHttpKernel($dispatcher, 'Makhan\Component\HttpKernel\Tests\controller_func');
 
         $this->assertResponseEquals(new Response('foo'), $kernel->handle(new Request()));
     }
@@ -195,7 +195,7 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
     public function testHandleWhenTheControllerIsAStaticArray()
     {
         $dispatcher = new EventDispatcher();
-        $kernel = $this->getHttpKernel($dispatcher, array('Symfony\Component\HttpKernel\Tests\Controller', 'staticcontroller'));
+        $kernel = $this->getHttpKernel($dispatcher, array('Makhan\Component\HttpKernel\Tests\Controller', 'staticcontroller'));
 
         $this->assertResponseEquals(new Response('foo'), $kernel->handle(new Request()));
     }
@@ -292,7 +292,7 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
     {
         $request = new Request();
 
-        $stack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack', array('push', 'pop'));
+        $stack = $this->getMock('Makhan\Component\HttpFoundation\RequestStack', array('push', 'pop'));
         $stack->expects($this->at(0))->method('push')->with($this->equalTo($request));
         $stack->expects($this->at(1))->method('pop');
 

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Command;
+namespace Makhan\Bundle\TwigBundle\Command;
 
-use Symfony\Bridge\Twig\Command\LintCommand as BaseLintCommand;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\Finder\Finder;
+use Makhan\Bridge\Twig\Command\LintCommand as BaseLintCommand;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareTrait;
+use Makhan\Component\Finder\Finder;
 
 /**
  * Command that will validate your template syntax and output encountered errors.

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\OptionsResolver\Tests;
+namespace Makhan\Component\OptionsResolver\Tests;
 
-use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 class OptionsResolverTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,7 +32,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      * @expectedExceptionMessage The option "foo" does not exist. Defined options are: "a", "z".
      */
     public function testResolveFailsIfNonExistingOption()
@@ -44,7 +44,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      * @expectedExceptionMessage The options "baz", "foo", "ping" do not exist. Defined options are: "a", "z".
      */
     public function testResolveFailsIfMultipleNonExistingOptions()
@@ -56,7 +56,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testResolveFailsFromLazyOption()
     {
@@ -88,7 +88,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetDefaultFromLazyOption()
     {
@@ -240,7 +240,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetRequiredFromLazyOption()
     {
@@ -252,7 +252,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\MissingOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\MissingOptionsException
      */
     public function testResolveFailsIfRequiredOptionMissing()
     {
@@ -376,7 +376,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetDefinedFromLazyOption()
     {
@@ -477,7 +477,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function testSetAllowedTypesFailsIfUnknownOption()
     {
@@ -485,7 +485,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetAllowedTypesFromLazyOption()
     {
@@ -505,7 +505,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     {
         $this->resolver->setDefined('option');
         $this->resolver->setAllowedTypes('option', $allowedType);
-        $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\InvalidOptionsException', $exceptionMessage);
+        $this->setExpectedException('Makhan\Component\OptionsResolver\Exception\InvalidOptionsException', $exceptionMessage);
         $this->resolver->resolve(array('option' => $actualType));
     }
 
@@ -516,7 +516,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
             array(false, 'string', 'The option "option" with value false is expected to be of type "string", but is of type "boolean".'),
             array(fopen(__FILE__, 'r'), 'string', 'The option "option" with value resource is expected to be of type "string", but is of type "resource".'),
             array(array(), 'string', 'The option "option" with value array is expected to be of type "string", but is of type "array".'),
-            array(new OptionsResolver(), 'string', 'The option "option" with value Symfony\Component\OptionsResolver\OptionsResolver is expected to be of type "string", but is of type "Symfony\Component\OptionsResolver\OptionsResolver".'),
+            array(new OptionsResolver(), 'string', 'The option "option" with value Makhan\Component\OptionsResolver\OptionsResolver is expected to be of type "string", but is of type "Makhan\Component\OptionsResolver\OptionsResolver".'),
             array(42, 'string', 'The option "option" with value 42 is expected to be of type "string", but is of type "integer".'),
             array(null, 'string', 'The option "option" with value null is expected to be of type "string", but is of type "NULL".'),
             array('bar', '\stdClass', 'The option "option" with value "bar" is expected to be of type "\stdClass", but is of type "string".'),
@@ -532,7 +532,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      * @expectedExceptionMessage The option "foo" with value 42 is expected to be of type "string" or "bool", but is of type "integer".
      */
     public function testResolveFailsIfInvalidTypeMultiple()
@@ -564,7 +564,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function testAddAllowedTypesFailsIfUnknownOption()
     {
@@ -572,7 +572,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfAddAllowedTypesFromLazyOption()
     {
@@ -586,7 +586,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfInvalidAddedType()
     {
@@ -605,7 +605,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfInvalidAddedTypeMultiple()
     {
@@ -650,7 +650,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function testSetAllowedValuesFailsIfUnknownOption()
     {
@@ -658,7 +658,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetAllowedValuesFromLazyOption()
     {
@@ -672,7 +672,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      * @expectedExceptionMessage The option "foo" with value 42 is invalid. Accepted values are: "bar".
      */
     public function testResolveFailsIfInvalidValue()
@@ -684,7 +684,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      * @expectedExceptionMessage The option "foo" with value null is invalid. Accepted values are: "bar".
      */
     public function testResolveFailsIfInvalidValueIsNull()
@@ -696,7 +696,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfInvalidValueStrict()
     {
@@ -723,7 +723,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      * @expectedExceptionMessage The option "foo" with value 42 is invalid. Accepted values are: "bar", false, null.
      */
     public function testResolveFailsIfInvalidValueMultiple()
@@ -774,7 +774,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfAllClosuresReturnFalse()
     {
@@ -805,7 +805,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function testAddAllowedValuesFailsIfUnknownOption()
     {
@@ -813,7 +813,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfAddAllowedValuesFromLazyOption()
     {
@@ -827,7 +827,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfInvalidAddedValue()
     {
@@ -854,7 +854,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfInvalidAddedValueMultiple()
     {
@@ -891,7 +891,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testResolveFailsIfAllAddedClosuresReturnFalse()
     {
@@ -941,7 +941,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function testSetNormalizerFailsIfUnknownOption()
     {
@@ -949,7 +949,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetNormalizerFromLazyOption()
     {
@@ -987,7 +987,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testValidateTypeBeforeNormalization()
     {
@@ -1003,7 +1003,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testValidateValueBeforeNormalization()
     {
@@ -1057,7 +1057,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\OptionDefinitionException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\OptionDefinitionException
      */
     public function testFailIfCyclicDependencyBetweenNormalizers()
     {
@@ -1076,7 +1076,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\OptionDefinitionException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\OptionDefinitionException
      */
     public function testFailIfCyclicDependencyBetweenNormalizerAndLazyOption()
     {
@@ -1202,7 +1202,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfSetDefaultsFromLazyOption()
     {
@@ -1287,7 +1287,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfRemoveFromLazyOption()
     {
@@ -1367,7 +1367,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testFailIfClearFromLazyption()
     {
@@ -1430,7 +1430,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testArrayAccessGetFailsOutsideResolve()
     {
@@ -1440,7 +1440,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testArrayAccessExistsFailsOutsideResolve()
     {
@@ -1450,7 +1450,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testArrayAccessSetNotSupported()
     {
@@ -1458,7 +1458,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testArrayAccessUnsetNotSupported()
     {
@@ -1468,7 +1468,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\NoSuchOptionException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\NoSuchOptionException
      * @expectedExceptionMessage The option "undefined" does not exist. Defined options are: "foo", "lazy".
      */
     public function testFailIfGetNonExisting()
@@ -1483,7 +1483,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\NoSuchOptionException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\NoSuchOptionException
      * @expectedExceptionMessage The optional option "defined" has no value set. You should make sure it is set with "isset" before reading it.
      */
     public function testFailIfGetDefinedButUnset()
@@ -1498,7 +1498,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\OptionDefinitionException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\OptionDefinitionException
      */
     public function testFailIfCyclicDependency()
     {
@@ -1536,7 +1536,7 @@ class OptionsResolverTest extends \PHPUnit_Framework_TestCase
      * only a subset of the defined options). Outside of resolve(), it's not
      * clear what is counted.
      *
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\AccessException
      */
     public function testCountFailsOutsideResolve()
     {

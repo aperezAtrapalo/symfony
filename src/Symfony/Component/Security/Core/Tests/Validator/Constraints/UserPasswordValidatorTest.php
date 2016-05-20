@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Validator\Constraints;
+namespace Makhan\Component\Security\Core\Tests\Validator\Constraints;
 
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Makhan\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Makhan\Component\Security\Core\Validator\Constraints\UserPassword;
+use Makhan\Component\Security\Core\Validator\Constraints\UserPasswordValidator;
+use Makhan\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -91,7 +91,7 @@ abstract class UserPasswordValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      */
     public function testUserIsNotValid()
     {
@@ -106,7 +106,7 @@ abstract class UserPasswordValidatorTest extends AbstractConstraintValidatorTest
 
     protected function createUser()
     {
-        $mock = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $mock = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
 
         $mock
             ->expects($this->any())
@@ -125,12 +125,12 @@ abstract class UserPasswordValidatorTest extends AbstractConstraintValidatorTest
 
     protected function createPasswordEncoder($isPasswordValid = true)
     {
-        return $this->getMock('Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Encoder\PasswordEncoderInterface');
     }
 
     protected function createEncoderFactory($encoder = null)
     {
-        $mock = $this->getMock('Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface');
+        $mock = $this->getMock('Makhan\Component\Security\Core\Encoder\EncoderFactoryInterface');
 
         $mock
             ->expects($this->any())
@@ -145,7 +145,7 @@ abstract class UserPasswordValidatorTest extends AbstractConstraintValidatorTest
     {
         $token = $this->createAuthenticationToken($user);
 
-        $mock = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $mock = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $mock
             ->expects($this->any())
             ->method('getToken')
@@ -157,7 +157,7 @@ abstract class UserPasswordValidatorTest extends AbstractConstraintValidatorTest
 
     protected function createAuthenticationToken($user = null)
     {
-        $mock = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $mock = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $mock
             ->expects($this->any())
             ->method('getUser')

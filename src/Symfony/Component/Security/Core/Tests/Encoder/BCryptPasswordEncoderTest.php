@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Encoder;
+namespace Makhan\Component\Security\Core\Tests\Encoder;
 
-use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Makhan\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 /**
  * @author Elnur Abdurrakhimov <elnur@elnur.pro>
@@ -61,7 +61,7 @@ class BCryptPasswordEncoderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testEncodePasswordLength()
     {

@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Extension;
+namespace Makhan\Bridge\Twig\Extension;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\RequestContext;
 
 /**
- * Twig extension for the Symfony HttpFoundation component.
+ * Twig extension for the Makhan HttpFoundation component.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HttpFoundationExtension extends \Twig_Extension
 {

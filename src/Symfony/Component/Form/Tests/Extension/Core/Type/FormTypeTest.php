@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\Tests\Fixtures\Author;
-use Symfony\Component\Form\Tests\Fixtures\FixedDataTransformer;
-use Symfony\Component\Form\FormError;
+use Makhan\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Form\CallbackTransformer;
+use Makhan\Component\Form\Tests\Fixtures\Author;
+use Makhan\Component\Form\Tests\Fixtures\FixedDataTransformer;
+use Makhan\Component\Form\FormError;
 
 class FormTest_AuthorWithoutRefSetter
 {
@@ -53,23 +53,23 @@ class FormTypeTest extends BaseTypeTest
 {
     public function testCreateFormInstances()
     {
-        $this->assertInstanceOf('Symfony\Component\Form\Form', $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType'));
+        $this->assertInstanceOf('Makhan\Component\Form\Form', $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType'));
     }
 
     public function testPassRequiredAsOption()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array('required' => false));
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array('required' => false));
 
         $this->assertFalse($form->isRequired());
 
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array('required' => true));
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array('required' => true));
 
         $this->assertTrue($form->isRequired());
     }
 
     public function testSubmittedDataIsTrimmedBeforeTransforming()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
             ->addViewTransformer(new FixedDataTransformer(array(
                 null => '',
                 'reverse[a]' => 'a',
@@ -85,7 +85,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmittedDataIsNotTrimmedBeforeTransformingIfNoTrimming()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array('trim' => false))
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array('trim' => false))
             ->addViewTransformer(new FixedDataTransformer(array(
                 null => '',
                 'reverse[ a ]' => ' a ',
@@ -101,8 +101,8 @@ class FormTypeTest extends BaseTypeTest
 
     public function testNonReadOnlyFormWithReadOnlyParentIsReadOnly()
     {
-        $view = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType', null, array('attr' => array('readonly' => true)))
-            ->add('child', 'Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType', null, array('attr' => array('readonly' => true)))
+            ->add('child', 'Makhan\Component\Form\Extension\Core\Type\FormType')
             ->getForm()
             ->createView();
 
@@ -111,8 +111,8 @@ class FormTypeTest extends BaseTypeTest
 
     public function testReadOnlyFormWithNonReadOnlyParentIsReadOnly()
     {
-        $view = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType')
-            ->add('child', 'Symfony\Component\Form\Extension\Core\Type\FormType', array('attr' => array('readonly' => true)))
+        $view = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType')
+            ->add('child', 'Makhan\Component\Form\Extension\Core\Type\FormType', array('attr' => array('readonly' => true)))
             ->getForm()
             ->createView();
 
@@ -121,8 +121,8 @@ class FormTypeTest extends BaseTypeTest
 
     public function testNonReadOnlyFormWithNonReadOnlyParentIsNotReadOnly()
     {
-        $view = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType')
-            ->add('child', 'Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType')
+            ->add('child', 'Makhan\Component\Form\Extension\Core\Type\FormType')
             ->getForm()
             ->createView();
 
@@ -131,7 +131,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testPassMaxLengthToView()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array('attr' => array('maxlength' => 10)));
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array('attr' => array('maxlength' => 10)));
         $view = $form->createView();
 
         $this->assertSame(10, $view->vars['attr']['maxlength']);
@@ -139,43 +139,43 @@ class FormTypeTest extends BaseTypeTest
 
     public function testDataClassMayBeNull()
     {
-        $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data_class' => null,
         ));
     }
 
     public function testDataClassMayBeAbstractClass()
     {
-        $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\AbstractAuthor',
+        $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\AbstractAuthor',
         ));
     }
 
     public function testDataClassMayBeInterface()
     {
-        $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\AuthorInterface',
+        $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\AuthorInterface',
         ));
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Form\Exception\InvalidArgumentException
      */
     public function testDataClassMustBeValidClassOrInterface()
     {
-        $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data_class' => 'foobar',
         ));
     }
 
     public function testSubmitWithEmptyDataCreatesObjectIfClassAvailable()
     {
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
             'required' => false,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
-        $builder->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('lastName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->setData(null);
@@ -191,13 +191,13 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmitWithEmptyDataCreatesObjectIfInitiallySubmittedWithObject()
     {
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             // data class is inferred from the passed object
             'data' => new Author(),
             'required' => false,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
-        $builder->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('lastName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->setData(null);
@@ -213,11 +213,11 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmitWithEmptyDataCreatesArrayIfDataClassIsNull()
     {
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data_class' => null,
             'required' => false,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->setData(null);
@@ -228,12 +228,12 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmitEmptyWithEmptyDataCreatesNoObjectIfNotRequired()
     {
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
             'required' => false,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
-        $builder->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('lastName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->setData(null);
@@ -244,12 +244,12 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmitEmptyWithEmptyDataCreatesObjectIfRequired()
     {
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
             'required' => true,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
-        $builder->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('lastName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->setData(null);
@@ -263,8 +263,8 @@ class FormTypeTest extends BaseTypeTest
      */
     public function testSubmitWithEmptyDataStoresArrayIfNoClassAvailable()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
-            ->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType')
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
+            ->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType')
             ->getForm();
 
         $form->setData(null);
@@ -275,7 +275,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testSubmitWithEmptyDataPassesEmptyStringToTransformerIfNotCompound()
     {
-        $form = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
+        $form = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
             ->addViewTransformer(new FixedDataTransformer(array(
                 // required for the initial, internal setData(null)
                 null => 'null',
@@ -294,11 +294,11 @@ class FormTypeTest extends BaseTypeTest
     {
         $author = new Author();
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
             'empty_data' => $author,
         ));
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->submit(array('firstName' => 'Bernhard'));
@@ -319,11 +319,11 @@ class FormTypeTest extends BaseTypeTest
     /**
      * @dataProvider provideZeros
      *
-     * @see https://github.com/symfony/symfony/issues/1986
+     * @see https://github.com/makhan/makhan/issues/1986
      */
     public function testSetDataThroughParamsWithZero($data, $dataAsString)
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data' => $data,
             'compound' => false,
         ));
@@ -336,16 +336,16 @@ class FormTypeTest extends BaseTypeTest
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testAttributesException()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array('attr' => ''));
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array('attr' => ''));
     }
 
     public function testNameCanBeEmptyString()
     {
-        $form = $this->factory->createNamed('', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $form = $this->factory->createNamed('', 'Makhan\Component\Form\Extension\Core\Type\FormType');
 
         $this->assertEquals('', $form->getName());
     }
@@ -354,11 +354,11 @@ class FormTypeTest extends BaseTypeTest
     {
         $author = new FormTest_AuthorWithoutRefSetter(new Author());
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', $author);
-        $builder->add('reference', 'Symfony\Component\Form\Extension\Core\Type\FormType', array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', $author);
+        $builder->add('reference', 'Makhan\Component\Form\Extension\Core\Type\FormType', array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
         ));
-        $builder->get('reference')->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->get('reference')->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->submit(array(
@@ -377,11 +377,11 @@ class FormTypeTest extends BaseTypeTest
         $author = new FormTest_AuthorWithoutRefSetter(null);
         $newReference = new Author();
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', $author);
-        $builder->add('referenceCopy', 'Symfony\Component\Form\Extension\Core\Type\FormType', array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', $author);
+        $builder->add('referenceCopy', 'Makhan\Component\Form\Extension\Core\Type\FormType', array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
         ));
-        $builder->get('referenceCopy')->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->get('referenceCopy')->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form['referenceCopy']->setData($newReference); // new author object
@@ -400,12 +400,12 @@ class FormTypeTest extends BaseTypeTest
     {
         $author = new FormTest_AuthorWithoutRefSetter(new Author());
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', $author);
-        $builder->add('referenceCopy', 'Symfony\Component\Form\Extension\Core\Type\FormType', array(
-            'data_class' => 'Symfony\Component\Form\Tests\Fixtures\Author',
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', $author);
+        $builder->add('referenceCopy', 'Makhan\Component\Form\Extension\Core\Type\FormType', array(
+            'data_class' => 'Makhan\Component\Form\Tests\Fixtures\Author',
             'by_reference' => false,
         ));
-        $builder->get('referenceCopy')->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType');
+        $builder->get('referenceCopy')->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType');
         $form = $builder->getForm();
 
         $form->submit(array(
@@ -423,8 +423,8 @@ class FormTypeTest extends BaseTypeTest
     {
         $author = new FormTest_AuthorWithoutRefSetter('scalar');
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType', $author);
-        $builder->add('referenceCopy', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType', $author);
+        $builder->add('referenceCopy', 'Makhan\Component\Form\Extension\Core\Type\FormType');
         $builder->get('referenceCopy')->addViewTransformer(new CallbackTransformer(
             function () {},
             function ($value) { // reverseTransform
@@ -448,9 +448,9 @@ class FormTypeTest extends BaseTypeTest
         $ref2 = new Author();
         $author = array('referenceCopy' => $ref1);
 
-        $builder = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType');
+        $builder = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType');
         $builder->setData($author);
-        $builder->add('referenceCopy', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $builder->add('referenceCopy', 'Makhan\Component\Form\Extension\Core\Type\FormType');
         $builder->get('referenceCopy')->addViewTransformer(new CallbackTransformer(
             function () {},
             function ($value) use ($ref2) { // reverseTransform
@@ -471,9 +471,9 @@ class FormTypeTest extends BaseTypeTest
 
     public function testPassMultipartTrueIfAnyChildIsMultipartToView()
     {
-        $view = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
-            ->add('foo', 'Symfony\Component\Form\Extension\Core\Type\TextType')
-            ->add('bar', 'Symfony\Component\Form\Extension\Core\Type\FileType')
+        $view = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
+            ->add('foo', 'Makhan\Component\Form\Extension\Core\Type\TextType')
+            ->add('bar', 'Makhan\Component\Form\Extension\Core\Type\FileType')
             ->getForm()
             ->createView();
 
@@ -482,8 +482,8 @@ class FormTypeTest extends BaseTypeTest
 
     public function testViewIsNotRenderedByDefault()
     {
-        $view = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
-                ->add('foo', 'Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
+                ->add('foo', 'Makhan\Component\Form\Extension\Core\Type\FormType')
                 ->getForm()
                 ->createView();
 
@@ -492,7 +492,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testErrorBubblingIfCompound()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'compound' => true,
         ));
 
@@ -501,7 +501,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testNoErrorBubblingIfNotCompound()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'compound' => false,
         ));
 
@@ -510,7 +510,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testOverrideErrorBubbling()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'compound' => false,
             'error_bubbling' => true,
         ));
@@ -520,7 +520,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testPropertyPath()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'property_path' => 'foo',
         ));
 
@@ -530,7 +530,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testPropertyPathNullImpliesDefault()
     {
-        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->createNamed('name', 'Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'property_path' => null,
         ));
 
@@ -540,7 +540,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testNotMapped()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'property_path' => 'foo',
             'mapped' => false,
         ));
@@ -551,14 +551,14 @@ class FormTypeTest extends BaseTypeTest
 
     public function testViewValidNotSubmitted()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType');
         $view = $form->createView();
         $this->assertTrue($view->vars['valid']);
     }
 
     public function testViewNotValidSubmitted()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType');
         $form->submit(array());
         $form->addError(new FormError('An error'));
         $view = $form->createView();
@@ -567,14 +567,14 @@ class FormTypeTest extends BaseTypeTest
 
     public function testViewSubmittedNotSubmitted()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType');
         $view = $form->createView();
         $this->assertFalse($view->vars['submitted']);
     }
 
     public function testViewSubmittedSubmitted()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType');
         $form->submit(array());
         $view = $form->createView();
         $this->assertTrue($view->vars['submitted']);
@@ -582,7 +582,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testDataOptionSupersedesSetDataCalls()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data' => 'default',
             'compound' => false,
         ));
@@ -594,7 +594,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testDataOptionSupersedesSetDataCallsIfNull()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
             'data' => null,
             'compound' => false,
         ));
@@ -606,7 +606,7 @@ class FormTypeTest extends BaseTypeTest
 
     public function testNormDataIsPassedToView()
     {
-        $view = $this->factory->createBuilder('Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createBuilder('Makhan\Component\Form\Extension\Core\Type\FormType')
             ->addViewTransformer(new FixedDataTransformer(array(
                 'foo' => 'bar',
             )))
@@ -618,10 +618,10 @@ class FormTypeTest extends BaseTypeTest
         $this->assertSame('bar', $view->vars['value']);
     }
 
-    // https://github.com/symfony/symfony/issues/6862
+    // https://github.com/makhan/makhan/issues/6862
     public function testPassZeroLabelToView()
     {
-        $view = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+        $view = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
                 'label' => '0',
             ))
             ->createView();
@@ -631,6 +631,6 @@ class FormTypeTest extends BaseTypeTest
 
     protected function getTestedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return 'Makhan\Component\Form\Extension\Core\Type\FormType';
     }
 }

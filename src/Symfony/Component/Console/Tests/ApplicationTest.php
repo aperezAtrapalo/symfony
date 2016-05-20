@@ -1,34 +1,34 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests;
+namespace Makhan\Component\Console\Tests;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Helper\HelperSet;
-use Symfony\Component\Console\Helper\FormatterHelper;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\Console\Output\Output;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Output\StreamOutput;
-use Symfony\Component\Console\Tester\ApplicationTester;
-use Symfony\Component\Console\Event\ConsoleCommandEvent;
-use Symfony\Component\Console\Event\ConsoleExceptionEvent;
-use Symfony\Component\Console\Event\ConsoleTerminateEvent;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Helper\HelperSet;
+use Makhan\Component\Console\Helper\FormatterHelper;
+use Makhan\Component\Console\Input\ArgvInput;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputDefinition;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\NullOutput;
+use Makhan\Component\Console\Output\Output;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Tester\ApplicationTester;
+use Makhan\Component\Console\Event\ConsoleCommandEvent;
+use Makhan\Component\Console\Event\ConsoleExceptionEvent;
+use Makhan\Component\Console\Event\ConsoleTerminateEvent;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
@@ -104,7 +104,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $application = new Application();
         $commands = $application->all();
-        $this->assertInstanceOf('Symfony\\Component\\Console\\Command\\HelpCommand', $commands['help'], '->all() returns the registered commands');
+        $this->assertInstanceOf('Makhan\\Component\\Console\\Command\\HelpCommand', $commands['help'], '->all() returns the registered commands');
 
         $application->add(new \FooCommand());
         $commands = $application->all('foo');
@@ -160,7 +160,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $p->setAccessible(true);
         $p->setValue($application, true);
         $command = $application->get('foo:bar');
-        $this->assertInstanceOf('Symfony\Component\Console\Command\HelpCommand', $command, '->get() returns the help command if --help is provided as the input');
+        $this->assertInstanceOf('Makhan\Component\Console\Command\HelpCommand', $command, '->get() returns the help command if --help is provided as the input');
     }
 
     public function testSilentHelp()
@@ -176,7 +176,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException        Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage The command "foofoo" does not exist.
      */
     public function testGetInvalidCommand()
@@ -212,7 +212,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException        Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage The namespace "f" is ambiguous (foo, foo1).
      */
     public function testFindAmbiguousNamespace()
@@ -225,7 +225,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException        Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage There are no commands defined in the "bar" namespace.
      */
     public function testFindInvalidNamespace()
@@ -235,7 +235,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException        Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage Command "foo1" is not defined
      */
     public function testFindUniqueNameButNamespaceName()
@@ -254,7 +254,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $application->add(new \FooCommand());
 
         $this->assertInstanceOf('FooCommand', $application->find('foo:bar'), '->find() returns a command if its name exists');
-        $this->assertInstanceOf('Symfony\Component\Console\Command\HelpCommand', $application->find('h'), '->find() returns a command if its name exists');
+        $this->assertInstanceOf('Makhan\Component\Console\Command\HelpCommand', $application->find('h'), '->find() returns a command if its name exists');
         $this->assertInstanceOf('FooCommand', $application->find('f:bar'), '->find() returns a command if the abbreviation for the namespace exists');
         $this->assertInstanceOf('FooCommand', $application->find('f:b'), '->find() returns a command if the abbreviation for the namespace and the command name exist');
         $this->assertInstanceOf('FooCommand', $application->find('a'), '->find() returns a command if the abbreviation exists for an alias');
@@ -265,7 +265,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
      */
     public function testFindWithAmbiguousAbbreviations($abbreviation, $expectedExceptionMessage)
     {
-        $this->setExpectedException('Symfony\Component\Console\Exception\CommandNotFoundException', $expectedExceptionMessage);
+        $this->setExpectedException('Makhan\Component\Console\Exception\CommandNotFoundException', $expectedExceptionMessage);
 
         $application = new Application();
         $application->add(new \FooCommand());
@@ -313,7 +313,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider             provideInvalidCommandNamesSingle
-     * @expectedException        Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException        Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage Did you mean this
      */
     public function testFindAlternativeExceptionMessageSingle($name)
@@ -343,7 +343,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find('foo:baR');
             $this->fail('->find() throws a CommandNotFoundException if command does not exist, with alternatives');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/Did you mean one of these/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/foo1:bar/', $e->getMessage());
             $this->assertRegExp('/foo:bar/', $e->getMessage());
@@ -354,7 +354,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find('foo2:bar');
             $this->fail('->find() throws a CommandNotFoundException if command does not exist, with alternatives');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/Did you mean one of these/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/foo1/', $e->getMessage());
         }
@@ -365,9 +365,9 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         // Subnamespace + plural
         try {
             $a = $application->find('foo3:');
-            $this->fail('->find() should throw an Symfony\Component\Console\Exception\CommandNotFoundException if a command is ambiguous because of a subnamespace, with alternatives');
+            $this->fail('->find() should throw an Makhan\Component\Console\Exception\CommandNotFoundException if a command is ambiguous because of a subnamespace, with alternatives');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e);
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e);
             $this->assertRegExp('/foo3:bar/', $e->getMessage());
             $this->assertRegExp('/foo3:bar:toh/', $e->getMessage());
         }
@@ -385,7 +385,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find($commandName = 'Unknown command');
             $this->fail('->find() throws a CommandNotFoundException if command does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist');
             $this->assertSame(array(), $e->getAlternatives());
             $this->assertEquals(sprintf('Command "%s" is not defined.', $commandName), $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, without alternatives');
         }
@@ -396,7 +396,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find($commandName = 'bar1');
             $this->fail('->find() throws a CommandNotFoundException if command does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if command does not exist');
             $this->assertSame(array('afoobar1', 'foo:bar1'), $e->getAlternatives());
             $this->assertRegExp(sprintf('/Command "%s" is not defined./', $commandName), $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/afoobar1/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternative : "afoobar1"');
@@ -431,7 +431,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find('Unknown-namespace:Unknown-command');
             $this->fail('->find() throws a CommandNotFoundException if namespace does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if namespace does not exist');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if namespace does not exist');
             $this->assertSame(array(), $e->getAlternatives());
             $this->assertEquals('There are no commands defined in the "Unknown-namespace" namespace.', $e->getMessage(), '->find() throws a CommandNotFoundException if namespace does not exist, without alternatives');
         }
@@ -440,7 +440,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
             $application->find('foo2:command');
             $this->fail('->find() throws a CommandNotFoundException if namespace does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if namespace does not exist');
+            $this->assertInstanceOf('Makhan\Component\Console\Exception\CommandNotFoundException', $e, '->find() throws a CommandNotFoundException if namespace does not exist');
             $this->assertCount(3, $e->getAlternatives());
             $this->assertContains('foo', $e->getAlternatives());
             $this->assertContains('foo1', $e->getAlternatives());
@@ -454,7 +454,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testFindNamespaceDoesNotFailOnDeepSimilarNamespaces()
     {
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getNamespaces'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getNamespaces'));
         $application->expects($this->once())
             ->method('getNamespaces')
             ->will($this->returnValue(array('foo:sublong', 'bar:sub')));
@@ -463,7 +463,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\Console\Exception\CommandNotFoundException
+     * @expectedException Makhan\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage Command "foo::bar" is not defined.
      */
     public function testFindWithDoubleColonInNameThrowsException()
@@ -476,7 +476,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testSetCatchExceptions()
     {
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);
         $application->expects($this->any())
             ->method('getTerminalWidth')
@@ -514,7 +514,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderException()
     {
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);
         $application->expects($this->any())
             ->method('getTerminalWidth')
@@ -546,7 +546,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $tester->run(array('command' => 'foo3:bar'), array('decorated' => true, 'capture_stderr_separately' => true));
         $this->assertStringEqualsFile(self::$fixturesPath.'/application_renderexception3decorated.txt', $tester->getErrorOutput(true), '->renderException() renders a pretty exceptions with previous exceptions');
 
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);
         $application->expects($this->any())
             ->method('getTerminalWidth')
@@ -559,7 +559,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderExceptionWithDoubleWidthCharacters()
     {
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);
         $application->expects($this->any())
             ->method('getTerminalWidth')
@@ -575,7 +575,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $tester->run(array('command' => 'foo'), array('decorated' => true, 'capture_stderr_separately' => true));
         $this->assertStringEqualsFile(self::$fixturesPath.'/application_renderexception_doublewidth1decorated.txt', $tester->getErrorOutput(true), '->renderException() renders a pretty exceptions with previous exceptions');
 
-        $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);
         $application->expects($this->any())
             ->method('getTerminalWidth')
@@ -600,8 +600,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $application->run();
         ob_end_clean();
 
-        $this->assertInstanceOf('Symfony\Component\Console\Input\ArgvInput', $command->input, '->run() creates an ArgvInput by default if none is given');
-        $this->assertInstanceOf('Symfony\Component\Console\Output\ConsoleOutput', $command->output, '->run() creates a ConsoleOutput by default if none is given');
+        $this->assertInstanceOf('Makhan\Component\Console\Input\ArgvInput', $command->input, '->run() creates an ArgvInput by default if none is given');
+        $this->assertInstanceOf('Makhan\Component\Console\Output\ConsoleOutput', $command->output, '->run() creates a ConsoleOutput by default if none is given');
 
         $application = new Application();
         $application->setAutoExit(false);
@@ -707,7 +707,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new \Exception('', 4);
 
-        $application = $this->getMock('Symfony\Component\Console\Application', array('doRun'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('doRun'));
         $application->setAutoExit(false);
         $application->expects($this->once())
             ->method('doRun')
@@ -722,7 +722,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new \Exception('', 0);
 
-        $application = $this->getMock('Symfony\Component\Console\Application', array('doRun'));
+        $application = $this->getMock('Makhan\Component\Console\Application', array('doRun'));
         $application->setAutoExit(false);
         $application->expects($this->once())
             ->method('doRun')

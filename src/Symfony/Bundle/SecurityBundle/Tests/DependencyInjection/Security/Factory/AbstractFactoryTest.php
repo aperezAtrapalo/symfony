@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection\Security\Factory;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection\Security\Factory;
 
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class AbstractFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -126,7 +126,7 @@ class AbstractFactoryTest extends \PHPUnit_Framework_TestCase
 
     protected function callFactory($id, $config, $userProviderId, $defaultEntryPointId)
     {
-        $factory = $this->getMockForAbstractClass('Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory', array());
+        $factory = $this->getMockForAbstractClass('Makhan\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AbstractFactory', array());
 
         $factory
             ->expects($this->once())

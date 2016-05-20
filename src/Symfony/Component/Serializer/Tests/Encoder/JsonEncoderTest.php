@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Encoder;
+namespace Makhan\Component\Serializer\Tests\Encoder;
 
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Normalizer\CustomNormalizer;
+use Makhan\Component\Serializer\Encoder\JsonEncoder;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\Normalizer\CustomNormalizer;
 
 class JsonEncoderTest extends \PHPUnit_Framework_TestCase
 {

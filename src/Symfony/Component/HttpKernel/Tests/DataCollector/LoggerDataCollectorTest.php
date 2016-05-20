@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DataCollector;
+namespace Makhan\Component\HttpKernel\Tests\DataCollector;
 
-use Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector;
+use Makhan\Component\HttpKernel\DataCollector\LoggerDataCollector;
 
 class LoggerDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -20,7 +20,7 @@ class LoggerDataCollectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCollect($nb, $logs, $expectedLogs, $expectedDeprecationCount, $expectedScreamCount, $expectedPriorities = null)
     {
-        $logger = $this->getMock('Symfony\Component\HttpKernel\Log\DebugLoggerInterface');
+        $logger = $this->getMock('Makhan\Component\HttpKernel\Log\DebugLoggerInterface');
         $logger->expects($this->once())->method('countErrors')->will($this->returnValue($nb));
         $logger->expects($this->exactly(2))->method('getLogs')->will($this->returnValue($logs));
 

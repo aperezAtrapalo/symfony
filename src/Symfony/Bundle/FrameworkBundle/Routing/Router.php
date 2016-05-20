@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Routing;
 
-use Symfony\Component\Routing\Router as BaseRouter;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\HttpKernel\CacheWarmer\WarmableInterface;
-use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\Routing\Router as BaseRouter;
+use Makhan\Component\Routing\RequestContext;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\HttpKernel\CacheWarmer\WarmableInterface;
+use Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
 
 /**
  * This Router creates the Loader only when the cache is empty.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Router extends BaseRouter implements WarmableInterface
 {

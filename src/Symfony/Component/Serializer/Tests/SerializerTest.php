@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests;
+namespace Makhan\Component\Serializer\Tests;
 
-use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
-use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Normalizer\CustomNormalizer;
-use Symfony\Component\Serializer\Tests\Fixtures\TraversableDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\NormalizableTraversableDummy;
-use Symfony\Component\Serializer\Tests\Normalizer\TestNormalizer;
-use Symfony\Component\Serializer\Tests\Normalizer\TestDenormalizer;
+use Makhan\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Makhan\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Makhan\Component\Serializer\Normalizer\DenormalizerInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerInterface;
+use Makhan\Component\Serializer\Normalizer\ObjectNormalizer;
+use Makhan\Component\Serializer\Normalizer\PropertyNormalizer;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\Encoder\JsonEncoder;
+use Makhan\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Makhan\Component\Serializer\Normalizer\CustomNormalizer;
+use Makhan\Component\Serializer\Tests\Fixtures\TraversableDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\NormalizableTraversableDummy;
+use Makhan\Component\Serializer\Tests\Normalizer\TestNormalizer;
+use Makhan\Component\Serializer\Tests\Normalizer\TestDenormalizer;
 
 class SerializerTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,19 +33,19 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     {
         $serializer = new Serializer();
 
-        $this->assertInstanceOf('Symfony\Component\Serializer\SerializerInterface', $serializer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\NormalizerInterface', $serializer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\DenormalizerInterface', $serializer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Encoder\EncoderInterface', $serializer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Encoder\DecoderInterface', $serializer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\SerializerInterface', $serializer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\NormalizerInterface', $serializer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\DenormalizerInterface', $serializer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Encoder\EncoderInterface', $serializer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Encoder\DecoderInterface', $serializer);
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testNormalizeNoMatch()
     {
-        $serializer = new Serializer(array($this->getMock('Symfony\Component\Serializer\Normalizer\CustomNormalizer')));
+        $serializer = new Serializer(array($this->getMock('Makhan\Component\Serializer\Normalizer\CustomNormalizer')));
         $serializer->normalize(new \stdClass(), 'xml');
     }
 
@@ -64,7 +64,7 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testNormalizeOnDenormalizer()
     {
@@ -73,16 +73,16 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDenormalizeNoMatch()
     {
-        $serializer = new Serializer(array($this->getMock('Symfony\Component\Serializer\Normalizer\CustomNormalizer')));
+        $serializer = new Serializer(array($this->getMock('Makhan\Component\Serializer\Normalizer\CustomNormalizer')));
         $serializer->denormalize('foo', 'stdClass');
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDenormalizeOnNormalizer()
     {
@@ -102,14 +102,14 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
 
     public function testNormalizeWithSupportOnData()
     {
-        $normalizer1 = $this->getMock('Symfony\Component\Serializer\Normalizer\NormalizerInterface');
+        $normalizer1 = $this->getMock('Makhan\Component\Serializer\Normalizer\NormalizerInterface');
         $normalizer1->method('supportsNormalization')
             ->willReturnCallback(function ($data, $format) {
                 return isset($data->test);
             });
         $normalizer1->method('normalize')->willReturn('test1');
 
-        $normalizer2 = $this->getMock('Symfony\Component\Serializer\Normalizer\NormalizerInterface');
+        $normalizer2 = $this->getMock('Makhan\Component\Serializer\Normalizer\NormalizerInterface');
         $normalizer2->method('supportsNormalization')
             ->willReturn(true);
         $normalizer2->method('normalize')->willReturn('test2');
@@ -125,14 +125,14 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
 
     public function testDenormalizeWithSupportOnData()
     {
-        $denormalizer1 = $this->getMock('Symfony\Component\Serializer\Normalizer\DenormalizerInterface');
+        $denormalizer1 = $this->getMock('Makhan\Component\Serializer\Normalizer\DenormalizerInterface');
         $denormalizer1->method('supportsDenormalization')
             ->willReturnCallback(function ($data, $type, $format) {
                 return isset($data['test1']);
             });
         $denormalizer1->method('denormalize')->willReturn('test1');
 
-        $denormalizer2 = $this->getMock('Symfony\Component\Serializer\Normalizer\DenormalizerInterface');
+        $denormalizer2 = $this->getMock('Makhan\Component\Serializer\Normalizer\DenormalizerInterface');
         $denormalizer2->method('supportsDenormalization')
             ->willReturn(true);
         $denormalizer2->method('denormalize')->willReturn('test2');
@@ -168,7 +168,7 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testSerializeNoEncoder()
     {
@@ -178,7 +178,7 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\LogicException
+     * @expectedException \Makhan\Component\Serializer\Exception\LogicException
      */
     public function testSerializeNoNormalizer()
     {
@@ -191,7 +191,7 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     {
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new JsonEncoder()));
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $result = $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $result = $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
         $this->assertEquals($data, $result->toArray());
     }
 
@@ -199,47 +199,47 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     {
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new JsonEncoder()));
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
         $data = array('title' => 'bar', 'numbers' => array(2, 8));
-        $result = $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $result = $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
         $this->assertEquals($data, $result->toArray());
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\LogicException
+     * @expectedException \Makhan\Component\Serializer\Exception\LogicException
      */
     public function testDeserializeNoNormalizer()
     {
         $serializer = new Serializer(array(), array('json' => new JsonEncoder()));
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDeserializeWrongNormalizer()
     {
         $serializer = new Serializer(array(new CustomNormalizer()), array('json' => new JsonEncoder()));
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDeserializeNoEncoder()
     {
         $serializer = new Serializer(array(), array());
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $serializer->deserialize(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json');
+        $serializer->deserialize(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json');
     }
 
     public function testDeserializeSupported()
     {
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array());
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $this->assertTrue($serializer->supportsDenormalization(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json'));
+        $this->assertTrue($serializer->supportsDenormalization(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json'));
     }
 
     public function testDeserializeNotSupported()
@@ -253,7 +253,7 @@ class SerializerTest extends \PHPUnit_Framework_TestCase
     {
         $serializer = new Serializer(array(), array());
         $data = array('title' => 'foo', 'numbers' => array(5, 3));
-        $this->assertFalse($serializer->supportsDenormalization(json_encode($data), '\Symfony\Component\Serializer\Tests\Model', 'json'));
+        $this->assertFalse($serializer->supportsDenormalization(json_encode($data), '\Makhan\Component\Serializer\Tests\Model', 'json'));
     }
 
     public function testEncode()

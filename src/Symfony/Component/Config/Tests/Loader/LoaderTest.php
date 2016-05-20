@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Loader;
+namespace Makhan\Component\Config\Tests\Loader;
 
-use Symfony\Component\Config\Loader\Loader;
+use Makhan\Component\Config\Loader\Loader;
 
 class LoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetSetResolver()
     {
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
 
         $loader = new ProjectLoader1();
         $loader->setResolver($resolver);
@@ -27,9 +27,9 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function testResolve()
     {
-        $resolvedLoader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $resolvedLoader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
 
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
         $resolver->expects($this->once())
             ->method('resolve')
             ->with('foo.xml')
@@ -43,11 +43,11 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Exception\FileLoaderLoadException
+     * @expectedException \Makhan\Component\Config\Exception\FileLoaderLoadException
      */
     public function testResolveWhenResolverCannotFindLoader()
     {
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
         $resolver->expects($this->once())
             ->method('resolve')
             ->with('FOOBAR')
@@ -61,13 +61,13 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function testImport()
     {
-        $resolvedLoader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $resolvedLoader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         $resolvedLoader->expects($this->once())
             ->method('load')
             ->with('foo')
             ->will($this->returnValue('yes'));
 
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
         $resolver->expects($this->once())
             ->method('resolve')
             ->with('foo')
@@ -81,13 +81,13 @@ class LoaderTest extends \PHPUnit_Framework_TestCase
 
     public function testImportWithType()
     {
-        $resolvedLoader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $resolvedLoader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
         $resolvedLoader->expects($this->once())
             ->method('load')
             ->with('foo', 'bar')
             ->will($this->returnValue('yes'));
 
-        $resolver = $this->getMock('Symfony\Component\Config\Loader\LoaderResolverInterface');
+        $resolver = $this->getMock('Makhan\Component\Config\Loader\LoaderResolverInterface');
         $resolver->expects($this->once())
             ->method('resolve')
             ->with('foo', 'bar')

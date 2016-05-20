@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\DataCollector;
+namespace Makhan\Component\HttpKernel\DataCollector;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\HeaderBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\HttpFoundation\ParameterBag;
+use Makhan\Component\HttpFoundation\HeaderBag;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\ResponseHeaderBag;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\Event\FilterControllerEvent;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * RequestDataCollector.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class RequestDataCollector extends DataCollector implements EventSubscriberInterface
 {

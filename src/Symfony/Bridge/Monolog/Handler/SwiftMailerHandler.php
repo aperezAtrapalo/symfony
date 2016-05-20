@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Monolog\Handler;
+namespace Makhan\Bridge\Monolog\Handler;
 
 use Monolog\Handler\SwiftMailerHandler as BaseSwiftMailerHandler;
-use Symfony\Component\Console\Event\ConsoleTerminateEvent;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
+use Makhan\Component\Console\Event\ConsoleTerminateEvent;
+use Makhan\Component\HttpKernel\Event\PostResponseEvent;
 
 /**
  * Extended SwiftMailerHandler that flushes mail queue if necessary.

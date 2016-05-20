@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Tests\Session\Storage;
 
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
-use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
-use Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-use Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy;
+use Makhan\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Makhan\Component\HttpFoundation\Session\Flash\FlashBag;
+use Makhan\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
+use Makhan\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler;
+use Makhan\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
+use Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy;
 
 /**
  * Test class for NativeSessionStorage.
@@ -167,7 +167,7 @@ class NativeSessionStorageTest extends \PHPUnit_Framework_TestCase
         $options = array(
             'cookie_lifetime' => 123456,
             'cookie_path' => '/my/cookie/path',
-            'cookie_domain' => 'symfony.example.com',
+            'cookie_domain' => 'makhan.example.com',
             'cookie_secure' => true,
             'cookie_httponly' => false,
         );
@@ -197,17 +197,17 @@ class NativeSessionStorageTest extends \PHPUnit_Framework_TestCase
         $this->iniSet('session.save_handler', 'files');
         $storage = $this->getStorage();
         $storage->setSaveHandler();
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
         $storage->setSaveHandler(null);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
         $storage->setSaveHandler(new SessionHandlerProxy(new NativeSessionHandler()));
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
         $storage->setSaveHandler(new NativeSessionHandler());
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
         $storage->setSaveHandler(new SessionHandlerProxy(new NullSessionHandler()));
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
         $storage->setSaveHandler(new NullSessionHandler());
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy', $storage->getSaveHandler());
     }
 
     /**

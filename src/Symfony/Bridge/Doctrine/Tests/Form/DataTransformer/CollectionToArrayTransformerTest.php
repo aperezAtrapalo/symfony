@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form\DataTransformer;
+namespace Makhan\Bridge\Doctrine\Tests\Form\DataTransformer;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
+use Makhan\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -44,7 +44,7 @@ class CollectionToArrayTransformerTest extends \PHPUnit_Framework_TestCase
      * result of $collection->toArray(), in order to prevent modifications of
      * the inner collection.
      *
-     * See https://github.com/symfony/symfony/pull/9308
+     * See https://github.com/makhan/makhan/pull/9308
      */
     public function testTransformArray()
     {
@@ -62,7 +62,7 @@ class CollectionToArrayTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformExpectsArrayOrCollection()
     {

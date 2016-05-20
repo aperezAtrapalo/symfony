@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Profiler;
+namespace Makhan\Bundle\WebProfilerBundle\Profiler;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Profiler\Profiler;
-use Symfony\Component\HttpKernel\Profiler\Profile;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Profiler\Profiler;
+use Makhan\Component\HttpKernel\Profiler\Profile;
 
 /**
  * Profiler Templates Manager.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Artur Wielogórski <wodor@wodor.net>
  */
 class TemplateManager

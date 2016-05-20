@@ -1,40 +1,40 @@
 {
-    "name": "symfony/translation",
+    "name": "makhan/translation",
     "type": "library",
-    "description": "Symfony Translation Component",
+    "description": "Makhan Translation Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-mbstring": "~1.0"
+        "makhan/polyfill-mbstring": "~1.0"
     },
     "require-dev": {
-        "symfony/config": "~2.8|~3.0",
-        "symfony/intl": "~2.8|~3.0",
-        "symfony/yaml": "~2.8|~3.0",
+        "makhan/config": "~2.8|~3.0",
+        "makhan/intl": "~2.8|~3.0",
+        "makhan/yaml": "~2.8|~3.0",
         "psr/log": "~1.0"
     },
     "conflict": {
-        "symfony/config": "<2.8"
+        "makhan/config": "<2.8"
     },
     "suggest": {
-        "symfony/config": "",
-        "symfony/yaml": "",
+        "makhan/config": "",
+        "makhan/yaml": "",
         "psr/log": "To use logging capability in translator"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Translation\\": "" },
+        "psr-4": { "Makhan\\Component\\Translation\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

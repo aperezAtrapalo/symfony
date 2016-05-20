@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheWarmerPass;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheWarmerPass;
 
 class AddCacheWarmerPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,9 +24,9 @@ class AddCacheWarmerPassTest extends \PHPUnit_Framework_TestCase
             'my_cache_warmer_service3' => array(),
         );
 
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('findTaggedServiceIds', 'getDefinition', 'hasDefinition')
         );
 
@@ -56,9 +56,9 @@ class AddCacheWarmerPassTest extends \PHPUnit_Framework_TestCase
 
     public function testThatCompilerPassIsIgnoredIfThereIsNoCacheWarmerDefinition()
     {
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
 
@@ -76,9 +76,9 @@ class AddCacheWarmerPassTest extends \PHPUnit_Framework_TestCase
 
     public function testThatCacheWarmersMightBeNotDefined()
     {
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
 

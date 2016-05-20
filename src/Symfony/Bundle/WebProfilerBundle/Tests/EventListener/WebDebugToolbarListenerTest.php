@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Tests\EventListener;
+namespace Makhan\Bundle\WebProfilerBundle\Tests\EventListener;
 
-use Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
 
 class WebDebugToolbarListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -232,7 +232,7 @@ class WebDebugToolbarListenerTest extends \PHPUnit_Framework_TestCase
     protected function getRequestMock($isXmlHttpRequest = false, $requestFormat = 'html', $hasSession = true)
     {
         $request = $this->getMock(
-            'Symfony\Component\HttpFoundation\Request',
+            'Makhan\Component\HttpFoundation\Request',
             array('getSession', 'isXmlHttpRequest', 'getRequestFormat'),
             array(), '', false
         );
@@ -244,7 +244,7 @@ class WebDebugToolbarListenerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($requestFormat));
 
         if ($hasSession) {
-            $session = $this->getMock('Symfony\Component\HttpFoundation\Session\Session', array(), array(), '', false);
+            $session = $this->getMock('Makhan\Component\HttpFoundation\Session\Session', array(), array(), '', false);
             $request->expects($this->any())
                 ->method('getSession')
                 ->will($this->returnValue($session));
@@ -265,11 +265,11 @@ class WebDebugToolbarListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getUrlGeneratorMock()
     {
-        return $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
+        return $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface');
     }
 
     protected function getKernelMock()
     {
-        return $this->getMock('Symfony\Component\HttpKernel\Kernel', array(), array(), '', false);
+        return $this->getMock('Makhan\Component\HttpKernel\Kernel', array(), array(), '', false);
     }
 }

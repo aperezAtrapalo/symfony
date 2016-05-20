@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Tester;
+namespace Makhan\Component\Console\Tests\Tester;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Output\Output;
-use Symfony\Component\Console\Tester\CommandTester;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Output\Output;
+use Makhan\Component\Console\Tester\CommandTester;
 
 class CommandTesterTest extends \PHPUnit_Framework_TestCase
 {

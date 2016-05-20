@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\ChoiceList\Factory;
+namespace Makhan\Component\Form\ChoiceList\Factory;
 
-use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
-use Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
-use Symfony\Component\Form\ChoiceList\View\ChoiceListView;
-use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
-use Symfony\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Form\ChoiceList\ChoiceListInterface;
+use Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
+use Makhan\Component\Form\ChoiceList\View\ChoiceListView;
+use Makhan\Component\PropertyAccess\Exception\UnexpectedTypeException;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\PropertyAccess\PropertyAccessorInterface;
+use Makhan\Component\PropertyAccess\PropertyPath;
 
 /**
  * Adds property path support to a choice list factory.

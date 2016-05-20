@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\OptionsResolver;
+namespace Makhan\Component\OptionsResolver;
 
-use Symfony\Component\OptionsResolver\Exception\AccessException;
-use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
-use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
-use Symfony\Component\OptionsResolver\Exception\NoSuchOptionException;
-use Symfony\Component\OptionsResolver\Exception\OptionDefinitionException;
-use Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException;
+use Makhan\Component\OptionsResolver\Exception\AccessException;
+use Makhan\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Makhan\Component\OptionsResolver\Exception\MissingOptionsException;
+use Makhan\Component\OptionsResolver\Exception\NoSuchOptionException;
+use Makhan\Component\OptionsResolver\Exception\OptionDefinitionException;
+use Makhan\Component\OptionsResolver\Exception\UndefinedOptionsException;
 
 /**
  * Validates options and merges them with default values.

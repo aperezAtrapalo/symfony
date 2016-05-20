@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests;
+namespace Makhan\Component\Translation\Tests;
 
-use Symfony\Component\Config\Resource\SelfCheckingResourceInterface;
-use Symfony\Component\Translation\Loader\ArrayLoader;
-use Symfony\Component\Translation\Loader\LoaderInterface;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Component\Config\Resource\SelfCheckingResourceInterface;
+use Makhan\Component\Translation\Loader\ArrayLoader;
+use Makhan\Component\Translation\Loader\LoaderInterface;
+use Makhan\Component\Translation\Translator;
+use Makhan\Component\Translation\MessageCatalogue;
 
 class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
 {
@@ -95,7 +95,7 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
         $catalogue->addResource(new StaleResource()); // better use a helper class than a mock, because it gets serialized in the cache and re-loaded
 
         /** @var LoaderInterface|\PHPUnit_Framework_MockObject_MockObject $loader */
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $loader
             ->expects($this->exactly(2))
             ->method('load')
@@ -228,8 +228,8 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
 
     public function testRefreshCacheWhenResourcesAreNoLongerFresh()
     {
-        $resource = $this->getMock('Symfony\Component\Config\Resource\SelfCheckingResourceInterface');
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $resource = $this->getMock('Makhan\Component\Config\Resource\SelfCheckingResourceInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $resource->method('isFresh')->will($this->returnValue(false));
         $loader
             ->expects($this->exactly(2))
@@ -272,7 +272,7 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
      */
     private function createFailingLoader()
     {
-        $loader = $this->getMock('Symfony\Component\Translation\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Translation\Loader\LoaderInterface');
         $loader
             ->expects($this->never())
             ->method('load');

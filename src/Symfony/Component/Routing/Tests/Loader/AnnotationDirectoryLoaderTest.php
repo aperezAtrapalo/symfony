@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Routing\Loader\AnnotationDirectoryLoader;
-use Symfony\Component\Config\FileLocator;
+use Makhan\Component\Routing\Loader\AnnotationDirectoryLoader;
+use Makhan\Component\Config\FileLocator;
 
 class AnnotationDirectoryLoaderTest extends AbstractAnnotationLoaderTest
 {

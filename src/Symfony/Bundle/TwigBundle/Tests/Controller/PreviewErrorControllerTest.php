@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests\Controller;
+namespace Makhan\Bundle\TwigBundle\Tests\Controller;
 
-use Symfony\Bundle\TwigBundle\Controller\PreviewErrorController;
-use Symfony\Bundle\TwigBundle\Tests\TestCase;
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Bundle\TwigBundle\Controller\PreviewErrorController;
+use Makhan\Bundle\TwigBundle\Tests\TestCase;
+use Makhan\Component\Debug\Exception\FlattenException;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 class PreviewErrorControllerTest extends TestCase
 {
@@ -27,7 +27,7 @@ class PreviewErrorControllerTest extends TestCase
         $code = 123;
         $logicalControllerName = 'foo:bar:baz';
 
-        $kernel = $this->getMock('\Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('\Makhan\Component\HttpKernel\HttpKernelInterface');
         $kernel
             ->expects($this->once())
             ->method('handle')

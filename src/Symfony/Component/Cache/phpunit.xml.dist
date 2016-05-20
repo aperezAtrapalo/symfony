@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony Cache Component Test Suite">
+        <testsuite name="Makhan Cache Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>
@@ -27,7 +27,7 @@
     </filter>
 
     <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener">
+        <listener class="Makhan\Bridge\PhpUnit\MakhanTestsListener">
             <arguments>
                 <array>
                     <element><string>Cache\IntegrationTests</string></element>

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Mapping\Factory;
+namespace Makhan\Component\Serializer\Tests\Mapping\Factory;
 
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Serializer\Mapping\ClassMetadata;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
-use Symfony\Component\Serializer\Mapping\Factory\CacheClassMetadataFactory;
-use Symfony\Component\Serializer\Tests\Fixtures\Dummy;
+use Makhan\Component\Cache\Adapter\ArrayAdapter;
+use Makhan\Component\Serializer\Mapping\ClassMetadata;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
+use Makhan\Component\Serializer\Mapping\Factory\CacheClassMetadataFactory;
+use Makhan\Component\Serializer\Tests\Fixtures\Dummy;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -55,7 +55,7 @@ class CacheMetadataFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Serializer\Exception\InvalidArgumentException
      */
     public function testInvalidClassThrowsException()
     {

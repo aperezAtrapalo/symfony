@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authentication\Token;
+namespace Makhan\Component\Security\Core\Authentication\Token;
 
-use Symfony\Component\Security\Core\Role\RoleInterface;
-use Symfony\Component\Security\Core\Role\Role;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-use Symfony\Component\Security\Core\User\EquatableInterface;
+use Makhan\Component\Security\Core\Role\RoleInterface;
+use Makhan\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\AdvancedUserInterface;
+use Makhan\Component\Security\Core\User\EquatableInterface;
 
 /**
  * Base class for Token instances.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 abstract class AbstractToken implements TokenInterface

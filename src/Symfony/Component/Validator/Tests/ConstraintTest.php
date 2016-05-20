@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests;
+namespace Makhan\Component\Validator\Tests;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Tests\Fixtures\ClassConstraint;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintA;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintB;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintC;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintWithValue;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintWithValueAsDefault;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Tests\Fixtures\ClassConstraint;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintA;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintB;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintC;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintWithValue;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintWithValueAsDefault;
 
 class ConstraintTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +34,7 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
 
     public function testSetNotExistingPropertyThrowsException()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\InvalidOptionsException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\InvalidOptionsException');
 
         new ConstraintA(array(
             'foo' => 'bar',
@@ -45,14 +45,14 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
     {
         $constraint = new ConstraintA();
 
-        $this->setExpectedException('Symfony\Component\Validator\Exception\InvalidOptionsException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\InvalidOptionsException');
 
         $constraint->foo = 'bar';
     }
 
     public function testInvalidAndRequiredOptionsPassed()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\InvalidOptionsException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\InvalidOptionsException');
 
         new ConstraintC(array(
             'option1' => 'default',
@@ -100,14 +100,14 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
 
     public function testSetUndefinedDefaultProperty()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\ConstraintDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\ConstraintDefinitionException');
 
         new ConstraintB('foo');
     }
 
     public function testRequiredOptionsMustBeDefined()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\MissingOptionsException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\MissingOptionsException');
 
         new ConstraintC();
     }
@@ -200,7 +200,7 @@ class ConstraintTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Validator\Exception\InvalidArgumentException
      */
     public function testGetErrorNameForUnknownCode()
     {

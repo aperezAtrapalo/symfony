@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Util;
+namespace Makhan\Component\Config\Util;
 
 /**
  * XMLUtils is a bunch of utility methods to XML operations.
  *
  * This class contains static methods only and is not meant to be instantiated.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Martin Hasoň <martin.hason@gmail.com>
  */
 class XmlUtils

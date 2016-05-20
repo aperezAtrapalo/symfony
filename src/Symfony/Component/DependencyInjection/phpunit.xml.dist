@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony DependencyInjection Component Test Suite">
+        <testsuite name="Makhan DependencyInjection Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

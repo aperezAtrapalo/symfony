@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://symfony.com/schema/dic/services"
+<container xmlns="http://makhan.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
+        <service id="translator.default" class="Makhan\Bundle\FrameworkBundle\Translation\Translator">
             <argument type="service" id="service_container" />
             <argument type="service" id="translator.selector" />
             <argument type="collection" /> <!-- translation loaders -->
@@ -18,116 +18,116 @@
                 <argument type="service" id="config_cache_factory" />
             </call>
 
-            <autowiring-type>Symfony\Component\Translation\TranslatorInterface</autowiring-type>
+            <autowiring-type>Makhan\Component\Translation\TranslatorInterface</autowiring-type>
         </service>
 
-        <service id="translator.logging" class="Symfony\Component\Translation\LoggingTranslator" public="false">
+        <service id="translator.logging" class="Makhan\Component\Translation\LoggingTranslator" public="false">
             <argument type="service" id="translator.logging.inner" />
             <argument type="service" id="logger" />
             <tag name="monolog.logger" channel="translation" />
         </service>
 
-        <service id="translator" class="Symfony\Component\Translation\IdentityTranslator">
+        <service id="translator" class="Makhan\Component\Translation\IdentityTranslator">
             <argument type="service" id="translator.selector" />
         </service>
 
-        <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false" />
+        <service id="translator.selector" class="Makhan\Component\Translation\MessageSelector" public="false" />
 
-        <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
+        <service id="translation.loader.php" class="Makhan\Component\Translation\Loader\PhpFileLoader">
             <tag name="translation.loader" alias="php" />
         </service>
 
-        <service id="translation.loader.yml" class="Symfony\Component\Translation\Loader\YamlFileLoader">
+        <service id="translation.loader.yml" class="Makhan\Component\Translation\Loader\YamlFileLoader">
             <tag name="translation.loader" alias="yml" />
         </service>
 
-        <service id="translation.loader.xliff" class="Symfony\Component\Translation\Loader\XliffFileLoader">
+        <service id="translation.loader.xliff" class="Makhan\Component\Translation\Loader\XliffFileLoader">
             <tag name="translation.loader" alias="xlf" legacy-alias="xliff" />
         </service>
 
-        <service id="translation.loader.po" class="Symfony\Component\Translation\Loader\PoFileLoader">
+        <service id="translation.loader.po" class="Makhan\Component\Translation\Loader\PoFileLoader">
             <tag name="translation.loader" alias="po" />
         </service>
 
-        <service id="translation.loader.mo" class="Symfony\Component\Translation\Loader\MoFileLoader">
+        <service id="translation.loader.mo" class="Makhan\Component\Translation\Loader\MoFileLoader">
             <tag name="translation.loader" alias="mo" />
         </service>
 
-        <service id="translation.loader.qt" class="Symfony\Component\Translation\Loader\QtFileLoader">
+        <service id="translation.loader.qt" class="Makhan\Component\Translation\Loader\QtFileLoader">
             <tag name="translation.loader" alias="ts" />
         </service>
 
-        <service id="translation.loader.csv" class="Symfony\Component\Translation\Loader\CsvFileLoader">
+        <service id="translation.loader.csv" class="Makhan\Component\Translation\Loader\CsvFileLoader">
             <tag name="translation.loader" alias="csv" />
         </service>
 
-        <service id="translation.loader.res" class="Symfony\Component\Translation\Loader\IcuResFileLoader">
+        <service id="translation.loader.res" class="Makhan\Component\Translation\Loader\IcuResFileLoader">
             <tag name="translation.loader" alias="res" />
         </service>
 
-        <service id="translation.loader.dat" class="Symfony\Component\Translation\Loader\IcuDatFileLoader">
+        <service id="translation.loader.dat" class="Makhan\Component\Translation\Loader\IcuDatFileLoader">
             <tag name="translation.loader" alias="dat" />
         </service>
 
-        <service id="translation.loader.ini" class="Symfony\Component\Translation\Loader\IniFileLoader">
+        <service id="translation.loader.ini" class="Makhan\Component\Translation\Loader\IniFileLoader">
             <tag name="translation.loader" alias="ini" />
         </service>
 
-        <service id="translation.loader.json" class="Symfony\Component\Translation\Loader\JsonFileLoader">
+        <service id="translation.loader.json" class="Makhan\Component\Translation\Loader\JsonFileLoader">
             <tag name="translation.loader" alias="json" />
         </service>
 
-        <service id="translation.dumper.php" class="Symfony\Component\Translation\Dumper\PhpFileDumper">
+        <service id="translation.dumper.php" class="Makhan\Component\Translation\Dumper\PhpFileDumper">
             <tag name="translation.dumper" alias="php" />
         </service>
 
-        <service id="translation.dumper.xliff" class="Symfony\Component\Translation\Dumper\XliffFileDumper">
+        <service id="translation.dumper.xliff" class="Makhan\Component\Translation\Dumper\XliffFileDumper">
             <tag name="translation.dumper" alias="xlf" />
         </service>
 
-        <service id="translation.dumper.po" class="Symfony\Component\Translation\Dumper\PoFileDumper">
+        <service id="translation.dumper.po" class="Makhan\Component\Translation\Dumper\PoFileDumper">
             <tag name="translation.dumper" alias="po" />
         </service>
 
-        <service id="translation.dumper.mo" class="Symfony\Component\Translation\Dumper\MoFileDumper">
+        <service id="translation.dumper.mo" class="Makhan\Component\Translation\Dumper\MoFileDumper">
             <tag name="translation.dumper" alias="mo" />
         </service>
 
-        <service id="translation.dumper.yml" class="Symfony\Component\Translation\Dumper\YamlFileDumper">
+        <service id="translation.dumper.yml" class="Makhan\Component\Translation\Dumper\YamlFileDumper">
             <tag name="translation.dumper" alias="yml" />
         </service>
 
-        <service id="translation.dumper.qt" class="Symfony\Component\Translation\Dumper\QtFileDumper">
+        <service id="translation.dumper.qt" class="Makhan\Component\Translation\Dumper\QtFileDumper">
             <tag name="translation.dumper" alias="ts" />
         </service>
 
-        <service id="translation.dumper.csv" class="Symfony\Component\Translation\Dumper\CsvFileDumper">
+        <service id="translation.dumper.csv" class="Makhan\Component\Translation\Dumper\CsvFileDumper">
             <tag name="translation.dumper" alias="csv" />
         </service>
 
-        <service id="translation.dumper.ini" class="Symfony\Component\Translation\Dumper\IniFileDumper">
+        <service id="translation.dumper.ini" class="Makhan\Component\Translation\Dumper\IniFileDumper">
             <tag name="translation.dumper" alias="ini" />
         </service>
 
-        <service id="translation.dumper.json" class="Symfony\Component\Translation\Dumper\JsonFileDumper">
+        <service id="translation.dumper.json" class="Makhan\Component\Translation\Dumper\JsonFileDumper">
             <tag name="translation.dumper" alias="json" />
         </service>
 
-        <service id="translation.dumper.res" class="Symfony\Component\Translation\Dumper\IcuResFileDumper">
+        <service id="translation.dumper.res" class="Makhan\Component\Translation\Dumper\IcuResFileDumper">
             <tag name="translation.dumper" alias="res" />
         </service>
 
-        <service id="translation.extractor.php" class="Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor">
+        <service id="translation.extractor.php" class="Makhan\Bundle\FrameworkBundle\Translation\PhpExtractor">
             <tag name="translation.extractor" alias="php" />
         </service>
 
-        <service id="translation.loader" class="Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader"/>
+        <service id="translation.loader" class="Makhan\Bundle\FrameworkBundle\Translation\TranslationLoader"/>
 
-        <service id="translation.extractor" class="Symfony\Component\Translation\Extractor\ChainExtractor"/>
+        <service id="translation.extractor" class="Makhan\Component\Translation\Extractor\ChainExtractor"/>
 
-        <service id="translation.writer" class="Symfony\Component\Translation\Writer\TranslationWriter"/>
+        <service id="translation.writer" class="Makhan\Component\Translation\Writer\TranslationWriter"/>
 
-        <service id="translation.warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
+        <service id="translation.warmer" class="Makhan\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
             <argument type="service" id="translator" />
             <tag name="kernel.cache_warmer" />
         </service>

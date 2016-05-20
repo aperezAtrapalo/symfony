@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
-use Symfony\Component\Serializer\Tests\Fixtures\ScalarDummy;
-use Symfony\Component\Serializer\Normalizer\CustomNormalizer;
-use Symfony\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\Tests\Fixtures\ScalarDummy;
+use Makhan\Component\Serializer\Normalizer\CustomNormalizer;
+use Makhan\Component\Serializer\Serializer;
 
 class CustomNormalizerTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,9 +30,9 @@ class CustomNormalizerTest extends \PHPUnit_Framework_TestCase
 
     public function testInterface()
     {
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\SerializerAwareInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\SerializerAwareInterface', $this->normalizer);
     }
 
     public function testSerialize()
@@ -63,8 +63,8 @@ class CustomNormalizerTest extends \PHPUnit_Framework_TestCase
 
     public function testSupportsDenormalization()
     {
-        $this->assertTrue($this->normalizer->supportsDenormalization(array(), 'Symfony\Component\Serializer\Tests\Fixtures\ScalarDummy'));
+        $this->assertTrue($this->normalizer->supportsDenormalization(array(), 'Makhan\Component\Serializer\Tests\Fixtures\ScalarDummy'));
         $this->assertFalse($this->normalizer->supportsDenormalization(array(), 'stdClass'));
-        $this->assertTrue($this->normalizer->supportsDenormalization(array(), 'Symfony\Component\Serializer\Tests\Fixtures\DenormalizableDummy'));
+        $this->assertTrue($this->normalizer->supportsDenormalization(array(), 'Makhan\Component\Serializer\Tests\Fixtures\DenormalizableDummy'));
     }
 }

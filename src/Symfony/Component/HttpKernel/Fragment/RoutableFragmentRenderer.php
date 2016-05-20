@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Fragment;
+namespace Makhan\Component\HttpKernel\Fragment;
 
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\EventListener\FragmentListener;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\EventListener\FragmentListener;
 
 /**
  * Adds the possibility to generate a fragment URI for a given Controller.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class RoutableFragmentRenderer implements FragmentRendererInterface
 {

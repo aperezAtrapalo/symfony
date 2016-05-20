@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand;
 
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand\Fixture\TestAppKernel;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Component\Config\ConfigCacheFactory;
-use Symfony\Component\Config\Resource\ResourceInterface;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
+use Makhan\Bundle\FrameworkBundle\Console\Application;
+use Makhan\Bundle\FrameworkBundle\Tests\Command\CacheClearCommand\Fixture\TestAppKernel;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Component\Config\ConfigCacheFactory;
+use Makhan\Component\Config\Resource\ResourceInterface;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Output\NullOutput;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\Finder\Finder;
 
 class CacheClearCommandTest extends TestCase
 {

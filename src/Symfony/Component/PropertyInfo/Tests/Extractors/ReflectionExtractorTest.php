@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Tests\Extractor;
+namespace Makhan\Component\PropertyInfo\Tests\Extractor;
 
-use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -50,7 +50,7 @@ class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
                 'e',
                 'f',
             ),
-            $this->extractor->getProperties('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy')
+            $this->extractor->getProperties('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy')
         );
     }
 
@@ -59,14 +59,14 @@ class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
      */
     public function testExtractors($property, array $type = null)
     {
-        $this->assertEquals($type, $this->extractor->getTypes('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', $property, array()));
+        $this->assertEquals($type, $this->extractor->getTypes('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', $property, array()));
     }
 
     public function typesProvider()
     {
         return array(
             array('a', null),
-            array('b', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Symfony\Component\PropertyInfo\Tests\Fixtures\ParentDummy'))),
+            array('b', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Makhan\Component\PropertyInfo\Tests\Fixtures\ParentDummy'))),
             array('c', array(new Type(Type::BUILTIN_TYPE_BOOL))),
             array('d', array(new Type(Type::BUILTIN_TYPE_BOOL))),
             array('e', null),
@@ -81,7 +81,7 @@ class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
      */
     public function testExtractPhp7Type($property, array $type = null)
     {
-        $this->assertEquals($type, $this->extractor->getTypes('Symfony\Component\PropertyInfo\Tests\Fixtures\Php7Dummy', $property, array()));
+        $this->assertEquals($type, $this->extractor->getTypes('Makhan\Component\PropertyInfo\Tests\Fixtures\Php7Dummy', $property, array()));
     }
 
     public function php7TypesProvider()
@@ -96,27 +96,27 @@ class ReflectionExtractorTest extends \PHPUnit_Framework_TestCase
 
     public function testIsReadable()
     {
-        $this->assertFalse($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'bar', array()));
-        $this->assertFalse($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'baz', array()));
-        $this->assertTrue($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'parent', array()));
-        $this->assertTrue($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'a', array()));
-        $this->assertFalse($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'b', array()));
-        $this->assertTrue($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'c', array()));
-        $this->assertTrue($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'd', array()));
-        $this->assertFalse($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'e', array()));
-        $this->assertFalse($this->extractor->isReadable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'f', array()));
+        $this->assertFalse($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'bar', array()));
+        $this->assertFalse($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'baz', array()));
+        $this->assertTrue($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'parent', array()));
+        $this->assertTrue($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'a', array()));
+        $this->assertFalse($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'b', array()));
+        $this->assertTrue($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'c', array()));
+        $this->assertTrue($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'd', array()));
+        $this->assertFalse($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'e', array()));
+        $this->assertFalse($this->extractor->isReadable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'f', array()));
     }
 
     public function testIsWritable()
     {
-        $this->assertFalse($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'bar', array()));
-        $this->assertFalse($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'baz', array()));
-        $this->assertTrue($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'parent', array()));
-        $this->assertFalse($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'a', array()));
-        $this->assertTrue($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'b', array()));
-        $this->assertFalse($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'c', array()));
-        $this->assertFalse($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'd', array()));
-        $this->assertTrue($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'e', array()));
-        $this->assertTrue($this->extractor->isWritable('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', 'f', array()));
+        $this->assertFalse($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'bar', array()));
+        $this->assertFalse($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'baz', array()));
+        $this->assertTrue($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'parent', array()));
+        $this->assertFalse($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'a', array()));
+        $this->assertTrue($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'b', array()));
+        $this->assertFalse($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'c', array()));
+        $this->assertFalse($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'd', array()));
+        $this->assertTrue($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'e', array()));
+        $this->assertTrue($this->extractor->isWritable('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', 'f', array()));
     }
 }

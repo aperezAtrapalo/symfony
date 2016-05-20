@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug;
+namespace Makhan\Component\Debug;
 
 use Psr\Log\LogLevel;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Debug\Exception\ContextErrorException;
-use Symfony\Component\Debug\Exception\FatalErrorException;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
-use Symfony\Component\Debug\Exception\OutOfMemoryException;
-use Symfony\Component\Debug\FatalErrorHandler\UndefinedFunctionFatalErrorHandler;
-use Symfony\Component\Debug\FatalErrorHandler\UndefinedMethodFatalErrorHandler;
-use Symfony\Component\Debug\FatalErrorHandler\ClassNotFoundFatalErrorHandler;
-use Symfony\Component\Debug\FatalErrorHandler\FatalErrorHandlerInterface;
+use Makhan\Component\Debug\Exception\ContextErrorException;
+use Makhan\Component\Debug\Exception\FatalErrorException;
+use Makhan\Component\Debug\Exception\FatalThrowableError;
+use Makhan\Component\Debug\Exception\OutOfMemoryException;
+use Makhan\Component\Debug\FatalErrorHandler\UndefinedFunctionFatalErrorHandler;
+use Makhan\Component\Debug\FatalErrorHandler\UndefinedMethodFatalErrorHandler;
+use Makhan\Component\Debug\FatalErrorHandler\ClassNotFoundFatalErrorHandler;
+use Makhan\Component\Debug\FatalErrorHandler\FatalErrorHandlerInterface;
 
 /**
  * A generic ErrorHandler for the PHP engine.

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Fixtures;
+namespace Makhan\Component\Form\Tests\Fixtures;
 
-use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Component\Form\FormTypeExtensionInterface;
-use Symfony\Component\Form\FormTypeGuesserInterface;
-use Symfony\Component\Form\FormExtensionInterface;
+use Makhan\Component\Form\FormTypeInterface;
+use Makhan\Component\Form\FormTypeExtensionInterface;
+use Makhan\Component\Form\FormTypeGuesserInterface;
+use Makhan\Component\Form\FormExtensionInterface;
 
 class TestExtension implements FormExtensionInterface
 {

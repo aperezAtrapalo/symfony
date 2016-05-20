@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Serializer\Normalizer\DataUriNormalizer;
+use Makhan\Component\HttpFoundation\File\File;
+use Makhan\Component\Serializer\Normalizer\DataUriNormalizer;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -35,8 +35,8 @@ class DataUriNormalizerTest extends \PHPUnit_Framework_TestCase
 
     public function testInterface()
     {
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
     }
 
     public function testSupportNormalization()
@@ -83,7 +83,7 @@ class DataUriNormalizerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->normalizer->supportsDenormalization('foo', 'Bar'));
         $this->assertTrue($this->normalizer->supportsDenormalization(self::TEST_GIF_DATA, 'SplFileInfo'));
         $this->assertTrue($this->normalizer->supportsDenormalization(self::TEST_GIF_DATA, 'SplFileObject'));
-        $this->assertTrue($this->normalizer->supportsDenormalization(self::TEST_TXT_DATA, 'Symfony\Component\HttpFoundation\File\File'));
+        $this->assertTrue($this->normalizer->supportsDenormalization(self::TEST_TXT_DATA, 'Makhan\Component\HttpFoundation\File\File'));
     }
 
     public function testDenormalizeSplFileInfo()
@@ -104,14 +104,14 @@ class DataUriNormalizerTest extends \PHPUnit_Framework_TestCase
 
     public function testDenormalizeHttpFoundationFile()
     {
-        $file = $this->normalizer->denormalize(self::TEST_GIF_DATA, 'Symfony\Component\HttpFoundation\File\File');
+        $file = $this->normalizer->denormalize(self::TEST_GIF_DATA, 'Makhan\Component\HttpFoundation\File\File');
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\File\File', $file);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\File\File', $file);
         $this->assertSame(file_get_contents(self::TEST_GIF_DATA), $this->getContent($file->openFile()));
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      * @expectedExceptionMessage The provided "data:" URI is not valid.
      */
     public function testGiveNotAccessToLocalFiles()
@@ -120,7 +120,7 @@ class DataUriNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      * @dataProvider invalidUriProvider
      */
     public function testInvalidData($uri)

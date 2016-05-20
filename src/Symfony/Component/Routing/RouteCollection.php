@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing;
+namespace Makhan\Component\Routing;
 
-use Symfony\Component\Config\Resource\ResourceInterface;
+use Makhan\Component\Config\Resource\ResourceInterface;
 
 /**
  * A RouteCollection represents a set of Route instances.
@@ -20,7 +20,7 @@ use Symfony\Component\Config\Resource\ResourceInterface;
  * with the same name is removed first. So there can only be one route
  * with a given name.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 class RouteCollection implements \IteratorAggregate, \Countable

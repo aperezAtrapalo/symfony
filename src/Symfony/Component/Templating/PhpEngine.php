@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+namespace Makhan\Component\Templating;
 
-use Symfony\Component\Templating\Storage\Storage;
-use Symfony\Component\Templating\Storage\FileStorage;
-use Symfony\Component\Templating\Storage\StringStorage;
-use Symfony\Component\Templating\Helper\HelperInterface;
-use Symfony\Component\Templating\Loader\LoaderInterface;
+use Makhan\Component\Templating\Storage\Storage;
+use Makhan\Component\Templating\Storage\FileStorage;
+use Makhan\Component\Templating\Storage\StringStorage;
+use Makhan\Component\Templating\Helper\HelperInterface;
+use Makhan\Component\Templating\Loader\LoaderInterface;
 
 /**
  * PhpEngine is an engine able to render PHP templates.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class PhpEngine implements EngineInterface, \ArrayAccess
 {

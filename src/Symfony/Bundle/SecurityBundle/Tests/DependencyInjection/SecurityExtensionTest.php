@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
-use Symfony\Bundle\SecurityBundle\SecurityBundle;
-use Symfony\Bundle\SecurityBundle\Tests\DependencyInjection\Fixtures\UserProvider\DummyProvider;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
+use Makhan\Bundle\SecurityBundle\SecurityBundle;
+use Makhan\Bundle\SecurityBundle\Tests\DependencyInjection\Fixtures\UserProvider\DummyProvider;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class SecurityExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage The check_path "/some_area/login_check" for login method "form_login" is not matched by the firewall pattern "/secured_area/.*".
      */
     public function testInvalidCheckPath()
@@ -45,7 +45,7 @@ class SecurityExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage No authentication listener registered for firewall "some_firewall"
      */
     public function testFirewallWithoutAuthenticationListener()
@@ -68,7 +68,7 @@ class SecurityExtensionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      * @expectedExceptionMessage Unable to create definition for "security.user.provider.concrete.my_foo" user provider
      */
     public function testFirewallWithInvalidUserProvider()

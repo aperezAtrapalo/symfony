@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\Loader;
+namespace Makhan\Component\Translation\Tests\Loader;
 
-use Symfony\Component\Translation\Loader\IcuDatFileLoader;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Translation\Loader\IcuDatFileLoader;
+use Makhan\Component\Config\Resource\FileResource;
 
 /**
  * @requires extension intl
@@ -20,7 +20,7 @@ use Symfony\Component\Config\Resource\FileResource;
 class IcuDatFileLoaderTest extends LocalizedTestCase
 {
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\InvalidResourceException
      */
     public function testLoadInvalidResource()
     {
@@ -37,7 +37,7 @@ class IcuDatFileLoaderTest extends LocalizedTestCase
         $resource = __DIR__.'/../fixtures/resourcebundle/dat/resources';
         $catalogue = $loader->load($resource, 'en', 'domain1');
 
-        $this->assertEquals(array('symfony' => 'Symfony 2 is great'), $catalogue->all('domain1'));
+        $this->assertEquals(array('makhan' => 'Makhan 2 is great'), $catalogue->all('domain1'));
         $this->assertEquals('en', $catalogue->getLocale());
         $this->assertEquals(array(new FileResource($resource.'.dat')), $catalogue->getResources());
     }
@@ -48,13 +48,13 @@ class IcuDatFileLoaderTest extends LocalizedTestCase
         $resource = __DIR__.'/../fixtures/resourcebundle/dat/resources';
         $catalogue = $loader->load($resource, 'fr', 'domain1');
 
-        $this->assertEquals(array('symfony' => 'Symfony 2 est génial'), $catalogue->all('domain1'));
+        $this->assertEquals(array('makhan' => 'Makhan 2 est génial'), $catalogue->all('domain1'));
         $this->assertEquals('fr', $catalogue->getLocale());
         $this->assertEquals(array(new FileResource($resource.'.dat')), $catalogue->getResources());
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\NotFoundResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\NotFoundResourceException
      */
     public function testLoadNonExistingResource()
     {

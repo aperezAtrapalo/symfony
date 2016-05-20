@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap;
+namespace Makhan\Component\Ldap;
 
-use Symfony\Component\Ldap\Adapter\AdapterInterface;
-use Symfony\Component\Ldap\Exception\DriverNotFoundException;
+use Makhan\Component\Ldap\Adapter\AdapterInterface;
+use Makhan\Component\Ldap\Exception\DriverNotFoundException;
 
 /**
  * @author Charles Sarrazin <charles@sarraz.in>
@@ -22,7 +22,7 @@ final class Ldap implements LdapInterface
     private $adapter;
 
     private static $adapterMap = array(
-        'ext_ldap' => 'Symfony\Component\Ldap\Adapter\ExtLdap\Adapter',
+        'ext_ldap' => 'Makhan\Component\Ldap\Adapter\ExtLdap\Adapter',
     );
 
     public function __construct(AdapterInterface $adapter)

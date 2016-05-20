@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\BadMethodCallException;
-use Symfony\Component\Form\Exception\InvalidArgumentException;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\PropertyAccess\PropertyPathInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\EventDispatcher\ImmutableEventDispatcher;
+use Makhan\Component\Form\Exception\BadMethodCallException;
+use Makhan\Component\Form\Exception\InvalidArgumentException;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\PropertyAccess\PropertyPathInterface;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\EventDispatcher\ImmutableEventDispatcher;
 
 /**
  * A basic form configuration.

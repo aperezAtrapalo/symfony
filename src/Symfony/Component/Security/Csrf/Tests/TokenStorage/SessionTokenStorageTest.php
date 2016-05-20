@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Csrf\Tests\TokenStorage;
+namespace Makhan\Component\Security\Csrf\Tests\TokenStorage;
 
-use Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage;
+use Makhan\Component\Security\Csrf\TokenStorage\SessionTokenStorage;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -32,7 +32,7 @@ class SessionTokenStorageTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->session = $this->getMockBuilder('Symfony\Component\HttpFoundation\Session\SessionInterface')
+        $this->session = $this->getMockBuilder('Makhan\Component\HttpFoundation\Session\SessionInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $this->storage = new SessionTokenStorage($this->session, self::SESSION_NAMESPACE);
@@ -149,7 +149,7 @@ class SessionTokenStorageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Csrf\Exception\TokenNotFoundException
+     * @expectedException \Makhan\Component\Security\Csrf\Exception\TokenNotFoundException
      */
     public function testGetNonExistingTokenFromClosedSession()
     {
@@ -169,7 +169,7 @@ class SessionTokenStorageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Csrf\Exception\TokenNotFoundException
+     * @expectedException \Makhan\Component\Security\Csrf\Exception\TokenNotFoundException
      */
     public function testGetNonExistingTokenFromActiveSession()
     {

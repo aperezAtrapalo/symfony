@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\ParameterBag;
+namespace Makhan\Component\DependencyInjection\Tests\ParameterBag;
 
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
-use Symfony\Component\DependencyInjection\Exception\ParameterCircularReferenceException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException;
+use Makhan\Component\DependencyInjection\Exception\ParameterCircularReferenceException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
 
 class ParameterBagTest extends \PHPUnit_Framework_TestCase
 {
@@ -64,10 +64,10 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
 
         try {
             $bag->get('baba');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent parameter "baba".', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent parameter "baba".', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
         }
     }
 
@@ -81,26 +81,26 @@ class ParameterBagTest extends \PHPUnit_Framework_TestCase
 
         try {
             $bag->get('foo1');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent parameter "foo1". Did you mean this: "foo"?', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent parameter "foo1". Did you mean this: "foo"?', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
         }
 
         try {
             $bag->get('bag');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent parameter "bag". Did you mean one of these: "bar", "baz"?', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent parameter "bag". Did you mean one of these: "bar", "baz"?', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
         }
 
         try {
             $bag->get('');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent parameter "".', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent parameter "".', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException with some advices');
         }
     }
 

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Makhan\Component\DependencyInjection\Reference;
 
 /**
  * @author Abdellatif Ait boudad <a.aitboudad@gmail.com>
@@ -26,8 +26,8 @@ class LoggingTranslatorPass implements CompilerPassInterface
             return;
         }
 
-        // skip if the symfony/translation version is lower than 2.6
-        if (!interface_exists('Symfony\Component\Translation\TranslatorBagInterface')) {
+        // skip if the makhan/translation version is lower than 2.6
+        if (!interface_exists('Makhan\Component\Translation\TranslatorBagInterface')) {
             return;
         }
 
@@ -36,7 +36,7 @@ class LoggingTranslatorPass implements CompilerPassInterface
             $definition = $container->getDefinition((string) $translatorAlias);
             $class = $container->getParameterBag()->resolveValue($definition->getClass());
 
-            if (is_subclass_of($class, 'Symfony\Component\Translation\TranslatorInterface') && is_subclass_of($class, 'Symfony\Component\Translation\TranslatorBagInterface')) {
+            if (is_subclass_of($class, 'Makhan\Component\Translation\TranslatorInterface') && is_subclass_of($class, 'Makhan\Component\Translation\TranslatorBagInterface')) {
                 $container->getDefinition('translator.logging')->setDecoratedService('translator');
                 $container->getDefinition('translation.warmer')->replaceArgument(0, new Reference('translator.logging.inner'));
             }

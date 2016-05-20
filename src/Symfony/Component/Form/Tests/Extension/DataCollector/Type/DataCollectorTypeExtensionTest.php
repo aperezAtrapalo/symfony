@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\DataCollector\Type;
+namespace Makhan\Component\Form\Tests\Extension\DataCollector\Type;
 
-use Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension;
+use Makhan\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension;
 
 class DataCollectorTypeExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,21 +27,21 @@ class DataCollectorTypeExtensionTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dataCollector = $this->getMock('Symfony\Component\Form\Extension\DataCollector\FormDataCollectorInterface');
+        $this->dataCollector = $this->getMock('Makhan\Component\Form\Extension\DataCollector\FormDataCollectorInterface');
         $this->extension = new DataCollectorTypeExtension($this->dataCollector);
     }
 
     public function testGetExtendedType()
     {
-        $this->assertEquals('Symfony\Component\Form\Extension\Core\Type\FormType', $this->extension->getExtendedType());
+        $this->assertEquals('Makhan\Component\Form\Extension\Core\Type\FormType', $this->extension->getExtendedType());
     }
 
     public function testBuildForm()
     {
-        $builder = $this->getMock('Symfony\Component\Form\Test\FormBuilderInterface');
+        $builder = $this->getMock('Makhan\Component\Form\Test\FormBuilderInterface');
         $builder->expects($this->atLeastOnce())
             ->method('addEventSubscriber')
-            ->with($this->isInstanceOf('Symfony\Component\Form\Extension\DataCollector\EventListener\DataCollectorListener'));
+            ->with($this->isInstanceOf('Makhan\Component\Form\Extension\DataCollector\EventListener\DataCollectorListener'));
 
         $this->extension->buildForm($builder, array());
     }

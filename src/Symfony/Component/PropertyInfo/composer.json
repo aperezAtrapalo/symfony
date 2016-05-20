@@ -1,16 +1,16 @@
 {
-    "name": "symfony/property-info",
+    "name": "makhan/property-info",
     "type": "library",
-    "description": "Symfony Property Info Component",
+    "description": "Makhan Property Info Component",
     "keywords": [
         "property",
         "type",
         "PHPDoc",
-        "symfony",
+        "makhan",
         "validator",
         "doctrine"
     ],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
@@ -18,16 +18,16 @@
             "email": "dunglas@gmail.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "require-dev": {
-        "symfony/serializer": "~2.8|~3.0",
-        "symfony/cache": "~3.1",
+        "makhan/serializer": "~2.8|~3.0",
+        "makhan/cache": "~3.1",
         "phpdocumentor/reflection-docblock": "^3.0",
         "doctrine/annotations": "~1.0"
     },
@@ -36,12 +36,12 @@
     },
     "suggest": {
         "psr/cache-implementation": "To cache results",
-        "symfony/doctrine-bridge": "To use Doctrine metadata",
+        "makhan/doctrine-bridge": "To use Doctrine metadata",
         "phpdocumentor/reflection-docblock": "To use the PHPDoc",
-        "symfony/serializer": "To use Serializer metadata"
+        "makhan/serializer": "To use Serializer metadata"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\PropertyInfo\\": "" },
+        "psr-4": { "Makhan\\Component\\PropertyInfo\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

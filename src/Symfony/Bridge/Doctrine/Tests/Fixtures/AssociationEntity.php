@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Fixtures;
+namespace Makhan\Bridge\Doctrine\Tests\Fixtures;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,7 +28,7 @@ class AssociationEntity
     /**
      * @ORM\ManyToOne(targetEntity="SingleIntIdEntity")
      *
-     * @var \Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity
+     * @var \Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity
      */
     public $single;
 
@@ -39,7 +39,7 @@ class AssociationEntity
      *  @ORM\JoinColumn(name="composite_id2", referencedColumnName="id2")
      * })
      *
-     * @var \Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity
+     * @var \Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity
      */
     public $composite;
 }

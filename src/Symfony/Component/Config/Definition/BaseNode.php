@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Definition;
+namespace Makhan\Component\Config\Definition;
 
-use Symfony\Component\Config\Definition\Exception\Exception;
-use Symfony\Component\Config\Definition\Exception\ForbiddenOverwriteException;
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
+use Makhan\Component\Config\Definition\Exception\Exception;
+use Makhan\Component\Config\Definition\Exception\ForbiddenOverwriteException;
+use Makhan\Component\Config\Definition\Exception\InvalidConfigurationException;
+use Makhan\Component\Config\Definition\Exception\InvalidTypeException;
 
 /**
  * The base node class.

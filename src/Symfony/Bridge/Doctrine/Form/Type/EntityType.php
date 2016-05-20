@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Form\Type;
+namespace Makhan\Bridge\Doctrine\Form\Type;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\ORM\QueryBuilder;
-use Symfony\Bridge\Doctrine\Form\ChoiceList\ORMQueryBuilderLoader;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Bridge\Doctrine\Form\ChoiceList\ORMQueryBuilderLoader;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 class EntityType extends DoctrineType
 {

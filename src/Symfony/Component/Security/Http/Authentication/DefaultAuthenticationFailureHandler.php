@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Authentication;
+namespace Makhan\Component\Security\Http\Authentication;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\Security\Http\ParameterBagUtils;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Core\Security;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\Security\Http\ParameterBagUtils;
 
 /**
  * Class with the default authentication failure handling logic.
@@ -25,7 +25,7 @@ use Symfony\Component\Security\Http\ParameterBagUtils;
  * Can be optionally be extended from by the developer to alter the behaviour
  * while keeping the default behaviour.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  * @author Alexander <iam.asm89@gmail.com>
  */

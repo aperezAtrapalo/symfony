@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\Route;
 
 $collection = new RouteCollection();
 $collection->add('blog_show', new Route(

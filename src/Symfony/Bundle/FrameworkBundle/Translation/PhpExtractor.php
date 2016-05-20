@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Translation;
+namespace Makhan\Bundle\FrameworkBundle\Translation;
 
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Translation\Extractor\AbstractFileExtractor;
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Extractor\ExtractorInterface;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\Translation\Extractor\AbstractFileExtractor;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Extractor\ExtractorInterface;
 
 /**
  * PhpExtractor extracts translation messages from a PHP template.

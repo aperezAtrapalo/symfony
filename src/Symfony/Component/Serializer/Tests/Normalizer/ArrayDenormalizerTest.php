@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
-use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
-use Symfony\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Makhan\Component\Serializer\SerializerInterface;
 
 class ArrayDenormalizerTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +28,7 @@ class ArrayDenormalizerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->serializer = $this->getMock('Symfony\Component\Serializer\Serializer');
+        $this->serializer = $this->getMock('Makhan\Component\Serializer\Serializer');
         $this->denormalizer = new ArrayDenormalizer();
         $this->denormalizer->setSerializer($this->serializer);
     }

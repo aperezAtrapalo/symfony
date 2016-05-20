@@ -1,11 +1,11 @@
 <?php
 
-namespace Symfony\Component\Form\Tests\Fixtures;
+namespace Makhan\Component\Form\Tests\Fixtures;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\FormEvents;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\FormBuilderInterface;
 
 class AlternatingRowType extends AbstractType
 {
@@ -16,8 +16,8 @@ class AlternatingRowType extends AbstractType
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($formFactory) {
             $form = $event->getForm();
             $type = $form->getName() % 2 === 0
-                ? 'Symfony\Component\Form\Extension\Core\Type\TextType'
-                : 'Symfony\Component\Form\Extension\Core\Type\TextareaType';
+                ? 'Makhan\Component\Form\Extension\Core\Type\TextType'
+                : 'Makhan\Component\Form\Extension\Core\Type\TextareaType';
             $form->add('title', $type);
         });
     }

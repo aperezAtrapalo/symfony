@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Node;
+namespace Makhan\Bridge\Twig\Node;
 
 /**
  * @author Julien Galenski <julien.galenski@gmail.com>
@@ -49,17 +49,17 @@ class DumpNode extends \Twig_Node
                 ->outdent()
                 ->write("}\n")
                 ->addDebugInfo($this)
-                ->write(sprintf('\Symfony\Component\VarDumper\VarDumper::dump($%svars);'."\n", $this->varPrefix));
+                ->write(sprintf('\Makhan\Component\VarDumper\VarDumper::dump($%svars);'."\n", $this->varPrefix));
         } elseif (1 === $values->count()) {
             $compiler
                 ->addDebugInfo($this)
-                ->write('\Symfony\Component\VarDumper\VarDumper::dump(')
+                ->write('\Makhan\Component\VarDumper\VarDumper::dump(')
                 ->subcompile($values->getNode(0))
                 ->raw(");\n");
         } else {
             $compiler
                 ->addDebugInfo($this)
-                ->write('\Symfony\Component\VarDumper\VarDumper::dump(array('."\n")
+                ->write('\Makhan\Component\VarDumper\VarDumper::dump(array('."\n")
                 ->indent();
             foreach ($values as $node) {
                 $compiler->addIndentation();

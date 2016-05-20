@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormRegistry;
-use Symfony\Component\Form\FormTypeGuesserChain;
-use Symfony\Component\Form\ResolvedFormType;
-use Symfony\Component\Form\ResolvedFormTypeFactoryInterface;
-use Symfony\Component\Form\Tests\Fixtures\FooSubType;
-use Symfony\Component\Form\Tests\Fixtures\FooType;
-use Symfony\Component\Form\Tests\Fixtures\FooTypeBarExtension;
-use Symfony\Component\Form\Tests\Fixtures\FooTypeBazExtension;
-use Symfony\Component\Form\Tests\Fixtures\TestExtension;
+use Makhan\Component\Form\FormRegistry;
+use Makhan\Component\Form\FormTypeGuesserChain;
+use Makhan\Component\Form\ResolvedFormType;
+use Makhan\Component\Form\ResolvedFormTypeFactoryInterface;
+use Makhan\Component\Form\Tests\Fixtures\FooSubType;
+use Makhan\Component\Form\Tests\Fixtures\FooType;
+use Makhan\Component\Form\Tests\Fixtures\FooTypeBarExtension;
+use Makhan\Component\Form\Tests\Fixtures\FooTypeBazExtension;
+use Makhan\Component\Form\Tests\Fixtures\TestExtension;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -58,9 +58,9 @@ class FormRegistryTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->resolvedTypeFactory = $this->getMock('Symfony\Component\Form\ResolvedFormTypeFactory');
-        $this->guesser1 = $this->getMock('Symfony\Component\Form\FormTypeGuesserInterface');
-        $this->guesser2 = $this->getMock('Symfony\Component\Form\FormTypeGuesserInterface');
+        $this->resolvedTypeFactory = $this->getMock('Makhan\Component\Form\ResolvedFormTypeFactory');
+        $this->guesser1 = $this->getMock('Makhan\Component\Form\FormTypeGuesserInterface');
+        $this->guesser2 = $this->getMock('Makhan\Component\Form\FormTypeGuesserInterface');
         $this->extension1 = new TestExtension($this->guesser1);
         $this->extension2 = new TestExtension($this->guesser2);
         $this->registry = new FormRegistry(array(
@@ -94,19 +94,19 @@ class FormRegistryTest extends \PHPUnit_Framework_TestCase
             ->with($type)
             ->willReturn($resolvedType);
 
-        $this->assertSame($resolvedType, $this->registry->getType('Symfony\Component\Form\Tests\Fixtures\FooType'));
+        $this->assertSame($resolvedType, $this->registry->getType('Makhan\Component\Form\Tests\Fixtures\FooType'));
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Form\Exception\InvalidArgumentException
      */
     public function testFailIfUnregisteredTypeNoClass()
     {
-        $this->registry->getType('Symfony\Blubb');
+        $this->registry->getType('Makhan\Blubb');
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Form\Exception\InvalidArgumentException
      */
     public function testFailIfUnregisteredTypeNoFormType()
     {
@@ -156,7 +156,7 @@ class FormRegistryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Form\Exception\InvalidArgumentException
      */
     public function testGetTypeThrowsExceptionIfTypeNotFound()
     {
@@ -180,12 +180,12 @@ class FormRegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testHasTypeIfFQCN()
     {
-        $this->assertTrue($this->registry->hasType('Symfony\Component\Form\Tests\Fixtures\FooType'));
+        $this->assertTrue($this->registry->hasType('Makhan\Component\Form\Tests\Fixtures\FooType'));
     }
 
     public function testDoesNotHaveTypeIfNonExistingClass()
     {
-        $this->assertFalse($this->registry->hasType('Symfony\Blubb'));
+        $this->assertFalse($this->registry->hasType('Makhan\Blubb'));
     }
 
     public function testDoesNotHaveTypeIfNoFormType()
@@ -200,7 +200,7 @@ class FormRegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedGuesser, $this->registry->getTypeGuesser());
 
         $registry = new FormRegistry(
-            array($this->getMock('Symfony\Component\Form\FormExtensionInterface')),
+            array($this->getMock('Makhan\Component\Form\FormExtensionInterface')),
             $this->resolvedTypeFactory
         );
 

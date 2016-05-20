@@ -1,33 +1,33 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests;
+namespace Makhan\Component\DependencyInjection\Tests;
 
 require_once __DIR__.'/Fixtures/includes/classes.php';
 require_once __DIR__.'/Fixtures/includes/ProjectExtension.php';
 
-use Symfony\Component\Config\Resource\ResourceInterface;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\DependencyInjection\Exception\InactiveScopeException;
-use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
-use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\Config\Resource\ResourceInterface;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\DependencyInjection\Exception\InactiveScopeException;
+use Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException;
+use Makhan\Component\DependencyInjection\Loader\ClosureLoader;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -89,7 +89,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
         $builder = new ContainerBuilder();
         $builder->register('foo', 'Bar\FooClass');
         $this->assertTrue($builder->hasDefinition('foo'), '->register() registers a new service definition');
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Definition', $builder->getDefinition('foo'), '->register() returns the newly created Definition instance');
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\Definition', $builder->getDefinition('foo'), '->register() returns the newly created Definition instance');
     }
 
     public function testHas()
@@ -125,7 +125,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
         try {
             @$builder->get('baz');
             $this->fail('->get() throws a ServiceCircularReferenceException if the service has a circular reference to itself');
-        } catch (\Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException $e) {
+        } catch (\Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException $e) {
             $this->assertEquals('Circular reference detected for service "baz", path: "baz".', $e->getMessage(), '->get() throws a LogicException if the service has a circular reference to itself');
         }
 
@@ -141,7 +141,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException        \Makhan\Component\DependencyInjection\Exception\RuntimeException
      * @expectedExceptionMessage You have requested a synthetic service ("foo"). The DIC does not know how to construct this service.
      */
     public function testGetUnsetLoadingServiceWhenCreateServiceThrowsAnException()
@@ -252,7 +252,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
         $builder = new ContainerBuilder();
         $builder->setResourceTracking(false);
         $builderCompilerPasses = $builder->getCompiler()->getPassConfig()->getPasses();
-        $builder->addCompilerPass($this->getMock('Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface'));
+        $builder->addCompilerPass($this->getMock('Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface'));
 
         $this->assertCount(count($builder->getCompiler()->getPassConfig()->getPasses()) - 1, $builderCompilerPasses);
     }
@@ -502,10 +502,10 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(1, $resources, '1 resource was registered');
 
-        /* @var $resource \Symfony\Component\Config\Resource\FileResource */
+        /* @var $resource \Makhan\Component\Config\Resource\FileResource */
         $resource = end($resources);
 
-        $this->assertInstanceOf('Symfony\Component\Config\Resource\FileResource', $resource);
+        $this->assertInstanceOf('Makhan\Component\Config\Resource\FileResource', $resource);
         $this->assertSame(realpath(__DIR__.'/Fixtures/includes/classes.php'), realpath($resource->getResource()));
     }
 
@@ -525,10 +525,10 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(1, $resources, '1 resource was registered');
 
-        /* @var $resource \Symfony\Component\Config\Resource\FileResource */
+        /* @var $resource \Makhan\Component\Config\Resource\FileResource */
         $resource = end($resources);
 
-        $this->assertInstanceOf('Symfony\Component\Config\Resource\FileResource', $resource);
+        $this->assertInstanceOf('Makhan\Component\Config\Resource\FileResource', $resource);
         $this->assertSame(realpath(__DIR__.'/Fixtures/includes/classes.php'), realpath($resource->getResource()));
     }
 
@@ -584,7 +584,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testRegisteredButNotLoadedExtension()
     {
-        $extension = $this->getMock('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
+        $extension = $this->getMock('Makhan\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
         $extension->expects($this->once())->method('getAlias')->will($this->returnValue('project'));
         $extension->expects($this->never())->method('load');
 
@@ -596,7 +596,7 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testRegisteredAndLoadedExtension()
     {
-        $extension = $this->getMock('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
+        $extension = $this->getMock('Makhan\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
         $extension->expects($this->exactly(2))->method('getAlias')->will($this->returnValue('project'));
         $extension->expects($this->once())->method('load')->with(array(array('foo' => 'bar')));
 

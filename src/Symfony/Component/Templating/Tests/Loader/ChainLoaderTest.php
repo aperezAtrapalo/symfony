@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests\Loader;
+namespace Makhan\Component\Templating\Tests\Loader;
 
-use Symfony\Component\Templating\Loader\ChainLoader;
-use Symfony\Component\Templating\Loader\FilesystemLoader;
-use Symfony\Component\Templating\TemplateReference;
+use Makhan\Component\Templating\Loader\ChainLoader;
+use Makhan\Component\Templating\Loader\FilesystemLoader;
+use Makhan\Component\Templating\TemplateReference;
 
 class ChainLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -46,7 +46,7 @@ class ChainLoaderTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($loader->load(new TemplateReference('bar', 'php')), '->load() returns false if the template is not found');
         $this->assertFalse($loader->load(new TemplateReference('foo', 'php')), '->load() returns false if the template does not exist for the given renderer');
         $this->assertInstanceOf(
-            'Symfony\Component\Templating\Storage\FileStorage',
+            'Makhan\Component\Templating\Storage\FileStorage',
             $loader->load(new TemplateReference('foo.php', 'php')),
             '->load() returns a FileStorage if the template exists'
         );

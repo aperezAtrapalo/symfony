@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DataCollector;
+namespace Makhan\Component\HttpKernel\Tests\DataCollector;
 
-use Symfony\Component\HttpKernel\DataCollector\DumpDataCollector;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\VarDumper\Cloner\Data;
+use Makhan\Component\HttpKernel\DataCollector\DumpDataCollector;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\VarDumper\Cloner\Data;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -50,7 +50,7 @@ class DumpDataCollectorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($xDump, $dump);
 
         $this->assertStringMatchesFormat(
-            'a:1:{i:0;a:5:{s:4:"data";O:39:"Symfony\Component\VarDumper\Cloner\Data":4:{s:45:"Symfony\Component\VarDumper\Cloner\Datadata";a:1:{i:0;a:1:{i:0;i:123;}}s:49:"Symfony\Component\VarDumper\Cloner\DatamaxDepth";i:%i;s:57:"Symfony\Component\VarDumper\Cloner\DatamaxItemsPerDepth";i:%i;s:54:"Symfony\Component\VarDumper\Cloner\DatauseRefHandles";i:%i;}s:4:"name";s:25:"DumpDataCollectorTest.php";s:4:"file";s:%a',
+            'a:1:{i:0;a:5:{s:4:"data";O:39:"Makhan\Component\VarDumper\Cloner\Data":4:{s:45:"Makhan\Component\VarDumper\Cloner\Datadata";a:1:{i:0;a:1:{i:0;i:123;}}s:49:"Makhan\Component\VarDumper\Cloner\DatamaxDepth";i:%i;s:57:"Makhan\Component\VarDumper\Cloner\DatamaxItemsPerDepth";i:%i;s:54:"Makhan\Component\VarDumper\Cloner\DatauseRefHandles";i:%i;}s:4:"name";s:25:"DumpDataCollectorTest.php";s:4:"file";s:%a',
             str_replace("\0", '', $collector->serialize())
         );
 

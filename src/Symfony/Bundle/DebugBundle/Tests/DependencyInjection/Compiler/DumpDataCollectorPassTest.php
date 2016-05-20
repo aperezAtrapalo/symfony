@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\DebugBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\DebugBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Bundle\DebugBundle\DependencyInjection\Compiler\DumpDataCollectorPass;
-use Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\HttpFoundation\RequestStack;
+use Makhan\Bundle\DebugBundle\DependencyInjection\Compiler\DumpDataCollectorPass;
+use Makhan\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\HttpFoundation\RequestStack;
 
 class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,7 +25,7 @@ class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
         $container->addCompilerPass(new DumpDataCollectorPass());
         $container->setParameter('templating.helper.code.file_link_format', 'file-link-format');
 
-        $definition = new Definition('Symfony\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, null));
+        $definition = new Definition('Makhan\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, null));
         $container->setDefinition('data_collector.dump', $definition);
 
         $container->compile();
@@ -38,7 +38,7 @@ class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $container->addCompilerPass(new DumpDataCollectorPass());
 
-        $definition = new Definition('Symfony\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, null));
+        $definition = new Definition('Makhan\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, null));
         $container->setDefinition('data_collector.dump', $definition);
 
         $container->compile();
@@ -52,7 +52,7 @@ class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
         $container->addCompilerPass(new DumpDataCollectorPass());
         $requestStack = new RequestStack();
 
-        $definition = new Definition('Symfony\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, $requestStack));
+        $definition = new Definition('Makhan\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, $requestStack));
         $container->setDefinition('data_collector.dump', $definition);
         $container->setParameter('web_profiler.debug_toolbar.mode', WebDebugToolbarListener::ENABLED);
 
@@ -66,7 +66,7 @@ class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $container->addCompilerPass(new DumpDataCollectorPass());
 
-        $definition = new Definition('Symfony\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, new RequestStack()));
+        $definition = new Definition('Makhan\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, new RequestStack()));
         $container->setDefinition('data_collector.dump', $definition);
         $container->setParameter('web_profiler.debug_toolbar.mode', WebDebugToolbarListener::DISABLED);
 
@@ -80,7 +80,7 @@ class DumpDataCollectorPassTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $container->addCompilerPass(new DumpDataCollectorPass());
 
-        $definition = new Definition('Symfony\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, new RequestStack()));
+        $definition = new Definition('Makhan\Component\HttpKernel\DataCollector\DumpDataCollector', array(null, null, null, new RequestStack()));
         $container->setDefinition('data_collector.dump', $definition);
 
         $container->compile();

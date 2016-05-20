@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Tests\Fixtures;
+namespace Makhan\Component\PropertyInfo\Tests\Fixtures;
 
-use Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface;
-use Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface;
-use Symfony\Component\PropertyInfo\PropertyListExtractorInterface;
-use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\PropertyAccessExtractorInterface;
+use Makhan\Component\PropertyInfo\PropertyDescriptionExtractorInterface;
+use Makhan\Component\PropertyInfo\PropertyListExtractorInterface;
+use Makhan\Component\PropertyInfo\PropertyTypeExtractorInterface;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>

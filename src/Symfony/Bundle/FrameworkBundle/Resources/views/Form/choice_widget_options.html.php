@@ -1,4 +1,4 @@
-<?php use Symfony\Component\Form\ChoiceList\View\ChoiceGroupView;
+<?php use Makhan\Component\Form\ChoiceList\View\ChoiceGroupView;
 
 $translatorHelper = $view['translator']; // outside of the loop for performance reasons! ?>
 <?php $formHelper = $view['form']; ?>

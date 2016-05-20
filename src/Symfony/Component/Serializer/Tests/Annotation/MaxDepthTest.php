@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Annotation;
+namespace Makhan\Component\Serializer\Tests\Annotation;
 
-use Symfony\Component\Serializer\Annotation\MaxDepth;
+use Makhan\Component\Serializer\Annotation\MaxDepth;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -19,7 +19,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 class MaxDepthTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Serializer\Exception\InvalidArgumentException
      */
     public function testNotAnIntMaxDepthParameter()
     {

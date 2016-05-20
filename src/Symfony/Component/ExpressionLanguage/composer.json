@@ -1,25 +1,25 @@
 {
-    "name": "symfony/expression-language",
+    "name": "makhan/expression-language",
     "type": "library",
-    "description": "Symfony ExpressionLanguage Component",
+    "description": "Makhan ExpressionLanguage Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\ExpressionLanguage\\": "" },
+        "psr-4": { "Makhan\\Component\\ExpressionLanguage\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

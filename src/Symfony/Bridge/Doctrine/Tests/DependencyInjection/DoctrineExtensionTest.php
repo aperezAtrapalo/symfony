@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\DependencyInjection;
+namespace Makhan\Bridge\Doctrine\Tests\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 /**
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>
@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 class DoctrineExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \Symfony\Bridge\Doctrine\DependencyInjection\AbstractDoctrineExtension
+     * @var \Makhan\Bridge\Doctrine\DependencyInjection\AbstractDoctrineExtension
      */
     private $extension;
 
@@ -30,7 +30,7 @@ class DoctrineExtensionTest extends \PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->extension = $this
-            ->getMockBuilder('Symfony\Bridge\Doctrine\DependencyInjection\AbstractDoctrineExtension')
+            ->getMockBuilder('Makhan\Bridge\Doctrine\DependencyInjection\AbstractDoctrineExtension')
             ->setMethods(array(
                 'getMappingResourceConfigDirectory',
                 'getObjectManagerElementName',
@@ -268,12 +268,12 @@ class DoctrineExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @param array $data
      *
-     * @return \Symfony\Component\DependencyInjection\ContainerBuilder
+     * @return \Makhan\Component\DependencyInjection\ContainerBuilder
      */
     protected function createContainer(array $data = array())
     {
         return new ContainerBuilder(new ParameterBag(array_merge(array(
-            'kernel.bundles' => array('FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle'),
+            'kernel.bundles' => array('FrameworkBundle' => 'Makhan\\Bundle\\FrameworkBundle\\FrameworkBundle'),
             'kernel.cache_dir' => __DIR__,
             'kernel.debug' => false,
             'kernel.environment' => 'test',

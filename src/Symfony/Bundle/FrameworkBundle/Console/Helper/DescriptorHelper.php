@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Console\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Console\Helper;
 
-use Symfony\Bundle\FrameworkBundle\Console\Descriptor\JsonDescriptor;
-use Symfony\Bundle\FrameworkBundle\Console\Descriptor\MarkdownDescriptor;
-use Symfony\Bundle\FrameworkBundle\Console\Descriptor\TextDescriptor;
-use Symfony\Bundle\FrameworkBundle\Console\Descriptor\XmlDescriptor;
-use Symfony\Component\Console\Helper\DescriptorHelper as BaseDescriptorHelper;
+use Makhan\Bundle\FrameworkBundle\Console\Descriptor\JsonDescriptor;
+use Makhan\Bundle\FrameworkBundle\Console\Descriptor\MarkdownDescriptor;
+use Makhan\Bundle\FrameworkBundle\Console\Descriptor\TextDescriptor;
+use Makhan\Bundle\FrameworkBundle\Console\Descriptor\XmlDescriptor;
+use Makhan\Component\Console\Helper\DescriptorHelper as BaseDescriptorHelper;
 
 /**
  * @author Jean-François Simon <jeanfrancois.simon@sensiolabs.com>

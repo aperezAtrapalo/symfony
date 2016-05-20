@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass;
+use Makhan\Component\DependencyInjection\Reference;
 
 class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,7 +30,7 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
             new Reference('n3'),
         );
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
 
         $container
             ->expects($this->any())
@@ -40,7 +40,7 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
         $propertyInfoPass = new PropertyInfoPass();
 
         $method = new \ReflectionMethod(
-            'Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass',
+            'Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass',
             'findAndSortTaggedServices'
         );
         $method->setAccessible(true);
@@ -52,7 +52,7 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
 
     public function testReturningEmptyArrayWhenNoService()
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
 
         $container
             ->expects($this->any())
@@ -63,7 +63,7 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
         $propertyInfoPass = new PropertyInfoPass();
 
         $method = new \ReflectionMethod(
-            'Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass',
+            'Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass',
             'findAndSortTaggedServices'
         );
         $method->setAccessible(true);

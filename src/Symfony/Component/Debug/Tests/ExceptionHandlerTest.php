@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests;
+namespace Makhan\Component\Debug\Tests;
 
-use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\Debug\Exception\OutOfMemoryException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Makhan\Component\Debug\ExceptionHandler;
+use Makhan\Component\Debug\Exception\OutOfMemoryException;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 require_once __DIR__.'/HeaderMock.php';
 
@@ -100,7 +100,7 @@ class ExceptionHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new \Exception('foo');
 
-        $handler = $this->getMock('Symfony\Component\Debug\ExceptionHandler', array('sendPhpResponse'));
+        $handler = $this->getMock('Makhan\Component\Debug\ExceptionHandler', array('sendPhpResponse'));
         $handler
             ->expects($this->exactly(2))
             ->method('sendPhpResponse');
@@ -118,7 +118,7 @@ class ExceptionHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new OutOfMemoryException('foo', 0, E_ERROR, __FILE__, __LINE__);
 
-        $handler = $this->getMock('Symfony\Component\Debug\ExceptionHandler', array('sendPhpResponse'));
+        $handler = $this->getMock('Makhan\Component\Debug\ExceptionHandler', array('sendPhpResponse'));
         $handler
             ->expects($this->once())
             ->method('sendPhpResponse');

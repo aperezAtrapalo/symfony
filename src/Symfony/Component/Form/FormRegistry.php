@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\ExceptionInterface;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\Exception\InvalidArgumentException;
+use Makhan\Component\Form\Exception\ExceptionInterface;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\Exception\InvalidArgumentException;
 
 /**
  * The central registry of the Form component.
@@ -56,7 +56,7 @@ class FormRegistry implements FormRegistryInterface
     {
         foreach ($extensions as $extension) {
             if (!$extension instanceof FormExtensionInterface) {
-                throw new UnexpectedTypeException($extension, 'Symfony\Component\Form\FormExtensionInterface');
+                throw new UnexpectedTypeException($extension, 'Makhan\Component\Form\FormExtensionInterface');
             }
         }
 
@@ -81,7 +81,7 @@ class FormRegistry implements FormRegistryInterface
 
             if (!$type) {
                 // Support fully-qualified class names
-                if (class_exists($name) && in_array('Symfony\Component\Form\FormTypeInterface', class_implements($name))) {
+                if (class_exists($name) && in_array('Makhan\Component\Form\FormTypeInterface', class_implements($name))) {
                     $type = new $name();
                 } else {
                     throw new InvalidArgumentException(sprintf('Could not load type "%s"', $name));

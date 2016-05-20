@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Exception;
+namespace Makhan\Component\Finder\Exception;
 
 /**
  * @author Jean-François Simon <contact@jfsimon.fr>
@@ -17,7 +17,7 @@ namespace Symfony\Component\Finder\Exception;
 interface ExceptionInterface
 {
     /**
-     * @return \Symfony\Component\Finder\Adapter\AdapterInterface
+     * @return \Makhan\Component\Finder\Adapter\AdapterInterface
      */
     public function getAdapter();
 }

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Logger;
+namespace Makhan\Component\Console\Tests\Logger;
 
 use Psr\Log\Test\LoggerInterfaceTest;
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Logger\ConsoleLogger;
-use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
-use Symfony\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Logger\ConsoleLogger;
+use Makhan\Component\Console\Tests\Fixtures\DummyOutput;
+use Makhan\Component\Console\Output\OutputInterface;
 
 /**
  * Console logger test.

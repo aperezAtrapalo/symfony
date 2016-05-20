@@ -1,14 +1,14 @@
-dn: cn=Fabien Potencier,dc=symfony,dc=com
+dn: cn=Fabien Potencier,dc=makhan,dc=com
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
 cn: Fabien Potencier
 sn: fabpot
-mail: fabpot@symfony.com
+mail: fabpot@makhan.com
 mail: fabien@potencier.com
 ou: People
 ou: Maintainers
 ou: Founder
 givenName: Fabien Potencier
-description: Founder and project lead @Symfony
+description: Founder and project lead @Makhan

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Bundle;
+namespace Makhan\Component\HttpKernel\Tests\Bundle;
 
-use Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionNotValidBundle\ExtensionNotValidBundle;
-use Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\ExtensionPresentBundle;
-use Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionAbsentBundle\ExtensionAbsentBundle;
-use Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\Command\FooCommand;
+use Makhan\Component\HttpKernel\Tests\Fixtures\ExtensionNotValidBundle\ExtensionNotValidBundle;
+use Makhan\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\ExtensionPresentBundle;
+use Makhan\Component\HttpKernel\Tests\Fixtures\ExtensionAbsentBundle\ExtensionAbsentBundle;
+use Makhan\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\Command\FooCommand;
 
 class BundleTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class BundleTest extends \PHPUnit_Framework_TestCase
         $bundle = new ExtensionPresentBundle();
 
         $this->assertInstanceOf(
-            'Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\DependencyInjection\ExtensionPresentExtension',
+            'Makhan\Component\HttpKernel\Tests\Fixtures\ExtensionPresentBundle\DependencyInjection\ExtensionPresentExtension',
             $bundle->getContainerExtension()
         );
     }
@@ -31,7 +31,7 @@ class BundleTest extends \PHPUnit_Framework_TestCase
     public function testRegisterCommands()
     {
         $cmd = new FooCommand();
-        $app = $this->getMock('Symfony\Component\Console\Application');
+        $app = $this->getMock('Makhan\Component\Console\Application');
         $app->expects($this->once())->method('add')->with($this->equalTo($cmd));
 
         $bundle = new ExtensionPresentBundle();
@@ -44,7 +44,7 @@ class BundleTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \LogicException
-     * @expectedExceptionMessage must implement Symfony\Component\DependencyInjection\Extension\ExtensionInterface
+     * @expectedExceptionMessage must implement Makhan\Component\DependencyInjection\Extension\ExtensionInterface
      */
     public function testGetContainerExtensionWithInvalidClass()
     {

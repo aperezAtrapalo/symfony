@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Definition\Dumper;
+namespace Makhan\Component\Config\Definition\Dumper;
 
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\Config\Definition\NodeInterface;
-use Symfony\Component\Config\Definition\ArrayNode;
-use Symfony\Component\Config\Definition\EnumNode;
-use Symfony\Component\Config\Definition\PrototypedArrayNode;
-use Symfony\Component\Yaml\Inline;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\Config\Definition\NodeInterface;
+use Makhan\Component\Config\Definition\ArrayNode;
+use Makhan\Component\Config\Definition\EnumNode;
+use Makhan\Component\Config\Definition\PrototypedArrayNode;
+use Makhan\Component\Yaml\Inline;
 
 /**
  * Dumps a Yaml reference configuration for the given configuration/node instance.
@@ -67,7 +67,7 @@ class YamlReferenceDumper
 
                 // check for attribute as key
                 if ($key = $node->getKeyAttribute()) {
-                    $keyNodeClass = 'Symfony\Component\Config\Definition\\'.($prototype instanceof ArrayNode ? 'ArrayNode' : 'ScalarNode');
+                    $keyNodeClass = 'Makhan\Component\Config\Definition\\'.($prototype instanceof ArrayNode ? 'ArrayNode' : 'ScalarNode');
                     $keyNode = new $keyNodeClass($key, $node);
 
                     $info = 'Prototype';

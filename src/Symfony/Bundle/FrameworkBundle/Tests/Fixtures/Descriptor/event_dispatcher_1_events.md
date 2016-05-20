@@ -18,5 +18,5 @@
 ### Listener 1
 
 - Type: `object`
-- Name: `Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass`
+- Name: `Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor\CallableClass`
 - Priority: `0`

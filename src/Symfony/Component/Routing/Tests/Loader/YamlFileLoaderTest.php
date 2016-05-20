@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Routing\Loader\YamlFileLoader;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Routing\Loader\YamlFileLoader;
+use Makhan\Component\Config\Resource\FileResource;
 
 class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testSupports()
     {
-        $loader = new YamlFileLoader($this->getMock('Symfony\Component\Config\FileLocator'));
+        $loader = new YamlFileLoader($this->getMock('Makhan\Component\Config\FileLocator'));
 
         $this->assertTrue($loader->supports('foo.yml'), '->supports() returns true if the resource is loadable');
         $this->assertTrue($loader->supports('foo.yaml'), '->supports() returns true if the resource is loadable');
@@ -68,7 +68,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routeCollection = $loader->load('special_route_name.yml');
         $route = $routeCollection->get('#$péß^a|');
 
-        $this->assertInstanceOf('Symfony\Component\Routing\Route', $route);
+        $this->assertInstanceOf('Makhan\Component\Routing\Route', $route);
         $this->assertSame('/true', $route->getPath());
     }
 
@@ -78,7 +78,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routeCollection = $loader->load('validpattern.yml');
         $route = $routeCollection->get('blog_show');
 
-        $this->assertInstanceOf('Symfony\Component\Routing\Route', $route);
+        $this->assertInstanceOf('Makhan\Component\Routing\Route', $route);
         $this->assertSame('/blog/{slug}', $route->getPath());
         $this->assertSame('{locale}.example.com', $route->getHost());
         $this->assertSame('MyBundle:Blog:show', $route->getDefault('_controller'));
@@ -96,7 +96,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routes = $routeCollection->all();
 
         $this->assertCount(2, $routes, 'Two routes are loaded');
-        $this->assertContainsOnly('Symfony\Component\Routing\Route', $routes);
+        $this->assertContainsOnly('Makhan\Component\Routing\Route', $routes);
 
         foreach ($routes as $route) {
             $this->assertSame('/{foo}/blog/{slug}', $route->getPath());

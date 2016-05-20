@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\TwigBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\TwigBundle\DependencyInjection\TwigExtension;
-use Symfony\Bundle\TwigBundle\Tests\TestCase;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Bundle\TwigBundle\DependencyInjection\TwigExtension;
+use Makhan\Bundle\TwigBundle\Tests\TestCase;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Loader\PhpFileLoader;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\YamlFileLoader;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class TwigExtensionTest extends TestCase
 {
@@ -188,7 +188,7 @@ class TwigExtensionTest extends TestCase
         $container = $this->createContainer();
         $container->setParameter('kernel.debug', $debug);
         if ($stopwatchEnabled) {
-            $container->register('debug.stopwatch', 'Symfony\Component\Stopwatch\Stopwatch');
+            $container->register('debug.stopwatch', 'Makhan\Component\Stopwatch\Stopwatch');
         }
         $container->registerExtension(new TwigExtension());
         $container->loadFromExtension('twig', array());
@@ -218,7 +218,7 @@ class TwigExtensionTest extends TestCase
             'kernel.root_dir' => __DIR__.'/Fixtures',
             'kernel.charset' => 'UTF-8',
             'kernel.debug' => false,
-            'kernel.bundles' => array('TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle'),
+            'kernel.bundles' => array('TwigBundle' => 'Makhan\\Bundle\\TwigBundle\\TwigBundle'),
         )));
 
         return $container;

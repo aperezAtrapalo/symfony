@@ -1,7 +1,7 @@
-<!-- START of Symfony Web Debug Toolbar -->
+<!-- START of Makhan Web Debug Toolbar -->
 {% if 'normal' != position %}
     <div id="sfMiniToolbar-{{ token }}" class="sf-minitoolbar" data-no-turbolink>
-        <a href="javascript:void(0);" title="Show Symfony toolbar" tabindex="-1" accesskey="D" onclick="
+        <a href="javascript:void(0);" title="Show Makhan toolbar" tabindex="-1" accesskey="D" onclick="
             var elem = this.parentNode;
             if (elem.style.display == 'none') {
                 document.getElementById('sfToolbarMainContent-{{ token }}').style.display = 'none';
@@ -15,7 +15,7 @@
 
             Sfjs.setPreference('toolbar/displayState', 'block');
         ">
-            {{ include('@WebProfiler/Icon/symfony.svg') }}
+            {{ include('@WebProfiler/Icon/makhan.svg') }}
         </a>
     </div>
     <style>
@@ -48,4 +48,4 @@
         </a>
     {% endif %}
 </div>
-<!-- END of Symfony Web Debug Toolbar -->
+<!-- END of Makhan Web Debug Toolbar -->

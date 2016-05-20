@@ -1,32 +1,32 @@
 {
-    "name": "symfony/validator",
+    "name": "makhan/validator",
     "type": "library",
-    "description": "Symfony Validator Component",
+    "description": "Makhan Validator Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-mbstring": "~1.0",
-        "symfony/translation": "~2.8|~3.0"
+        "makhan/polyfill-mbstring": "~1.0",
+        "makhan/translation": "~2.8|~3.0"
     },
     "require-dev": {
-        "symfony/http-foundation": "~2.8|~3.0",
-        "symfony/intl": "~2.8|~3.0",
-        "symfony/yaml": "~2.8|~3.0",
-        "symfony/config": "~2.8|~3.0",
-        "symfony/expression-language": "~2.8|~3.0",
-        "symfony/cache": "~3.1",
+        "makhan/http-foundation": "~2.8|~3.0",
+        "makhan/intl": "~2.8|~3.0",
+        "makhan/yaml": "~2.8|~3.0",
+        "makhan/config": "~2.8|~3.0",
+        "makhan/expression-language": "~2.8|~3.0",
+        "makhan/cache": "~3.1",
         "doctrine/annotations": "~1.0",
         "doctrine/cache": "~1.0",
         "egulias/email-validator": "~1.2,>=1.2.1"
@@ -35,16 +35,16 @@
         "psr/cache-implementation": "For using the metadata cache.",
         "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
         "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
-        "symfony/http-foundation": "",
-        "symfony/intl": "",
-        "symfony/yaml": "",
-        "symfony/config": "",
+        "makhan/http-foundation": "",
+        "makhan/intl": "",
+        "makhan/yaml": "",
+        "makhan/config": "",
         "egulias/email-validator": "Strict (RFC compliant) email validation",
-        "symfony/property-access": "For using the Expression validator",
-        "symfony/expression-language": "For using the Expression validator"
+        "makhan/property-access": "For using the Expression validator",
+        "makhan/expression-language": "For using the Expression validator"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Validator\\": "" },
+        "psr-4": { "Makhan\\Component\\Validator\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\DateTimeToArrayTransformer;
 
 class DateTimeToArrayTransformerTest extends DateTimeTestCase
 {
@@ -137,7 +137,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformRequiresDateTime()
     {
@@ -211,7 +211,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptyYear()
     {
@@ -226,7 +226,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptyMonth()
     {
@@ -241,7 +241,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptyDay()
     {
@@ -256,7 +256,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptyHour()
     {
@@ -271,7 +271,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptyMinute()
     {
@@ -286,7 +286,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformPartiallyEmptySecond()
     {
@@ -346,7 +346,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformRequiresArray()
     {
@@ -355,7 +355,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeYear()
     {
@@ -371,7 +371,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeMonth()
     {
@@ -387,7 +387,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeDay()
     {
@@ -403,7 +403,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeHour()
     {
@@ -419,7 +419,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeMinute()
     {
@@ -435,7 +435,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithNegativeSecond()
     {
@@ -451,7 +451,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithInvalidMonth()
     {
@@ -467,7 +467,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithInvalidDay()
     {
@@ -483,7 +483,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithStringDay()
     {
@@ -499,7 +499,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithStringMonth()
     {
@@ -515,7 +515,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithStringYear()
     {
@@ -531,7 +531,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithEmptyStringHour()
     {
@@ -547,7 +547,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithEmptyStringMinute()
     {
@@ -563,7 +563,7 @@ class DateTimeToArrayTransformerTest extends DateTimeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformWithEmptyStringSecond()
     {

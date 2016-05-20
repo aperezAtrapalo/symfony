@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler;
+namespace Makhan\Component\DomCrawler;
 
-use Symfony\Component\DomCrawler\Field\FormField;
+use Makhan\Component\DomCrawler\Field\FormField;
 
 /**
  * This is an internal class that must not be used directly.

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Compiler;
+namespace Makhan\Component\DependencyInjection\Tests\Compiler;
 
-use Symfony\Component\DependencyInjection\Compiler\AutowirePass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Compiler\AutowirePass;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -102,8 +102,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Unable to autowire argument of type "Symfony\Component\DependencyInjection\Tests\Compiler\CollisionInterface" for the service "a". Multiple services exist for this interface (c1, c2, c3).
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Unable to autowire argument of type "Makhan\Component\DependencyInjection\Tests\Compiler\CollisionInterface" for the service "a". Multiple services exist for this interface (c1, c2, c3).
      */
     public function testTypeCollision()
     {
@@ -120,8 +120,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Unable to autowire argument of type "Symfony\Component\DependencyInjection\Tests\Compiler\Foo" for the service "a". Multiple services exist for this class (a1, a2).
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Unable to autowire argument of type "Makhan\Component\DependencyInjection\Tests\Compiler\Foo" for the service "a". Multiple services exist for this class (a1, a2).
      */
     public function testTypeNotGuessable()
     {
@@ -137,8 +137,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Unable to autowire argument of type "Symfony\Component\DependencyInjection\Tests\Compiler\A" for the service "a". Multiple services exist for this class (a1, a2).
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Unable to autowire argument of type "Makhan\Component\DependencyInjection\Tests\Compiler\A" for the service "a". Multiple services exist for this class (a1, a2).
      */
     public function testTypeNotGuessableWithSubclass()
     {
@@ -154,8 +154,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Unable to autowire argument of type "Symfony\Component\DependencyInjection\Tests\Compiler\CollisionInterface" for the service "a". No services were found matching this interface and it cannot be auto-registered.
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Unable to autowire argument of type "Makhan\Component\DependencyInjection\Tests\Compiler\CollisionInterface" for the service "a". No services were found matching this interface and it cannot be auto-registered.
      */
     public function testTypeNotGuessableNoServicesFound()
     {
@@ -211,15 +211,15 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
         $pass->process($container);
 
         $this->assertCount(1, $container->getDefinition('coop_tilleuls')->getArguments());
-        $this->assertEquals('autowired.symfony\component\dependencyinjection\tests\compiler\dunglas', $container->getDefinition('coop_tilleuls')->getArgument(0));
+        $this->assertEquals('autowired.makhan\component\dependencyinjection\tests\compiler\dunglas', $container->getDefinition('coop_tilleuls')->getArgument(0));
 
-        $dunglasDefinition = $container->getDefinition('autowired.symfony\component\dependencyinjection\tests\compiler\dunglas');
+        $dunglasDefinition = $container->getDefinition('autowired.makhan\component\dependencyinjection\tests\compiler\dunglas');
         $this->assertEquals(__NAMESPACE__.'\Dunglas', $dunglasDefinition->getClass());
         $this->assertFalse($dunglasDefinition->isPublic());
         $this->assertCount(1, $dunglasDefinition->getArguments());
-        $this->assertEquals('autowired.symfony\component\dependencyinjection\tests\compiler\lille', $dunglasDefinition->getArgument(0));
+        $this->assertEquals('autowired.makhan\component\dependencyinjection\tests\compiler\lille', $dunglasDefinition->getArgument(0));
 
-        $lilleDefinition = $container->getDefinition('autowired.symfony\component\dependencyinjection\tests\compiler\lille');
+        $lilleDefinition = $container->getDefinition('autowired.makhan\component\dependencyinjection\tests\compiler\lille');
         $this->assertEquals(__NAMESPACE__.'\Lille', $lilleDefinition->getClass());
     }
 
@@ -270,8 +270,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Cannot autowire argument 2 for Symfony\Component\DependencyInjection\Tests\Compiler\BadTypeHintedArgument because the type-hinted class does not exist (Class Symfony\Component\DependencyInjection\Tests\Compiler\NotARealClass does not exist).
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Cannot autowire argument 2 for Makhan\Component\DependencyInjection\Tests\Compiler\BadTypeHintedArgument because the type-hinted class does not exist (Class Makhan\Component\DependencyInjection\Tests\Compiler\NotARealClass does not exist).
      */
     public function testClassNotFoundThrowsException()
     {
@@ -285,8 +285,8 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Cannot autowire argument 2 for Symfony\Component\DependencyInjection\Tests\Compiler\BadParentTypeHintedArgument because the type-hinted class does not exist (Class Symfony\Component\DependencyInjection\Tests\Compiler\OptionalServiceClass does not exist).
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedExceptionMessage Cannot autowire argument 2 for Makhan\Component\DependencyInjection\Tests\Compiler\BadParentTypeHintedArgument because the type-hinted class does not exist (Class Makhan\Component\DependencyInjection\Tests\Compiler\OptionalServiceClass does not exist).
      */
     public function testParentClassNotFoundThrowsException()
     {
@@ -344,7 +344,7 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      * @expectedExceptionMessage Unable to autowire argument index 1 ($foo) for the service "arg_no_type_hint". If this is an object, give it a type-hint. Otherwise, specify this argument's value explicitly.
      */
     public function testScalarArgsCannotBeAutowired()
@@ -363,7 +363,7 @@ class AutowirePassTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      * @expectedExceptionMessage Unable to autowire argument index 1 ($foo) for the service "not_really_optional_scalar". If this is an object, give it a type-hint. Otherwise, specify this argument's value explicitly.
      */
     public function testOptionalScalarNotReallyOptionalThrowException()

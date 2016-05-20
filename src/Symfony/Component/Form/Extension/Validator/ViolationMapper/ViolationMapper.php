@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Validator\ViolationMapper;
+namespace Makhan\Component\Form\Extension\Validator\ViolationMapper;
 
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\Util\InheritDataAwareIterator;
-use Symfony\Component\PropertyAccess\PropertyPathIterator;
-use Symfony\Component\PropertyAccess\PropertyPathBuilder;
-use Symfony\Component\PropertyAccess\PropertyPathIteratorInterface;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Validator\ConstraintViolation;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\Util\InheritDataAwareIterator;
+use Makhan\Component\PropertyAccess\PropertyPathIterator;
+use Makhan\Component\PropertyAccess\PropertyPathBuilder;
+use Makhan\Component\PropertyAccess\PropertyPathIteratorInterface;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\Validator\ConstraintViolation;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -249,7 +249,7 @@ class ViolationMapper implements ViolationMapperInterface
                 $propertyPathBuilder->remove(0, $i + 1);
                 $i = 0;
             } else {
-                /* @var \Symfony\Component\PropertyAccess\PropertyPathInterface $propertyPath */
+                /* @var \Makhan\Component\PropertyAccess\PropertyPathInterface $propertyPath */
                 $propertyPath = $scope->getPropertyPath();
 
                 if (null === $propertyPath) {
@@ -277,7 +277,7 @@ class ViolationMapper implements ViolationMapperInterface
     {
         // Ignore non-submitted forms. This happens, for example, in PATCH
         // requests.
-        // https://github.com/symfony/symfony/pull/10567
+        // https://github.com/makhan/makhan/pull/10567
         return $form->isSubmitted() && ($this->allowNonSynchronized || $form->isSynchronized());
     }
 }

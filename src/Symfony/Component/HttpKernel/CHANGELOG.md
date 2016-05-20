@@ -5,38 +5,38 @@ CHANGELOG
 -----
  * deprecated passing objects as URI attributes to the ESI and SSI renderers
  * deprecated `ControllerResolver::getArguments()`
- * added `Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface`
- * added `Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface` as argument to `HttpKernel`
- * added `Symfony\Component\HttpKernel\Controller\ArgumentResolver`
- * added `Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::getMethod()`
- * added `Symfony\Component\HttpKernel\DataCollector\RequestDataCollector::getRedirect()`
+ * added `Makhan\Component\HttpKernel\Controller\ArgumentResolverInterface`
+ * added `Makhan\Component\HttpKernel\Controller\ArgumentResolverInterface` as argument to `HttpKernel`
+ * added `Makhan\Component\HttpKernel\Controller\ArgumentResolver`
+ * added `Makhan\Component\HttpKernel\DataCollector\RequestDataCollector::getMethod()`
+ * added `Makhan\Component\HttpKernel\DataCollector\RequestDataCollector::getRedirect()`
  * added the `kernel.controller_arguments` event, triggered after controller arguments have been resolved
 
 3.0.0
 -----
 
- * removed `Symfony\Component\HttpKernel\Kernel::init()`
- * removed `Symfony\Component\HttpKernel\Kernel::isClassInActiveBundle()` and `Symfony\Component\HttpKernel\KernelInterface::isClassInActiveBundle()`
- * removed `Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher::setProfiler()`
- * removed `Symfony\Component\HttpKernel\EventListener\FragmentListener::getLocalIpAddresses()`
- * removed `Symfony\Component\HttpKernel\EventListener\LocaleListener::setRequest()`
- * removed `Symfony\Component\HttpKernel\EventListener\RouterListener::setRequest()`
- * removed `Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelRequest()`
- * removed `Symfony\Component\HttpKernel\Fragment\FragmentHandler::setRequest()`
- * removed `Symfony\Component\HttpKernel\HttpCache\Esi::hasSurrogateEsiCapability()`
- * removed `Symfony\Component\HttpKernel\HttpCache\Esi::addSurrogateEsiCapability()`
- * removed `Symfony\Component\HttpKernel\HttpCache\Esi::needsEsiParsing()`
- * removed `Symfony\Component\HttpKernel\HttpCache\HttpCache::getEsi()`
- * removed `Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel`
- * removed `Symfony\Component\HttpKernel\DependencyInjection\RegisterListenersPass`
- * removed `Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener`
- * removed `Symfony\Component\HttpKernel\EventListener\EsiListener`
- * removed `Symfony\Component\HttpKernel\HttpCache\EsiResponseCacheStrategy`
- * removed `Symfony\Component\HttpKernel\HttpCache\EsiResponseCacheStrategyInterface`
- * removed `Symfony\Component\HttpKernel\Log\LoggerInterface`
- * removed `Symfony\Component\HttpKernel\Log\NullLogger`
- * removed `Symfony\Component\HttpKernel\Profiler::import()`
- * removed `Symfony\Component\HttpKernel\Profiler::export()`
+ * removed `Makhan\Component\HttpKernel\Kernel::init()`
+ * removed `Makhan\Component\HttpKernel\Kernel::isClassInActiveBundle()` and `Makhan\Component\HttpKernel\KernelInterface::isClassInActiveBundle()`
+ * removed `Makhan\Component\HttpKernel\Debug\TraceableEventDispatcher::setProfiler()`
+ * removed `Makhan\Component\HttpKernel\EventListener\FragmentListener::getLocalIpAddresses()`
+ * removed `Makhan\Component\HttpKernel\EventListener\LocaleListener::setRequest()`
+ * removed `Makhan\Component\HttpKernel\EventListener\RouterListener::setRequest()`
+ * removed `Makhan\Component\HttpKernel\EventListener\ProfilerListener::onKernelRequest()`
+ * removed `Makhan\Component\HttpKernel\Fragment\FragmentHandler::setRequest()`
+ * removed `Makhan\Component\HttpKernel\HttpCache\Esi::hasSurrogateEsiCapability()`
+ * removed `Makhan\Component\HttpKernel\HttpCache\Esi::addSurrogateEsiCapability()`
+ * removed `Makhan\Component\HttpKernel\HttpCache\Esi::needsEsiParsing()`
+ * removed `Makhan\Component\HttpKernel\HttpCache\HttpCache::getEsi()`
+ * removed `Makhan\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel`
+ * removed `Makhan\Component\HttpKernel\DependencyInjection\RegisterListenersPass`
+ * removed `Makhan\Component\HttpKernel\EventListener\ErrorsLoggerListener`
+ * removed `Makhan\Component\HttpKernel\EventListener\EsiListener`
+ * removed `Makhan\Component\HttpKernel\HttpCache\EsiResponseCacheStrategy`
+ * removed `Makhan\Component\HttpKernel\HttpCache\EsiResponseCacheStrategyInterface`
+ * removed `Makhan\Component\HttpKernel\Log\LoggerInterface`
+ * removed `Makhan\Component\HttpKernel\Log\NullLogger`
+ * removed `Makhan\Component\HttpKernel\Profiler::import()`
+ * removed `Makhan\Component\HttpKernel\Profiler::export()`
 
 2.8.0
 -----
@@ -51,13 +51,13 @@ CHANGELOG
 2.6.0
 -----
 
- * deprecated `Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener`, use `Symfony\Component\HttpKernel\EventListener\DebugHandlersListener` instead
- * deprecated unused method `Symfony\Component\HttpKernel\Kernel::isClassInActiveBundle` and `Symfony\Component\HttpKernel\KernelInterface::isClassInActiveBundle`
+ * deprecated `Makhan\Component\HttpKernel\EventListener\ErrorsLoggerListener`, use `Makhan\Component\HttpKernel\EventListener\DebugHandlersListener` instead
+ * deprecated unused method `Makhan\Component\HttpKernel\Kernel::isClassInActiveBundle` and `Makhan\Component\HttpKernel\KernelInterface::isClassInActiveBundle`
 
 2.5.0
 -----
 
- * deprecated `Symfony\Component\HttpKernel\DependencyInjection\RegisterListenersPass`, use `Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass` instead
+ * deprecated `Makhan\Component\HttpKernel\DependencyInjection\RegisterListenersPass`, use `Makhan\Component\EventDispatcher\DependencyInjection\RegisterListenersPass` instead
 
 2.4.0
 -----
@@ -68,10 +68,10 @@ CHANGELOG
 2.3.0
 -----
 
- * [BC BREAK] renamed `Symfony\Component\HttpKernel\EventListener\DeprecationLoggerListener` to `Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener` and changed its constructor
- * deprecated `Symfony\Component\HttpKernel\Debug\ErrorHandler`, `Symfony\Component\HttpKernel\Debug\ExceptionHandler`,
-   `Symfony\Component\HttpKernel\Exception\FatalErrorException` and `Symfony\Component\HttpKernel\Exception\FlattenException`
- * deprecated `Symfony\Component\HttpKernel\Kernel::init()`
+ * [BC BREAK] renamed `Makhan\Component\HttpKernel\EventListener\DeprecationLoggerListener` to `Makhan\Component\HttpKernel\EventListener\ErrorsLoggerListener` and changed its constructor
+ * deprecated `Makhan\Component\HttpKernel\Debug\ErrorHandler`, `Makhan\Component\HttpKernel\Debug\ExceptionHandler`,
+   `Makhan\Component\HttpKernel\Exception\FatalErrorException` and `Makhan\Component\HttpKernel\Exception\FlattenException`
+ * deprecated `Makhan\Component\HttpKernel\Kernel::init()`
  * added the possibility to specify an id an extra attributes to hinclude tags
  * added the collect of data if a controller is a Closure in the Request collector
  * pass exceptions from the ExceptionListener to the logger using the logging context to allow for more
@@ -81,10 +81,10 @@ CHANGELOG
 -----
 
  * [BC BREAK] the path info for sub-request is now always _fragment (or whatever you configured instead of the default)
- * added Symfony\Component\HttpKernel\EventListener\FragmentListener
- * added Symfony\Component\HttpKernel\UriSigner
- * added Symfony\Component\HttpKernel\FragmentRenderer and rendering strategies (in Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface)
- * added Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel
+ * added Makhan\Component\HttpKernel\EventListener\FragmentListener
+ * added Makhan\Component\HttpKernel\UriSigner
+ * added Makhan\Component\HttpKernel\FragmentRenderer and rendering strategies (in Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface)
+ * added Makhan\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel
  * added ControllerReference to create reference of Controllers (used in the FragmentRenderer class)
  * [BC BREAK] renamed TimeDataCollector::getTotalTime() to
    TimeDataCollector::getDuration()

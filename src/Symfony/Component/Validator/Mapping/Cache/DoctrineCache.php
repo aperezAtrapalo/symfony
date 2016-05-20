@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping\Cache;
+namespace Makhan\Component\Validator\Mapping\Cache;
 
 use Doctrine\Common\Cache\Cache;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * Adapts a Doctrine cache to a CacheInterface.

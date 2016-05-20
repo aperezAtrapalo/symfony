@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Routing;
 
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Bundle\FrameworkBundle\Routing\Router;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 class RouterTest extends \PHPUnit_Framework_TestCase
 {
@@ -153,7 +153,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\ParameterNotFoundException
      * @expectedExceptionMessage You have requested a non-existent parameter "nope".
      */
     public function testExceptionOnNonExistentParameter()
@@ -169,7 +169,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\RuntimeException
      * @expectedExceptionMessage The container parameter "object", used in the route configuration value "/%object%", must be a string or numeric, but it is of type object.
      */
     public function testExceptionOnNonStringParameter()
@@ -210,11 +210,11 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     /**
      * @param RouteCollection $routes
      *
-     * @return \Symfony\Component\DependencyInjection\Container
+     * @return \Makhan\Component\DependencyInjection\Container
      */
     private function getServiceContainer(RouteCollection $routes)
     {
-        $loader = $this->getMock('Symfony\Component\Config\Loader\LoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Config\Loader\LoaderInterface');
 
         $loader
             ->expects($this->any())
@@ -222,7 +222,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($routes))
         ;
 
-        $sc = $this->getMock('Symfony\\Component\\DependencyInjection\\Container', array('get'));
+        $sc = $this->getMock('Makhan\\Component\\DependencyInjection\\Container', array('get'));
 
         $sc
             ->expects($this->once())

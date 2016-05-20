@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Data\Provider;
+namespace Makhan\Component\Intl\Data\Provider;
 
-use Symfony\Component\Intl\Exception\MissingResourceException;
-use Symfony\Component\Intl\Locale;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
+use Makhan\Component\Intl\Exception\MissingResourceException;
+use Makhan\Component\Intl\Locale;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
 
 /**
  * Data provider for currency-related data.
@@ -111,7 +111,7 @@ class CurrencyDataProvider
     }
 
     /**
-     * Data provider for {@link \Symfony\Component\Intl\Currency::getFractionDigits()}.
+     * Data provider for {@link \Makhan\Component\Intl\Currency::getFractionDigits()}.
      */
     public function getFractionDigits($currency)
     {
@@ -123,7 +123,7 @@ class CurrencyDataProvider
     }
 
     /**
-     * Data provider for {@link \Symfony\Component\Intl\Currency::getRoundingIncrement()}.
+     * Data provider for {@link \Makhan\Component\Intl\Currency::getRoundingIncrement()}.
      */
     public function getRoundingIncrement($currency)
     {
@@ -135,7 +135,7 @@ class CurrencyDataProvider
     }
 
     /**
-     * Data provider for {@link \Symfony\Component\Intl\Currency::getNumericCode()}.
+     * Data provider for {@link \Makhan\Component\Intl\Currency::getNumericCode()}.
      */
     public function getNumericCode($currency)
     {
@@ -143,7 +143,7 @@ class CurrencyDataProvider
     }
 
     /**
-     * Data provider for {@link \Symfony\Component\Intl\Currency::forNumericCode()}.
+     * Data provider for {@link \Makhan\Component\Intl\Currency::forNumericCode()}.
      */
     public function forNumericCode($numericCode)
     {

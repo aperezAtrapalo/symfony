@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\BrowserKit;
+namespace Makhan\Component\BrowserKit;
 
 /**
  * CookieJar.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class CookieJar
 {
@@ -36,7 +36,7 @@ class CookieJar
      * You should never use an empty domain, but if you do so,
      * this method returns the first cookie for the given name/path
      * (this behavior ensures a BC behavior with previous versions of
-     * Symfony).
+     * Makhan).
      *
      * @param string $name   The cookie name
      * @param string $path   The cookie path
@@ -83,7 +83,7 @@ class CookieJar
      *
      * You should never use an empty domain, but if you do so,
      * all cookies for the given name/path expire (this behavior
-     * ensures a BC behavior with previous versions of Symfony).
+     * ensures a BC behavior with previous versions of Makhan).
      *
      * @param string $name   The cookie name
      * @param string $path   The cookie path

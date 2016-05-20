@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess\Tests;
+namespace Makhan\Component\PropertyAccess\Tests;
 
-use Symfony\Component\PropertyAccess\Exception\NoSuchIndexException;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TestClass;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TestClassMagicCall;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TestClassMagicGet;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\Ticket5775Object;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TestClassSetValue;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TestClassIsWritable;
-use Symfony\Component\PropertyAccess\Tests\Fixtures\TypeHinted;
+use Makhan\Component\PropertyAccess\Exception\NoSuchIndexException;
+use Makhan\Component\PropertyAccess\PropertyAccessor;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TestClass;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TestClassMagicCall;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TestClassMagicGet;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\Ticket5775Object;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TestClassSetValue;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TestClassIsWritable;
+use Makhan\Component\PropertyAccess\Tests\Fixtures\TypeHinted;
 
 class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 {
@@ -88,7 +88,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getPathsWithMissingProperty
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException
      */
     public function testGetValueThrowsExceptionIfPropertyNotFound($objectOrArray, $path)
     {
@@ -105,7 +105,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getPathsWithMissingIndex
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchIndexException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchIndexException
      */
     public function testGetValueThrowsExceptionIfIndexNotFoundAndIndexExceptionsEnabled($objectOrArray, $path)
     {
@@ -114,7 +114,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchIndexException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchIndexException
      */
     public function testGetValueThrowsExceptionIfNotArrayAccess()
     {
@@ -135,7 +135,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array(), $object->getArrayCopy());
     }
 
-    // https://github.com/symfony/symfony/pull/4450
+    // https://github.com/makhan/makhan/pull/4450
     public function testGetValueReadsMagicGetThatReturnsConstant()
     {
         $this->assertSame('constant value', $this->propertyAccessor->getValue(new TestClassMagicGet('Bernhard'), 'constantMagicProperty'));
@@ -165,7 +165,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException
      */
     public function testGetValueDoesNotReadMagicCallByDefault()
     {
@@ -179,7 +179,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('Bernhard', $this->propertyAccessor->getValue(new TestClassMagicCall('Bernhard'), 'magicCallProperty'));
     }
 
-    // https://github.com/symfony/symfony/pull/4450
+    // https://github.com/makhan/makhan/pull/4450
     public function testGetValueReadsMagicCallThatReturnsConstant()
     {
         $this->propertyAccessor = new PropertyAccessor(true);
@@ -189,7 +189,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getPathsWithUnexpectedType
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\UnexpectedTypeException
      * @expectedExceptionMessage PropertyAccessor requires a graph of objects or arrays to operate on
      */
     public function testGetValueThrowsExceptionIfNotObjectOrArray($objectOrArray, $path)
@@ -209,7 +209,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getPathsWithMissingProperty
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException
      */
     public function testSetValueThrowsExceptionIfPropertyNotFound($objectOrArray, $path)
     {
@@ -238,7 +238,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchIndexException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchIndexException
      */
     public function testSetValueThrowsExceptionIfNotArrayAccess()
     {
@@ -255,7 +255,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException
      */
     public function testSetValueThrowsExceptionIfThereAreMissingParameters()
     {
@@ -263,7 +263,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException
      */
     public function testSetValueDoesNotUpdateMagicCallByDefault()
     {
@@ -285,7 +285,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getPathsWithUnexpectedType
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\UnexpectedTypeException
      * @expectedExceptionMessage PropertyAccessor requires a graph of objects or arrays to operate on
      */
     public function testSetValueThrowsExceptionIfNotObjectOrArray($objectOrArray, $path)
@@ -522,7 +522,7 @@ class PropertyAccessorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidArgumentException
      * @expectedExceptionMessage Expected argument of type "DateTime", "string" given
      */
     public function testThrowTypeError()

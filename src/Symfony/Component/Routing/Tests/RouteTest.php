@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests;
+namespace Makhan\Component\Routing\Tests;
 
-use Symfony\Component\Routing\Route;
+use Makhan\Component\Routing\Route;
 
 class RouteTest extends \PHPUnit_Framework_TestCase
 {
@@ -53,14 +53,14 @@ class RouteTest extends \PHPUnit_Framework_TestCase
         $route = new Route('/{foo}');
         $route->setOptions(array('foo' => 'bar'));
         $this->assertEquals(array_merge(array(
-        'compiler_class' => 'Symfony\\Component\\Routing\\RouteCompiler',
+        'compiler_class' => 'Makhan\\Component\\Routing\\RouteCompiler',
         ), array('foo' => 'bar')), $route->getOptions(), '->setOptions() sets the options');
         $this->assertEquals($route, $route->setOptions(array()), '->setOptions() implements a fluent interface');
 
         $route->setOptions(array('foo' => 'foo'));
         $route->addOptions(array('bar' => 'bar'));
         $this->assertEquals($route, $route->addOptions(array()), '->addOptions() implements a fluent interface');
-        $this->assertEquals(array('foo' => 'foo', 'bar' => 'bar', 'compiler_class' => 'Symfony\\Component\\Routing\\RouteCompiler'), $route->getOptions(), '->addDefaults() keep previous defaults');
+        $this->assertEquals(array('foo' => 'foo', 'bar' => 'bar', 'compiler_class' => 'Makhan\\Component\\Routing\\RouteCompiler'), $route->getOptions(), '->addDefaults() keep previous defaults');
     }
 
     public function testOption()
@@ -185,7 +185,7 @@ class RouteTest extends \PHPUnit_Framework_TestCase
     public function testCompile()
     {
         $route = new Route('/{foo}');
-        $this->assertInstanceOf('Symfony\Component\Routing\CompiledRoute', $compiled = $route->compile(), '->compile() returns a compiled route');
+        $this->assertInstanceOf('Makhan\Component\Routing\CompiledRoute', $compiled = $route->compile(), '->compile() returns a compiled route');
         $this->assertSame($compiled, $route->compile(), '->compile() only compiled the route once if unchanged');
         $route->setRequirement('foo', '.*');
         $this->assertNotSame($compiled, $route->compile(), '->compile() recompiles if the route was modified');
@@ -220,13 +220,13 @@ class RouteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests that the serialized representation of a route in one symfony version
-     * also works in later symfony versions, i.e. the unserialized route is in the
+     * Tests that the serialized representation of a route in one makhan version
+     * also works in later makhan versions, i.e. the unserialized route is in the
      * same state as another, semantically equivalent, route.
      */
     public function testSerializedRepresentationKeepsWorking()
     {
-        $serialized = 'C:31:"Symfony\Component\Routing\Route":934:{a:8:{s:4:"path";s:13:"/prefix/{foo}";s:4:"host";s:20:"{locale}.example.net";s:8:"defaults";a:1:{s:3:"foo";s:7:"default";}s:12:"requirements";a:1:{s:3:"foo";s:3:"\d+";}s:7:"options";a:1:{s:14:"compiler_class";s:39:"Symfony\Component\Routing\RouteCompiler";}s:7:"schemes";a:0:{}s:7:"methods";a:0:{}s:8:"compiled";C:39:"Symfony\Component\Routing\CompiledRoute":569:{a:8:{s:4:"vars";a:2:{i:0;s:6:"locale";i:1;s:3:"foo";}s:11:"path_prefix";s:7:"/prefix";s:10:"path_regex";s:30:"#^/prefix(?:/(?P<foo>\d+))?$#s";s:11:"path_tokens";a:2:{i:0;a:4:{i:0;s:8:"variable";i:1;s:1:"/";i:2;s:3:"\d+";i:3;s:3:"foo";}i:1;a:2:{i:0;s:4:"text";i:1;s:7:"/prefix";}}s:9:"path_vars";a:1:{i:0;s:3:"foo";}s:10:"host_regex";s:39:"#^(?P<locale>[^\.]++)\.example\.net$#si";s:11:"host_tokens";a:2:{i:0;a:2:{i:0;s:4:"text";i:1;s:12:".example.net";}i:1;a:4:{i:0;s:8:"variable";i:1;s:0:"";i:2;s:7:"[^\.]++";i:3;s:6:"locale";}}s:9:"host_vars";a:1:{i:0;s:6:"locale";}}}}}';
+        $serialized = 'C:31:"Makhan\Component\Routing\Route":934:{a:8:{s:4:"path";s:13:"/prefix/{foo}";s:4:"host";s:20:"{locale}.example.net";s:8:"defaults";a:1:{s:3:"foo";s:7:"default";}s:12:"requirements";a:1:{s:3:"foo";s:3:"\d+";}s:7:"options";a:1:{s:14:"compiler_class";s:39:"Makhan\Component\Routing\RouteCompiler";}s:7:"schemes";a:0:{}s:7:"methods";a:0:{}s:8:"compiled";C:39:"Makhan\Component\Routing\CompiledRoute":569:{a:8:{s:4:"vars";a:2:{i:0;s:6:"locale";i:1;s:3:"foo";}s:11:"path_prefix";s:7:"/prefix";s:10:"path_regex";s:30:"#^/prefix(?:/(?P<foo>\d+))?$#s";s:11:"path_tokens";a:2:{i:0;a:4:{i:0;s:8:"variable";i:1;s:1:"/";i:2;s:3:"\d+";i:3;s:3:"foo";}i:1;a:2:{i:0;s:4:"text";i:1;s:7:"/prefix";}}s:9:"path_vars";a:1:{i:0;s:3:"foo";}s:10:"host_regex";s:39:"#^(?P<locale>[^\.]++)\.example\.net$#si";s:11:"host_tokens";a:2:{i:0;a:2:{i:0;s:4:"text";i:1;s:12:".example.net";}i:1;a:4:{i:0;s:8:"variable";i:1;s:0:"";i:2;s:7:"[^\.]++";i:3;s:6:"locale";}}s:9:"host_vars";a:1:{i:0;s:6:"locale";}}}}}';
         $unserialized = unserialize($serialized);
 
         $route = new Route('/prefix/{foo}', array('foo' => 'default'), array('foo' => '\d+'));

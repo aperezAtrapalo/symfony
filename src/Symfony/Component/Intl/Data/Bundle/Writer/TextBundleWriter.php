@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Data\Bundle\Writer;
+namespace Makhan\Component\Intl\Data\Bundle\Writer;
 
-use Symfony\Component\Intl\Exception\UnexpectedTypeException;
+use Makhan\Component\Intl\Exception\UnexpectedTypeException;
 
 /**
  * Writes .txt resource bundles.
  *
  * The resulting files can be converted to binary .res files using a
- * {@link \Symfony\Component\Intl\ResourceBundle\Compiler\BundleCompilerInterface}
+ * {@link \Makhan\Component\Intl\ResourceBundle\Compiler\BundleCompilerInterface}
  * implementation.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>

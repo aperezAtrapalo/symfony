@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Generator;
+namespace Makhan\Component\Routing\Generator;
 
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Exception\InvalidParameterException;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Exception\InvalidParameterException;
+use Makhan\Component\Routing\Exception\RouteNotFoundException;
+use Makhan\Component\Routing\Exception\MissingMandatoryParametersException;
 use Psr\Log\LoggerInterface;
 
 /**
  * UrlGenerator can generate a URL or a path for any route in the RouteCollection
  * based on the passed parameters.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  */
 class UrlGenerator implements UrlGeneratorInterface, ConfigurableRequirementsInterface
@@ -184,7 +184,7 @@ class UrlGenerator implements UrlGeneratorInterface, ConfigurableRequirementsInt
             $url = '/';
         }
 
-        // the contexts base URL is already encoded (see Symfony\Component\HttpFoundation\Request)
+        // the contexts base URL is already encoded (see Makhan\Component\HttpFoundation\Request)
         $url = strtr(rawurlencode($url), $this->decodedChars);
 
         // the path segments "." and ".." are interpreted as relative reference when resolving a URI; see http://tools.ietf.org/html/rfc3986#section-3.3

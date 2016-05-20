@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Controller;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\ParameterBag;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Exception\HttpException;
+use Makhan\Bundle\FrameworkBundle\Controller\RedirectController;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
 
 /**
  * @author Marcin Sikon <marcin.sikon@gmail.com>
@@ -30,14 +30,14 @@ class RedirectControllerTest extends TestCase
 
         try {
             $controller->redirectAction($request, '', true);
-            $this->fail('Expected Symfony\Component\HttpKernel\Exception\HttpException to be thrown');
+            $this->fail('Expected Makhan\Component\HttpKernel\Exception\HttpException to be thrown');
         } catch (HttpException $e) {
             $this->assertSame(410, $e->getStatusCode());
         }
 
         try {
             $controller->redirectAction($request, '', false);
-            $this->fail('Expected Symfony\Component\HttpKernel\Exception\HttpException to be thrown');
+            $this->fail('Expected Makhan\Component\HttpKernel\Exception\HttpException to be thrown');
         } catch (HttpException $e) {
             $this->assertSame(404, $e->getStatusCode());
         }
@@ -66,14 +66,14 @@ class RedirectControllerTest extends TestCase
 
         $request->attributes = new ParameterBag($attributes);
 
-        $router = $this->getMock('Symfony\Component\Routing\RouterInterface');
+        $router = $this->getMock('Makhan\Component\Routing\RouterInterface');
         $router
             ->expects($this->once())
             ->method('generate')
             ->with($this->equalTo($route), $this->equalTo($expectedAttributes))
             ->will($this->returnValue($url));
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
 
         $container
             ->expects($this->once())
@@ -107,14 +107,14 @@ class RedirectControllerTest extends TestCase
 
         try {
             $controller->urlRedirectAction($request, '', true);
-            $this->fail('Expected Symfony\Component\HttpKernel\Exception\HttpException to be thrown');
+            $this->fail('Expected Makhan\Component\HttpKernel\Exception\HttpException to be thrown');
         } catch (HttpException $e) {
             $this->assertSame(410, $e->getStatusCode());
         }
 
         try {
             $controller->urlRedirectAction($request, '', false);
-            $this->fail('Expected Symfony\Component\HttpKernel\Exception\HttpException to be thrown');
+            $this->fail('Expected Makhan\Component\HttpKernel\Exception\HttpException to be thrown');
         } catch (HttpException $e) {
             $this->assertSame(404, $e->getStatusCode());
         }
@@ -230,7 +230,7 @@ class RedirectControllerTest extends TestCase
 
     private function createRequestObject($scheme, $host, $port, $baseUrl, $queryString = '')
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $request
             ->expects($this->any())
             ->method('getScheme')
@@ -257,7 +257,7 @@ class RedirectControllerTest extends TestCase
 
     private function createRedirectController($httpPort = null, $httpsPort = null)
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
 
         if (null !== $httpPort) {
             $container

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Tests\Controller;
+namespace Makhan\Bundle\WebProfilerBundle\Tests\Controller;
 
-use Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController;
-use Symfony\Component\HttpKernel\Profiler\Profile;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Bundle\WebProfilerBundle\Controller\ProfilerController;
+use Makhan\Component\HttpKernel\Profiler\Profile;
+use Makhan\Component\HttpFoundation\Request;
 
 class ProfilerControllerTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,10 +22,10 @@ class ProfilerControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testEmptyToken($token)
     {
-        $urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
+        $urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface');
         $twig = $this->getMockBuilder('Twig_Environment')->disableOriginalConstructor()->getMock();
         $profiler = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profiler')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profiler')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -39,17 +39,17 @@ class ProfilerControllerTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(null),
-            // "empty" is also a valid empty token case, see https://github.com/symfony/symfony/issues/10806
+            // "empty" is also a valid empty token case, see https://github.com/makhan/makhan/issues/10806
             array('empty'),
         );
     }
 
     public function testReturns404onTokenNotFound()
     {
-        $urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
+        $urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface');
         $twig = $this->getMockBuilder('Twig_Environment')->disableOriginalConstructor()->getMock();
         $profiler = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profiler')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profiler')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -74,10 +74,10 @@ class ProfilerControllerTest extends \PHPUnit_Framework_TestCase
 
     public function testSearchResult()
     {
-        $urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
+        $urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface');
         $twig = $this->getMockBuilder('Twig_Environment')->disableOriginalConstructor()->getMock();
         $profiler = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profiler')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profiler')
             ->disableOriginalConstructor()
             ->getMock();
 

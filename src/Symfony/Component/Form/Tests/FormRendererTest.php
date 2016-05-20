@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
 class FormRendererTest extends \PHPUnit_Framework_TestCase
 {
     public function testHumanize()
     {
-        $renderer = $this->getMockBuilder('Symfony\Component\Form\FormRenderer')
+        $renderer = $this->getMockBuilder('Makhan\Component\Form\FormRenderer')
             ->setMethods(null)
             ->disableOriginalConstructor()
             ->getMock()

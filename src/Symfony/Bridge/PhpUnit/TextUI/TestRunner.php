@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\PhpUnit\TextUI;
+namespace Makhan\Bridge\PhpUnit\TextUI;
 
-use Symfony\Bridge\PhpUnit\SymfonyTestsListener;
+use Makhan\Bridge\PhpUnit\MakhanTestsListener;
 
 /**
  * {@inheritdoc}
@@ -24,7 +24,7 @@ class TestRunner extends \PHPUnit_TextUI_TestRunner
     protected function handleConfiguration(array &$arguments)
     {
         $arguments['listeners'] = isset($arguments['listeners']) ? $arguments['listeners'] : array();
-        $arguments['listeners'][] = new SymfonyTestsListener();
+        $arguments['listeners'][] = new MakhanTestsListener();
 
         return parent::handleConfiguration($arguments);
     }

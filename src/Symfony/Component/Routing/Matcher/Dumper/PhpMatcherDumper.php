@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Matcher\Dumper;
+namespace Makhan\Component\Routing\Matcher\Dumper;
 
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\ExpressionLanguage\ExpressionLanguage;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
  * PhpMatcherDumper creates a PHP class able to match URLs for a given set of routes.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Tobias Schultze <http://tobion.de>
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
  */
@@ -48,25 +48,25 @@ class PhpMatcherDumper extends MatcherDumper
     {
         $options = array_replace(array(
             'class' => 'ProjectUrlMatcher',
-            'base_class' => 'Symfony\\Component\\Routing\\Matcher\\UrlMatcher',
+            'base_class' => 'Makhan\\Component\\Routing\\Matcher\\UrlMatcher',
         ), $options);
 
         // trailing slash support is only enabled if we know how to redirect the user
         $interfaces = class_implements($options['base_class']);
-        $supportsRedirections = isset($interfaces['Symfony\\Component\\Routing\\Matcher\\RedirectableUrlMatcherInterface']);
+        $supportsRedirections = isset($interfaces['Makhan\\Component\\Routing\\Matcher\\RedirectableUrlMatcherInterface']);
 
         return <<<EOF
 <?php
 
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Routing\RequestContext;
 
 /**
  * {$options['class']}.
  *
  * This class has been auto-generated
- * by the Symfony Routing Component.
+ * by the Makhan Routing Component.
  */
 class {$options['class']} extends {$options['base_class']}
 {
@@ -398,8 +398,8 @@ EOF;
     private function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new \RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new \RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $this->expressionLanguage = new ExpressionLanguage(null, $this->expressionLanguageProviders);
         }

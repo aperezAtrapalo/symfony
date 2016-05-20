@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Extension;
+namespace Makhan\Bridge\Twig\Extension;
 
-use Symfony\Component\Yaml\Dumper as YamlDumper;
-use Symfony\Component\Yaml\Yaml;
+use Makhan\Component\Yaml\Dumper as YamlDumper;
+use Makhan\Component\Yaml\Yaml;
 
 /**
  * Provides integration of the Yaml component with Twig.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class YamlExtension extends \Twig_Extension
 {
@@ -40,7 +40,7 @@ class YamlExtension extends \Twig_Extension
             $dumper = new YamlDumper();
         }
 
-        if (defined('Symfony\Component\Yaml\Yaml::DUMP_OBJECT')) {
+        if (defined('Makhan\Component\Yaml\Yaml::DUMP_OBJECT')) {
             if (is_bool($dumpObjects)) {
                 @trigger_error('Passing a boolean flag to toggle object support is deprecated since version 3.1 and will be removed in 4.0. Use the Yaml::DUMP_OBJECT flag instead.', E_USER_DEPRECATED);
 

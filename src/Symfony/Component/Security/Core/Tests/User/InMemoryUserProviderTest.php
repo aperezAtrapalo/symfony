@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\User;
+namespace Makhan\Component\Security\Core\Tests\User;
 
-use Symfony\Component\Security\Core\User\InMemoryUserProvider;
-use Symfony\Component\Security\Core\User\User;
+use Makhan\Component\Security\Core\User\InMemoryUserProvider;
+use Makhan\Component\Security\Core\User\User;
 
 class InMemoryUserProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -73,7 +73,7 @@ class InMemoryUserProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UsernameNotFoundException
      */
     public function testLoadUserByUsernameDoesNotExist()
     {

@@ -1,6 +1,6 @@
 <?php
 
-use Symfony\Component\Console\Command\Command;
+use Makhan\Component\Console\Command\Command;
 
 class BarBucCommand extends Command
 {

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Bundle\SecurityBundle\SecurityBundle;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Bundle\SecurityBundle\SecurityBundle;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 abstract class CompleteConfigurationTest extends \PHPUnit_Framework_TestCase
 {
@@ -187,24 +187,24 @@ abstract class CompleteConfigurationTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(array(array(
             'JMS\FooBundle\Entity\User1' => array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\PlaintextPasswordEncoder',
                 'arguments' => array(false),
             ),
             'JMS\FooBundle\Entity\User2' => array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
                 'arguments' => array('sha1', false, 5),
             ),
             'JMS\FooBundle\Entity\User3' => array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\MessageDigestPasswordEncoder',
                 'arguments' => array('md5', true, 5000),
             ),
             'JMS\FooBundle\Entity\User4' => new Reference('security.encoder.foo'),
             'JMS\FooBundle\Entity\User5' => array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\Pbkdf2PasswordEncoder',
                 'arguments' => array('sha1', false, 5, 30),
             ),
             'JMS\FooBundle\Entity\User6' => array(
-                'class' => 'Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder',
+                'class' => 'Makhan\Component\Security\Core\Encoder\BCryptPasswordEncoder',
                 'arguments' => array(15),
             ),
         )), $container->getDefinition('security.encoder_factory.generic')->getArguments());

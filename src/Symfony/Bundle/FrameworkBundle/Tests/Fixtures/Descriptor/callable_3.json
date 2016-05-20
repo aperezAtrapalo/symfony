@@ -1,5 +1,5 @@
 {
     "type": "function",
     "name": "method",
-    "class": "Symfony\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass"
+    "class": "Makhan\\Bundle\\FrameworkBundle\\Tests\\Console\\Descriptor\\CallableClass"
 }

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Helper\TableStyle;
-use Symfony\Component\Console\Helper\TableSeparator;
-use Symfony\Component\Console\Helper\TableCell;
-use Symfony\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Helper\Table;
+use Makhan\Component\Console\Helper\TableStyle;
+use Makhan\Component\Console\Helper\TableSeparator;
+use Makhan\Component\Console\Helper\TableCell;
+use Makhan\Component\Console\Output\StreamOutput;
 
 class TableTest extends \PHPUnit_Framework_TestCase
 {

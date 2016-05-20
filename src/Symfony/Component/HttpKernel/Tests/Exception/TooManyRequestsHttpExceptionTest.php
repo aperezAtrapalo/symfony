@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
+use Makhan\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 class TooManyRequestsHttpExceptionTest extends HttpExceptionTest
 {

@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Guard\Firewall;
+namespace Makhan\Component\Security\Guard\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
-use Symfony\Component\Security\Guard\Token\PreAuthenticationGuardToken;
-use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
-use Symfony\Component\Security\Guard\GuardAuthenticatorInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Security\Guard\GuardAuthenticatorHandler;
+use Makhan\Component\Security\Guard\Token\PreAuthenticationGuardToken;
+use Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Makhan\Component\Security\Guard\GuardAuthenticatorInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\Firewall\ListenerInterface;
-use Symfony\Component\Security\Http\RememberMe\RememberMeServicesInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\Firewall\ListenerInterface;
+use Makhan\Component\Security\Http\RememberMe\RememberMeServicesInterface;
 
 /**
  * Authentication listener for the "guard" system.

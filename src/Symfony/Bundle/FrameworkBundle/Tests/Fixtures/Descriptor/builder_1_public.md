@@ -37,4 +37,4 @@ alias_2
 Services
 --------
 
-- `service_container`: `Symfony\Component\DependencyInjection\ContainerBuilder`
+- `service_container`: `Makhan\Component\DependencyInjection\ContainerBuilder`

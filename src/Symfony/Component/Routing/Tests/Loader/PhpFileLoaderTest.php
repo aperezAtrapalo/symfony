@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Routing\Loader\PhpFileLoader;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Routing\Loader\PhpFileLoader;
 
 class PhpFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testSupports()
     {
-        $loader = new PhpFileLoader($this->getMock('Symfony\Component\Config\FileLocator'));
+        $loader = new PhpFileLoader($this->getMock('Makhan\Component\Config\FileLocator'));
 
         $this->assertTrue($loader->supports('foo.php'), '->supports() returns true if the resource is loadable');
         $this->assertFalse($loader->supports('foo.foo'), '->supports() returns true if the resource is loadable');
@@ -34,7 +34,7 @@ class PhpFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routes = $routeCollection->all();
 
         $this->assertCount(1, $routes, 'One route is loaded');
-        $this->assertContainsOnly('Symfony\Component\Routing\Route', $routes);
+        $this->assertContainsOnly('Makhan\Component\Routing\Route', $routes);
 
         foreach ($routes as $route) {
             $this->assertSame('/blog/{slug}', $route->getPath());
@@ -53,7 +53,7 @@ class PhpFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routes = $routeCollection->all();
 
         $this->assertCount(1, $routes, 'One route is loaded');
-        $this->assertContainsOnly('Symfony\Component\Routing\Route', $routes);
+        $this->assertContainsOnly('Makhan\Component\Routing\Route', $routes);
 
         foreach ($routes as $route) {
             $this->assertSame('/prefix/blog/{slug}', $route->getPath());
@@ -72,7 +72,7 @@ class PhpFileLoaderTest extends \PHPUnit_Framework_TestCase
         $routeCollection = $loader->load('with_define_path_variable.php');
         $resources = $routeCollection->getResources();
         $this->assertCount(1, $resources);
-        $this->assertContainsOnly('Symfony\Component\Config\Resource\ResourceInterface', $resources);
+        $this->assertContainsOnly('Makhan\Component\Config\Resource\ResourceInterface', $resources);
         $fileResource = reset($resources);
         $this->assertSame(
             realpath($locator->locate('with_define_path_variable.php')),

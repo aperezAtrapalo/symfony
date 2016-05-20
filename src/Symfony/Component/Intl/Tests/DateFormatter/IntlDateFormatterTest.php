@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\DateFormatter;
+namespace Makhan\Component\Intl\Tests\DateFormatter;
 
-use Symfony\Component\Intl\DateFormatter\IntlDateFormatter;
-use Symfony\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\DateFormatter\IntlDateFormatter;
+use Makhan\Component\Intl\Globals\IntlGlobals;
 
 class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
 {
@@ -29,7 +29,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testConstructorWithUnsupportedLocale()
     {
@@ -39,7 +39,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     public function testStaticCreate()
     {
         $formatter = IntlDateFormatter::create('en', IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-        $this->assertInstanceOf('\Symfony\Component\Intl\DateFormatter\IntlDateFormatter', $formatter);
+        $this->assertInstanceOf('\Makhan\Component\Intl\DateFormatter\IntlDateFormatter', $formatter);
     }
 
     public function testFormatWithUnsupportedTimestampArgument()
@@ -61,14 +61,14 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
         try {
             $formatter->format($localtime);
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException', $e);
+            $this->assertInstanceOf('Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException', $e);
 
             $this->assertStringEndsWith('Only integer Unix timestamps and DateTime objects are supported.  Please install the "intl" extension for full localization capabilities.', $e->getMessage());
         }
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatWithUnimplementedChars()
     {
@@ -78,7 +78,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatWithNonIntegerTimestamp()
     {
@@ -105,7 +105,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testLocaltime()
     {
@@ -114,7 +114,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentNotImplementedException
      */
     public function testParseWithNotNullPositionValue()
     {
@@ -124,7 +124,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetCalendar()
     {
@@ -133,7 +133,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testSetLenient()
     {
@@ -142,7 +142,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatWithGmtTimeZoneAndMinutesOffset()
     {
@@ -150,7 +150,7 @@ class IntlDateFormatterTest extends AbstractIntlDateFormatterTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\NotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\NotImplementedException
      */
     public function testFormatWithNonStandardTimezone()
     {

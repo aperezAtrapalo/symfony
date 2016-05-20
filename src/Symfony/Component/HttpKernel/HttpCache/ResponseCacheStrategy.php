@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * This code is partially based on the Rack-Cache library by Ryan Tomayko,
  * which is released under the MIT license.
@@ -13,9 +13,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\HttpCache;
+namespace Makhan\Component\HttpKernel\HttpCache;
 
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * ResponseCacheStrategy knows how to compute the Response cache HTTP header
@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
  * This implementation changes the master response TTL to the smallest TTL received
  * or force validation if one of the surrogates has validation cache strategy.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ResponseCacheStrategy implements ResponseCacheStrategyInterface
 {

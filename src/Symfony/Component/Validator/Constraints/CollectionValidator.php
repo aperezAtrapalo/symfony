@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Constraints;
+namespace Makhan\Component\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -43,7 +43,7 @@ class CollectionValidator extends ConstraintValidator
         // is called for the nested constraint, the outer validator is
         // acting on the wrong context when the nested validation terminates.
         //
-        // A better solution - which should be approached in Symfony 3.0 - is to
+        // A better solution - which should be approached in Makhan 3.0 - is to
         // remove the initialize() method and pass the context as last argument
         // to validate() instead.
         $context = $this->context;

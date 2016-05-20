@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle;
+namespace Makhan\Bundle\TwigBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\TwigEnvironmentPass;
-use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
-use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\ExceptionListenerPass;
-use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\ExtensionPass;
+use Makhan\Component\HttpKernel\Bundle\Bundle;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bundle\TwigBundle\DependencyInjection\Compiler\TwigEnvironmentPass;
+use Makhan\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
+use Makhan\Bundle\TwigBundle\DependencyInjection\Compiler\ExceptionListenerPass;
+use Makhan\Bundle\TwigBundle\DependencyInjection\Compiler\ExtensionPass;
 
 /**
  * Bundle.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TwigBundle extends Bundle
 {

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Mapping;
+namespace Makhan\Component\Validator\Tests\Mapping;
 
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\Mapping\MemberMetadata;
-use Symfony\Component\Validator\Tests\Fixtures\ClassConstraint;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintA;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintB;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\Mapping\MemberMetadata;
+use Makhan\Component\Validator\Tests\Fixtures\ClassConstraint;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintA;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintB;
 
 class MemberMetadataTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,7 @@ class MemberMetadataTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->metadata = new TestMemberMetadata(
-            'Symfony\Component\Validator\Tests\Fixtures\Entity',
+            'Makhan\Component\Validator\Tests\Fixtures\Entity',
             'getLastName',
             'lastName'
         );
@@ -37,7 +37,7 @@ class MemberMetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testAddConstraintRequiresClassConstraints()
     {
-        $this->setExpectedException('Symfony\Component\Validator\Exception\ConstraintDefinitionException');
+        $this->setExpectedException('Makhan\Component\Validator\Exception\ConstraintDefinitionException');
 
         $this->metadata->addConstraint(new ClassConstraint());
     }

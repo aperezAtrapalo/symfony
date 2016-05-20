@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Extension;
+namespace Makhan\Bridge\Twig\Extension;
 
-use Symfony\Bridge\Twig\TokenParser\TransTokenParser;
-use Symfony\Bridge\Twig\TokenParser\TransChoiceTokenParser;
-use Symfony\Bridge\Twig\TokenParser\TransDefaultDomainTokenParser;
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Bridge\Twig\NodeVisitor\TranslationNodeVisitor;
-use Symfony\Bridge\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
+use Makhan\Bridge\Twig\TokenParser\TransTokenParser;
+use Makhan\Bridge\Twig\TokenParser\TransChoiceTokenParser;
+use Makhan\Bridge\Twig\TokenParser\TransDefaultDomainTokenParser;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Bridge\Twig\NodeVisitor\TranslationNodeVisitor;
+use Makhan\Bridge\Twig\NodeVisitor\TranslationDefaultDomainNodeVisitor;
 
 /**
  * Provides integration of the Translation component with Twig.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TranslationExtension extends \Twig_Extension
 {
@@ -62,7 +62,7 @@ class TranslationExtension extends \Twig_Extension
     public function getTokenParsers()
     {
         return array(
-            // {% trans %}Symfony is great!{% endtrans %}
+            // {% trans %}Makhan is great!{% endtrans %}
             new TransTokenParser(),
 
             // {% transchoice count %}

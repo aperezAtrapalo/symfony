@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Filesystem\Tests;
+namespace Makhan\Component\Filesystem\Tests;
 
-use Symfony\Component\Filesystem\LockHandler;
+use Makhan\Component\Filesystem\LockHandler;
 
 class LockHandlerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      * @expectedExceptionMessage Failed to create "/a/b/c/d/e": mkdir(): Permission denied.
      */
     public function testConstructWhenRepositoryDoesNotExist()
@@ -28,7 +28,7 @@ class LockHandlerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      * @expectedExceptionMessage The directory "/" is not writable.
      */
     public function testConstructWhenRepositoryIsNotWriteable()
@@ -56,7 +56,7 @@ class LockHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testLockRelease()
     {
-        $name = 'symfony-test-filesystem.lock';
+        $name = 'makhan-test-filesystem.lock';
 
         $l1 = new LockHandler($name);
         $l2 = new LockHandler($name);
@@ -72,7 +72,7 @@ class LockHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testLockTwice()
     {
-        $name = 'symfony-test-filesystem.lock';
+        $name = 'makhan-test-filesystem.lock';
 
         $lockHandler = new LockHandler($name);
 
@@ -84,7 +84,7 @@ class LockHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testLockIsReleased()
     {
-        $name = 'symfony-test-filesystem.lock';
+        $name = 'makhan-test-filesystem.lock';
 
         $l1 = new LockHandler($name);
         $l2 = new LockHandler($name);

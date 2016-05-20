@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Helper;
+namespace Makhan\Component\Console\Helper;
 
-use Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\ProcessBuilder;
+use Makhan\Component\Console\Output\ConsoleOutputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Process\Exception\ProcessFailedException;
+use Makhan\Component\Process\Process;
+use Makhan\Component\Process\ProcessBuilder;
 
 /**
  * The ProcessHelper class provides helpers to run external processes.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ProcessHelper extends Helper
 {

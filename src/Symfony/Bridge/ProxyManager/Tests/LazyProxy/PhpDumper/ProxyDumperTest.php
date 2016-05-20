@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\ProxyManager\Tests\LazyProxy\PhpDumper;
+namespace Makhan\Bridge\ProxyManager\Tests\LazyProxy\PhpDumper;
 
-use Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
-use Symfony\Component\DependencyInjection\Definition;
+use Makhan\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
+use Makhan\Component\DependencyInjection\Definition;
 
 /**
- * Tests for {@see \Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper}.
+ * Tests for {@see \Makhan\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper}.
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
@@ -54,8 +54,8 @@ class ProxyDumperTest extends \PHPUnit_Framework_TestCase
         $code = $this->dumper->getProxyCode($definition);
 
         $this->assertStringMatchesFormat(
-            '%Aclass SymfonyBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest%aextends%w'
-                .'\Symfony\Bridge\ProxyManager\Tests\LazyProxy\PhpDumper\ProxyDumperTest%a',
+            '%Aclass MakhanBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest%aextends%w'
+                .'\Makhan\Bridge\ProxyManager\Tests\LazyProxy\PhpDumper\ProxyDumperTest%a',
             $code
         );
     }
@@ -70,7 +70,7 @@ class ProxyDumperTest extends \PHPUnit_Framework_TestCase
 
         $this->assertStringMatchesFormat(
             '%wif ($lazyLoad) {%wreturn $this->services[\'foo\'] =%s'
-            .'SymfonyBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest_%s(%wfunction '
+            .'MakhanBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest_%s(%wfunction '
             .'(&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) {'
             .'%w$wrappedInstance = $this->getFoo2Service(false);%w$proxy->setProxyInitializer(null);'
             .'%wreturn true;%w}%w);%w}%w',
@@ -91,7 +91,7 @@ class ProxyDumperTest extends \PHPUnit_Framework_TestCase
 
         $this->assertStringMatchesFormat(
             '%wif ($lazyLoad) {%wreturn $this->services[\'foo\'] =%s'
-            .'SymfonyBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest_%s(%wfunction '
+            .'MakhanBridgeProxyManagerTestsLazyProxyPhpDumperProxyDumperTest_%s(%wfunction '
             .'(&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) {'
             .'%w$wrappedInstance = $this->getFooService(false);%w$proxy->setProxyInitializer(null);'
             .'%wreturn true;%w}%w);%w}%w',

@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpKernel\HttpCache\Esi;
-use Symfony\Component\HttpKernel\EventListener\SurrogateListener;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\HttpKernel\HttpCache\Esi;
+use Makhan\Component\HttpKernel\EventListener\SurrogateListener;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\EventDispatcher\EventDispatcher;
 
 class SurrogateListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testFilterDoesNothingForSubRequests()
     {
         $dispatcher = new EventDispatcher();
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $response = new Response('foo <esi:include src="" />');
         $listener = new SurrogateListener(new Esi());
 
@@ -39,7 +39,7 @@ class SurrogateListenerTest extends \PHPUnit_Framework_TestCase
     public function testFilterWhenThereIsSomeEsiIncludes()
     {
         $dispatcher = new EventDispatcher();
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $response = new Response('foo <esi:include src="" />');
         $listener = new SurrogateListener(new Esi());
 
@@ -53,7 +53,7 @@ class SurrogateListenerTest extends \PHPUnit_Framework_TestCase
     public function testFilterWhenThereIsNoEsiIncludes()
     {
         $dispatcher = new EventDispatcher();
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $response = new Response('foo');
         $listener = new SurrogateListener(new Esi());
 

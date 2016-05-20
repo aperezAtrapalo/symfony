@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication;
+namespace Makhan\Component\Security\Core\Tests\Authentication;
 
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolver;
 
 class AuthenticationTrustResolverTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,24 +47,24 @@ class AuthenticationTrustResolverTest extends \PHPUnit_Framework_TestCase
 
     protected function getToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 
     protected function getAnonymousToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\AnonymousToken', null, array('', ''));
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\AnonymousToken', null, array('', ''));
     }
 
     protected function getRememberMeToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\RememberMeToken', array('setPersistent'), array(), '', false);
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\RememberMeToken', array('setPersistent'), array(), '', false);
     }
 
     protected function getResolver()
     {
         return new AuthenticationTrustResolver(
-            'Symfony\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken',
-            'Symfony\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken'
+            'Makhan\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken',
+            'Makhan\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken'
         );
     }
 }

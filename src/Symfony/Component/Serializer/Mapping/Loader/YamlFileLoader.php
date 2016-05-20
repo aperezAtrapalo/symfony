@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Mapping\Loader;
+namespace Makhan\Component\Serializer\Mapping\Loader;
 
-use Symfony\Component\Serializer\Exception\MappingException;
-use Symfony\Component\Serializer\Mapping\AttributeMetadata;
-use Symfony\Component\Serializer\Mapping\ClassMetadataInterface;
-use Symfony\Component\Yaml\Parser;
+use Makhan\Component\Serializer\Exception\MappingException;
+use Makhan\Component\Serializer\Mapping\AttributeMetadata;
+use Makhan\Component\Serializer\Mapping\ClassMetadataInterface;
+use Makhan\Component\Yaml\Parser;
 
 /**
  * YAML File Loader.

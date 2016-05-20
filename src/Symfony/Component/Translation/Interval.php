@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation;
+namespace Makhan\Component\Translation;
 
 /**
  * Tests if a given number belongs to a given math interval.
@@ -27,7 +27,7 @@ namespace Symfony\Component\Translation;
  * The right delimiter can be [ (exclusive) or ] (inclusive).
  * Beside numbers, you can use -Inf and +Inf for the infinite.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  *
  * @see    http://en.wikipedia.org/wiki/Interval_%28mathematics%29#The_ISO_notation
  */

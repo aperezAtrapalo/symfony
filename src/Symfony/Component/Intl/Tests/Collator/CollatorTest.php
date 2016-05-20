@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\Collator;
+namespace Makhan\Component\Intl\Tests\Collator;
 
-use Symfony\Component\Intl\Collator\Collator;
-use Symfony\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\Collator\Collator;
+use Makhan\Component\Intl\Globals\IntlGlobals;
 
 class CollatorTest extends AbstractCollatorTest
 {
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodArgumentValueNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodArgumentValueNotImplementedException
      */
     public function testConstructorWithUnsupportedLocale()
     {
@@ -25,7 +25,7 @@ class CollatorTest extends AbstractCollatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testCompare()
     {
@@ -34,7 +34,7 @@ class CollatorTest extends AbstractCollatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetAttribute()
     {
@@ -63,11 +63,11 @@ class CollatorTest extends AbstractCollatorTest
     public function testConstructWithoutLocale()
     {
         $collator = $this->getCollator(null);
-        $this->assertInstanceOf('\Symfony\Component\Intl\Collator\Collator', $collator);
+        $this->assertInstanceOf('\Makhan\Component\Intl\Collator\Collator', $collator);
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetSortKey()
     {
@@ -76,7 +76,7 @@ class CollatorTest extends AbstractCollatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testGetStrength()
     {
@@ -85,7 +85,7 @@ class CollatorTest extends AbstractCollatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetAttribute()
     {
@@ -94,7 +94,7 @@ class CollatorTest extends AbstractCollatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MethodNotImplementedException
+     * @expectedException \Makhan\Component\Intl\Exception\MethodNotImplementedException
      */
     public function testSetStrength()
     {
@@ -105,7 +105,7 @@ class CollatorTest extends AbstractCollatorTest
     public function testStaticCreate()
     {
         $collator = Collator::create('en');
-        $this->assertInstanceOf('\Symfony\Component\Intl\Collator\Collator', $collator);
+        $this->assertInstanceOf('\Makhan\Component\Intl\Collator\Collator', $collator);
     }
 
     protected function getCollator($locale)

@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Templating;
 
-use Symfony\Component\Templating\TemplateReferenceInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Templating\TemplateNameParser as BaseTemplateNameParser;
+use Makhan\Component\Templating\TemplateReferenceInterface;
+use Makhan\Component\HttpKernel\KernelInterface;
+use Makhan\Component\Templating\TemplateNameParser as BaseTemplateNameParser;
 
 /**
  * TemplateNameParser converts template names from the short notation
  * "bundle:section:template.format.engine" to TemplateReferenceInterface
  * instances.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TemplateNameParser extends BaseTemplateNameParser
 {
@@ -77,7 +77,7 @@ class TemplateNameParser extends BaseTemplateNameParser
         $isAbsolute = (bool) preg_match('#^(?:/|[a-zA-Z]:)#', $file);
 
         if ($isAbsolute) {
-            @trigger_error('Absolute template path support is deprecated since Symfony 3.1 and will be removed in 4.0.', E_USER_DEPRECATED);
+            @trigger_error('Absolute template path support is deprecated since Makhan 3.1 and will be removed in 4.0.', E_USER_DEPRECATED);
         }
 
         return $isAbsolute;

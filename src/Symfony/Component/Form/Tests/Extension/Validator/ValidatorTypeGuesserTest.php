@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator;
+namespace Makhan\Component\Form\Tests\Extension\Validator;
 
-use Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser;
-use Symfony\Component\Form\Guess\Guess;
-use Symfony\Component\Form\Guess\ValueGuess;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Range;
-use Symfony\Component\Validator\Constraints\IsTrue;
-use Symfony\Component\Validator\Constraints\Type;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Form\Extension\Validator\ValidatorTypeGuesser;
+use Makhan\Component\Form\Guess\Guess;
+use Makhan\Component\Form\Guess\ValueGuess;
+use Makhan\Component\Validator\Constraints\Email;
+use Makhan\Component\Validator\Constraints\Length;
+use Makhan\Component\Validator\Constraints\NotBlank;
+use Makhan\Component\Validator\Constraints\NotNull;
+use Makhan\Component\Validator\Constraints\Range;
+use Makhan\Component\Validator\Constraints\IsTrue;
+use Makhan\Component\Validator\Constraints\Type;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @author franek <franek@chicour.net>
@@ -29,7 +29,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
  */
 class ValidatorTypeGuesserTest extends \PHPUnit_Framework_TestCase
 {
-    const TEST_CLASS = 'Symfony\Component\Form\Tests\Extension\Validator\ValidatorTypeGuesserTest_TestClass';
+    const TEST_CLASS = 'Makhan\Component\Form\Tests\Extension\Validator\ValidatorTypeGuesserTest_TestClass';
 
     const TEST_PROPERTY = 'property';
 
@@ -51,7 +51,7 @@ class ValidatorTypeGuesserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->metadata = new ClassMetadata(self::TEST_CLASS);
-        $this->metadataFactory = $this->getMock('Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface');
+        $this->metadataFactory = $this->getMock('Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface');
         $this->metadataFactory->expects($this->any())
             ->method('getMetadataFor')
             ->with(self::TEST_CLASS)
@@ -94,7 +94,7 @@ class ValidatorTypeGuesserTest extends \PHPUnit_Framework_TestCase
         $constraint = new Length(array('max' => '2'));
 
         $result = $this->guesser->guessMaxLengthForConstraint($constraint);
-        $this->assertInstanceOf('Symfony\Component\Form\Guess\ValueGuess', $result);
+        $this->assertInstanceOf('Makhan\Component\Form\Guess\ValueGuess', $result);
         $this->assertEquals(2, $result->getValue());
         $this->assertEquals(Guess::HIGH_CONFIDENCE, $result->getConfidence());
     }
@@ -125,7 +125,7 @@ class ValidatorTypeGuesserTest extends \PHPUnit_Framework_TestCase
         $constraint = new Type($type);
 
         $result = $this->guesser->guessMaxLengthForConstraint($constraint);
-        $this->assertInstanceOf('Symfony\Component\Form\Guess\ValueGuess', $result);
+        $this->assertInstanceOf('Makhan\Component\Form\Guess\ValueGuess', $result);
         $this->assertNull($result->getValue());
         $this->assertEquals(Guess::MEDIUM_CONFIDENCE, $result->getConfidence());
     }

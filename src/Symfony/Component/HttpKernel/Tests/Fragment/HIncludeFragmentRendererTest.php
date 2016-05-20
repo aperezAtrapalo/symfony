@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Makhan\Component\HttpKernel\Tests\Fragment;
 
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer;
-use Symfony\Component\HttpKernel\UriSigner;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\Fragment\HIncludeFragmentRenderer;
+use Makhan\Component\HttpKernel\UriSigner;
+use Makhan\Component\HttpFoundation\Request;
 
 class HIncludeFragmentRendererTest extends \PHPUnit_Framework_TestCase
 {
@@ -75,7 +75,7 @@ class HIncludeFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderWithDefaultText()
     {
-        $engine = $this->getMock('Symfony\\Component\\Templating\\EngineInterface');
+        $engine = $this->getMock('Makhan\\Component\\Templating\\EngineInterface');
         $engine->expects($this->once())
             ->method('exists')
             ->with('default')

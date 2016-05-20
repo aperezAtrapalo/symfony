@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\RuntimeException;
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\Exception\AlreadySubmittedException;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\Form\Exception\LogicException;
-use Symfony\Component\Form\Exception\OutOfBoundsException;
-use Symfony\Component\Form\Util\FormUtil;
-use Symfony\Component\Form\Util\InheritDataAwareIterator;
-use Symfony\Component\Form\Util\OrderedHashMap;
-use Symfony\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Form\Exception\RuntimeException;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\Exception\AlreadySubmittedException;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\Exception\LogicException;
+use Makhan\Component\Form\Exception\OutOfBoundsException;
+use Makhan\Component\Form\Util\FormUtil;
+use Makhan\Component\Form\Util\InheritDataAwareIterator;
+use Makhan\Component\Form\Util\OrderedHashMap;
+use Makhan\Component\PropertyAccess\PropertyPath;
 
 /**
  * Form represents a form.
@@ -55,7 +55,7 @@ use Symfony\Component\PropertyAccess\PropertyPath;
  * The conversions (1) -> (2) -> (3) use the transform methods of the transformers.
  * The conversions (3) -> (2) -> (1) use the reverseTransform methods of the transformers.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 class Form implements \IteratorAggregate, FormInterface
@@ -831,18 +831,18 @@ class Form implements \IteratorAggregate, FormInterface
 
         if (!$child instanceof FormInterface) {
             if (!is_string($child) && !is_int($child)) {
-                throw new UnexpectedTypeException($child, 'string, integer or Symfony\Component\Form\FormInterface');
+                throw new UnexpectedTypeException($child, 'string, integer or Makhan\Component\Form\FormInterface');
             }
 
             if (null !== $type && !is_string($type) && !$type instanceof FormTypeInterface) {
-                throw new UnexpectedTypeException($type, 'string or Symfony\Component\Form\FormTypeInterface');
+                throw new UnexpectedTypeException($type, 'string or Makhan\Component\Form\FormTypeInterface');
             }
 
             // Never initialize child forms automatically
             $options['auto_initialize'] = false;
 
             if (null === $type && null === $this->config->getDataClass()) {
-                $type = 'Symfony\Component\Form\Extension\Core\Type\TextType';
+                $type = 'Makhan\Component\Form\Extension\Core\Type\TextType';
             }
 
             if (null === $type) {

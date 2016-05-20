@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Violation;
+namespace Makhan\Component\Validator\Violation;
 
 /**
- * Builds {@link \Symfony\Component\Validator\ConstraintViolationInterface}
+ * Builds {@link \Makhan\Component\Validator\ConstraintViolationInterface}
  * objects.
  *
  * Use the various methods on this interface to configure the built violation.
@@ -66,7 +66,7 @@ interface ConstraintViolationBuilderInterface
      *
      * @return ConstraintViolationBuilderInterface This builder
      *
-     * @see \Symfony\Component\Translation\TranslatorInterface
+     * @see \Makhan\Component\Translation\TranslatorInterface
      */
     public function setTranslationDomain($translationDomain);
 
@@ -87,7 +87,7 @@ interface ConstraintViolationBuilderInterface
      *
      * @return ConstraintViolationBuilderInterface This builder
      *
-     * @see \Symfony\Component\Translation\TranslatorInterface::transChoice()
+     * @see \Makhan\Component\Translation\TranslatorInterface::transChoice()
      */
     public function setPlural($number);
 

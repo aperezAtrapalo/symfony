@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Command;
+namespace Makhan\Bridge\Twig\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
 
 /**
  * Lists twig functions, filters, globals and tests present in the current project.
@@ -83,7 +83,7 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
         $twig = $this->getTwigEnvironment();
 
         if (null === $twig) {

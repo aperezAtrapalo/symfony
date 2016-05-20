@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\PercentToLocalizedStringTransformer;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Extension\Core\DataTransformer\PercentToLocalizedStringTransformer;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class PercentToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -105,7 +105,7 @@ class PercentToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     {
         $transformer = new PercentToLocalizedStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $transformer->transform('foo');
     }
@@ -114,7 +114,7 @@ class PercentToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     {
         $transformer = new PercentToLocalizedStringTransformer();
 
-        $this->setExpectedException('Symfony\Component\Form\Exception\TransformationFailedException');
+        $this->setExpectedException('Makhan\Component\Form\Exception\TransformationFailedException');
 
         $transformer->reverseTransform(1);
     }

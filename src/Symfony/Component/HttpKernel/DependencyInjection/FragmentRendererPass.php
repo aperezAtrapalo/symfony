@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\DependencyInjection;
+namespace Makhan\Component\HttpKernel\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 /**
  * Adds services tagged kernel.fragment_renderer as HTTP content rendering strategies.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class FragmentRendererPass implements CompilerPassInterface
 {
@@ -52,7 +52,7 @@ class FragmentRendererPass implements CompilerPassInterface
             }
 
             $class = $container->getParameterBag()->resolveValue($def->getClass());
-            $interface = 'Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface';
+            $interface = 'Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface';
             if (!is_subclass_of($class, $interface)) {
                 throw new \InvalidArgumentException(sprintf('Service "%s" must implement interface "%s".', $id, $interface));
             }

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests;
+namespace Makhan\Component\Templating\Tests;
 
-use Symfony\Component\Templating\TemplateNameParser;
-use Symfony\Component\Templating\TemplateReference;
+use Makhan\Component\Templating\TemplateNameParser;
+use Makhan\Component\Templating\TemplateReference;
 
 class TemplateNameParserTest extends \PHPUnit_Framework_TestCase
 {

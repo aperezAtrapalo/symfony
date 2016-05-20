@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Extension;
+namespace Makhan\Component\DependencyInjection\Extension;
 
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\Definition\Processor;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\Exception\BadMethodCallException;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\Config\Definition\Processor;
+use Makhan\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * Provides useful features shared by many extensions.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Extension implements ExtensionInterface, ConfigurationExtensionInterface
 {

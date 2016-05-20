@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Loader\DependencyInjection;
+namespace Makhan\Component\Routing\Loader\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Routing\Loader\ObjectRouteLoader;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\Routing\Loader\ObjectRouteLoader;
 
 /**
  * A route loader that executes a service to load the routes.

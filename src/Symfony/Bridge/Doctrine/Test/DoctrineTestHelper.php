@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Test;
+namespace Makhan\Bridge\Doctrine\Test;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
@@ -34,10 +34,10 @@ class DoctrineTestHelper
         }
 
         $config = new \Doctrine\ORM\Configuration();
-        $config->setEntityNamespaces(array('SymfonyTestsDoctrine' => 'Symfony\Bridge\Doctrine\Tests\Fixtures'));
+        $config->setEntityNamespaces(array('MakhanTestsDoctrine' => 'Makhan\Bridge\Doctrine\Tests\Fixtures'));
         $config->setAutoGenerateProxyClasses(true);
         $config->setProxyDir(\sys_get_temp_dir());
-        $config->setProxyNamespace('SymfonyTests\Doctrine');
+        $config->setProxyNamespace('MakhanTests\Doctrine');
         $config->setMetadataDriverImpl(new AnnotationDriver(new AnnotationReader()));
         $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ArrayCache());
         $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ArrayCache());

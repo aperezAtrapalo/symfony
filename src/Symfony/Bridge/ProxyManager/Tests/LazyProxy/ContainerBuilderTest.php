@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\ProxyManager\Tests\LazyProxy;
+namespace Makhan\Bridge\ProxyManager\Tests\LazyProxy;
 
 require_once __DIR__.'/Fixtures/includes/foo.php';
 
-use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Integration tests for {@see \Symfony\Component\DependencyInjection\ContainerBuilder} combined
+ * Integration tests for {@see \Makhan\Component\DependencyInjection\ContainerBuilder} combined
  * with the ProxyManager bridge.
  *
  * @author Marco Pivetta <ocramius@gmail.com>

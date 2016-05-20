@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator\Type;
+namespace Makhan\Component\Form\Tests\Extension\Validator\Type;
 
-use Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ConstraintViolationList;
+use Makhan\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\ConstraintViolationList;
 
 class FormTypeValidatorExtensionTest extends BaseValidatorExtensionTest
 {
     public function testSubmitValidatesData()
     {
         $builder = $this->factory->createBuilder(
-            'Symfony\Component\Form\Extension\Core\Type\FormType',
+            'Makhan\Component\Form\Extension\Core\Type\FormType',
             null,
             array(
                 'validation_groups' => 'group',
             )
         );
-        $builder->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $builder->add('firstName', 'Makhan\Component\Form\Extension\Core\Type\FormType');
         $form = $builder->getForm();
 
         $this->validator->expects($this->once())
@@ -47,7 +47,7 @@ class FormTypeValidatorExtensionTest extends BaseValidatorExtensionTest
 
     public function testValidatorInterface()
     {
-        $validator = $this->getMock('Symfony\Component\Validator\Validator\ValidatorInterface');
+        $validator = $this->getMock('Makhan\Component\Validator\Validator\ValidatorInterface');
 
         $formTypeValidatorExtension = new FormTypeValidatorExtension($validator);
         $this->assertAttributeSame($validator, 'validator', $formTypeValidatorExtension);
@@ -55,6 +55,6 @@ class FormTypeValidatorExtensionTest extends BaseValidatorExtensionTest
 
     protected function createForm(array $options = array())
     {
-        return $this->factory->create('Symfony\Component\Form\Extension\Core\Type\FormType', null, $options);
+        return $this->factory->create('Makhan\Component\Form\Extension\Core\Type\FormType', null, $options);
     }
 }

@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Constraints;
+namespace Makhan\Component\Validator\Constraints;
 
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\RuntimeException;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\ExpressionLanguage\ExpressionLanguage;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\RuntimeException;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
- * @author Fabien Potencier <fabien@symfony.com>
- * @author Bernhard Schussek <bschussek@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
+ * @author Bernhard Schussek <bschussek@makhan.com>
  */
 class ExpressionValidator extends ConstraintValidator
 {
@@ -57,8 +57,8 @@ class ExpressionValidator extends ConstraintValidator
     private function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $this->expressionLanguage = new ExpressionLanguage();
         }

@@ -2,8 +2,8 @@
 
 require_once __DIR__.'/../includes/classes.php';
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
 
 $container = new ContainerBuilder();
 $container->

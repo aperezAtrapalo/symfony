@@ -1,7 +1,7 @@
 --TEST--
-Test symfony_debug_backtrace in case of non fatal error
+Test makhan_debug_backtrace in case of non fatal error
 --SKIPIF--
-<?php if (!extension_loaded("symfony_debug")) print "skip"; ?>
+<?php if (!extension_loaded("makhan_debug")) print "skip"; ?>
 --FILE--
 <?php
 
@@ -12,7 +12,7 @@ function bar()
 
 function bt()
 {
-    print_r(symfony_debug_backtrace());
+    print_r(makhan_debug_backtrace());
 
 }
 

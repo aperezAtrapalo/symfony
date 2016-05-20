@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\EntryPoint;
+namespace Makhan\Component\Security\Http\Tests\EntryPoint;
 
-use Symfony\Component\Security\Http\EntryPoint\DigestAuthenticationEntryPoint;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Exception\NonceExpiredException;
+use Makhan\Component\Security\Http\EntryPoint\DigestAuthenticationEntryPoint;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Core\Exception\NonceExpiredException;
 
 class DigestAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 {
     public function testStart()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
 
         $authenticationException = new AuthenticationException('TheAuthenticationExceptionMessage');
 
@@ -32,7 +32,7 @@ class DigestAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 
     public function testStartWithNoException()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
 
         $entryPoint = new DigestAuthenticationEntryPoint('TheRealmName', 'TheSecret');
         $response = $entryPoint->start($request);
@@ -43,7 +43,7 @@ class DigestAuthenticationEntryPointTest extends \PHPUnit_Framework_TestCase
 
     public function testStartWithNonceExpiredException()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
 
         $nonceExpiredException = new NonceExpiredException('TheNonceExpiredExceptionMessage');
 

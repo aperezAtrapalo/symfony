@@ -22,7 +22,7 @@ digraph sc {
   node_factory_service [label="factory_service\nBar\n", shape=record, fillcolor="#eeeeee", style="filled"];
   node_new_factory_service [label="new_factory_service\nFooBarBaz\n", shape=record, fillcolor="#eeeeee", style="filled"];
   node_service_from_static_method [label="service_from_static_method\nBar\\FooClass\n", shape=record, fillcolor="#eeeeee", style="filled"];
-  node_service_container [label="service_container\nSymfony\\Component\\DependencyInjection\\ContainerBuilder\n", shape=record, fillcolor="#9999ff", style="filled"];
+  node_service_container [label="service_container\nMakhan\\Component\\DependencyInjection\\ContainerBuilder\n", shape=record, fillcolor="#9999ff", style="filled"];
   node_foo2 [label="foo2\n\n", shape=record, fillcolor="#ff9999", style="filled"];
   node_foo3 [label="foo3\n\n", shape=record, fillcolor="#ff9999", style="filled"];
   node_foobaz [label="foobaz\n\n", shape=record, fillcolor="#ff9999", style="filled"];

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests;
+namespace Makhan\Component\Validator\Tests;
 
-use Symfony\Component\Validator\ValidatorBuilder;
-use Symfony\Component\Validator\ValidatorBuilderInterface;
+use Makhan\Component\Validator\ValidatorBuilder;
+use Makhan\Component\Validator\ValidatorBuilderInterface;
 
 class ValidatorBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +34,7 @@ class ValidatorBuilderTest extends \PHPUnit_Framework_TestCase
     public function testAddObjectInitializer()
     {
         $this->assertSame($this->builder, $this->builder->addObjectInitializer(
-            $this->getMock('Symfony\Component\Validator\ObjectInitializerInterface')
+            $this->getMock('Makhan\Component\Validator\ObjectInitializerInterface')
         ));
     }
 
@@ -86,21 +86,21 @@ class ValidatorBuilderTest extends \PHPUnit_Framework_TestCase
     public function testSetMetadataCache()
     {
         $this->assertSame($this->builder, $this->builder->setMetadataCache(
-            $this->getMock('Symfony\Component\Validator\Mapping\Cache\CacheInterface'))
+            $this->getMock('Makhan\Component\Validator\Mapping\Cache\CacheInterface'))
         );
     }
 
     public function testSetConstraintValidatorFactory()
     {
         $this->assertSame($this->builder, $this->builder->setConstraintValidatorFactory(
-            $this->getMock('Symfony\Component\Validator\ConstraintValidatorFactoryInterface'))
+            $this->getMock('Makhan\Component\Validator\ConstraintValidatorFactoryInterface'))
         );
     }
 
     public function testSetTranslator()
     {
         $this->assertSame($this->builder, $this->builder->setTranslator(
-            $this->getMock('Symfony\Component\Translation\TranslatorInterface'))
+            $this->getMock('Makhan\Component\Translation\TranslatorInterface'))
         );
     }
 
@@ -111,6 +111,6 @@ class ValidatorBuilderTest extends \PHPUnit_Framework_TestCase
 
     public function testGetValidator()
     {
-        $this->assertInstanceOf('Symfony\Component\Validator\Validator\RecursiveValidator', $this->builder->getValidator());
+        $this->assertInstanceOf('Makhan\Component\Validator\Validator\RecursiveValidator', $this->builder->getValidator());
     }
 }

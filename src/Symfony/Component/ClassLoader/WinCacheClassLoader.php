@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ClassLoader;
+namespace Makhan\Component\ClassLoader;
 
 /**
  * WinCacheClassLoader implements a wrapping autoloader cached in WinCache.
@@ -19,17 +19,17 @@ namespace Symfony\Component\ClassLoader;
  * ClassLoader for instance) but also around any other autoloaders following
  * this convention (the Composer one for instance).
  *
- *     // with a Symfony autoloader
+ *     // with a Makhan autoloader
  *     $loader = new ClassLoader();
- *     $loader->addPrefix('Symfony\Component', __DIR__.'/component');
- *     $loader->addPrefix('Symfony',           __DIR__.'/framework');
+ *     $loader->addPrefix('Makhan\Component', __DIR__.'/component');
+ *     $loader->addPrefix('Makhan',           __DIR__.'/framework');
  *
  *     // or with a Composer autoloader
  *     use Composer\Autoload\ClassLoader;
  *
  *     $loader = new ClassLoader();
- *     $loader->add('Symfony\Component', __DIR__.'/component');
- *     $loader->add('Symfony',           __DIR__.'/framework');
+ *     $loader->add('Makhan\Component', __DIR__.'/component');
+ *     $loader->add('Makhan',           __DIR__.'/framework');
  *
  *     $cachedLoader = new WinCacheClassLoader('my_prefix', $loader);
  *
@@ -40,8 +40,8 @@ namespace Symfony\Component\ClassLoader;
  *     // to be sure to use the cached one.
  *     $loader->unregister();
  *
- * @author Fabien Potencier <fabien@symfony.com>
- * @author Kris Wallsmith <kris@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
+ * @author Kris Wallsmith <kris@makhan.com>
  * @author Artem Ryzhkov <artem@smart-core.org>
  */
 class WinCacheClassLoader

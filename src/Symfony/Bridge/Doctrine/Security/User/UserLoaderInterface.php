@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Security\User;
+namespace Makhan\Bridge\Doctrine\Security\User;
 
-use Symfony\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserInterface;
 
 /**
  * Represents a class that loads UserInterface objects from Doctrine source for the authentication system.

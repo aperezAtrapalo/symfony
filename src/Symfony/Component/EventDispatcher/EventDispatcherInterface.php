@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\EventDispatcher;
+namespace Makhan\Component\EventDispatcher;
 
 /**
- * The EventDispatcherInterface is the central point of Symfony's event listener system.
+ * The EventDispatcherInterface is the central point of Makhan's event listener system.
  * Listeners are registered on the manager and events are dispatched through the
  * manager.
  *

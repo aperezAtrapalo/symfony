@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests;
+namespace Makhan\Component\DependencyInjection\Tests;
 
-use Symfony\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Definition;
 
 class DefinitionTest extends \PHPUnit_Framework_TestCase
 {
@@ -92,7 +92,7 @@ class DefinitionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessage Method name cannot be empty.
      */
     public function testExceptionOnEmptyMethodCall()
@@ -159,7 +159,7 @@ class DefinitionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider invalidDeprecationMessageProvider
-     * @expectedException Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     public function testSetDeprecatedWithInvalidDeprecationTemplate($message)
     {

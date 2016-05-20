@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ProfilerPass;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\ProfilerPass;
 
 class ProfilerPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,7 +76,7 @@ class ProfilerPassTest extends \PHPUnit_Framework_TestCase
     private function createContainerMock($services)
     {
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'getDefinition', 'findTaggedServiceIds', 'setParameter')
         );
         $container->expects($this->any())

@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Validator\Constraints;
+namespace Makhan\Component\Security\Core\Validator\Constraints;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 class UserPasswordValidator extends ConstraintValidator
 {

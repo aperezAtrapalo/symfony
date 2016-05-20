@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authentication\Provider;
+namespace Makhan\Component\Security\Core\Tests\Authentication\Provider;
 
-use Symfony\Component\Security\Core\Authentication\Provider\PreAuthenticatedAuthenticationProvider;
-use Symfony\Component\Security\Core\Exception\LockedException;
+use Makhan\Component\Security\Core\Authentication\Provider\PreAuthenticatedAuthenticationProvider;
+use Makhan\Component\Security\Core\Exception\LockedException;
 
 class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,9 +21,9 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
         $provider = $this->getProvider();
 
         $this->assertTrue($provider->supports($this->getSupportedToken()));
-        $this->assertFalse($provider->supports($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $this->assertFalse($provider->supports($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
 
-        $token = $this->getMockBuilder('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken')
+        $token = $this->getMockBuilder('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken')
                     ->disableOriginalConstructor()
                     ->getMock()
         ;
@@ -39,11 +39,11 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
     {
         $provider = $this->getProvider();
 
-        $this->assertNull($provider->authenticate($this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface')));
+        $this->assertNull($provider->authenticate($this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface')));
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testAuthenticateWhenNoUserIsSet()
     {
@@ -53,7 +53,7 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
 
     public function testAuthenticate()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $user
             ->expects($this->once())
             ->method('getRoles')
@@ -62,7 +62,7 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
         $provider = $this->getProvider($user);
 
         $token = $provider->authenticate($this->getSupportedToken('fabien', 'pass'));
-        $this->assertInstanceOf('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken', $token);
+        $this->assertInstanceOf('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken', $token);
         $this->assertEquals('pass', $token->getCredentials());
         $this->assertEquals('key', $token->getProviderKey());
         $this->assertEquals(array(), $token->getRoles());
@@ -71,13 +71,13 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\LockedException
+     * @expectedException \Makhan\Component\Security\Core\Exception\LockedException
      */
     public function testAuthenticateWhenUserCheckerThrowsException()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
 
-        $userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
+        $userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
         $userChecker->expects($this->once())
                     ->method('checkPostAuth')
                     ->will($this->throwException(new LockedException()))
@@ -90,7 +90,7 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
 
     protected function getSupportedToken($user = false, $credentials = false)
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken', array('getUser', 'getCredentials', 'getProviderKey'), array(), '', false);
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken', array('getUser', 'getCredentials', 'getProviderKey'), array(), '', false);
         if (false !== $user) {
             $token->expects($this->once())
                   ->method('getUser')
@@ -117,7 +117,7 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
 
     protected function getProvider($user = null, $userChecker = null)
     {
-        $userProvider = $this->getMock('Symfony\Component\Security\Core\User\UserProviderInterface');
+        $userProvider = $this->getMock('Makhan\Component\Security\Core\User\UserProviderInterface');
         if (null !== $user) {
             $userProvider->expects($this->once())
                          ->method('loadUserByUsername')
@@ -126,7 +126,7 @@ class PreAuthenticatedAuthenticationProviderTest extends \PHPUnit_Framework_Test
         }
 
         if (null === $userChecker) {
-            $userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
+            $userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
         }
 
         return new PreAuthenticatedAuthenticationProvider($userProvider, $userChecker, 'key');

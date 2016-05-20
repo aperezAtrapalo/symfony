@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Util;
+namespace Makhan\Component\Form\Tests\Util;
 
-use Symfony\Component\Form\Util\StringUtil;
+use Makhan\Component\Form\Util\StringUtil;
 
 class StringUtilTest extends \PHPUnit_Framework_TestCase
 {
@@ -96,7 +96,7 @@ class StringUtilTest extends \PHPUnit_Framework_TestCase
             array('Vendor\Name\Space\UserForm', 'user_form'),
             array('Vendor\Name\Space\UserType', 'user'),
             array('Vendor\Name\Space\usertype', 'user'),
-            array('Symfony\Component\Form\Form', 'form'),
+            array('Makhan\Component\Form\Form', 'form'),
             array('Vendor\Name\Space\BarTypeBazType', 'bar_type_baz'),
             array('FooBarBazType', 'foo_bar_baz'),
         );

@@ -1,50 +1,50 @@
 {
-    "name": "symfony/form",
+    "name": "makhan/form",
     "type": "library",
-    "description": "Symfony Form Component",
+    "description": "Makhan Form Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/event-dispatcher": "~2.8|~3.0",
-        "symfony/intl": "~2.8|~3.0",
-        "symfony/options-resolver": "~2.8|~3.0",
-        "symfony/polyfill-mbstring": "~1.0",
-        "symfony/property-access": "~2.8|~3.0"
+        "makhan/event-dispatcher": "~2.8|~3.0",
+        "makhan/intl": "~2.8|~3.0",
+        "makhan/options-resolver": "~2.8|~3.0",
+        "makhan/polyfill-mbstring": "~1.0",
+        "makhan/property-access": "~2.8|~3.0"
     },
     "require-dev": {
         "doctrine/collections": "~1.0",
-        "symfony/validator": "~2.8|~3.0",
-        "symfony/dependency-injection": "~2.8|~3.0",
-        "symfony/http-foundation": "~2.8|~3.0",
-        "symfony/http-kernel": "~2.8|~3.0",
-        "symfony/security-csrf": "~2.8|~3.0",
-        "symfony/translation": "~2.8|~3.0"
+        "makhan/validator": "~2.8|~3.0",
+        "makhan/dependency-injection": "~2.8|~3.0",
+        "makhan/http-foundation": "~2.8|~3.0",
+        "makhan/http-kernel": "~2.8|~3.0",
+        "makhan/security-csrf": "~2.8|~3.0",
+        "makhan/translation": "~2.8|~3.0"
     },
     "conflict": {
-        "symfony/doctrine-bridge": "<2.7",
-        "symfony/framework-bundle": "<2.7",
-        "symfony/twig-bridge": "<2.7"
+        "makhan/doctrine-bridge": "<2.7",
+        "makhan/framework-bundle": "<2.7",
+        "makhan/twig-bridge": "<2.7"
     },
     "suggest": {
-        "symfony/validator": "For form validation.",
-        "symfony/security-csrf": "For protecting forms against CSRF attacks.",
-        "symfony/twig-bridge": "For templating with Twig.",
-        "symfony/framework-bundle": "For templating with PHP."
+        "makhan/validator": "For form validation.",
+        "makhan/security-csrf": "For protecting forms against CSRF attacks.",
+        "makhan/twig-bridge": "For templating with Twig.",
+        "makhan/framework-bundle": "For templating with PHP."
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Form\\": "" },
+        "psr-4": { "Makhan\\Component\\Form\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

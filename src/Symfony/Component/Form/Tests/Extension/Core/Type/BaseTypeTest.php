@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
+abstract class BaseTypeTest extends \Makhan\Component\Form\Test\TypeTestCase
 {
     public function testPassDisabledAsOption()
     {
@@ -45,7 +45,7 @@ abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testPassIdAndNameToViewWithParent()
     {
-        $view = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType')
             ->add('child', $this->getTestedType())
             ->getForm()
             ->createView();
@@ -57,8 +57,8 @@ abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testPassIdAndNameToViewWithGrandParent()
     {
-        $builder = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType')
-            ->add('child', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $builder = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType')
+            ->add('child', 'Makhan\Component\Form\Extension\Core\Type\FormType');
         $builder->get('child')->add('grand_child', $this->getTestedType());
         $view = $builder->getForm()->createView();
 
@@ -80,7 +80,7 @@ abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
     public function testInheritTranslationDomainFromParent()
     {
         $view = $this->factory
-            ->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+            ->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
                 'translation_domain' => 'domain',
             ))
             ->add('child', $this->getTestedType())
@@ -93,7 +93,7 @@ abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
     public function testPreferOwnTranslationDomain()
     {
         $view = $this->factory
-            ->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType', null, array(
+            ->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType', null, array(
                 'translation_domain' => 'parent_domain',
             ))
             ->add('child', $this->getTestedType(), array(
@@ -107,7 +107,7 @@ abstract class BaseTypeTest extends \Symfony\Component\Form\Test\TypeTestCase
 
     public function testDefaultTranslationDomain()
     {
-        $view = $this->factory->createNamedBuilder('parent', 'Symfony\Component\Form\Extension\Core\Type\FormType')
+        $view = $this->factory->createNamedBuilder('parent', 'Makhan\Component\Form\Extension\Core\Type\FormType')
             ->add('child', $this->getTestedType())
             ->getForm()
             ->createView();

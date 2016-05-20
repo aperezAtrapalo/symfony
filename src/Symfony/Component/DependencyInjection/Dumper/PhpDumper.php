@@ -1,36 +1,36 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Dumper;
+namespace Makhan\Component\DependencyInjection\Dumper;
 
-use Symfony\Component\DependencyInjection\Variable;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Parameter;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
-use Symfony\Component\DependencyInjection\LazyProxy\PhpDumper\DumperInterface as ProxyDumper;
-use Symfony\Component\DependencyInjection\LazyProxy\PhpDumper\NullDumper;
-use Symfony\Component\DependencyInjection\ExpressionLanguage;
-use Symfony\Component\ExpressionLanguage\Expression;
-use Symfony\Component\HttpKernel\Kernel;
+use Makhan\Component\DependencyInjection\Variable;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Parameter;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Makhan\Component\DependencyInjection\LazyProxy\PhpDumper\DumperInterface as ProxyDumper;
+use Makhan\Component\DependencyInjection\LazyProxy\PhpDumper\NullDumper;
+use Makhan\Component\DependencyInjection\ExpressionLanguage;
+use Makhan\Component\ExpressionLanguage\Expression;
+use Makhan\Component\HttpKernel\Kernel;
 
 /**
  * PhpDumper dumps a service container as a PHP class.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class PhpDumper extends Dumper
@@ -62,7 +62,7 @@ class PhpDumper extends Dumper
     private $usedMethodNames;
 
     /**
-     * @var \Symfony\Component\DependencyInjection\LazyProxy\PhpDumper\DumperInterface
+     * @var \Makhan\Component\DependencyInjection\LazyProxy\PhpDumper\DumperInterface
      */
     private $proxyDumper;
 
@@ -236,7 +236,7 @@ class PhpDumper extends Dumper
             array($this->getProxyDumper(), 'isProxyCandidate')
         );
         $code = '';
-        $strip = '' === $this->docStar && method_exists('Symfony\Component\HttpKernel\Kernel', 'stripComments');
+        $strip = '' === $this->docStar && method_exists('Makhan\Component\HttpKernel\Kernel', 'stripComments');
 
         foreach ($definitions as $definition) {
             $proxyCode = "\n".$this->getProxyDumper()->getProxyCode($definition);
@@ -747,24 +747,24 @@ EOF;
      */
     private function startClass($class, $baseClass, $namespace)
     {
-        $bagClass = $this->container->isFrozen() ? 'use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;' : 'use Symfony\Component\DependencyInjection\ParameterBag\\ParameterBag;';
+        $bagClass = $this->container->isFrozen() ? 'use Makhan\Component\DependencyInjection\ParameterBag\FrozenParameterBag;' : 'use Makhan\Component\DependencyInjection\ParameterBag\\ParameterBag;';
         $namespaceLine = $namespace ? "namespace $namespace;\n" : '';
 
         return <<<EOF
 <?php
 $namespaceLine
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\LogicException;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
 $bagClass
 
 /*{$this->docStar}
  * $class.
  *
  * This class has been auto-generated
- * by the Symfony Dependency Injection Component.
+ * by the Makhan Dependency Injection Component.
  */
 class $class extends $baseClass
 {
@@ -1439,8 +1439,8 @@ EOF;
     private function getExpressionLanguage()
     {
         if (null === $this->expressionLanguage) {
-            if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
-                throw new RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
+            if (!class_exists('Makhan\Component\ExpressionLanguage\ExpressionLanguage')) {
+                throw new RuntimeException('Unable to use expressions as the Makhan ExpressionLanguage component is not installed.');
             }
             $providers = $this->container->getExpressionLanguageProviders();
             $this->expressionLanguage = new ExpressionLanguage(null, $providers);

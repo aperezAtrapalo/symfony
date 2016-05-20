@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Yaml\Tests;
+namespace Makhan\Component\Yaml\Tests;
 
-use Symfony\Component\Yaml\Parser;
-use Symfony\Component\Yaml\Dumper;
-use Symfony\Component\Yaml\Yaml;
+use Makhan\Component\Yaml\Parser;
+use Makhan\Component\Yaml\Dumper;
+use Makhan\Component\Yaml\Yaml;
 
 class DumperTest extends \PHPUnit_Framework_TestCase
 {
@@ -209,7 +209,7 @@ EOF;
     {
         $dump = $this->dumper->dump(array('foo' => new A(), 'bar' => 1), 0, 0, Yaml::DUMP_OBJECT);
 
-        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
+        $this->assertEquals('{ foo: !php/object:O:30:"Makhan\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
     }
 
     /**
@@ -219,7 +219,7 @@ EOF;
     {
         $dump = $this->dumper->dump(array('foo' => new A(), 'bar' => 1), 0, 0, false, true);
 
-        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
+        $this->assertEquals('{ foo: !php/object:O:30:"Makhan\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
     }
 
     public function testObjectSupportDisabledButNoExceptions()
@@ -230,7 +230,7 @@ EOF;
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\DumpException
+     * @expectedException \Makhan\Component\Yaml\Exception\DumpException
      */
     public function testObjectSupportDisabledWithExceptions()
     {
@@ -239,7 +239,7 @@ EOF;
 
     /**
      * @group legacy
-     * @expectedException \Symfony\Component\Yaml\Exception\DumpException
+     * @expectedException \Makhan\Component\Yaml\Exception\DumpException
      */
     public function testObjectSupportDisabledWithExceptionsPassingTrue()
     {

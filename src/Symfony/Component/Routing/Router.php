@@ -1,35 +1,35 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing;
+namespace Makhan\Component\Routing;
 
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\ConfigCacheInterface;
-use Symfony\Component\Config\ConfigCacheFactoryInterface;
-use Symfony\Component\Config\ConfigCacheFactory;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\Config\ConfigCacheInterface;
+use Makhan\Component\Config\ConfigCacheFactoryInterface;
+use Makhan\Component\Config\ConfigCacheFactory;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Routing\Generator\ConfigurableRequirementsInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\Generator\Dumper\GeneratorDumperInterface;
-use Symfony\Component\Routing\Matcher\RequestMatcherInterface;
-use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
-use Symfony\Component\Routing\Matcher\Dumper\MatcherDumperInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\Routing\Generator\ConfigurableRequirementsInterface;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Component\Routing\Generator\Dumper\GeneratorDumperInterface;
+use Makhan\Component\Routing\Matcher\RequestMatcherInterface;
+use Makhan\Component\Routing\Matcher\UrlMatcherInterface;
+use Makhan\Component\Routing\Matcher\Dumper\MatcherDumperInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
  * The Router class is an example of the integration of all pieces of the
  * routing system for easier use.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Router implements RouterInterface, RequestMatcherInterface
 {
@@ -119,13 +119,13 @@ class Router implements RouterInterface, RequestMatcherInterface
         $this->options = array(
             'cache_dir' => null,
             'debug' => false,
-            'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator',
-            'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator',
-            'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper',
+            'generator_class' => 'Makhan\\Component\\Routing\\Generator\\UrlGenerator',
+            'generator_base_class' => 'Makhan\\Component\\Routing\\Generator\\UrlGenerator',
+            'generator_dumper_class' => 'Makhan\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper',
             'generator_cache_class' => 'ProjectUrlGenerator',
-            'matcher_class' => 'Symfony\\Component\\Routing\\Matcher\\UrlMatcher',
-            'matcher_base_class' => 'Symfony\\Component\\Routing\\Matcher\\UrlMatcher',
-            'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper',
+            'matcher_class' => 'Makhan\\Component\\Routing\\Matcher\\UrlMatcher',
+            'matcher_base_class' => 'Makhan\\Component\\Routing\\Matcher\\UrlMatcher',
+            'matcher_dumper_class' => 'Makhan\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper',
             'matcher_cache_class' => 'ProjectUrlMatcher',
             'resource_type' => null,
             'strict_requirements' => true,

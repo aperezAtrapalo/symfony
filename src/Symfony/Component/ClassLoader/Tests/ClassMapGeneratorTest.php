@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ClassLoader\Tests;
+namespace Makhan\Component\ClassLoader\Tests;
 
-use Symfony\Component\ClassLoader\ClassMapGenerator;
+use Makhan\Component\ClassLoader\ClassMapGenerator;
 
 class ClassMapGeneratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -120,7 +120,7 @@ class ClassMapGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateMapFinderSupport()
     {
-        $finder = new \Symfony\Component\Finder\Finder();
+        $finder = new \Makhan\Component\Finder\Finder();
         $finder->files()->in(__DIR__.'/Fixtures/beta/NamespaceCollision');
 
         $this->assertEqualsNormalized(array(

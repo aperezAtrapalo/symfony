@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\HttpFoundationExtension;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Bridge\Twig\Extension\HttpFoundationExtension;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\RequestContext;
 
 class HttpFoundationExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,7 +49,7 @@ class HttpFoundationExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateAbsoluteUrlWithRequestContext($path, $baseUrl, $host, $scheme, $httpPort, $httpsPort, $expected)
     {
-        if (!class_exists('Symfony\Component\Routing\RequestContext')) {
+        if (!class_exists('Makhan\Component\Routing\RequestContext')) {
             $this->markTestSkipped('The Routing component is needed to run tests that depend on its request context.');
         }
 
@@ -64,7 +64,7 @@ class HttpFoundationExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateAbsoluteUrlWithoutRequestAndRequestContext($path)
     {
-        if (!class_exists('Symfony\Component\Routing\RequestContext')) {
+        if (!class_exists('Makhan\Component\Routing\RequestContext')) {
             $this->markTestSkipped('The Routing component is needed to run tests that depend on its request context.');
         }
 
@@ -107,8 +107,8 @@ class HttpFoundationExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateRelativePath($expected, $path, $pathinfo)
     {
-        if (!method_exists('Symfony\Component\HttpFoundation\Request', 'getRelativeUriForPath')) {
-            $this->markTestSkipped('Your version of Symfony HttpFoundation is too old.');
+        if (!method_exists('Makhan\Component\HttpFoundation\Request', 'getRelativeUriForPath')) {
+            $this->markTestSkipped('Your version of Makhan HttpFoundation is too old.');
         }
 
         $stack = new RequestStack();

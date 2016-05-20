@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Fixtures;
+namespace Makhan\Component\Validator\Tests\Fixtures;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Constraints as Assert;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
 
 /**
- * @Symfony\Component\Validator\Tests\Fixtures\ConstraintA
+ * @Makhan\Component\Validator\Tests\Fixtures\ConstraintA
  * @Assert\GroupSequence({"Foo", "Entity"})
- * @Assert\Callback({"Symfony\Component\Validator\Tests\Fixtures\CallbackClass", "callback"})
+ * @Assert\Callback({"Makhan\Component\Validator\Tests\Fixtures\CallbackClass", "callback"})
  */
 class Entity extends EntityParent implements EntityInterface
 {

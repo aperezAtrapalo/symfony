@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\MainConfiguration;
-use Symfony\Component\Config\Definition\Processor;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\MainConfiguration;
+use Makhan\Component\Config\Definition\Processor;
 
 class MainConfigurationTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +34,7 @@ class MainConfigurationTest extends \PHPUnit_Framework_TestCase
     );
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testNoConfigForProvider()
     {
@@ -50,7 +50,7 @@ class MainConfigurationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testManyConfigForProvider()
     {

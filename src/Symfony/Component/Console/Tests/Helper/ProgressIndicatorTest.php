@@ -1,9 +1,9 @@
 <?php
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Helper\ProgressIndicator;
-use Symfony\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Helper\ProgressIndicator;
+use Makhan\Component\Console\Output\StreamOutput;
 
 /**
  * @group time-sensitive

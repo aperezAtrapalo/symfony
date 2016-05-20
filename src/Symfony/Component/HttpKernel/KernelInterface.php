@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel;
+namespace Makhan\Component\HttpKernel;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Symfony\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\HttpKernel\Bundle\BundleInterface;
+use Makhan\Component\Config\Loader\LoaderInterface;
 
 /**
- * The Kernel is the heart of the Symfony system.
+ * The Kernel is the heart of the Makhan system.
  *
  * It manages an environment made of bundles.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 interface KernelInterface extends HttpKernelInterface, \Serializable
 {

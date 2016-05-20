@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Asset;
+namespace Makhan\Component\Asset;
 
-use Symfony\Component\Asset\Context\ContextInterface;
-use Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface;
-use Symfony\Component\Asset\Exception\InvalidArgumentException;
-use Symfony\Component\Asset\Exception\LogicException;
+use Makhan\Component\Asset\Context\ContextInterface;
+use Makhan\Component\Asset\VersionStrategy\VersionStrategyInterface;
+use Makhan\Component\Asset\Exception\InvalidArgumentException;
+use Makhan\Component\Asset\Exception\LogicException;
 
 /**
  * Package that adds a base URL to asset URLs in addition to a version.
@@ -31,7 +31,7 @@ use Symfony\Component\Asset\Exception\LogicException;
  *  * For HTTPs requests, it chooses between HTTPs base URLs and relative protocol URLs
  *    or falls back to any base URL if no secure ones are available.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class UrlPackage extends Package
 {

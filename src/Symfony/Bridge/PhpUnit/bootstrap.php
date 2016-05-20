@@ -1,16 +1,16 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Symfony\Bridge\PhpUnit\DeprecationErrorHandler;
+use Makhan\Bridge\PhpUnit\DeprecationErrorHandler;
 
 // Detect if we're loaded by an actual run of phpunit
 if (!defined('PHPUNIT_COMPOSER_INSTALL') && !class_exists('PHPUnit_TextUI_Command', false)) {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\Data\Bundle\Reader;
+namespace Makhan\Component\Intl\Tests\Data\Bundle\Reader;
 
-use Symfony\Component\Intl\Data\Bundle\Reader\PhpBundleReader;
+use Makhan\Component\Intl\Data\Bundle\Reader\PhpBundleReader;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -38,7 +38,7 @@ class PhpBundleReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\ResourceBundleNotFoundException
+     * @expectedException \Makhan\Component\Intl\Exception\ResourceBundleNotFoundException
      */
     public function testReadFailsIfNonExistingLocale()
     {
@@ -46,7 +46,7 @@ class PhpBundleReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Intl\Exception\RuntimeException
      */
     public function testReadFailsIfNonExistingDirectory()
     {
@@ -54,7 +54,7 @@ class PhpBundleReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Intl\Exception\RuntimeException
      */
     public function testReadFailsIfNotAFile()
     {

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http;
+namespace Makhan\Component\Security\Http;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\PropertyAccess\Exception\AccessException;
-use Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\HttpFoundation\ParameterBag;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\PropertyAccess\Exception\AccessException;
+use Makhan\Component\PropertyAccess\Exception\InvalidArgumentException;
+use Makhan\Component\PropertyAccess\PropertyAccess;
 
 /**
  * @internal

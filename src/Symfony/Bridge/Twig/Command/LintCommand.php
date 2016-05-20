@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Command;
+namespace Makhan\Bridge\Twig\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Finder\Finder;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Finder\Finder;
 
 /**
  * Command that will validate your template syntax and output encountered errors.
@@ -84,7 +84,7 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $io = new MakhanStyle($input, $output);
 
         if (null === $twig = $this->getTwigEnvironment()) {
             $io->error('The Twig environment needs to be set.');
@@ -153,7 +153,7 @@ EOF
         return array('template' => $template, 'file' => $file, 'valid' => true);
     }
 
-    private function display(InputInterface $input, OutputInterface $output, SymfonyStyle $io, $files)
+    private function display(InputInterface $input, OutputInterface $output, MakhanStyle $io, $files)
     {
         switch ($input->getOption('format')) {
             case 'txt':
@@ -165,7 +165,7 @@ EOF
         }
     }
 
-    private function displayTxt(OutputInterface $output, SymfonyStyle $io, $filesInfo)
+    private function displayTxt(OutputInterface $output, MakhanStyle $io, $filesInfo)
     {
         $errors = 0;
 

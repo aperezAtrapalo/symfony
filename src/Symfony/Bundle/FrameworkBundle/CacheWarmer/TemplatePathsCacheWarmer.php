@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\CacheWarmer;
+namespace Makhan\Bundle\FrameworkBundle\CacheWarmer;
 
-use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmer;
-use Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator;
+use Makhan\Component\HttpKernel\CacheWarmer\CacheWarmer;
+use Makhan\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator;
 
 /**
  * Computes the association between template names and their paths on the disk.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TemplatePathsCacheWarmer extends CacheWarmer
 {

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Logout;
+namespace Makhan\Component\Security\Http\Tests\Logout;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Logout\CookieClearingLogoutHandler;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\ResponseHeaderBag;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Http\Logout\CookieClearingLogoutHandler;
 
 class CookieClearingLogoutHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +22,7 @@ class CookieClearingLogoutHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $request = new Request();
         $response = new Response();
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         $handler = new CookieClearingLogoutHandler(array('foo' => array('path' => '/foo', 'domain' => 'foo.foo'), 'foo2' => array('path' => null, 'domain' => null)));
 

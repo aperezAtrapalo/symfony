@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Session\Storage;
 
 /**
  * MockFileSessionStorage is used to mock sessions for
@@ -99,7 +99,7 @@ class MockFileSessionStorage extends MockArraySessionStorage
         file_put_contents($this->getFilePath(), serialize($this->data));
 
         // this is needed for Silex, where the session object is re-used across requests
-        // in functional tests. In Symfony, the container is rebooted, so we don't have
+        // in functional tests. In Makhan, the container is rebooted, so we don't have
         // this issue
         $this->started = false;
     }

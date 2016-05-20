@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Routing;
 
-use Symfony\Component\Routing\Matcher\RedirectableUrlMatcher as BaseMatcher;
+use Makhan\Component\Routing\Matcher\RedirectableUrlMatcher as BaseMatcher;
 
 /**
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class RedirectableUrlMatcher extends BaseMatcher
 {
@@ -30,7 +30,7 @@ class RedirectableUrlMatcher extends BaseMatcher
     public function redirect($path, $route, $scheme = null)
     {
         return array(
-            '_controller' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController::urlRedirectAction',
+            '_controller' => 'Makhan\\Bundle\\FrameworkBundle\\Controller\\RedirectController::urlRedirectAction',
             'path' => $path,
             'permanent' => true,
             'scheme' => $scheme,

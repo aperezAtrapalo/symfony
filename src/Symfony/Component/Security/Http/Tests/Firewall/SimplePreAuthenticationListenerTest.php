@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
-use Symfony\Component\Security\Http\SecurityEvents;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\Event\InteractiveLoginEvent;
+use Makhan\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
+use Makhan\Component\Security\Http\SecurityEvents;
 
 class SimplePreAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,7 +42,7 @@ class SimplePreAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($this->token))
         ;
 
-        $simpleAuthenticator = $this->getMock('Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface');
+        $simpleAuthenticator = $this->getMock('Makhan\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface');
         $simpleAuthenticator
             ->expects($this->once())
             ->method('createToken')
@@ -79,7 +79,7 @@ class SimplePreAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo(null))
         ;
 
-        $simpleAuthenticator = $this->getMock('Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface');
+        $simpleAuthenticator = $this->getMock('Makhan\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface');
         $simpleAuthenticator
             ->expects($this->once())
             ->method('createToken')
@@ -94,16 +94,16 @@ class SimplePreAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->authenticationManager = $this->getMockBuilder('Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager')
+        $this->authenticationManager = $this->getMockBuilder('Makhan\Component\Security\Core\Authentication\AuthenticationProviderManager')
             ->disableOriginalConstructor()
             ->getMock()
         ;
 
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
 
         $this->request = new Request(array(), array(), array(), array(), array(), array());
 
-        $this->event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $this->event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $this->event
             ->expects($this->any())
             ->method('getRequest')
@@ -111,8 +111,8 @@ class SimplePreAuthenticationListenerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $this->logger = $this->getMock('Psr\Log\LoggerInterface');
-        $this->tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $this->token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $this->tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $this->token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 
     protected function tearDown()

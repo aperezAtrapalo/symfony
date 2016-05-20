@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Matcher;
+namespace Makhan\Component\Routing\Matcher;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Exception\ExceptionInterface;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\Exception\ExceptionInterface;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 /**
  * TraceableUrlMatcher helps debug path info matching by tracing the match.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TraceableUrlMatcher extends UrlMatcher
 {

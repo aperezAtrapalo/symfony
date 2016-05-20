@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataMapper;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataMapper;
 
-use Symfony\Component\Form\FormConfigBuilder;
-use Symfony\Component\Form\FormConfigInterface;
-use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
+use Makhan\Component\Form\FormConfigBuilder;
+use Makhan\Component\Form\FormConfigInterface;
+use Makhan\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
 
 class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,8 +34,8 @@ class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->propertyAccessor = $this->getMock('Symfony\Component\PropertyAccess\PropertyAccessorInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->propertyAccessor = $this->getMock('Makhan\Component\PropertyAccess\PropertyAccessorInterface');
         $this->mapper = new PropertyPathMapper($this->propertyAccessor);
     }
 
@@ -46,7 +46,7 @@ class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
      */
     private function getPropertyPath($path)
     {
-        return $this->getMockBuilder('Symfony\Component\PropertyAccess\PropertyPath')
+        return $this->getMockBuilder('Makhan\Component\PropertyAccess\PropertyPath')
             ->setConstructorArgs(array($path))
             ->setMethods(array('getValue', 'setValue'))
             ->getMock();
@@ -61,7 +61,7 @@ class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
      */
     private function getForm(FormConfigInterface $config, $synchronized = true, $submitted = true)
     {
-        $form = $this->getMockBuilder('Symfony\Component\Form\Form')
+        $form = $this->getMockBuilder('Makhan\Component\Form\Form')
             ->setConstructorArgs(array($config))
             ->setMethods(array('isSynchronized', 'isSubmitted'))
             ->getMock();
@@ -169,7 +169,7 @@ class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
         $config->setPropertyPath($propertyPath);
         $config->setData($default);
 
-        $form = $this->getMockBuilder('Symfony\Component\Form\Form')
+        $form = $this->getMockBuilder('Makhan\Component\Form\Form')
             ->setConstructorArgs(array($config))
             ->setMethods(array('setData'))
             ->getMock();
@@ -194,7 +194,7 @@ class PropertyPathMapperTest extends \PHPUnit_Framework_TestCase
         $config->setPropertyPath($propertyPath);
         $config->setData($default);
 
-        $form = $this->getMockBuilder('Symfony\Component\Form\Form')
+        $form = $this->getMockBuilder('Makhan\Component\Form\Form')
             ->setConstructorArgs(array($config))
             ->setMethods(array('setData'))
             ->getMock();

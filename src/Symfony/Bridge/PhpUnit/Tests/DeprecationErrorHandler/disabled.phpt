@@ -17,7 +17,7 @@ require PHPUNIT_COMPOSER_INSTALL;
 require_once __DIR__.'/../../bootstrap.php';
 
 echo (int) set_error_handler('var_dump');
-echo (int) class_exists('Symfony\Bridge\PhpUnit\DeprecationErrorHandler', false);
+echo (int) class_exists('Makhan\Bridge\PhpUnit\DeprecationErrorHandler', false);
 
 ?>
 --EXPECTF--

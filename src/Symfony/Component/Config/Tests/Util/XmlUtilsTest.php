@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Util;
+namespace Makhan\Component\Config\Tests\Util;
 
-use Symfony\Component\Config\Util\XmlUtils;
+use Makhan\Component\Config\Util\XmlUtils;
 
 class XmlUtilsTest extends \PHPUnit_Framework_TestCase
 {
@@ -154,7 +154,7 @@ class XmlUtilsTest extends \PHPUnit_Framework_TestCase
         XmlUtils::loadFile($file);
     }
 
-    // test for issue https://github.com/symfony/symfony/issues/9731
+    // test for issue https://github.com/makhan/makhan/issues/9731
     public function testLoadWrongEmptyXMLWithErrorHandler()
     {
         $originalDisableEntities = libxml_disable_entity_loader(false);

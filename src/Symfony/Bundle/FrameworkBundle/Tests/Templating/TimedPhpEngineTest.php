@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating;
 
-use Symfony\Bundle\FrameworkBundle\Templating\TimedPhpEngine;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Bundle\FrameworkBundle\Templating\GlobalVariables;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\TimedPhpEngine;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Bundle\FrameworkBundle\Templating\GlobalVariables;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
 
 class TimedPhpEngineTest extends TestCase
 {
@@ -44,16 +44,16 @@ class TimedPhpEngineTest extends TestCase
      */
     private function getContainer()
     {
-        return $this->getMock('Symfony\Component\DependencyInjection\Container');
+        return $this->getMock('Makhan\Component\DependencyInjection\Container');
     }
 
     /**
-     * @return \Symfony\Component\Templating\TemplateNameParserInterface
+     * @return \Makhan\Component\Templating\TemplateNameParserInterface
      */
     private function getTemplateNameParser()
     {
-        $templateReference = $this->getMock('Symfony\Component\Templating\TemplateReferenceInterface');
-        $templateNameParser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
+        $templateReference = $this->getMock('Makhan\Component\Templating\TemplateReferenceInterface');
+        $templateNameParser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
         $templateNameParser->expects($this->any())
             ->method('parse')
             ->will($this->returnValue($templateReference));
@@ -66,29 +66,29 @@ class TimedPhpEngineTest extends TestCase
      */
     private function getGlobalVariables()
     {
-        return $this->getMockBuilder('Symfony\Bundle\FrameworkBundle\Templating\GlobalVariables')
+        return $this->getMockBuilder('Makhan\Bundle\FrameworkBundle\Templating\GlobalVariables')
             ->disableOriginalConstructor()
             ->getMock();
     }
 
     /**
-     * @return \Symfony\Component\Templating\Storage\StringStorage
+     * @return \Makhan\Component\Templating\Storage\StringStorage
      */
     private function getStorage()
     {
-        return $this->getMockBuilder('Symfony\Component\Templating\Storage\StringStorage')
+        return $this->getMockBuilder('Makhan\Component\Templating\Storage\StringStorage')
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
     }
 
     /**
-     * @param \Symfony\Component\Templating\Storage\StringStorage $storage
+     * @param \Makhan\Component\Templating\Storage\StringStorage $storage
      *
-     * @return \Symfony\Component\Templating\Loader\Loader
+     * @return \Makhan\Component\Templating\Loader\Loader
      */
     private function getLoader($storage)
     {
-        $loader = $this->getMockForAbstractClass('Symfony\Component\Templating\Loader\Loader');
+        $loader = $this->getMockForAbstractClass('Makhan\Component\Templating\Loader\Loader');
         $loader->expects($this->once())
             ->method('load')
             ->will($this->returnValue($storage));
@@ -97,20 +97,20 @@ class TimedPhpEngineTest extends TestCase
     }
 
     /**
-     * @return \Symfony\Component\Stopwatch\StopwatchEvent
+     * @return \Makhan\Component\Stopwatch\StopwatchEvent
      */
     private function getStopwatchEvent()
     {
-        return $this->getMockBuilder('Symfony\Component\Stopwatch\StopwatchEvent')
+        return $this->getMockBuilder('Makhan\Component\Stopwatch\StopwatchEvent')
             ->disableOriginalConstructor()
             ->getMock();
     }
 
     /**
-     * @return \Symfony\Component\Stopwatch\Stopwatch
+     * @return \Makhan\Component\Stopwatch\Stopwatch
      */
     private function getStopwatch()
     {
-        return $this->getMock('Symfony\Component\Stopwatch\Stopwatch');
+        return $this->getMock('Makhan\Component\Stopwatch\Stopwatch');
     }
 }

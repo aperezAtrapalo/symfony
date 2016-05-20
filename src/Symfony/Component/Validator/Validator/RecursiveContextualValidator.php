@@ -1,34 +1,34 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Validator;
+namespace Makhan\Component\Validator\Validator;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\GroupSequence;
-use Symfony\Component\Validator\ConstraintValidatorFactoryInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use Symfony\Component\Validator\Exception\NoSuchMetadataException;
-use Symfony\Component\Validator\Exception\RuntimeException;
-use Symfony\Component\Validator\Exception\UnsupportedMetadataException;
-use Symfony\Component\Validator\Exception\ValidatorException;
-use Symfony\Component\Validator\Mapping\CascadingStrategy;
-use Symfony\Component\Validator\Mapping\ClassMetadataInterface;
-use Symfony\Component\Validator\Mapping\GenericMetadata;
-use Symfony\Component\Validator\Mapping\MetadataInterface;
-use Symfony\Component\Validator\Mapping\PropertyMetadataInterface;
-use Symfony\Component\Validator\Mapping\TraversalStrategy;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\ObjectInitializerInterface;
-use Symfony\Component\Validator\Util\PropertyPath;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\GroupSequence;
+use Makhan\Component\Validator\ConstraintValidatorFactoryInterface;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\Exception\NoSuchMetadataException;
+use Makhan\Component\Validator\Exception\RuntimeException;
+use Makhan\Component\Validator\Exception\UnsupportedMetadataException;
+use Makhan\Component\Validator\Exception\ValidatorException;
+use Makhan\Component\Validator\Mapping\CascadingStrategy;
+use Makhan\Component\Validator\Mapping\ClassMetadataInterface;
+use Makhan\Component\Validator\Mapping\GenericMetadata;
+use Makhan\Component\Validator\Mapping\MetadataInterface;
+use Makhan\Component\Validator\Mapping\PropertyMetadataInterface;
+use Makhan\Component\Validator\Mapping\TraversalStrategy;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\ObjectInitializerInterface;
+use Makhan\Component\Validator\Util\PropertyPath;
 
 /**
  * Recursive implementation of {@link ContextualValidatorInterface}.
@@ -193,7 +193,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
         if (!$classMetadata instanceof ClassMetadataInterface) {
             throw new ValidatorException(sprintf(
                 'The metadata factory should return instances of '.
-                '"\Symfony\Component\Validator\Mapping\ClassMetadataInterface", '.
+                '"\Makhan\Component\Validator\Mapping\ClassMetadataInterface", '.
                 'got: "%s".',
                 is_object($classMetadata) ? get_class($classMetadata) : gettype($classMetadata)
             ));
@@ -242,7 +242,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
         if (!$classMetadata instanceof ClassMetadataInterface) {
             throw new ValidatorException(sprintf(
                 'The metadata factory should return instances of '.
-                '"\Symfony\Component\Validator\Mapping\ClassMetadataInterface", '.
+                '"\Makhan\Component\Validator\Mapping\ClassMetadataInterface", '.
                 'got: "%s".',
                 is_object($classMetadata) ? get_class($classMetadata) : gettype($classMetadata)
             ));
@@ -342,7 +342,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
             if (!$classMetadata instanceof ClassMetadataInterface) {
                 throw new UnsupportedMetadataException(sprintf(
                     'The metadata factory should return instances of '.
-                    '"Symfony\Component\Validator\Mapping\ClassMetadataInterface", '.
+                    '"Makhan\Component\Validator\Mapping\ClassMetadataInterface", '.
                     'got: "%s".',
                     is_object($classMetadata) ? get_class($classMetadata) : gettype($classMetadata)
                 ));
@@ -518,7 +518,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
                 } elseif ($metadata->isGroupSequenceProvider()) {
                     // The group sequence is dynamically obtained from the validated
                     // object
-                    /* @var \Symfony\Component\Validator\GroupSequenceProviderInterface $object */
+                    /* @var \Makhan\Component\Validator\GroupSequenceProviderInterface $object */
                     $group = $object->getGroupSequence();
                     $defaultOverridden = true;
 
@@ -569,7 +569,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
                 if (!$propertyMetadata instanceof PropertyMetadataInterface) {
                     throw new UnsupportedMetadataException(sprintf(
                         'The property metadata instances should implement '.
-                        '"Symfony\Component\Validator\Mapping\PropertyMetadataInterface", '.
+                        '"Makhan\Component\Validator\Mapping\PropertyMetadataInterface", '.
                         'got: "%s".',
                         is_object($propertyMetadata) ? get_class($propertyMetadata) : gettype($propertyMetadata)
                     ));

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition\Dumper;
+namespace Makhan\Component\Config\Tests\Definition\Dumper;
 
-use Symfony\Component\Config\Definition\Dumper\XmlReferenceDumper;
-use Symfony\Component\Config\Tests\Fixtures\Configuration\ExampleConfiguration;
+use Makhan\Component\Config\Definition\Dumper\XmlReferenceDumper;
+use Makhan\Component\Config\Tests\Fixtures\Configuration\ExampleConfiguration;
 
 class XmlReferenceDumperTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class XmlReferenceDumperTest extends \PHPUnit_Framework_TestCase
         $configuration = new ExampleConfiguration();
 
         $dumper = new XmlReferenceDumper();
-        $this->assertEquals(str_replace('http://example.org/schema/dic/acme_root', 'http://symfony.com/schema/dic/symfony', $this->getConfigurationAsString()), $dumper->dump($configuration, 'http://symfony.com/schema/dic/symfony'));
+        $this->assertEquals(str_replace('http://example.org/schema/dic/acme_root', 'http://makhan.com/schema/dic/makhan', $this->getConfigurationAsString()), $dumper->dump($configuration, 'http://makhan.com/schema/dic/makhan'));
     }
 
     private function getConfigurationAsString()

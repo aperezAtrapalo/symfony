@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core;
+namespace Makhan\Component\Form\Extension\Core;
 
-use Symfony\Component\Form\AbstractExtension;
-use Symfony\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
-use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
-use Symfony\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
-use Symfony\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Makhan\Component\Form\AbstractExtension;
+use Makhan\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
+use Makhan\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
+use Makhan\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
+use Makhan\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\PropertyAccess\PropertyAccessorInterface;
 
 /**
  * Represents the main form extension, which loads the core functionality.

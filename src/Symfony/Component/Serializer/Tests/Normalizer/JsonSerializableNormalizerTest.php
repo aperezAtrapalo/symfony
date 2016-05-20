@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
-use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\Tests\Fixtures\JsonSerializableDummy;
+use Makhan\Component\Serializer\Normalizer\JsonSerializableNormalizer;
+use Makhan\Component\Serializer\Normalizer\NormalizerInterface;
+use Makhan\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\Tests\Fixtures\JsonSerializableDummy;
 
 /**
  * @author Fred Cox <mcfedr@gmail.com>
@@ -60,7 +60,7 @@ class JsonSerializableNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\CircularReferenceException
+     * @expectedException \Makhan\Component\Serializer\Exception\CircularReferenceException
      */
     public function testCircularNormalize()
     {
@@ -80,7 +80,7 @@ class JsonSerializableNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Serializer\Exception\InvalidArgumentException
      * @expectedExceptionMessage The object must implement "JsonSerializable".
      */
     public function testInvalidDataThrowException()

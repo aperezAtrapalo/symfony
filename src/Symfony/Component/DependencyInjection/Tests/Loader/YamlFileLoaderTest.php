@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Loader;
+namespace Makhan\Component\DependencyInjection\Tests\Loader;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\IniFileLoader;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
-use Symfony\Component\Config\Loader\LoaderResolver;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\YamlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\IniFileLoader;
+use Makhan\Component\DependencyInjection\Loader\PhpFileLoader;
+use Makhan\Component\Config\Loader\LoaderResolver;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -70,7 +70,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideInvalidFiles
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     public function testLoadInvalidFile($file)
     {
@@ -128,7 +128,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $services = $container->getDefinitions();
         $this->assertTrue(isset($services['foo']), '->load() parses service elements');
         $this->assertFalse($services['not_shared']->isShared(), '->load() parses the shared flag');
-        $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Definition', $services['foo'], '->load() converts service element to Definition instances');
+        $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Definition', $services['foo'], '->load() converts service element to Definition instances');
         $this->assertEquals('FooClass', $services['foo']->getClass(), '->load() parses the class attribute');
         $this->assertEquals('%path%/foo.php', $services['file']->getFile(), '->load() parses the file tag');
         $this->assertEquals(array('foo', new Reference('foo'), array(true, false)), $services['arguments']->getArguments(), '->load() parses the argument tags');
@@ -206,13 +206,13 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('badtag1.yml');
             $this->fail('->load() should throw an exception when the tags key of a service is not an array');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the tags key is not an array');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the tags key is not an array');
             $this->assertStringStartsWith('Parameter "tags" must be an array for service', $e->getMessage(), '->load() throws an InvalidArgumentException if the tags key is not an array');
         }
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessage A "tags" entry must be an array for service
      */
     public function testNonArrayTagThrowsException()
@@ -228,7 +228,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('badtag2.yml');
             $this->fail('->load() should throw an exception when a tag is missing the name key');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if a tag is missing the name key');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if a tag is missing the name key');
             $this->assertStringStartsWith('A "tags" entry is missing a "name" key for service ', $e->getMessage(), '->load() throws an InvalidArgumentException if a tag is missing the name key');
         }
     }
@@ -240,7 +240,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('badtag3.yml');
             $this->fail('->load() should throw an exception when a tag-attribute is not a scalar');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if a tag-attribute is not a scalar');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if a tag-attribute is not a scalar');
             $this->assertStringStartsWith('A "tags" attribute must be of a scalar-type for service "foo_service", tag "foo", attribute "bar"', $e->getMessage(), '->load() throws an InvalidArgumentException if a tag-attribute is not a scalar');
         }
     }
@@ -258,7 +258,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessageRegExp /The tag name for service ".+" in .+ must be a non-empty string/
      */
     public function testTagWithEmptyNameThrowsException()
@@ -268,7 +268,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessageREgExp /The tag name for service "\.+" must be a non-empty string/
      */
     public function testTagWithNonStringNameThrowsException()
@@ -278,7 +278,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     public function testTypesNotArray()
     {
@@ -287,7 +287,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     public function testTypeNotString()
     {
@@ -315,7 +315,7 @@ class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessage The value of the "decorates" option for the "bar" service must be the id of the service without the "@" prefix (replace "@foo" with "foo").
      */
     public function testDecoratedServicesWithWrongSyntaxThrowsException()

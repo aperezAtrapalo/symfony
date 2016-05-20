@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Translation;
+namespace Makhan\Bridge\Twig\Tests\Translation;
 
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Symfony\Bridge\Twig\Translation\TwigExtractor;
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Bridge\Twig\Extension\TranslationExtension;
+use Makhan\Bridge\Twig\Translation\TwigExtractor;
+use Makhan\Component\Translation\MessageCatalogue;
 
 class TwigExtractorTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class TwigExtractorTest extends \PHPUnit_Framework_TestCase
             'cache' => false,
             'autoescape' => false,
         ));
-        $twig->addExtension(new TranslationExtension($this->getMock('Symfony\Component\Translation\TranslatorInterface')));
+        $twig->addExtension(new TranslationExtension($this->getMock('Makhan\Component\Translation\TranslatorInterface')));
 
         $extractor = new TwigExtractor($twig);
         $extractor->setPrefix('prefix');
@@ -79,7 +79,7 @@ class TwigExtractorTest extends \PHPUnit_Framework_TestCase
     public function testExtractSyntaxError($resources)
     {
         $twig = new \Twig_Environment($this->getMock('Twig_LoaderInterface'));
-        $twig->addExtension(new TranslationExtension($this->getMock('Symfony\Component\Translation\TranslatorInterface')));
+        $twig->addExtension(new TranslationExtension($this->getMock('Makhan\Component\Translation\TranslatorInterface')));
 
         $extractor = new TwigExtractor($twig);
         $extractor->extract($resources, new MessageCatalogue('en'));
@@ -109,7 +109,7 @@ class TwigExtractorTest extends \PHPUnit_Framework_TestCase
             'cache' => false,
             'autoescape' => false,
         ));
-        $twig->addExtension(new TranslationExtension($this->getMock('Symfony\Component\Translation\TranslatorInterface')));
+        $twig->addExtension(new TranslationExtension($this->getMock('Makhan\Component\Translation\TranslatorInterface')));
 
         $extractor = new TwigExtractor($twig);
         $catalogue = new MessageCatalogue('en');

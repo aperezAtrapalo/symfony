@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\HttpCache;
+namespace Makhan\Component\HttpKernel\HttpCache;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Esi implements the ESI capabilities to Request and Response instances.
@@ -24,7 +24,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  *
  *  * Edge Architecture Specification (http://www.w3.org/TR/edge-arch)
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Esi implements SurrogateInterface
 {
@@ -84,7 +84,7 @@ class Esi implements SurrogateInterface
     public function addSurrogateCapability(Request $request)
     {
         $current = $request->headers->get('Surrogate-Capability');
-        $new = 'symfony2="ESI/1.0"';
+        $new = 'makhan2="ESI/1.0"';
 
         $request->headers->set('Surrogate-Capability', $current ? $current.', '.$new : $new);
     }

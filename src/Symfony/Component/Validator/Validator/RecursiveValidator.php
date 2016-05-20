@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Validator;
+namespace Makhan\Component\Validator\Validator;
 
-use Symfony\Component\Validator\ConstraintValidatorFactoryInterface;
-use Symfony\Component\Validator\Context\ExecutionContextFactoryInterface;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\ObjectInitializerInterface;
+use Makhan\Component\Validator\ConstraintValidatorFactoryInterface;
+use Makhan\Component\Validator\Context\ExecutionContextFactoryInterface;
+use Makhan\Component\Validator\Context\ExecutionContextInterface;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\ObjectInitializerInterface;
 
 /**
  * Recursive implementation of {@link ValidatorInterface}.

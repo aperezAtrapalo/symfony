@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator;
+namespace Makhan\Component\Validator;
 
 use Doctrine\Common\Annotations\Reader;
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Mapping\Cache\CacheInterface;
-use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Component\Validator\Mapping\Cache\CacheInterface;
+use Makhan\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * A configurable builder for ValidatorInterface objects.

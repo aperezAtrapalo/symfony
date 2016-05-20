@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\File;
+namespace Makhan\Component\HttpFoundation\Tests\File;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Makhan\Component\HttpFoundation\File\UploadedFile;
 
 class UploadedFileTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,7 @@ class UploadedFileTest extends \PHPUnit_Framework_TestCase
 
     public function testConstructWhenFileNotExists()
     {
-        $this->setExpectedException('Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException');
+        $this->setExpectedException('Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException');
 
         new UploadedFile(
             __DIR__.'/Fixtures/not_here',
@@ -129,7 +129,7 @@ class UploadedFileTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\HttpFoundation\File\Exception\FileException
+     * @expectedException \Makhan\Component\HttpFoundation\File\Exception\FileException
      */
     public function testMoveLocalFileIsNotAllowed()
     {

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer;
+use Makhan\Component\Form\ChoiceList\ArrayChoiceList;
+use Makhan\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer;
 
 class ChoiceToValueTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -87,7 +87,7 @@ class ChoiceToValueTransformerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider reverseTransformExpectsStringOrNullProvider
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsStringOrNull($value)
     {

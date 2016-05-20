@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Yaml\Tests;
+namespace Makhan\Component\Yaml\Tests;
 
-use Symfony\Component\Yaml\Inline;
-use Symfony\Component\Yaml\Yaml;
+use Makhan\Component\Yaml\Inline;
+use Makhan\Component\Yaml\Yaml;
 
 class InlineTest extends \PHPUnit_Framework_TestCase
 {
@@ -83,7 +83,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException        \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage Found unknown escape character "\V".
      */
     public function testParseScalarWithNonEscapedBlackslashShouldThrowException()
@@ -92,7 +92,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseScalarWithNonEscapedBlackslashAtTheEndShouldThrowException()
     {
@@ -100,7 +100,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseScalarWithIncorrectlyQuotedStringShouldThrowException()
     {
@@ -109,7 +109,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseScalarWithIncorrectlyDoubleQuotedStringShouldThrowException()
     {
@@ -118,7 +118,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseInvalidMappingKeyShouldThrowException()
     {
@@ -127,7 +127,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseInvalidMappingShouldThrowException()
     {
@@ -135,7 +135,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      */
     public function testParseInvalidSequenceShouldThrowException()
     {
@@ -205,7 +205,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage A reference must contain at least one character.
      */
     public function testParseUnquotedAsterisk()
@@ -214,7 +214,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException \Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage A reference must contain at least one character.
      */
     public function testParseUnquotedAsteriskFollowedByAComment()
@@ -224,7 +224,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getReservedIndicators
-     * @expectedException Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage cannot start a plain scalar; you need to quote the scalar.
      */
     public function testParseUnquotedScalarStartingWithReservedIndicator($indicator)
@@ -239,7 +239,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getScalarIndicators
-     * @expectedException Symfony\Component\Yaml\Exception\ParseException
+     * @expectedException Makhan\Component\Yaml\Exception\ParseException
      * @expectedExceptionMessage cannot start a plain scalar; you need to quote the scalar.
      */
     public function testParseUnquotedScalarStartingWithScalarIndicator($indicator)
@@ -254,7 +254,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group legacy
-     * throws \Symfony\Component\Yaml\Exception\ParseException in 4.0
+     * throws \Makhan\Component\Yaml\Exception\ParseException in 4.0
      */
     public function testParseUnquotedScalarStartingWithPercentCharacter()
     {
@@ -274,7 +274,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
         restore_error_handler();
 
         $this->assertCount(1, $deprecations);
-        $this->assertContains('Not quoting a scalar starting with the "%" indicator character is deprecated since Symfony 3.1 and will throw a ParseException in 4.0.', $deprecations[0]);
+        $this->assertContains('Not quoting a scalar starting with the "%" indicator character is deprecated since Makhan 3.1 and will throw a ParseException in 4.0.', $deprecations[0]);
     }
 
     public function getTestsForParse()
@@ -570,7 +570,7 @@ class InlineTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseInvalidBinaryData($data, $expectedMessage)
     {
-        $this->setExpectedExceptionRegExp('\Symfony\Component\Yaml\Exception\ParseException', $expectedMessage);
+        $this->setExpectedExceptionRegExp('\Makhan\Component\Yaml\Exception\ParseException', $expectedMessage);
 
         Inline::parse($data);
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
+use Makhan\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
 
 class UnsupportedMediaTypeHttpExceptionTest extends HttpExceptionTest
 {

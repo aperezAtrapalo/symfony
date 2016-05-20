@@ -1,6 +1,6 @@
 build: false
 clone_depth: 1
-clone_folder: c:\projects\symfony
+clone_folder: c:\projects\makhan
 
 cache:
     - c:\php -> appveyor.yml
@@ -18,7 +18,7 @@ init:
 install:
     - IF EXIST c:\php (SET PHP=0) ELSE (mkdir c:\php)
     - cd c:\php
-    - IF %PHP%==1 appveyor DownloadFile https://raw.githubusercontent.com/symfony/binary-utils/master/cacert.pem
+    - IF %PHP%==1 appveyor DownloadFile https://raw.githubusercontent.com/makhan/binary-utils/master/cacert.pem
     - IF %PHP%==1 appveyor DownloadFile http://windows.php.net/downloads/releases/archives/php-5.5.9-nts-Win32-VC11-x86.zip
     - IF %PHP%==1 7z x php-5.5.9-nts-Win32-VC11-x86.zip -y >nul
     - IF %PHP%==1 del /Q *.zip
@@ -47,7 +47,7 @@ install:
     - IF %PHP%==1 echo curl.cainfo=c:\php\cacert.pem >> php.ini-max
     - IF %PHP%==1 appveyor DownloadFile https://getcomposer.org/download/1.0.3/composer.phar
     - copy /Y php.ini-max php.ini
-    - cd c:\projects\symfony
+    - cd c:\projects\makhan
     - mkdir %APPDATA%\Composer
     - copy /Y .composer\* %APPDATA%\Composer\
     - php phpunit install
@@ -55,10 +55,10 @@ install:
     - composer update --no-progress --ansi
 
 test_script:
-    - cd c:\projects\symfony
+    - cd c:\projects\makhan
     - SET X=0
     - copy /Y c:\php\php.ini-min c:\php\php.ini
-    - php phpunit symfony --exclude-group benchmark,intl-data || SET X=!errorlevel!
+    - php phpunit makhan --exclude-group benchmark,intl-data || SET X=!errorlevel!
     - copy /Y c:\php\php.ini-max c:\php\php.ini
-    - php phpunit symfony --exclude-group benchmark,intl-data || SET X=!errorlevel!
+    - php phpunit makhan --exclude-group benchmark,intl-data || SET X=!errorlevel!
     - exit %X%

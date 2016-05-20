@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests;
+namespace Makhan\Bundle\TwigBundle\Tests;
 
-use Symfony\Bundle\TwigBundle\TemplateIterator;
+use Makhan\Bundle\TwigBundle\TemplateIterator;
 
 class TemplateIteratorTest extends TestCase
 {
     public function testGetIterator()
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\BundleInterface');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\BundleInterface');
         $bundle->expects($this->any())->method('getName')->will($this->returnValue('BarBundle'));
         $bundle->expects($this->any())->method('getPath')->will($this->returnValue(__DIR__.'/Fixtures/templates/BarBundle'));
 
-        $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\Kernel')->disableOriginalConstructor()->getMock();
+        $kernel = $this->getMockBuilder('Makhan\Component\HttpKernel\Kernel')->disableOriginalConstructor()->getMock();
         $kernel->expects($this->any())->method('getBundles')->will($this->returnValue(array(
             $bundle,
         )));

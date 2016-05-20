@@ -1,16 +1,16 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 return array(
-    new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-    new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-    new Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\FirewallEntryPointBundle\FirewallEntryPointBundle(),
+    new Makhan\Bundle\FrameworkBundle\FrameworkBundle(),
+    new Makhan\Bundle\SecurityBundle\SecurityBundle(),
+    new Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\FirewallEntryPointBundle\FirewallEntryPointBundle(),
 );

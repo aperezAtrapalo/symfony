@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\HttpCache;
+namespace Makhan\Component\HttpKernel\Tests\HttpCache;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpCache\Ssi;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpCache\Ssi;
 
 class SsiTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,10 +39,10 @@ class SsiTest extends \PHPUnit_Framework_TestCase
 
         $request = Request::create('/');
         $ssi->addSurrogateCapability($request);
-        $this->assertEquals('symfony2="SSI/1.0"', $request->headers->get('Surrogate-Capability'));
+        $this->assertEquals('makhan2="SSI/1.0"', $request->headers->get('Surrogate-Capability'));
 
         $ssi->addSurrogateCapability($request);
-        $this->assertEquals('symfony2="SSI/1.0", symfony2="SSI/1.0"', $request->headers->get('Surrogate-Capability'));
+        $this->assertEquals('makhan2="SSI/1.0", makhan2="SSI/1.0"', $request->headers->get('Surrogate-Capability'));
     }
 
     public function testAddSurrogateControl()
@@ -192,7 +192,7 @@ class SsiTest extends \PHPUnit_Framework_TestCase
 
     protected function getCache($request, $response)
     {
-        $cache = $this->getMock('Symfony\Component\HttpKernel\HttpCache\HttpCache', array('getRequest', 'handle'), array(), '', false);
+        $cache = $this->getMock('Makhan\Component\HttpKernel\HttpCache\HttpCache', array('getRequest', 'handle'), array(), '', false);
         $cache->expects($this->any())
               ->method('getRequest')
               ->will($this->returnValue($request))

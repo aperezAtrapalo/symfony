@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * This code is partially based on the Rack-Cache library by Ryan Tomayko,
  * which is released under the MIT license.
@@ -13,17 +13,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\HttpCache;
+namespace Makhan\Component\HttpKernel\HttpCache;
 
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\TerminableInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\TerminableInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * Cache provides HTTP caching.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class HttpCache implements HttpKernelInterface, TerminableInterface
 {
@@ -193,7 +193,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         $response->setDate(\DateTime::createFromFormat('U', time(), new \DateTimeZone('UTC')));
 
         if (HttpKernelInterface::MASTER_REQUEST === $type && $this->options['debug']) {
-            $response->headers->set('X-Symfony-Cache', $this->getLog());
+            $response->headers->set('X-Makhan-Cache', $this->getLog());
         }
 
         if (null !== $this->surrogate) {

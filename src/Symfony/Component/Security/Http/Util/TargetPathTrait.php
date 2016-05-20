@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Util;
+namespace Makhan\Component\Security\Http\Util;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Makhan\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Trait to get (and set) the URL the user last visited before being forced to authenticate.

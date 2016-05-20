@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Mapping\Loader;
+namespace Makhan\Component\Serializer\Tests\Mapping\Loader;
 
-use Symfony\Component\Serializer\Mapping\Loader\XmlFileLoader;
-use Symfony\Component\Serializer\Mapping\ClassMetadata;
-use Symfony\Component\Serializer\Tests\Mapping\TestClassMetadataFactory;
+use Makhan\Component\Serializer\Mapping\Loader\XmlFileLoader;
+use Makhan\Component\Serializer\Mapping\ClassMetadata;
+use Makhan\Component\Serializer\Tests\Mapping\TestClassMetadataFactory;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -32,12 +32,12 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->loader = new XmlFileLoader(__DIR__.'/../../Fixtures/serialization.xml');
-        $this->metadata = new ClassMetadata('Symfony\Component\Serializer\Tests\Fixtures\GroupDummy');
+        $this->metadata = new ClassMetadata('Makhan\Component\Serializer\Tests\Fixtures\GroupDummy');
     }
 
     public function testInterface()
     {
-        $this->assertInstanceOf('Symfony\Component\Serializer\Mapping\Loader\LoaderInterface', $this->loader);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Mapping\Loader\LoaderInterface', $this->loader);
     }
 
     public function testLoadClassMetadataReturnsTrueIfSuccessful()
@@ -54,7 +54,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
 
     public function testMaxDepth()
     {
-        $classMetadata = new ClassMetadata('Symfony\Component\Serializer\Tests\Fixtures\MaxDepthDummy');
+        $classMetadata = new ClassMetadata('Makhan\Component\Serializer\Tests\Fixtures\MaxDepthDummy');
         $this->loader->loadClassMetadata($classMetadata);
 
         $attributesMetadata = $classMetadata->getAttributesMetadata();

@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form\EventListener;
+namespace Makhan\Bridge\Doctrine\Tests\Form\EventListener;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Bridge\Doctrine\Form\EventListener\MergeDoctrineCollectionListener;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
+use Makhan\Bridge\Doctrine\Form\EventListener\MergeDoctrineCollectionListener;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\FormEvents;
 
 class MergeDoctrineCollectionListenerTest extends \PHPUnit_Framework_TestCase
 {
     /** @var \Doctrine\Common\Collections\ArrayCollection */
     private $collection;
-    /** @var \Symfony\Component\EventDispatcher\EventDispatcher */
+    /** @var \Makhan\Component\EventDispatcher\EventDispatcher */
     private $dispatcher;
     private $factory;
     private $form;
@@ -31,7 +31,7 @@ class MergeDoctrineCollectionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $this->collection = new ArrayCollection(array('test'));
         $this->dispatcher = new EventDispatcher();
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->form = $this->getBuilder()
             ->getForm();
     }

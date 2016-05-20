@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Exception;
+namespace Makhan\Component\Debug\Exception;
 
 /**
  * Fatal Error Exception.
@@ -60,8 +60,8 @@ class FatalErrorException extends \ErrorException
 
                 unset($frame);
                 $trace = array_reverse($trace);
-            } elseif (function_exists('symfony_debug_backtrace')) {
-                $trace = symfony_debug_backtrace();
+            } elseif (function_exists('makhan_debug_backtrace')) {
+                $trace = makhan_debug_backtrace();
                 if (0 < $traceOffset) {
                     array_splice($trace, 0, $traceOffset);
                 }

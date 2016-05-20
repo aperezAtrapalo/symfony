@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony HttpKernel Component Test Suite">
+        <testsuite name="Makhan HttpKernel Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>
@@ -27,10 +27,10 @@
     </filter>
 
     <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener">
+        <listener class="Makhan\Bridge\PhpUnit\MakhanTestsListener">
             <arguments>
                 <array>
-                    <element key="time-sensitive"><string>Symfony\Component\HttpFoundation</string></element>
+                    <element key="time-sensitive"><string>Makhan\Component\HttpFoundation</string></element>
                 </array>
             </arguments>
         </listener>

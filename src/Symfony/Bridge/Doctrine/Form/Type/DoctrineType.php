@@ -1,33 +1,33 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Form\Type;
+namespace Makhan\Bridge\Doctrine\Form\Type;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Bridge\Doctrine\Form\ChoiceList\DoctrineChoiceLoader;
-use Symfony\Bridge\Doctrine\Form\ChoiceList\EntityLoaderInterface;
-use Symfony\Bridge\Doctrine\Form\ChoiceList\IdReader;
-use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
-use Symfony\Bridge\Doctrine\Form\EventListener\MergeDoctrineCollectionListener;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
-use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
-use Symfony\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
-use Symfony\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
-use Symfony\Component\Form\Exception\RuntimeException;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Makhan\Bridge\Doctrine\Form\ChoiceList\DoctrineChoiceLoader;
+use Makhan\Bridge\Doctrine\Form\ChoiceList\EntityLoaderInterface;
+use Makhan\Bridge\Doctrine\Form\ChoiceList\IdReader;
+use Makhan\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
+use Makhan\Bridge\Doctrine\Form\EventListener\MergeDoctrineCollectionListener;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
+use Makhan\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
+use Makhan\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
+use Makhan\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
+use Makhan\Component\Form\Exception\RuntimeException;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\PropertyAccess\PropertyAccessorInterface;
 
 abstract class DoctrineType extends AbstractType
 {
@@ -293,6 +293,6 @@ abstract class DoctrineType extends AbstractType
 
     public function getParent()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\ChoiceType';
+        return 'Makhan\Component\Form\Extension\Core\Type\ChoiceType';
     }
 }

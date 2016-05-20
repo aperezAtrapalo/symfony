@@ -1,34 +1,34 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Firewall;
+namespace Makhan\Component\Security\Http\Firewall;
 
-use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Http\Event\InteractiveLoginEvent;
+use Makhan\Component\Security\Http\SecurityEvents;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
 
 /**
  * AbstractPreAuthenticatedListener is the base class for all listener that
  * authenticates users based on a pre-authenticated request (like a certificate
  * for instance).
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class AbstractPreAuthenticatedListener implements ListenerInterface
 {

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess\Tests;
+namespace Makhan\Component\PropertyAccess\Tests;
 
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\PropertyAccess\PropertyPathBuilder;
+use Makhan\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\PropertyAccess\PropertyPathBuilder;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -239,7 +239,7 @@ class PropertyPathBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($path, $this->builder->getPropertyPath());
     }
 
-    // https://github.com/symfony/symfony/issues/5605
+    // https://github.com/makhan/makhan/issues/5605
     public function testReplaceWithLongerPath()
     {
         // error occurs when path contains at least two more elements

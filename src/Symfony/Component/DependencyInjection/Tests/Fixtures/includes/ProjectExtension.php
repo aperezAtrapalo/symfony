@@ -1,8 +1,8 @@
 <?php
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Extension\ExtensionInterface;
 
 class ProjectExtension implements ExtensionInterface
 {

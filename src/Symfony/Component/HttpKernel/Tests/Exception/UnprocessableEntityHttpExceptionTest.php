@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Makhan\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class UnprocessableEntityHttpExceptionTest extends HttpExceptionTest
 {

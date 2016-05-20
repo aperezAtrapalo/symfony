@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
-use Symfony\Component\Intl\Data\Bundle\Writer\JsonBundleWriter;
-use Symfony\Component\Intl\Data\Generator\CurrencyDataGenerator;
-use Symfony\Component\Intl\Data\Generator\GeneratorConfig;
-use Symfony\Component\Intl\Data\Generator\LanguageDataGenerator;
-use Symfony\Component\Intl\Data\Generator\LocaleDataGenerator;
-use Symfony\Component\Intl\Data\Generator\RegionDataGenerator;
-use Symfony\Component\Intl\Data\Generator\ScriptDataGenerator;
-use Symfony\Component\Intl\Data\Provider\LanguageDataProvider;
-use Symfony\Component\Intl\Data\Provider\RegionDataProvider;
-use Symfony\Component\Intl\Data\Provider\ScriptDataProvider;
-use Symfony\Component\Intl\Intl;
-use Symfony\Component\Intl\Data\Bundle\Compiler\GenrbCompiler;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
-use Symfony\Component\Intl\Locale;
-use Symfony\Component\Intl\Util\IcuVersion;
-use Symfony\Component\Intl\Util\SvnRepository;
-use Symfony\Component\Filesystem\Filesystem;
+use Makhan\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
+use Makhan\Component\Intl\Data\Bundle\Writer\JsonBundleWriter;
+use Makhan\Component\Intl\Data\Generator\CurrencyDataGenerator;
+use Makhan\Component\Intl\Data\Generator\GeneratorConfig;
+use Makhan\Component\Intl\Data\Generator\LanguageDataGenerator;
+use Makhan\Component\Intl\Data\Generator\LocaleDataGenerator;
+use Makhan\Component\Intl\Data\Generator\RegionDataGenerator;
+use Makhan\Component\Intl\Data\Generator\ScriptDataGenerator;
+use Makhan\Component\Intl\Data\Provider\LanguageDataProvider;
+use Makhan\Component\Intl\Data\Provider\RegionDataProvider;
+use Makhan\Component\Intl\Data\Provider\ScriptDataProvider;
+use Makhan\Component\Intl\Intl;
+use Makhan\Component\Intl\Data\Bundle\Compiler\GenrbCompiler;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
+use Makhan\Component\Intl\Locale;
+use Makhan\Component\Intl\Util\IcuVersion;
+use Makhan\Component\Intl\Util\SvnRepository;
+use Makhan\Component\Filesystem\Filesystem;
 
 require_once __DIR__.'/common.php';
 require_once __DIR__.'/autoload.php';
@@ -38,7 +38,7 @@ if ($argc > 3 || 2 === $argc && '-h' === $argv[1]) {
     bailout(<<<'MESSAGE'
 Usage: php update-icu-component.php <path/to/icu/source> <path/to/icu/build>
 
-Updates the ICU data for Symfony to the latest version of ICU.
+Updates the ICU data for Makhan to the latest version of ICU.
 
 If you downloaded the SVN repository before, you can pass the path to the
 repository source in the first optional argument.

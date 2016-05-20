@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Normalizer;
+namespace Makhan\Component\Serializer\Normalizer;
 
-use Symfony\Component\Serializer\Exception\CircularReferenceException;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
-use Symfony\Component\Serializer\Exception\RuntimeException;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
-use Symfony\Component\Serializer\Mapping\AttributeMetadataInterface;
-use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
-use Symfony\Component\Serializer\SerializerAwareInterface;
+use Makhan\Component\Serializer\Exception\CircularReferenceException;
+use Makhan\Component\Serializer\Exception\InvalidArgumentException;
+use Makhan\Component\Serializer\Exception\RuntimeException;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
+use Makhan\Component\Serializer\Mapping\AttributeMetadataInterface;
+use Makhan\Component\Serializer\NameConverter\NameConverterInterface;
+use Makhan\Component\Serializer\SerializerAwareInterface;
 
 /**
  * Normalizer implementation.

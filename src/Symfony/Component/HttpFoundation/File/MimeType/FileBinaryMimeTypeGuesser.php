@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\File\MimeType;
+namespace Makhan\Component\HttpFoundation\File\MimeType;
 
-use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
+use Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException;
+use Makhan\Component\HttpFoundation\File\Exception\AccessDeniedException;
 
 /**
  * Guesses the mime type with the binary "file" (only available on *nix).

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
 /**
  * To learn more about how form events work check the documentation
- * entry at {@link https://symfony.com/doc/any/components/form/form_events.html}.
+ * entry at {@link https://makhan.com/doc/any/components/form/form_events.html}.
  *
  * To learn how to dynamically modify forms using events check the cookbook
- * entry at {@link https://symfony.com/doc/any/cookbook/form/dynamic_form_modification.html}.
+ * entry at {@link https://makhan.com/doc/any/cookbook/form/dynamic_form_modification.html}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -29,7 +29,7 @@ final class FormEvents
      *  - Change data from the request, before submitting the data to the form.
      *  - Add or remove form fields, before submitting the data to the form.
      *
-     * @Event("Symfony\Component\Form\FormEvent")
+     * @Event("Makhan\Component\Form\FormEvent")
      */
     const PRE_SUBMIT = 'form.pre_bind';
 
@@ -39,7 +39,7 @@ final class FormEvents
      *
      * It can be used to change data from the normalized representation of the data.
      *
-     * @Event("Symfony\Component\Form\FormEvent")
+     * @Event("Makhan\Component\Form\FormEvent")
      */
     const SUBMIT = 'form.bind';
 
@@ -49,7 +49,7 @@ final class FormEvents
      *
      * It can be used to fetch data after denormalization.
      *
-     * @Event("Symfony\Component\Form\FormEvent")
+     * @Event("Makhan\Component\Form\FormEvent")
      */
     const POST_SUBMIT = 'form.post_bind';
 
@@ -60,7 +60,7 @@ final class FormEvents
      *  - Modify the data given during pre-population;
      *  - Modify a form depending on the pre-populated data (adding or removing fields dynamically).
      *
-     * @Event("Symfony\Component\Form\FormEvent")
+     * @Event("Makhan\Component\Form\FormEvent")
      */
     const PRE_SET_DATA = 'form.pre_set_data';
 
@@ -69,7 +69,7 @@ final class FormEvents
      *
      * This event is mostly here for reading data after having pre-populated the form.
      *
-     * @Event("Symfony\Component\Form\FormEvent")
+     * @Event("Makhan\Component\Form\FormEvent")
      */
     const POST_SET_DATA = 'form.post_set_data';
 

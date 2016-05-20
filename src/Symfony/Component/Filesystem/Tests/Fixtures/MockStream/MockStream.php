@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Filesystem\Tests\Fixtures\MockStream;
+namespace Makhan\Component\Filesystem\Tests\Fixtures\MockStream;
 
 /**
  * Mock stream class to be used with stream_wrapper_register.
- * stream_wrapper_register('mock', 'Symfony\Component\Filesystem\Tests\Fixtures\MockStream\MockStream').
+ * stream_wrapper_register('mock', 'Makhan\Component\Filesystem\Tests\Fixtures\MockStream\MockStream').
  */
 class MockStream
 {

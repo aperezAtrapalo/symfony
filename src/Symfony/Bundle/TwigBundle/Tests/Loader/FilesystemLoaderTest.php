@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests\Loader;
+namespace Makhan\Bundle\TwigBundle\Tests\Loader;
 
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateReference;
-use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
-use Symfony\Bundle\TwigBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateReference;
+use Makhan\Bundle\TwigBundle\Loader\FilesystemLoader;
+use Makhan\Bundle\TwigBundle\Tests\TestCase;
 
 class FilesystemLoaderTest extends TestCase
 {
     public function testGetSource()
     {
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
-        $locator = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
+        $locator = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
         $locator
             ->expects($this->once())
             ->method('locate')
@@ -32,15 +32,15 @@ class FilesystemLoaderTest extends TestCase
         // Twig-style
         $this->assertEquals("This is a layout\n", $loader->getSource('@namespace/layout.html.twig'));
 
-        // Symfony-style
+        // Makhan-style
         $this->assertEquals("This is a layout\n", $loader->getSource('TwigBundle::layout.html.twig'));
     }
 
     public function testExists()
     {
-        // should return true for templates that Twig does not find, but Symfony does
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
-        $locator = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        // should return true for templates that Twig does not find, but Makhan does
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
+        $locator = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
         $locator
             ->expects($this->once())
             ->method('locate')
@@ -56,7 +56,7 @@ class FilesystemLoaderTest extends TestCase
      */
     public function testTwigErrorIfLocatorThrowsInvalid()
     {
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
         $parser
             ->expects($this->once())
             ->method('parse')
@@ -64,7 +64,7 @@ class FilesystemLoaderTest extends TestCase
             ->will($this->returnValue(new TemplateReference('', '', 'name', 'format', 'engine')))
         ;
 
-        $locator = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $locator = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
         $locator
             ->expects($this->once())
             ->method('locate')
@@ -80,7 +80,7 @@ class FilesystemLoaderTest extends TestCase
      */
     public function testTwigErrorIfLocatorReturnsFalse()
     {
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
         $parser
             ->expects($this->once())
             ->method('parse')
@@ -88,7 +88,7 @@ class FilesystemLoaderTest extends TestCase
             ->will($this->returnValue(new TemplateReference('', '', 'name', 'format', 'engine')))
         ;
 
-        $locator = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $locator = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
         $locator
             ->expects($this->once())
             ->method('locate')
@@ -105,13 +105,13 @@ class FilesystemLoaderTest extends TestCase
      */
     public function testTwigErrorIfTemplateDoesNotExist()
     {
-        $parser = $this->getMock('Symfony\Component\Templating\TemplateNameParserInterface');
-        $locator = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $parser = $this->getMock('Makhan\Component\Templating\TemplateNameParserInterface');
+        $locator = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
 
         $loader = new FilesystemLoader($locator, $parser);
         $loader->addPath(__DIR__.'/../DependencyInjection/Fixtures/Resources/views');
 
-        $method = new \ReflectionMethod('Symfony\Bundle\TwigBundle\Loader\FilesystemLoader', 'findTemplate');
+        $method = new \ReflectionMethod('Makhan\Bundle\TwigBundle\Loader\FilesystemLoader', 'findTemplate');
         $method->setAccessible(true);
         $method->invoke($loader, 'name.format.engine');
     }

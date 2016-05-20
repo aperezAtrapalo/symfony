@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests;
+namespace Makhan\Component\Routing\Tests;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\RequestContext;
 
 class RequestContextTest extends \PHPUnit_Framework_TestCase
 {

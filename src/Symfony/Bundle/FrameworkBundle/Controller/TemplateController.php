@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Controller;
+namespace Makhan\Bundle\FrameworkBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareTrait;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * TemplateController.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TemplateController implements ContainerAwareInterface
 {
@@ -36,7 +36,7 @@ class TemplateController implements ContainerAwareInterface
      */
     public function templateAction($template, $maxAge = null, $sharedAge = null, $private = null)
     {
-        /** @var $response \Symfony\Component\HttpFoundation\Response */
+        /** @var $response \Makhan\Component\HttpFoundation\Response */
         $response = $this->container->get('templating')->renderResponse($template);
 
         if ($maxAge) {

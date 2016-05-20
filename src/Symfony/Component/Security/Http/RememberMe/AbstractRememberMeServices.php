@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\RememberMe;
+namespace Makhan\Component\Security\Http\RememberMe;
 
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Authentication\Token\RememberMeToken;
-use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\Exception\CookieTheftException;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Cookie;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\Authentication\Token\RememberMeToken;
+use Makhan\Component\Security\Http\Logout\LogoutHandlerInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\Exception\CookieTheftException;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Cookie;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Security\Http\ParameterBagUtils;
+use Makhan\Component\Security\Http\ParameterBagUtils;
 
 /**
  * Base class implementing the RememberMeServicesInterface.

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\Loader;
+namespace Makhan\Component\Translation\Tests\Loader;
 
-use Symfony\Component\Translation\Loader\JsonFileLoader;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Translation\Loader\JsonFileLoader;
+use Makhan\Component\Config\Resource\FileResource;
 
 class JsonFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,7 +39,7 @@ class JsonFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Translation\Exception\NotFoundResourceException
+     * @expectedException \Makhan\Component\Translation\Exception\NotFoundResourceException
      */
     public function testLoadNonExistingResource()
     {
@@ -49,7 +49,7 @@ class JsonFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException           \Symfony\Component\Translation\Exception\InvalidResourceException
+     * @expectedException           \Makhan\Component\Translation\Exception\InvalidResourceException
      * @expectedExceptionMessage    Error parsing JSON - Syntax error, malformed JSON
      */
     public function testParseException()

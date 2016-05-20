@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition;
+namespace Makhan\Component\Config\Tests\Definition;
 
-use Symfony\Component\Config\Definition\FloatNode;
+use Makhan\Component\Config\Definition\FloatNode;
 
 class FloatNodeTest extends \PHPUnit_Framework_TestCase
 {
@@ -53,7 +53,7 @@ class FloatNodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider getInvalidValues
-     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidTypeException
+     * @expectedException \Makhan\Component\Config\Definition\Exception\InvalidTypeException
      */
     public function testNormalizeThrowsExceptionOnInvalidValues($value)
     {

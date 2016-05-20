@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\ProxyManager\Tests\LazyProxy\Instantiator;
+namespace Makhan\Bridge\ProxyManager\Tests\LazyProxy\Instantiator;
 
-use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
-use Symfony\Component\DependencyInjection\Definition;
+use Makhan\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
+use Makhan\Component\DependencyInjection\Definition;
 
 /**
- * Tests for {@see \Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator}.
+ * Tests for {@see \Makhan\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator}.
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
@@ -37,7 +37,7 @@ class RuntimeInstantiatorTest extends \PHPUnit_Framework_TestCase
     public function testInstantiateProxy()
     {
         $instance = new \stdClass();
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $definition = new Definition('stdClass');
         $instantiator = function () use ($instance) {
             return $instance;

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess\Tests;
+namespace Makhan\Component\PropertyAccess\Tests;
 
-use Symfony\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\PropertyAccess\PropertyPath;
 
 class PropertyPathTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidPropertyPathException
      */
     public function testDotIsRequiredBeforeProperty()
     {
@@ -31,7 +31,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidPropertyPathException
      */
     public function testDotCannotBePresentAtTheBeginning()
     {
@@ -53,7 +53,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider providePathsContainingUnexpectedCharacters
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidPropertyPathException
      */
     public function testUnexpectedCharacters($path)
     {
@@ -61,7 +61,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidPropertyPathException
      */
     public function testPathCannotBeEmpty()
     {
@@ -69,7 +69,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidArgumentException
      */
     public function testPathCannotBeNull()
     {
@@ -77,7 +77,7 @@ class PropertyPathTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\PropertyAccess\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\PropertyAccess\Exception\InvalidArgumentException
      */
     public function testPathCannotBeFalse()
     {

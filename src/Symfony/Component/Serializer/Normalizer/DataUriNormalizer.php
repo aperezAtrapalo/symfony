@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Normalizer;
+namespace Makhan\Component\Serializer\Normalizer;
 
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
-use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface;
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
-use Symfony\Component\Serializer\Exception\UnexpectedValueException;
+use Makhan\Component\HttpFoundation\File\File;
+use Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
+use Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface;
+use Makhan\Component\Serializer\Exception\InvalidArgumentException;
+use Makhan\Component\Serializer\Exception\UnexpectedValueException;
 
 /**
  * Normalizes an {@see \SplFileInfo} object to a data URI.
@@ -32,7 +32,7 @@ class DataUriNormalizer implements NormalizerInterface, DenormalizerInterface
 
     public function __construct(MimeTypeGuesserInterface $mimeTypeGuesser = null)
     {
-        if (null === $mimeTypeGuesser && class_exists('Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser')) {
+        if (null === $mimeTypeGuesser && class_exists('Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesser')) {
             $mimeTypeGuesser = MimeTypeGuesser::getInstance();
         }
 
@@ -91,7 +91,7 @@ class DataUriNormalizer implements NormalizerInterface, DenormalizerInterface
 
         try {
             switch ($class) {
-                case 'Symfony\Component\HttpFoundation\File\File':
+                case 'Makhan\Component\HttpFoundation\File\File':
                     return new File($data, false);
 
                 case 'SplFileObject':
@@ -102,7 +102,7 @@ class DataUriNormalizer implements NormalizerInterface, DenormalizerInterface
             throw new UnexpectedValueException($exception->getMessage(), $exception->getCode(), $exception);
         }
 
-        throw new InvalidArgumentException(sprintf('The class parameter "%s" is not supported. It must be one of "SplFileInfo", "SplFileObject" or "Symfony\Component\HttpFoundation\File\File".', $class));
+        throw new InvalidArgumentException(sprintf('The class parameter "%s" is not supported. It must be one of "SplFileInfo", "SplFileObject" or "Makhan\Component\HttpFoundation\File\File".', $class));
     }
 
     /**
@@ -113,7 +113,7 @@ class DataUriNormalizer implements NormalizerInterface, DenormalizerInterface
         $supportedTypes = array(
             \SplFileInfo::class => true,
             \SplFileObject::class => true,
-            'Symfony\Component\HttpFoundation\File\File' => true,
+            'Makhan\Component\HttpFoundation\File\File' => true,
         );
 
         return isset($supportedTypes[$type]);

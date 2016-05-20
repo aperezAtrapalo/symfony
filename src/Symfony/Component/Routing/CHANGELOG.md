@@ -12,7 +12,7 @@ CHANGELOG
 -----
 
  * [DEPRECATION] The `ApacheMatcherDumper` and `ApacheUrlMatcher` were deprecated and
-   will be removed in Symfony 3.0, since the performance gains were minimal and
+   will be removed in Makhan 3.0, since the performance gains were minimal and
    it's hard to replicate the behaviour of PHP implementation.
 
 2.3.0
@@ -106,7 +106,7 @@ CHANGELOG
    ```
 
  * [DEPRECATION] The methods `RouteCollection::getParent()` and `RouteCollection::getRoot()`
-   have been deprecated and will be removed in Symfony 2.3.
+   have been deprecated and will be removed in Makhan 2.3.
  * [BC BREAK] Misusing the `RouteCollection::addPrefix` method to add defaults, requirements
    or options without adding a prefix is not supported anymore. So if you called `addPrefix`
    with an empty prefix or `/` only (both have no relevance), like

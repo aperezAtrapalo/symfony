@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Authentication;
+namespace Makhan\Component\Security\Http\Authentication;
 
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\Security\Http\ParameterBagUtils;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Http\Util\TargetPathTrait;
+use Makhan\Component\Security\Http\HttpUtils;
+use Makhan\Component\Security\Http\ParameterBagUtils;
 
 /**
  * Class with the default authentication success handling logic.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  * @author Alexander <iam.asm89@gmail.com>
  */

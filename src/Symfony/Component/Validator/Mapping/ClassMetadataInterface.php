@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Makhan\Component\Validator\Mapping;
 
 /**
  * Stores all metadata needed for validating objects of specific class.
@@ -26,8 +26,8 @@ namespace Symfony\Component\Validator\Mapping;
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @see MetadataInterface
- * @see \Symfony\Component\Validator\Constraints\GroupSequence
- * @see \Symfony\Component\Validator\GroupSequenceProviderInterface
+ * @see \Makhan\Component\Validator\Constraints\GroupSequence
+ * @see \Makhan\Component\Validator\GroupSequenceProviderInterface
  * @see TraversalStrategy
  */
 interface ClassMetadataInterface extends MetadataInterface
@@ -46,7 +46,7 @@ interface ClassMetadataInterface extends MetadataInterface
      *
      * @return bool Returns true if the "Default" group is overridden
      *
-     * @see \Symfony\Component\Validator\Constraints\GroupSequence
+     * @see \Makhan\Component\Validator\Constraints\GroupSequence
      */
     public function hasGroupSequence();
 
@@ -54,9 +54,9 @@ interface ClassMetadataInterface extends MetadataInterface
      * Returns the group sequence that overrides the "Default" group for this
      * class.
      *
-     * @return \Symfony\Component\Validator\Constraints\GroupSequence|null The group sequence or null
+     * @return \Makhan\Component\Validator\Constraints\GroupSequence|null The group sequence or null
      *
-     * @see \Symfony\Component\Validator\Constraints\GroupSequence
+     * @see \Makhan\Component\Validator\Constraints\GroupSequence
      */
     public function getGroupSequence();
 
@@ -65,14 +65,14 @@ interface ClassMetadataInterface extends MetadataInterface
      * sequence obtained by the validated objects.
      *
      * If this method returns true, the class must implement
-     * {@link \Symfony\Component\Validator\GroupSequenceProviderInterface}.
+     * {@link \Makhan\Component\Validator\GroupSequenceProviderInterface}.
      * This interface will be used to obtain the group sequence when an object
      * of this class is validated.
      *
      * @return bool Returns true if the "Default" group is overridden by
      *              a dynamic group sequence
      *
-     * @see \Symfony\Component\Validator\GroupSequenceProviderInterface
+     * @see \Makhan\Component\Validator\GroupSequenceProviderInterface
      */
     public function isGroupSequenceProvider();
 

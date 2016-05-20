@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Tests\Dumper;
+namespace Makhan\Component\Translation\Tests\Dumper;
 
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Dumper\QtFileDumper;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Dumper\QtFileDumper;
 
 class QtFileDumperTest extends \PHPUnit_Framework_TestCase
 {

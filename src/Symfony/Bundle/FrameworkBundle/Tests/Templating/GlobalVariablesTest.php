@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating;
 
-use Symfony\Bundle\FrameworkBundle\Templating\GlobalVariables;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Component\DependencyInjection\Container;
+use Makhan\Bundle\FrameworkBundle\Templating\GlobalVariables;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Component\DependencyInjection\Container;
 
 class GlobalVariablesTest extends TestCase
 {
@@ -33,7 +33,7 @@ class GlobalVariablesTest extends TestCase
 
     public function testGetUserNoToken()
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $this->container->set('security.token_storage', $tokenStorage);
         $this->assertNull($this->globals->getUser());
     }
@@ -43,8 +43,8 @@ class GlobalVariablesTest extends TestCase
      */
     public function testGetUser($user, $expectedUser)
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         $this->container->set('security.token_storage', $tokenStorage);
 
@@ -63,9 +63,9 @@ class GlobalVariablesTest extends TestCase
 
     public function getUserProvider()
     {
-        $user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $std = new \stdClass();
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         return array(
             array($user, $user),

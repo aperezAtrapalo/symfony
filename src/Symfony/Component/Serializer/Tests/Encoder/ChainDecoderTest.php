@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Encoder;
+namespace Makhan\Component\Serializer\Tests\Encoder;
 
-use Symfony\Component\Serializer\Encoder\ChainDecoder;
+use Makhan\Component\Serializer\Encoder\ChainDecoder;
 
 class ChainDecoderTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class ChainDecoderTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->decoder1 = $this
-            ->getMockBuilder('Symfony\Component\Serializer\Encoder\DecoderInterface')
+            ->getMockBuilder('Makhan\Component\Serializer\Encoder\DecoderInterface')
             ->getMock();
 
         $this->decoder1
@@ -38,7 +38,7 @@ class ChainDecoderTest extends \PHPUnit_Framework_TestCase
             )));
 
         $this->decoder2 = $this
-            ->getMockBuilder('Symfony\Component\Serializer\Encoder\DecoderInterface')
+            ->getMockBuilder('Makhan\Component\Serializer\Encoder\DecoderInterface')
             ->getMock();
 
         $this->decoder2
@@ -68,7 +68,7 @@ class ChainDecoderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\Serializer\Exception\RuntimeException
+     * @expectedException Makhan\Component\Serializer\Exception\RuntimeException
      */
     public function testDecodeUnsupportedFormat()
     {

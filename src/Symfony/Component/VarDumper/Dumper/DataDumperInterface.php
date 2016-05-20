@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Dumper;
+namespace Makhan\Component\VarDumper\Dumper;
 
-use Symfony\Component\VarDumper\Cloner\Data;
+use Makhan\Component\VarDumper\Cloner\Data;
 
 /**
  * DataDumperInterface for dumping Data objects.

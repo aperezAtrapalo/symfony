@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 
-<container xmlns="http://symfony.com/schema/dic/services"
+<container xmlns="http://makhan.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd">
 
     <services>
 
@@ -22,8 +22,8 @@
             <tag name="cache.pool" />
         </service>
 
-        <service id="cache.adapter.system" class="Symfony\Component\Cache\Adapter\AdapterInterface" abstract="true">
-            <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache" />
+        <service id="cache.adapter.system" class="Makhan\Component\Cache\Adapter\AdapterInterface" abstract="true">
+            <factory class="Makhan\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache" />
             <tag name="cache.pool" clearer="cache.default_clearer" />
             <tag name="monolog.logger" channel="cache" />
             <argument /> <!-- namespace -->
@@ -33,7 +33,7 @@
             <argument type="service" id="logger" on-invalid="ignore" />
         </service>
 
-        <service id="cache.adapter.apcu" class="Symfony\Component\Cache\Adapter\ApcuAdapter" abstract="true">
+        <service id="cache.adapter.apcu" class="Makhan\Component\Cache\Adapter\ApcuAdapter" abstract="true">
             <tag name="cache.pool" clearer="cache.default_clearer" />
             <tag name="monolog.logger" channel="cache" />
             <argument /> <!-- namespace -->
@@ -44,7 +44,7 @@
             </call>
         </service>
 
-        <service id="cache.adapter.doctrine" class="Symfony\Component\Cache\Adapter\DoctrineAdapter" abstract="true">
+        <service id="cache.adapter.doctrine" class="Makhan\Component\Cache\Adapter\DoctrineAdapter" abstract="true">
             <tag name="cache.pool" provider="cache.default_doctrine_provider" clearer="cache.default_clearer" />
             <tag name="monolog.logger" channel="cache" />
             <argument /> <!-- Doctrine provider service -->
@@ -55,7 +55,7 @@
             </call>
         </service>
 
-        <service id="cache.adapter.filesystem" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" abstract="true">
+        <service id="cache.adapter.filesystem" class="Makhan\Component\Cache\Adapter\FilesystemAdapter" abstract="true">
             <tag name="cache.pool" clearer="cache.default_clearer" />
             <tag name="monolog.logger" channel="cache" />
             <argument /> <!-- namespace -->
@@ -66,14 +66,14 @@
             </call>
         </service>
 
-        <service id="cache.adapter.psr6" class="Symfony\Component\Cache\Adapter\ProxyAdapter" abstract="true">
+        <service id="cache.adapter.psr6" class="Makhan\Component\Cache\Adapter\ProxyAdapter" abstract="true">
             <tag name="cache.pool" provider="cache.default_psr6_provider" clearer="cache.default_clearer" />
             <argument /> <!-- PSR-6 provider service -->
             <argument /> <!-- namespace -->
             <argument /> <!-- default lifetime -->
         </service>
 
-        <service id="cache.adapter.redis" class="Symfony\Component\Cache\Adapter\RedisAdapter" abstract="true">
+        <service id="cache.adapter.redis" class="Makhan\Component\Cache\Adapter\RedisAdapter" abstract="true">
             <tag name="cache.pool" provider="cache.default_redis_provider" clearer="cache.default_clearer" />
             <tag name="monolog.logger" channel="cache" />
             <argument /> <!-- Redis connection service -->
@@ -84,7 +84,7 @@
             </call>
         </service>
 
-        <service id="cache.default_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="false">
+        <service id="cache.default_clearer" class="Makhan\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="false">
             <tag name="kernel.cache_clearer" />
         </service>
 

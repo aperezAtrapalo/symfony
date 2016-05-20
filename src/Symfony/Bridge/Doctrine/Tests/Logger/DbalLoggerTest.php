@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Logger;
+namespace Makhan\Bridge\Doctrine\Tests\Logger;
 
-use Symfony\Bridge\Doctrine\Logger\DbalLogger;
+use Makhan\Bridge\Doctrine\Logger\DbalLogger;
 
 class DbalLoggerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class DbalLoggerTest extends \PHPUnit_Framework_TestCase
         $logger = $this->getMock('Psr\\Log\\LoggerInterface');
 
         $dbalLogger = $this
-            ->getMockBuilder('Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger')
+            ->getMockBuilder('Makhan\\Bridge\\Doctrine\\Logger\\DbalLogger')
             ->setConstructorArgs(array($logger, null))
             ->setMethods(array('log'))
             ->getMock()
@@ -55,7 +55,7 @@ class DbalLoggerTest extends \PHPUnit_Framework_TestCase
         $logger = $this->getMock('Psr\\Log\\LoggerInterface');
 
         $dbalLogger = $this
-            ->getMockBuilder('Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger')
+            ->getMockBuilder('Makhan\\Bridge\\Doctrine\\Logger\\DbalLogger')
             ->setConstructorArgs(array($logger, null))
             ->setMethods(array('log'))
             ->getMock()
@@ -78,7 +78,7 @@ class DbalLoggerTest extends \PHPUnit_Framework_TestCase
         $logger = $this->getMock('Psr\\Log\\LoggerInterface');
 
         $dbalLogger = $this
-            ->getMockBuilder('Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger')
+            ->getMockBuilder('Makhan\\Bridge\\Doctrine\\Logger\\DbalLogger')
             ->setConstructorArgs(array($logger, null))
             ->setMethods(array('log'))
             ->getMock()
@@ -109,7 +109,7 @@ class DbalLoggerTest extends \PHPUnit_Framework_TestCase
         $logger = $this->getMock('Psr\\Log\\LoggerInterface');
 
         $dbalLogger = $this
-            ->getMockBuilder('Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger')
+            ->getMockBuilder('Makhan\\Bridge\\Doctrine\\Logger\\DbalLogger')
             ->setConstructorArgs(array($logger, null))
             ->setMethods(array('log'))
             ->getMock()
@@ -137,7 +137,7 @@ class DbalLoggerTest extends \PHPUnit_Framework_TestCase
         $logger = $this->getMock('Psr\\Log\\LoggerInterface');
 
         $dbalLogger = $this
-            ->getMockBuilder('Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger')
+            ->getMockBuilder('Makhan\\Bridge\\Doctrine\\Logger\\DbalLogger')
             ->setConstructorArgs(array($logger, null))
             ->setMethods(array('log'))
             ->getMock()

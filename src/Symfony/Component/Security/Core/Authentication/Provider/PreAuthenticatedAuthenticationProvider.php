@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authentication\Provider;
+namespace Makhan\Component\Security\Core\Authentication\Provider;
 
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Core\User\UserCheckerInterface;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * Processes a pre-authenticated authentication request.
@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
  * UserProviderInterface implementation may still throw a
  * UsernameNotFoundException, for example.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class PreAuthenticatedAuthenticationProvider implements AuthenticationProviderInterface
 {

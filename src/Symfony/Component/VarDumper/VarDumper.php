@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper;
+namespace Makhan\Component\VarDumper;
 
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\CliDumper;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+use Makhan\Component\VarDumper\Cloner\VarCloner;
+use Makhan\Component\VarDumper\Dumper\CliDumper;
+use Makhan\Component\VarDumper\Dumper\HtmlDumper;
 
 // Load the global dump() function
 require_once __DIR__.'/Resources/functions/dump.php';

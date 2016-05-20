@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Makhan\Component\HttpKernel\Tests\Fragment;
 
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer;
-use Symfony\Component\HttpKernel\HttpCache\Esi;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\UriSigner;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpKernel\Fragment\EsiFragmentRenderer;
+use Makhan\Component\HttpKernel\HttpCache\Esi;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\UriSigner;
 
 class EsiFragmentRendererTest extends \PHPUnit_Framework_TestCase
 {
@@ -116,7 +116,7 @@ class EsiFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     private function getInlineStrategy($called = false)
     {
-        $inline = $this->getMockBuilder('Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer')->disableOriginalConstructor()->getMock();
+        $inline = $this->getMockBuilder('Makhan\Component\HttpKernel\Fragment\InlineFragmentRenderer')->disableOriginalConstructor()->getMock();
 
         if ($called) {
             $inline->expects($this->once())->method('render');

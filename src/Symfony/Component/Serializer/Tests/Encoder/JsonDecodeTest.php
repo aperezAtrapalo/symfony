@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Encoder;
+namespace Makhan\Component\Serializer\Tests\Encoder;
 
-use Symfony\Component\Serializer\Encoder\JsonDecode;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Makhan\Component\Serializer\Encoder\JsonDecode;
+use Makhan\Component\Serializer\Encoder\JsonEncoder;
 
 class JsonDecodeTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var \Symfony\Component\Serializer\Encoder\JsonDecode */
+    /** @var \Makhan\Component\Serializer\Encoder\JsonDecode */
     private $decode;
 
     protected function setUp()
@@ -57,7 +57,7 @@ class JsonDecodeTest extends \PHPUnit_Framework_TestCase
     /**
      * @requires function json_last_error_msg
      * @dataProvider decodeProviderException
-     * @expectedException Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDecodeWithException($value)
     {

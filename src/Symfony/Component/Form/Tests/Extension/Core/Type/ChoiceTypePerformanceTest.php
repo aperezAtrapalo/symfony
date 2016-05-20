@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-use Symfony\Component\Form\Test\FormPerformanceTestCase;
+use Makhan\Component\Form\Test\FormPerformanceTestCase;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -30,7 +30,7 @@ class ChoiceTypePerformanceTest extends FormPerformanceTestCase
         $choices = range(1, 300);
 
         for ($i = 0; $i < 100; ++$i) {
-            $this->factory->create('Symfony\Component\Form\Extension\Core\Type\ChoiceType', mt_rand(1, 400), array(
+            $this->factory->create('Makhan\Component\Form\Extension\Core\Type\ChoiceType', mt_rand(1, 400), array(
                 'choices' => $choices,
             ));
         }

@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Process\PhpExecutableFinder;
-use Symfony\Component\Process\Process;
+use Makhan\Component\Console\Input\InputArgument;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Input\InputOption;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\Process\PhpExecutableFinder;
+use Makhan\Component\Process\Process;
 
 /**
  * Runs PHP's built-in web server in a background process.
@@ -74,7 +74,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $cliOutput = $output);
+        $io = new MakhanStyle($input, $cliOutput = $output);
 
         if (!extension_loaded('pcntl')) {
             $io->error(array(
@@ -180,11 +180,11 @@ EOF
      *
      * @param string|null  $router File path of the custom router script, if set by the user; otherwise null
      * @param string       $env    The application environment
-     * @param SymfonyStyle $io     An SymfonyStyle instance
+     * @param MakhanStyle $io     An MakhanStyle instance
      *
      * @return string|bool The absolute file path of the router script, or false on failure
      */
-    private function determineRouterScript($router, $env, SymfonyStyle $io)
+    private function determineRouterScript($router, $env, MakhanStyle $io)
     {
         if (null === $router) {
             $router = $this
@@ -206,14 +206,14 @@ EOF
     /**
      * Creates a process to start PHP's built-in web server.
      *
-     * @param SymfonyStyle $io           A SymfonyStyle instance
+     * @param MakhanStyle $io           A MakhanStyle instance
      * @param string       $address      IP address and port to listen to
      * @param string       $documentRoot The application's document root
      * @param string       $router       The router filename
      *
      * @return Process The process
      */
-    private function createServerProcess(SymfonyStyle $io, $address, $documentRoot, $router)
+    private function createServerProcess(MakhanStyle $io, $address, $documentRoot, $router)
     {
         $finder = new PhpExecutableFinder();
         if (false === $binary = $finder->find()) {
@@ -222,7 +222,7 @@ EOF
             return;
         }
 
-        $script = implode(' ', array_map(array('Symfony\Component\Process\ProcessUtils', 'escapeArgument'), array(
+        $script = implode(' ', array_map(array('Makhan\Component\Process\ProcessUtils', 'escapeArgument'), array(
             $binary,
             '-S',
             $address,

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests\Loader;
+namespace Makhan\Component\Templating\Tests\Loader;
 
-use Symfony\Component\Templating\Loader\Loader;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+use Makhan\Component\Templating\Loader\Loader;
+use Makhan\Component\Templating\TemplateReferenceInterface;
 
 class LoaderTest extends \PHPUnit_Framework_TestCase
 {

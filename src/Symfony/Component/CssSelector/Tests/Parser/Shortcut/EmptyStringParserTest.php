@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\Tests\Parser\Shortcut;
+namespace Makhan\Component\CssSelector\Tests\Parser\Shortcut;
 
-use Symfony\Component\CssSelector\Node\SelectorNode;
-use Symfony\Component\CssSelector\Parser\Shortcut\EmptyStringParser;
+use Makhan\Component\CssSelector\Node\SelectorNode;
+use Makhan\Component\CssSelector\Parser\Shortcut\EmptyStringParser;
 
 /**
  * @author Jean-François Simon <jeanfrancois.simon@sensiolabs.com>

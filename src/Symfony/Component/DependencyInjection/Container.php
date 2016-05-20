@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection;
+namespace Makhan\Component\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException;
+use Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
 /**
  * Container is a dependency injection container.
@@ -34,7 +34,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
  * <ul>
  *   <li>request</li>
  *   <li>mysql_session_storage</li>
- *   <li>symfony.mysql_session_storage</li>
+ *   <li>makhan.mysql_session_storage</li>
  * </ul>
  *
  * A service can also be defined by creating a method named
@@ -43,7 +43,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
  * <ul>
  *   <li>request -> getRequestService()</li>
  *   <li>mysql_session_storage -> getMysqlSessionStorageService()</li>
- *   <li>symfony.mysql_session_storage -> getSymfony_MysqlSessionStorageService()</li>
+ *   <li>makhan.mysql_session_storage -> getMakhan_MysqlSessionStorageService()</li>
  * </ul>
  *
  * The container can have three possible behaviors when a service does not exist:
@@ -53,7 +53,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
  *  * IGNORE_ON_INVALID_REFERENCE:    Ignores the wrapping command asking for the reference
  *                                    (for instance, ignore a setter if the service does not exist)
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class Container implements ResettableContainerInterface

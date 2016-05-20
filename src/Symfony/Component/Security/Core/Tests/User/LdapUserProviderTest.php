@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\User;
+namespace Makhan\Component\Security\Core\Tests\User;
 
-use Symfony\Component\Ldap\Adapter\CollectionInterface;
-use Symfony\Component\Ldap\Adapter\QueryInterface;
-use Symfony\Component\Ldap\Entry;
-use Symfony\Component\Ldap\LdapInterface;
-use Symfony\Component\Security\Core\User\LdapUserProvider;
-use Symfony\Component\Ldap\Exception\ConnectionException;
+use Makhan\Component\Ldap\Adapter\CollectionInterface;
+use Makhan\Component\Ldap\Adapter\QueryInterface;
+use Makhan\Component\Ldap\Entry;
+use Makhan\Component\Ldap\LdapInterface;
+use Makhan\Component\Security\Core\User\LdapUserProvider;
+use Makhan\Component\Ldap\Exception\ConnectionException;
 
 /**
  * @requires extension ldap
@@ -24,7 +24,7 @@ use Symfony\Component\Ldap\Exception\ConnectionException;
 class LdapUserProviderTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UsernameNotFoundException
      */
     public function testLoadUserByUsernameFailsIfCantConnectToLdap()
     {
@@ -35,12 +35,12 @@ class LdapUserProviderTest extends \PHPUnit_Framework_TestCase
             ->will($this->throwException(new ConnectionException()))
         ;
 
-        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=symfony,dc=com');
+        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=makhan,dc=com');
         $provider->loadUserByUsername('foo');
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UsernameNotFoundException
      */
     public function testLoadUserByUsernameFailsIfNoLdapEntries()
     {
@@ -68,12 +68,12 @@ class LdapUserProviderTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($query))
         ;
 
-        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=symfony,dc=com');
+        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=makhan,dc=com');
         $provider->loadUserByUsername('foo');
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\UsernameNotFoundException
      */
     public function testLoadUserByUsernameFailsIfMoreThanOneLdapEntry()
     {
@@ -101,7 +101,7 @@ class LdapUserProviderTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($query))
         ;
 
-        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=symfony,dc=com');
+        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=makhan,dc=com');
         $provider->loadUserByUsername('foo');
     }
 
@@ -141,9 +141,9 @@ class LdapUserProviderTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($query))
         ;
 
-        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=symfony,dc=com');
+        $provider = new LdapUserProvider($ldap, 'ou=MyBusiness,dc=makhan,dc=com');
         $this->assertInstanceOf(
-            'Symfony\Component\Security\Core\User\User',
+            'Makhan\Component\Security\Core\User\User',
             $provider->loadUserByUsername('foo')
         );
     }

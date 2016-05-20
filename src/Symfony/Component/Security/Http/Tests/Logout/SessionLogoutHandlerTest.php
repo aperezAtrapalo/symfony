@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Logout;
+namespace Makhan\Component\Security\Http\Tests\Logout;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Logout\SessionLogoutHandler;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\Security\Http\Logout\SessionLogoutHandler;
 
 class SessionLogoutHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -20,9 +20,9 @@ class SessionLogoutHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $handler = new SessionLogoutHandler();
 
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $response = new Response();
-        $session = $this->getMock('Symfony\Component\HttpFoundation\Session\Session', array(), array(), '', false);
+        $session = $this->getMock('Makhan\Component\HttpFoundation\Session\Session', array(), array(), '', false);
 
         $request
             ->expects($this->once())
@@ -35,6 +35,6 @@ class SessionLogoutHandlerTest extends \PHPUnit_Framework_TestCase
             ->method('invalidate')
         ;
 
-        $handler->logout($request, $response, $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface'));
+        $handler->logout($request, $response, $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface'));
     }
 }

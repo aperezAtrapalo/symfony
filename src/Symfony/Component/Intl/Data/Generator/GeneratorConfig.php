@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Data\Generator;
+namespace Makhan\Component\Intl\Data\Generator;
 
-use Symfony\Component\Intl\Data\Bundle\Writer\BundleWriterInterface;
+use Makhan\Component\Intl\Data\Bundle\Writer\BundleWriterInterface;
 
 /**
  * Stores contextual information for resource bundle generation.

@@ -73,7 +73,7 @@ CHANGELOG
  * made the defaults (helper set, commands, input definition) in Application
    more easily customizable
  * added support for the shell even if readline is not available
- * added support for process isolation in Symfony shell via
+ * added support for process isolation in Makhan shell via
    `--process-isolation` switch
  * added support for `--`, which disables options parsing after that point
    (tokens will be parsed as arguments)

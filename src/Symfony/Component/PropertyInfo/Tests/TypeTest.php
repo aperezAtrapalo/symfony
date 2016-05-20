@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Tests;
+namespace Makhan\Component\PropertyInfo\Tests;
 
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -28,11 +28,11 @@ class TypeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($type->isCollection());
 
         $collectionKeyType = $type->getCollectionKeyType();
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\Type', $collectionKeyType);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\Type', $collectionKeyType);
         $this->assertEquals(Type::BUILTIN_TYPE_INT, $collectionKeyType->getBuiltinType());
 
         $collectionValueType = $type->getCollectionValueType();
-        $this->assertInstanceOf('Symfony\Component\PropertyInfo\Type', $collectionValueType);
+        $this->assertInstanceOf('Makhan\Component\PropertyInfo\Type', $collectionValueType);
         $this->assertEquals(Type::BUILTIN_TYPE_STRING, $collectionValueType->getBuiltinType());
     }
 

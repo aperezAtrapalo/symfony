@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\DataFixtures;
+namespace Makhan\Bridge\Doctrine\Tests\DataFixtures;
 
-use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\ContainerAwareFixture;
+use Makhan\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\ContainerAwareFixture;
 
 class ContainerAwareLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testShouldSetContainerOnContainerAwareFixture()
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $loader = new ContainerAwareLoader($container);
         $fixture = new ContainerAwareFixture();
 

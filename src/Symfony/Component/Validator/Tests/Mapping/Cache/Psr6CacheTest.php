@@ -1,10 +1,10 @@
 <?php
 
-namespace Symfony\Component\Validator\Tests\Mapping\Cache;
+namespace Makhan\Component\Validator\Tests\Mapping\Cache;
 
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Validator\Mapping\Cache\Psr6Cache;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Cache\Adapter\ArrayAdapter;
+use Makhan\Component\Validator\Mapping\Cache\Psr6Cache;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>

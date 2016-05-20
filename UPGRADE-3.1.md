@@ -5,25 +5,25 @@ DependencyInjection
 -------------------
 
  * Using unsupported configuration keys in YAML configuration files has been
-   deprecated and will raise an exception in Symfony 4.0.
+   deprecated and will raise an exception in Makhan 4.0.
 
  * Using unsupported options to configure service aliases has been deprecated
-   and will raise an exception in Symfony 4.0.
+   and will raise an exception in Makhan 4.0.
 
 Form
 ----
 
  * The `choices_as_values` option of the `ChoiceType` has been deprecated and
-   will be removed in Symfony 4.0.
+   will be removed in Makhan 4.0.
 
  * Support for data objects that implements both `Traversable` and `ArrayAccess`
    in `ResizeFormListener::preSubmit` method has been deprecated and will be
-   removed in Symfony 4.0.
+   removed in Makhan 4.0.
  * `TextType` now implements `DataTransformerInterface` and will always return
    an empty string when `empty_data` option is explicitly assigned to it.
 
  * Using callable strings as choice options in ChoiceType has been deprecated
-   in favor of `PropertyPath` in Symfony 4.0 use a "\Closure" instead.
+   in favor of `PropertyPath` in Makhan 4.0 use a "\Closure" instead.
 
    Before:
 
@@ -48,7 +48,7 @@ FrameworkBundle
 ---------------
 
  * As it was never an officially supported feature, the support for absolute
-   template paths has been deprecated and will be removed in Symfony 4.0.
+   template paths has been deprecated and will be removed in Makhan 4.0.
 
  * The abstract `Controller` class now has a `json()` helper method that creates
    a `JsonResponse`. If you have existing controllers extending `Controller`
@@ -56,7 +56,7 @@ FrameworkBundle
    conflicts.
 
  * The following form types registered as services have been deprecated and
-   will be removed in Symfony 4.0; use their fully-qualified class name instead:
+   will be removed in Makhan 4.0; use their fully-qualified class name instead:
 
     - `"form.type.birthday"`
     - `"form.type.checkbox"`
@@ -100,7 +100,7 @@ HttpKernel
 ----------
 
  * Passing objects as URI attributes to the ESI and SSI renderers has been
-   deprecated and will be removed in Symfony 4.0. The inline fragment
+   deprecated and will be removed in Makhan 4.0. The inline fragment
    renderer should be used with object attributes.
 
  * The `ControllerResolver::getArguments()` method has been deprecated and will
@@ -112,23 +112,23 @@ Serializer
 ----------
 
  * Passing a Doctrine `Cache` instance to the `ClassMetadataFactory` has been
-   deprecated and will not be supported in Symfony 4.0. You should use the
+   deprecated and will not be supported in Makhan 4.0. You should use the
    `CacheClassMetadataFactory` class instead.
 
 Translation
 -----------
 
  * Deprecated the backup feature of the file dumper classes. It will be removed
-   in Symfony 4.0.
+   in Makhan 4.0.
 
 Yaml
 ----
 
  * Usage of `%` at the beginning of an unquoted string has been deprecated and
-   will lead to a `ParseException` in Symfony 4.0.
+   will lead to a `ParseException` in Makhan 4.0.
 
  * The `Dumper::setIndentation()` method is deprecated and will be removed in
-   Symfony 4.0. Pass the indentation level to the constructor instead.
+   Makhan 4.0. Pass the indentation level to the constructor instead.
 
  * Deprecated support for passing `true`/`false` as the second argument to the
    `parse()` method to trigger exceptions when an invalid type was passed.
@@ -206,10 +206,10 @@ Yaml
    ```
 
  * The `!!php/object` tag to indicate dumped PHP objects has been deprecated
-   and will be removed in Symfony 4.0. Use the `!php/object` tag instead.
+   and will be removed in Makhan 4.0. Use the `!php/object` tag instead.
 
 Validator
 ---------
 
  * The `DateTimeValidator::PATTERN` constant has been deprecated and will be
-   removed in Symfony 4.0.
+   removed in Makhan 4.0.

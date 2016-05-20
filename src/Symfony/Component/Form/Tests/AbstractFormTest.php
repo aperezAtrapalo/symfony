@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
 
 abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,19 +23,19 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
     protected $dispatcher;
 
     /**
-     * @var \Symfony\Component\Form\FormFactoryInterface
+     * @var \Makhan\Component\Form\FormFactoryInterface
      */
     protected $factory;
 
     /**
-     * @var \Symfony\Component\Form\FormInterface
+     * @var \Makhan\Component\Form\FormInterface
      */
     protected $form;
 
     protected function setUp()
     {
         $this->dispatcher = new EventDispatcher();
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->form = $this->createForm();
     }
 
@@ -47,7 +47,7 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Symfony\Component\Form\FormInterface
+     * @return \Makhan\Component\Form\FormInterface
      */
     abstract protected function createForm();
 
@@ -71,8 +71,8 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
      */
     protected function getMockForm($name = 'name')
     {
-        $form = $this->getMock('Symfony\Component\Form\Test\FormInterface');
-        $config = $this->getMock('Symfony\Component\Form\FormConfigInterface');
+        $form = $this->getMock('Makhan\Component\Form\Test\FormInterface');
+        $config = $this->getMock('Makhan\Component\Form\FormConfigInterface');
 
         $form->expects($this->any())
             ->method('getName')
@@ -89,7 +89,7 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
      */
     protected function getDataMapper()
     {
-        return $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        return $this->getMock('Makhan\Component\Form\DataMapperInterface');
     }
 
     /**
@@ -97,7 +97,7 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
      */
     protected function getDataTransformer()
     {
-        return $this->getMock('Symfony\Component\Form\DataTransformerInterface');
+        return $this->getMock('Makhan\Component\Form\DataTransformerInterface');
     }
 
     /**
@@ -105,6 +105,6 @@ abstract class AbstractFormTest extends \PHPUnit_Framework_TestCase
      */
     protected function getFormValidator()
     {
-        return $this->getMock('Symfony\Component\Form\FormValidatorInterface');
+        return $this->getMock('Makhan\Component\Form\FormValidatorInterface');
     }
 }

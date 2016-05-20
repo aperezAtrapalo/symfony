@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Tests\Profiler;
+namespace Makhan\Bundle\WebProfilerBundle\Tests\Profiler;
 
-use Symfony\Bundle\WebProfilerBundle\Tests\TestCase;
-use Symfony\Bundle\WebProfilerBundle\Profiler\TemplateManager;
+use Makhan\Bundle\WebProfilerBundle\Tests\TestCase;
+use Makhan\Bundle\WebProfilerBundle\Profiler\TemplateManager;
 
 /**
  * Test for TemplateManager class.
@@ -27,7 +27,7 @@ class TemplateManagerTest extends TestCase
     protected $twigEnvironment;
 
     /**
-     * @var \Symfony\Component\HttpKernel\Profiler\Profiler
+     * @var \Makhan\Component\HttpKernel\Profiler\Profiler
      */
     protected $profiler;
 
@@ -37,7 +37,7 @@ class TemplateManagerTest extends TestCase
     protected $profile;
 
     /**
-     * @var \Symfony\Bundle\WebProfilerBundle\Profiler\TemplateManager
+     * @var \Makhan\Bundle\WebProfilerBundle\Profiler\TemplateManager
      */
     protected $templateManager;
 
@@ -57,7 +57,7 @@ class TemplateManagerTest extends TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @expectedException \Makhan\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function testGetNameOfInvalidTemplate()
     {
@@ -129,7 +129,7 @@ class TemplateManagerTest extends TestCase
 
     protected function mockProfile()
     {
-        $this->profile = $this->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profile')
+        $this->profile = $this->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profile')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -153,7 +153,7 @@ class TemplateManagerTest extends TestCase
 
     protected function mockProfiler()
     {
-        $this->profiler = $this->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profiler')
+        $this->profiler = $this->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profiler')
             ->disableOriginalConstructor()
             ->getMock();
 

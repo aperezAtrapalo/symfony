@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Encoder;
+namespace Makhan\Component\Security\Core\Encoder;
 
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use Makhan\Component\Security\Core\Exception\BadCredentialsException;
 
 /**
  * Pbkdf2PasswordEncoder uses the PBKDF2 (Password-Based Key Derivation Function 2).
@@ -24,7 +24,7 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
  *
  * @author Sebastiaan Stok <s.stok@rollerscapes.net>
  * @author Andrew Johnson
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Pbkdf2PasswordEncoder extends BasePasswordEncoder
 {

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DataCollector\Proxy;
+namespace Makhan\Component\Form\Extension\DataCollector\Proxy;
 
-use Symfony\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\ResolvedFormTypeInterface;
+use Makhan\Component\Form\Extension\DataCollector\FormDataCollectorInterface;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormFactoryInterface;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\ResolvedFormTypeInterface;
 
 /**
  * Proxy that invokes a data collector when creating a form and its view.

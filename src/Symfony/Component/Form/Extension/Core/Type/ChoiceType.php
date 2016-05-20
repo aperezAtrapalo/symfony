@@ -1,38 +1,38 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
-use Symfony\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
-use Symfony\Component\Form\ChoiceList\View\ChoiceGroupView;
-use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
-use Symfony\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
-use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
-use Symfony\Component\Form\ChoiceList\View\ChoiceListView;
-use Symfony\Component\Form\ChoiceList\View\ChoiceView;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\Form\Extension\Core\DataMapper\RadioListMapper;
-use Symfony\Component\Form\Extension\Core\DataMapper\CheckboxListMapper;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\Extension\Core\EventListener\MergeCollectionListener;
-use Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer;
-use Symfony\Component\Form\Extension\Core\DataTransformer\ChoicesToValuesTransformer;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\ChoiceList\Factory\CachingFactoryDecorator;
+use Makhan\Component\Form\ChoiceList\Factory\PropertyAccessDecorator;
+use Makhan\Component\Form\ChoiceList\View\ChoiceGroupView;
+use Makhan\Component\Form\ChoiceList\ChoiceListInterface;
+use Makhan\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
+use Makhan\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
+use Makhan\Component\Form\ChoiceList\View\ChoiceListView;
+use Makhan\Component\Form\ChoiceList\View\ChoiceView;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\Extension\Core\DataMapper\RadioListMapper;
+use Makhan\Component\Form\Extension\Core\DataMapper\CheckboxListMapper;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\Form\FormEvents;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\Form\Extension\Core\EventListener\MergeCollectionListener;
+use Makhan\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\ChoicesToValuesTransformer;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 class ChoiceType extends AbstractType
 {
@@ -313,7 +313,7 @@ class ChoiceType extends AbstractType
             'compound' => $compound,
             // The view data is always a string, even if the "data" option
             // is manually set to an object.
-            // See https://github.com/symfony/symfony/pull/5582
+            // See https://github.com/makhan/makhan/pull/5582
             'data_class' => null,
             'choice_translation_domain' => true,
         ));
@@ -324,13 +324,13 @@ class ChoiceType extends AbstractType
 
         $resolver->setAllowedTypes('choices', array('null', 'array', '\Traversable'));
         $resolver->setAllowedTypes('choice_translation_domain', array('null', 'bool', 'string'));
-        $resolver->setAllowedTypes('choice_loader', array('null', 'Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface'));
-        $resolver->setAllowedTypes('choice_label', array('null', 'bool', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
-        $resolver->setAllowedTypes('choice_name', array('null', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
-        $resolver->setAllowedTypes('choice_value', array('null', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
-        $resolver->setAllowedTypes('choice_attr', array('null', 'array', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
-        $resolver->setAllowedTypes('preferred_choices', array('array', '\Traversable', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
-        $resolver->setAllowedTypes('group_by', array('null', 'callable', 'string', 'Symfony\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('choice_loader', array('null', 'Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface'));
+        $resolver->setAllowedTypes('choice_label', array('null', 'bool', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('choice_name', array('null', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('choice_value', array('null', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('choice_attr', array('null', 'array', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('preferred_choices', array('array', '\Traversable', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
+        $resolver->setAllowedTypes('group_by', array('null', 'callable', 'string', 'Makhan\Component\PropertyAccess\PropertyPath'));
     }
 
     /**

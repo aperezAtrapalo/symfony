@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Context;
+namespace Makhan\Component\Validator\Context;
 
-use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Validator\Mapping\ClassMetadataInterface;
-use Symfony\Component\Validator\Mapping\MetadataInterface;
-use Symfony\Component\Validator\Mapping\MemberMetadata;
-use Symfony\Component\Validator\Mapping\PropertyMetadataInterface;
-use Symfony\Component\Validator\Util\PropertyPath;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\Validator\Violation\ConstraintViolationBuilder;
+use Makhan\Component\Translation\TranslatorInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintViolation;
+use Makhan\Component\Validator\ConstraintViolationList;
+use Makhan\Component\Validator\Mapping\ClassMetadataInterface;
+use Makhan\Component\Validator\Mapping\MetadataInterface;
+use Makhan\Component\Validator\Mapping\MemberMetadata;
+use Makhan\Component\Validator\Mapping\PropertyMetadataInterface;
+use Makhan\Component\Validator\Util\PropertyPath;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\Validator\Violation\ConstraintViolationBuilder;
 
 /**
  * The context used and created by {@link ExecutionContextFactory}.

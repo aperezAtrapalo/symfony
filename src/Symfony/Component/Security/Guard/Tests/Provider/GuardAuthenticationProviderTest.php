@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Guard\Tests\Provider;
+namespace Makhan\Component\Security\Guard\Tests\Provider;
 
-use Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider;
-use Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken;
+use Makhan\Component\Security\Guard\Provider\GuardAuthenticationProvider;
+use Makhan\Component\Security\Guard\Token\PostAuthenticationGuardToken;
 
 /**
  * @author Ryan Weaver <weaverryan@gmail.com>
@@ -27,9 +27,9 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     {
         $providerKey = 'my_cool_firewall';
 
-        $authenticatorA = $this->getMock('Symfony\Component\Security\Guard\GuardAuthenticatorInterface');
-        $authenticatorB = $this->getMock('Symfony\Component\Security\Guard\GuardAuthenticatorInterface');
-        $authenticatorC = $this->getMock('Symfony\Component\Security\Guard\GuardAuthenticatorInterface');
+        $authenticatorA = $this->getMock('Makhan\Component\Security\Guard\GuardAuthenticatorInterface');
+        $authenticatorB = $this->getMock('Makhan\Component\Security\Guard\GuardAuthenticatorInterface');
+        $authenticatorC = $this->getMock('Makhan\Component\Security\Guard\GuardAuthenticatorInterface');
         $authenticators = array($authenticatorA, $authenticatorB, $authenticatorC);
 
         // called 2 times - for authenticator A and B (stops on B because of match)
@@ -52,7 +52,7 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
         $authenticatorC->expects($this->never())
             ->method('getUser');
 
-        $mockedUser = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $mockedUser = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $authenticatorB->expects($this->once())
             ->method('getUser')
             ->with($enteredCredentials, $this->userProvider)
@@ -63,7 +63,7 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
             ->with($enteredCredentials, $mockedUser)
             // authentication works!
             ->will($this->returnValue(true));
-        $authedToken = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $authedToken = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $authenticatorB->expects($this->once())
             ->method('createAuthenticatedToken')
             ->with($mockedUser, $providerKey)
@@ -83,13 +83,13 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @expectedException \Makhan\Component\Security\Core\Exception\BadCredentialsException
      */
     public function testCheckCredentialsReturningNonTrueFailsAuthentication()
     {
         $providerKey = 'my_uncool_firewall';
 
-        $authenticator = $this->getMock('Symfony\Component\Security\Guard\GuardAuthenticatorInterface');
+        $authenticator = $this->getMock('Makhan\Component\Security\Guard\GuardAuthenticatorInterface');
 
         // make sure the authenticator is used
         $this->preAuthenticationToken->expects($this->any())
@@ -101,7 +101,7 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
             ->method('getCredentials')
             ->will($this->returnValue('non-null-value'));
 
-        $mockedUser = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $mockedUser = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $authenticator->expects($this->once())
             ->method('getUser')
             ->will($this->returnValue($mockedUser));
@@ -116,7 +116,7 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\AuthenticationExpiredException
+     * @expectedException \Makhan\Component\Security\Core\Exception\AuthenticationExpiredException
      */
     public function testGuardWithNoLongerAuthenticatedTriggersLogout()
     {
@@ -124,7 +124,7 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 
         // create a token and mark it as NOT authenticated anymore
         // this mimics what would happen if a user "changed" between request
-        $mockedUser = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
+        $mockedUser = $this->getMock('Makhan\Component\Security\Core\User\UserInterface');
         $token = new PostAuthenticationGuardToken($mockedUser, $providerKey, array('ROLE_USER'));
         $token->setAuthenticated(false);
 
@@ -134,9 +134,9 @@ class GuardAuthenticationProviderTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->userProvider = $this->getMock('Symfony\Component\Security\Core\User\UserProviderInterface');
-        $this->userChecker = $this->getMock('Symfony\Component\Security\Core\User\UserCheckerInterface');
-        $this->preAuthenticationToken = $this->getMockBuilder('Symfony\Component\Security\Guard\Token\PreAuthenticationGuardToken')
+        $this->userProvider = $this->getMock('Makhan\Component\Security\Core\User\UserProviderInterface');
+        $this->userChecker = $this->getMock('Makhan\Component\Security\Core\User\UserCheckerInterface');
+        $this->preAuthenticationToken = $this->getMockBuilder('Makhan\Component\Security\Guard\Token\PreAuthenticationGuardToken')
             ->disableOriginalConstructor()
             ->getMock();
     }

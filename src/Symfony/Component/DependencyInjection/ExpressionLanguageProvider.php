@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection;
+namespace Makhan\Component\DependencyInjection;
 
-use Symfony\Component\ExpressionLanguage\ExpressionFunction;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\ExpressionLanguage\ExpressionFunction;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
  * Define some ExpressionLanguage functions.
@@ -20,7 +20,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
  * To get a service, use service('request').
  * To get a parameter, use parameter('kernel.debug').
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ExpressionLanguageProvider implements ExpressionFunctionProviderInterface
 {

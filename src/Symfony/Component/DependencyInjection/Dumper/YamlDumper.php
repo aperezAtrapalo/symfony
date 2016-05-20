@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Dumper;
+namespace Makhan\Component\DependencyInjection\Dumper;
 
-use Symfony\Component\Yaml\Dumper as YmlDumper;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Parameter;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\Yaml\Dumper as YmlDumper;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Parameter;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 /**
  * YamlDumper dumps a service container as a YAML string.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class YamlDumper extends Dumper
 {
@@ -38,8 +38,8 @@ class YamlDumper extends Dumper
      */
     public function dump(array $options = array())
     {
-        if (!class_exists('Symfony\Component\Yaml\Dumper')) {
-            throw new RuntimeException('Unable to dump the container as the Symfony Yaml Component is not installed.');
+        if (!class_exists('Makhan\Component\Yaml\Dumper')) {
+            throw new RuntimeException('Unable to dump the container as the Makhan Yaml Component is not installed.');
         }
 
         if (null === $this->dumper) {

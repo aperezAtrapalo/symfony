@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\LazyProxy\Instantiator;
+namespace Makhan\Component\DependencyInjection\Tests\LazyProxy\Instantiator;
 
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\LazyProxy\Instantiator\RealServiceInstantiator;
 
 /**
- * Tests for {@see \Symfony\Component\DependencyInjection\Instantiator\RealServiceInstantiator}.
+ * Tests for {@see \Makhan\Component\DependencyInjection\Instantiator\RealServiceInstantiator}.
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
@@ -25,7 +25,7 @@ class RealServiceInstantiatorTest extends \PHPUnit_Framework_TestCase
     {
         $instantiator = new RealServiceInstantiator();
         $instance = new \stdClass();
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $callback = function () use ($instance) {
             return $instance;
         };

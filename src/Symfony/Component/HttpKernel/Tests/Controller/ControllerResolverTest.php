@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Controller;
+namespace Makhan\Component\HttpKernel\Tests\Controller;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Controller\ControllerResolver;
+use Makhan\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
+use Makhan\Component\HttpFoundation\Request;
 
 class ControllerResolverTest extends \PHPUnit_Framework_TestCase
 {
@@ -63,9 +63,9 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = $this->createControllerResolver();
 
         $request = Request::create('/');
-        $request->attributes->set('_controller', array('Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest', 'controllerMethod4'));
+        $request->attributes->set('_controller', array('Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest', 'controllerMethod4'));
         $controller = $resolver->getController($request);
-        $this->assertSame(array('Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest', 'controllerMethod4'), $controller);
+        $this->assertSame(array('Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest', 'controllerMethod4'), $controller);
     }
 
     public function testGetControllerWithObjectAndMethodAsString()
@@ -73,9 +73,9 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = $this->createControllerResolver();
 
         $request = Request::create('/');
-        $request->attributes->set('_controller', 'Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest::controllerMethod1');
+        $request->attributes->set('_controller', 'Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest::controllerMethod1');
         $controller = $resolver->getController($request);
-        $this->assertInstanceOf('Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest', $controller[0], '->getController() returns a PHP callable');
+        $this->assertInstanceOf('Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest', $controller[0], '->getController() returns a PHP callable');
     }
 
     public function testGetControllerWithClassAndInvokeMethod()
@@ -83,9 +83,9 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = $this->createControllerResolver();
 
         $request = Request::create('/');
-        $request->attributes->set('_controller', 'Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest');
+        $request->attributes->set('_controller', 'Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest');
         $controller = $resolver->getController($request);
-        $this->assertInstanceOf('Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest', $controller);
+        $this->assertInstanceOf('Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest', $controller);
     }
 
     /**
@@ -105,9 +105,9 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
         $resolver = $this->createControllerResolver();
 
         $request = Request::create('/');
-        $request->attributes->set('_controller', 'Symfony\Component\HttpKernel\Tests\Controller\some_controller_function');
+        $request->attributes->set('_controller', 'Makhan\Component\HttpKernel\Tests\Controller\some_controller_function');
         $controller = $resolver->getController($request);
-        $this->assertSame('Symfony\Component\HttpKernel\Tests\Controller\some_controller_function', $controller);
+        $this->assertSame('Makhan\Component\HttpKernel\Tests\Controller\some_controller_function', $controller);
     }
 
     /**
@@ -130,10 +130,10 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
             array('foo', 'InvalidArgumentException', 'Unable to find controller "foo".'),
             array('foo::bar', 'InvalidArgumentException', 'Class "foo" does not exist.'),
             array('stdClass', 'InvalidArgumentException', 'Unable to find controller "stdClass".'),
-            array('Symfony\Component\HttpKernel\Tests\Controller\ControllerTest::staticsAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Expected method "staticsAction" on class "Symfony\Component\HttpKernel\Tests\Controller\ControllerTest", did you mean "staticAction"?'),
-            array('Symfony\Component\HttpKernel\Tests\Controller\ControllerTest::privateAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Method "privateAction" on class "Symfony\Component\HttpKernel\Tests\Controller\ControllerTest" should be public and non-abstract'),
-            array('Symfony\Component\HttpKernel\Tests\Controller\ControllerTest::protectedAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Method "protectedAction" on class "Symfony\Component\HttpKernel\Tests\Controller\ControllerTest" should be public and non-abstract'),
-            array('Symfony\Component\HttpKernel\Tests\Controller\ControllerTest::undefinedAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Expected method "undefinedAction" on class "Symfony\Component\HttpKernel\Tests\Controller\ControllerTest". Available methods: "publicAction", "staticAction"'),
+            array('Makhan\Component\HttpKernel\Tests\Controller\ControllerTest::staticsAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Expected method "staticsAction" on class "Makhan\Component\HttpKernel\Tests\Controller\ControllerTest", did you mean "staticAction"?'),
+            array('Makhan\Component\HttpKernel\Tests\Controller\ControllerTest::privateAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Method "privateAction" on class "Makhan\Component\HttpKernel\Tests\Controller\ControllerTest" should be public and non-abstract'),
+            array('Makhan\Component\HttpKernel\Tests\Controller\ControllerTest::protectedAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Method "protectedAction" on class "Makhan\Component\HttpKernel\Tests\Controller\ControllerTest" should be public and non-abstract'),
+            array('Makhan\Component\HttpKernel\Tests\Controller\ControllerTest::undefinedAction', 'InvalidArgumentException', 'The controller for URI "/" is not callable. Expected method "undefinedAction" on class "Makhan\Component\HttpKernel\Tests\Controller\ControllerTest". Available methods: "publicAction", "staticAction"'),
         );
     }
 
@@ -181,7 +181,7 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
         $request = Request::create('/');
         $request->attributes->set('foo', 'foo');
         $request->attributes->set('foobar', 'foobar');
-        $controller = 'Symfony\Component\HttpKernel\Tests\Controller\some_controller_function';
+        $controller = 'Makhan\Component\HttpKernel\Tests\Controller\some_controller_function';
         $this->assertEquals(array('foo', 'foobar'), $resolver->getArguments($request, $controller));
 
         $request = Request::create('/');
@@ -218,8 +218,8 @@ class ControllerResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateControllerCanReturnAnyCallable()
     {
-        $mock = $this->getMock('Symfony\Component\HttpKernel\Controller\ControllerResolver', array('createController'));
-        $mock->expects($this->once())->method('createController')->will($this->returnValue('Symfony\Component\HttpKernel\Tests\Controller\some_controller_function'));
+        $mock = $this->getMock('Makhan\Component\HttpKernel\Controller\ControllerResolver', array('createController'));
+        $mock->expects($this->once())->method('createController')->will($this->returnValue('Makhan\Component\HttpKernel\Tests\Controller\some_controller_function'));
 
         $request = Request::create('/');
         $request->attributes->set('_controller', 'foobar');

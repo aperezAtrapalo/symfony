@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\InvalidArgumentException;
-use Symfony\Component\Form\Exception\OutOfBoundsException;
-use Symfony\Component\Form\Exception\BadMethodCallException;
+use Makhan\Component\Form\Exception\InvalidArgumentException;
+use Makhan\Component\Form\Exception\OutOfBoundsException;
+use Makhan\Component\Form\Exception\BadMethodCallException;
 
 /**
  * Iterates over the errors of a form.
@@ -63,7 +63,7 @@ class FormErrorIterator implements \RecursiveIterator, \SeekableIterator, \Array
             if (!($error instanceof FormError || $error instanceof self)) {
                 throw new InvalidArgumentException(sprintf(
                     'The errors must be instances of '.
-                    '"\Symfony\Component\Form\FormError" or "%s". Got: "%s".',
+                    '"\Makhan\Component\Form\FormError" or "%s". Got: "%s".',
                     __CLASS__,
                     is_object($error) ? get_class($error) : gettype($error)
                 ));

@@ -1,10 +1,10 @@
 <?php
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DependencyInjection\Fixtures\UserProvider;
+namespace Makhan\Bundle\SecurityBundle\Tests\DependencyInjection\Fixtures\UserProvider;
 
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\UserProviderFactoryInterface;
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\UserProviderFactoryInterface;
+use Makhan\Component\Config\Definition\Builder\NodeDefinition;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 class DummyProvider implements UserProviderFactoryInterface
 {

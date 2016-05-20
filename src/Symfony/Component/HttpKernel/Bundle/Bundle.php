@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Bundle;
+namespace Makhan\Component\HttpKernel\Bundle;
 
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareTrait;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
  * An implementation of BundleInterface that adds a few conventions
  * for DependencyInjection extensions and Console commands.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Bundle implements BundleInterface
 {
@@ -74,7 +74,7 @@ abstract class Bundle implements BundleInterface
 
             if (null !== $extension) {
                 if (!$extension instanceof ExtensionInterface) {
-                    throw new \LogicException(sprintf('Extension %s must implement Symfony\Component\DependencyInjection\Extension\ExtensionInterface.', get_class($extension)));
+                    throw new \LogicException(sprintf('Extension %s must implement Makhan\Component\DependencyInjection\Extension\ExtensionInterface.', get_class($extension)));
                 }
 
                 // check naming convention
@@ -158,7 +158,7 @@ abstract class Bundle implements BundleInterface
      * Override this method if your bundle commands do not follow the conventions:
      *
      * * Commands are in the 'Command' sub-directory
-     * * Commands extend Symfony\Component\Console\Command\Command
+     * * Commands extend Makhan\Component\Console\Command\Command
      *
      * @param Application $application An Application instance
      */
@@ -168,8 +168,8 @@ abstract class Bundle implements BundleInterface
             return;
         }
 
-        if (!class_exists('Symfony\Component\Finder\Finder')) {
-            throw new \RuntimeException('You need the symfony/finder component to register bundle commands.');
+        if (!class_exists('Makhan\Component\Finder\Finder')) {
+            throw new \RuntimeException('You need the makhan/finder component to register bundle commands.');
         }
 
         $finder = new Finder();
@@ -189,7 +189,7 @@ abstract class Bundle implements BundleInterface
                 }
             }
             $r = new \ReflectionClass($class);
-            if ($r->isSubclassOf('Symfony\\Component\\Console\\Command\\Command') && !$r->isAbstract() && !$r->getConstructor()->getNumberOfRequiredParameters()) {
+            if ($r->isSubclassOf('Makhan\\Component\\Console\\Command\\Command') && !$r->isAbstract() && !$r->getConstructor()->getNumberOfRequiredParameters()) {
                 $application->add($r->newInstance());
             }
         }

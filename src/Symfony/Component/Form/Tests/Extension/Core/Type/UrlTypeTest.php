@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\Type;
+namespace Makhan\Component\Form\Tests\Extension\Core\Type;
 
-use Symfony\Component\Form\Test\TypeTestCase as TestCase;
+use Makhan\Component\Form\Test\TypeTestCase as TestCase;
 
 class UrlTypeTest extends TestCase
 {
     public function testSubmitAddsDefaultProtocolIfNoneIsIncluded()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', 'name');
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', 'name');
 
         $form->submit('www.domain.com');
 
@@ -27,7 +27,7 @@ class UrlTypeTest extends TestCase
 
     public function testSubmitAddsNoDefaultProtocolIfAlreadyIncluded()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', null, array(
             'default_protocol' => 'http',
         ));
 
@@ -39,7 +39,7 @@ class UrlTypeTest extends TestCase
 
     public function testSubmitAddsNoDefaultProtocolIfEmpty()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', null, array(
             'default_protocol' => 'http',
         ));
 
@@ -51,7 +51,7 @@ class UrlTypeTest extends TestCase
 
     public function testSubmitAddsNoDefaultProtocolIfNull()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', null, array(
             'default_protocol' => 'http',
         ));
 
@@ -63,7 +63,7 @@ class UrlTypeTest extends TestCase
 
     public function testSubmitAddsNoDefaultProtocolIfSetToNull()
     {
-        $form = $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', null, array(
+        $form = $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', null, array(
             'default_protocol' => null,
         ));
 
@@ -74,11 +74,11 @@ class UrlTypeTest extends TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testThrowExceptionIfDefaultProtocolIsInvalid()
     {
-        $this->factory->create('Symfony\Component\Form\Extension\Core\Type\UrlType', null, array(
+        $this->factory->create('Makhan\Component\Form\Extension\Core\Type\UrlType', null, array(
             'default_protocol' => array(),
         ));
     }

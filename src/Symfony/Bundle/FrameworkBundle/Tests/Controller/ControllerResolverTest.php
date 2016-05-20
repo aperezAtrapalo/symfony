@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Controller;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Controller;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest as BaseControllerResolverTest;
+use Makhan\Bundle\FrameworkBundle\Controller\ControllerNameParser;
+use Makhan\Bundle\FrameworkBundle\Controller\ControllerResolver;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest as BaseControllerResolverTest;
 
 class ControllerResolverTest extends BaseControllerResolverTest
 {
@@ -25,11 +25,11 @@ class ControllerResolverTest extends BaseControllerResolverTest
     {
         $resolver = $this->createControllerResolver();
         $request = Request::create('/');
-        $request->attributes->set('_controller', 'Symfony\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController::testAction');
+        $request->attributes->set('_controller', 'Makhan\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController::testAction');
 
         $controller = $resolver->getController($request);
 
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerInterface', $controller[0]->getContainer());
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\ContainerInterface', $controller[0]->getContainer());
         $this->assertSame('testAction', $controller[1]);
     }
 
@@ -37,12 +37,12 @@ class ControllerResolverTest extends BaseControllerResolverTest
     {
         $resolver = $this->createControllerResolver();
         $request = Request::create('/');
-        $request->attributes->set('_controller', 'Symfony\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController');
+        $request->attributes->set('_controller', 'Makhan\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController');
 
         $controller = $resolver->getController($request);
 
-        $this->assertInstanceOf('Symfony\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController', $controller);
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerInterface', $controller->getContainer());
+        $this->assertInstanceOf('Makhan\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController', $controller);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\ContainerInterface', $controller->getContainer());
     }
 
     public function testGetControllerWithBundleNotation()
@@ -52,7 +52,7 @@ class ControllerResolverTest extends BaseControllerResolverTest
         $parser->expects($this->once())
             ->method('parse')
             ->with($shortName)
-            ->will($this->returnValue('Symfony\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController::testAction'))
+            ->will($this->returnValue('Makhan\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController::testAction'))
         ;
 
         $resolver = $this->createControllerResolver(null, $parser);
@@ -61,8 +61,8 @@ class ControllerResolverTest extends BaseControllerResolverTest
 
         $controller = $resolver->getController($request);
 
-        $this->assertInstanceOf('Symfony\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController', $controller[0]);
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerInterface', $controller[0]->getContainer());
+        $this->assertInstanceOf('Makhan\Bundle\FrameworkBundle\Tests\Controller\ContainerAwareController', $controller[0]);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\ContainerInterface', $controller[0]->getContainer());
         $this->assertSame('testAction', $controller[1]);
     }
 
@@ -157,7 +157,7 @@ class ControllerResolverTest extends BaseControllerResolverTest
             array('foo::bar', '\InvalidArgumentException', '/Class "foo" does not exist\./'),
             array('stdClass', '\LogicException', '/Unable to parse the controller name "stdClass"\./'),
             array(
-                'Symfony\Component\HttpKernel\Tests\Controller\ControllerResolverTest::bar',
+                'Makhan\Component\HttpKernel\Tests\Controller\ControllerResolverTest::bar',
                 '\InvalidArgumentException',
                 '/.?[cC]ontroller(.*?) for URI "\/" is not callable\.( Expected method(.*) Available methods)?/',
             ),
@@ -179,12 +179,12 @@ class ControllerResolverTest extends BaseControllerResolverTest
 
     protected function createMockParser()
     {
-        return $this->getMock('Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser', array(), array(), '', false);
+        return $this->getMock('Makhan\Bundle\FrameworkBundle\Controller\ControllerNameParser', array(), array(), '', false);
     }
 
     protected function createMockContainer()
     {
-        return $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        return $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
     }
 }
 

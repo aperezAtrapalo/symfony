@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache\Tests\Adapter;
+namespace Makhan\Component\Cache\Tests\Adapter;
 
 use Cache\IntegrationTests\CachePoolTest;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Makhan\Component\Cache\Adapter\FilesystemAdapter;
 
 /**
  * @group time-sensitive
@@ -30,7 +30,7 @@ class FilesystemAdapterTest extends CachePoolTest
 
     public static function tearDownAfterClass()
     {
-        self::rmdir(sys_get_temp_dir().'/symfony-cache');
+        self::rmdir(sys_get_temp_dir().'/makhan-cache');
     }
 
     public static function rmdir($dir)

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyAccess;
+namespace Makhan\Component\PropertyAccess;
 
-use Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
-use Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException;
-use Symfony\Component\PropertyAccess\Exception\OutOfBoundsException;
+use Makhan\Component\PropertyAccess\Exception\InvalidArgumentException;
+use Makhan\Component\PropertyAccess\Exception\InvalidPropertyPathException;
+use Makhan\Component\PropertyAccess\Exception\OutOfBoundsException;
 
 /**
  * Default implementation of {@link PropertyPathInterface}.
@@ -81,7 +81,7 @@ class PropertyPath implements \IteratorAggregate, PropertyPathInterface
         if (!is_string($propertyPath)) {
             throw new InvalidArgumentException(sprintf(
                 'The property path constructor needs a string or an instance of '.
-                '"Symfony\Component\PropertyAccess\PropertyPath". '.
+                '"Makhan\Component\PropertyAccess\PropertyPath". '.
                 'Got: "%s"',
                 is_object($propertyPath) ? get_class($propertyPath) : gettype($propertyPath)
             ));

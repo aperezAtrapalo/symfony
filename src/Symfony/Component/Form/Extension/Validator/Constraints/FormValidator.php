@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Validator\Constraints;
+namespace Makhan\Component\Form\Extension\Validator\Constraints;
 
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -90,7 +90,7 @@ class FormValidator extends ConstraintValidator
             // a second error in its parent form is pointless, or worse, may
             // lead to duplicate errors if error bubbling is enabled on the
             // child.
-            // See also https://github.com/symfony/symfony/issues/4359
+            // See also https://github.com/makhan/makhan/issues/4359
             if ($childrenSynchronized) {
                 $clientDataAsString = is_scalar($form->getViewData())
                     ? (string) $form->getViewData()

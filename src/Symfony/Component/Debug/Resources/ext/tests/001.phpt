@@ -1,7 +1,7 @@
 --TEST--
-Test symfony_zval_info API
+Test makhan_zval_info API
 --SKIPIF--
-<?php if (!extension_loaded("symfony_debug")) print "skip"; ?>
+<?php if (!extension_loaded("makhan_debug")) print "skip"; ?>
 --FILE--
 <?php
 
@@ -27,17 +27,17 @@ $var = array('int' => $int,
 			 'bool' => $bool,
 			 'refcount' => &$refcount2);
 
-var_dump(symfony_zval_info('int', $var));
-var_dump(symfony_zval_info('float', $var));
-var_dump(symfony_zval_info('str', $var));
-var_dump(symfony_zval_info('object', $var));
-var_dump(symfony_zval_info('array', $var));
-var_dump(symfony_zval_info('resource', $var));
-var_dump(symfony_zval_info('null', $var));
-var_dump(symfony_zval_info('bool', $var));
+var_dump(makhan_zval_info('int', $var));
+var_dump(makhan_zval_info('float', $var));
+var_dump(makhan_zval_info('str', $var));
+var_dump(makhan_zval_info('object', $var));
+var_dump(makhan_zval_info('array', $var));
+var_dump(makhan_zval_info('resource', $var));
+var_dump(makhan_zval_info('null', $var));
+var_dump(makhan_zval_info('bool', $var));
 
-var_dump(symfony_zval_info('refcount', $var));
-var_dump(symfony_zval_info('not-exist', $var));
+var_dump(makhan_zval_info('refcount', $var));
+var_dump(makhan_zval_info('not-exist', $var));
 ?>
 --EXPECTF--
 array(4) {

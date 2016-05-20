@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\Form\FormConfigBuilder;
-use Symfony\Component\Form\Exception\InvalidArgumentException;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\Form\FormConfigBuilder;
+use Makhan\Component\Form\Exception\InvalidArgumentException;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -49,7 +49,7 @@ class FormConfigTest extends \PHPUnit_Framework_TestCase
             array('9', true),
             // Contrary to the HTML4 spec, we allow names starting with an
             // underscore, since this is already a widely used practice in
-            // Symfony.
+            // Makhan.
             // For root forms, leading underscores will be stripped from the
             // "id" attribute to produce valid HTML4.
             array('_', true),
@@ -71,7 +71,7 @@ class FormConfigTest extends \PHPUnit_Framework_TestCase
      */
     public function testNameAcceptsOnlyNamesValidAsIdsInHtml4($name, $accepted)
     {
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
 
         try {
             new FormConfigBuilder($name, null, $dispatcher);
@@ -95,7 +95,7 @@ class FormConfigTest extends \PHPUnit_Framework_TestCase
     {
         $config = $this->getConfigBuilder()->getFormConfig();
 
-        $this->assertInstanceOf('Symfony\Component\Form\NativeRequestHandler', $config->getRequestHandler());
+        $this->assertInstanceOf('Makhan\Component\Form\NativeRequestHandler', $config->getRequestHandler());
     }
 
     public function testGetRequestHandlerReusesNativeRequestHandlerInstance()
@@ -132,7 +132,7 @@ class FormConfigTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\Form\Exception\InvalidArgumentException
      */
     public function testSetMethodDoesNotAllowOtherValues()
     {
@@ -141,7 +141,7 @@ class FormConfigTest extends \PHPUnit_Framework_TestCase
 
     private function getConfigBuilder($name = 'name')
     {
-        $dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
 
         return new FormConfigBuilder($name, null, $dispatcher);
     }

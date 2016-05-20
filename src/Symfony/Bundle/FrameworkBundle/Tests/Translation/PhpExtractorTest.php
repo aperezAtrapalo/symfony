@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Translation;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Translation;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor;
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Translation\PhpExtractor;
+use Makhan\Component\Translation\MessageCatalogue;
 
 class PhpExtractorTest extends TestCase
 {

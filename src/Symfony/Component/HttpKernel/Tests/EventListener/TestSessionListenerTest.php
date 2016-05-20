@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * SessionListenerTest.
@@ -38,7 +38,7 @@ class TestSessionListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->listener = $this->getMockForAbstractClass('Symfony\Component\HttpKernel\EventListener\TestSessionListener');
+        $this->listener = $this->getMockForAbstractClass('Makhan\Component\HttpKernel\EventListener\TestSessionListener');
         $this->session = $this->getSession();
     }
 
@@ -82,7 +82,7 @@ class TestSessionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $request->setSession($this->session);
         $response = new Response();
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $event = new FilterResponseEvent($kernel, $request, $type, $response);
 
         $this->listener->onKernelResponse($event);
@@ -120,7 +120,7 @@ class TestSessionListenerTest extends \PHPUnit_Framework_TestCase
 
     private function getSession()
     {
-        $mock = $this->getMockBuilder('Symfony\Component\HttpFoundation\Session\Session')
+        $mock = $this->getMockBuilder('Makhan\Component\HttpFoundation\Session\Session')
             ->disableOriginalConstructor()
             ->getMock();
 

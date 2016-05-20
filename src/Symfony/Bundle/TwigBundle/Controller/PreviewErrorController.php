@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Controller;
+namespace Makhan\Bundle\TwigBundle\Controller;
 
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Debug\Exception\FlattenException;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
 
 /**
  * PreviewErrorController can be used to test error pages.
@@ -39,7 +39,7 @@ class PreviewErrorController
 
         /*
          * This Request mimics the parameters set by
-         * \Symfony\Component\HttpKernel\EventListener\ExceptionListener::duplicateRequest, with
+         * \Makhan\Component\HttpKernel\EventListener\ExceptionListener::duplicateRequest, with
          * the additional "showException" flag.
          */
 

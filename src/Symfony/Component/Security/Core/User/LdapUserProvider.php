@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\User;
+namespace Makhan\Component\Security\Core\User;
 
-use Symfony\Component\Ldap\Entry;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Ldap\Exception\ConnectionException;
-use Symfony\Component\Ldap\LdapInterface;
+use Makhan\Component\Ldap\Entry;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Ldap\Exception\ConnectionException;
+use Makhan\Component\Ldap\LdapInterface;
 
 /**
  * LdapUserProvider is a simple user provider on top of ldap.
@@ -96,7 +96,7 @@ class LdapUserProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return $class === 'Symfony\Component\Security\Core\User\User';
+        return $class === 'Makhan\Component\Security\Core\User\User';
     }
 
     private function loadUser($username, Entry $entry)

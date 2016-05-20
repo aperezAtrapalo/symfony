@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating\Helper;
 
-use Symfony\Bundle\FrameworkBundle\Templating\Helper\StopwatchHelper;
+use Makhan\Bundle\FrameworkBundle\Templating\Helper\StopwatchHelper;
 
 class StopwatchHelperTest extends \PHPUnit_Framework_TestCase
 {
     public function testDevEnvironment()
     {
-        $stopwatch = $this->getMock('Symfony\Component\Stopwatch\Stopwatch');
+        $stopwatch = $this->getMock('Makhan\Component\Stopwatch\Stopwatch');
         $stopwatch->expects($this->once())
             ->method('start')
             ->with('foo');

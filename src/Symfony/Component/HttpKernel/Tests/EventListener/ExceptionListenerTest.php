@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\EventListener\ExceptionListener;
-use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Tests\Logger;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpKernel\EventListener\ExceptionListener;
+use Makhan\Component\HttpKernel\Log\DebugLoggerInterface;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Tests\Logger;
 
 /**
  * ExceptionListenerTest.
@@ -89,7 +89,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
 
     public function provider()
     {
-        if (!class_exists('Symfony\Component\HttpFoundation\Request')) {
+        if (!class_exists('Makhan\Component\HttpFoundation\Request')) {
             return array(array(null, null));
         }
 
@@ -107,7 +107,7 @@ class ExceptionListenerTest extends \PHPUnit_Framework_TestCase
     {
         $listener = new ExceptionListener('foo', $this->getMock('Psr\Log\LoggerInterface'));
 
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
         $kernel->expects($this->once())->method('handle')->will($this->returnCallback(function (Request $request) {
             return new Response($request->getRequestFormat());
         }));

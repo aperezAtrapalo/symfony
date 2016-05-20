@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Fixtures\Controller;
+namespace Makhan\Component\HttpKernel\Tests\Fixtures\Controller;
 
 class VariadicController
 {

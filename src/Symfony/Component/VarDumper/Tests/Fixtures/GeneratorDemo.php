@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Component\VarDumper\Tests\Fixtures;
+namespace Makhan\Component\VarDumper\Tests\Fixtures;
 
 class GeneratorDemo
 {

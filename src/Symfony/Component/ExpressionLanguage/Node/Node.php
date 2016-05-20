@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ExpressionLanguage\Node;
+namespace Makhan\Component\ExpressionLanguage\Node;
 
-use Symfony\Component\ExpressionLanguage\Compiler;
+use Makhan\Component\ExpressionLanguage\Compiler;
 
 /**
  * Represents a node in the AST.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Node
 {
@@ -42,7 +42,7 @@ class Node
             $attributes[] = sprintf('%s: %s', $name, str_replace("\n", '', var_export($value, true)));
         }
 
-        $repr = array(str_replace('Symfony\Component\ExpressionLanguage\Node\\', '', get_class($this)).'('.implode(', ', $attributes));
+        $repr = array(str_replace('Makhan\Component\ExpressionLanguage\Node\\', '', get_class($this)).'('.implode(', ', $attributes));
 
         if (count($this->nodes)) {
             foreach ($this->nodes as $node) {

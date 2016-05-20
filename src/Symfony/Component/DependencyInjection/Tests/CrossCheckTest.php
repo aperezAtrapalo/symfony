@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests;
+namespace Makhan\Component\DependencyInjection\Tests;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\Config\FileLocator;
 
 class CrossCheckTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,8 +31,8 @@ class CrossCheckTest extends \PHPUnit_Framework_TestCase
      */
     public function testCrossCheck($fixture, $type)
     {
-        $loaderClass = 'Symfony\\Component\\DependencyInjection\\Loader\\'.ucfirst($type).'FileLoader';
-        $dumperClass = 'Symfony\\Component\\DependencyInjection\\Dumper\\'.ucfirst($type).'Dumper';
+        $loaderClass = 'Makhan\\Component\\DependencyInjection\\Loader\\'.ucfirst($type).'FileLoader';
+        $dumperClass = 'Makhan\\Component\\DependencyInjection\\Dumper\\'.ucfirst($type).'Dumper';
 
         $tmp = tempnam('sf_service_container', 'sf');
 

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Definition\Dumper;
+namespace Makhan\Component\Config\Tests\Definition\Dumper;
 
-use Symfony\Component\Config\Definition\Dumper\YamlReferenceDumper;
-use Symfony\Component\Config\Tests\Fixtures\Configuration\ExampleConfiguration;
+use Makhan\Component\Config\Definition\Dumper\YamlReferenceDumper;
+use Makhan\Component\Config\Tests\Fixtures\Configuration\ExampleConfiguration;
 
 class YamlReferenceDumperTest extends \PHPUnit_Framework_TestCase
 {

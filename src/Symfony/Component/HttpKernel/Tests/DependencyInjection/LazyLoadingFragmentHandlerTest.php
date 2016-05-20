@@ -1,32 +1,32 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DependencyInjection;
+namespace Makhan\Component\HttpKernel\Tests\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 class LazyLoadingFragmentHandlerTest extends \PHPUnit_Framework_TestCase
 {
     public function test()
     {
-        $renderer = $this->getMock('Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface');
+        $renderer = $this->getMock('Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface');
         $renderer->expects($this->once())->method('getName')->will($this->returnValue('foo'));
         $renderer->expects($this->any())->method('render')->will($this->returnValue(new Response()));
 
-        $requestStack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack');
+        $requestStack = $this->getMock('Makhan\Component\HttpFoundation\RequestStack');
         $requestStack->expects($this->any())->method('getCurrentRequest')->will($this->returnValue(Request::create('/')));
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
         $container->expects($this->once())->method('get')->will($this->returnValue($renderer));
 
         $handler = new LazyLoadingFragmentHandler($container, $requestStack, false);

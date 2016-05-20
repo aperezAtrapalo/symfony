@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Config\Tests\Loader;
+namespace Makhan\Component\Config\Tests\Loader;
 
-use Symfony\Component\Config\Loader\FileLoader;
-use Symfony\Component\Config\Loader\LoaderResolver;
+use Makhan\Component\Config\Loader\FileLoader;
+use Makhan\Component\Config\Loader\LoaderResolver;
 
 class FileLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testImportWithFileLocatorDelegation()
     {
-        $locatorMock = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $locatorMock = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
 
-        $locatorMockForAdditionalLoader = $this->getMock('Symfony\Component\Config\FileLocatorInterface');
+        $locatorMockForAdditionalLoader = $this->getMock('Makhan\Component\Config\FileLocatorInterface');
         $locatorMockForAdditionalLoader->expects($this->any())->method('locate')->will($this->onConsecutiveCalls(
                 array('path/to/file1'),                    // Default
                 array('path/to/file1', 'path/to/file2'),   // First is imported
@@ -53,7 +53,7 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
             $fileLoader->import('my_resource');
             $this->fail('->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Config\Exception\FileLoaderImportCircularReferenceException', $e, '->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
+            $this->assertInstanceOf('Makhan\Component\Config\Exception\FileLoaderImportCircularReferenceException', $e, '->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
         }
 
         // Check exception throws if all files are already loading
@@ -62,7 +62,7 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
             $fileLoader->import('my_resource');
             $this->fail('->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\Config\Exception\FileLoaderImportCircularReferenceException', $e, '->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
+            $this->assertInstanceOf('Makhan\Component\Config\Exception\FileLoaderImportCircularReferenceException', $e, '->import() throws a FileLoaderImportCircularReferenceException if the resource is already loading');
         }
     }
 }

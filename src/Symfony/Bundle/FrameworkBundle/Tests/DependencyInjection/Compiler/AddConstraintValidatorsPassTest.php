@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConstraintValidatorsPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConstraintValidatorsPass;
 
 class AddConstraintValidatorsPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -20,14 +20,14 @@ class AddConstraintValidatorsPassTest extends \PHPUnit_Framework_TestCase
             'my_constraint_validator_service2' => array(),
         );
 
-        $validatorFactoryDefinition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $validatorFactoryDefinition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('findTaggedServiceIds', 'getDefinition', 'hasDefinition')
         );
 
-        $validatorDefinition1 = $this->getMock('Symfony\Component\DependencyInjection\Definition', array('getClass'));
-        $validatorDefinition2 = $this->getMock('Symfony\Component\DependencyInjection\Definition', array('getClass'));
+        $validatorDefinition1 = $this->getMock('Makhan\Component\DependencyInjection\Definition', array('getClass'));
+        $validatorDefinition2 = $this->getMock('Makhan\Component\DependencyInjection\Definition', array('getClass'));
 
         $validatorDefinition1->expects($this->atLeastOnce())
             ->method('getClass')
@@ -67,9 +67,9 @@ class AddConstraintValidatorsPassTest extends \PHPUnit_Framework_TestCase
 
     public function testThatCompilerPassIsIgnoredIfThereIsNoConstraintValidatorFactoryDefinition()
     {
-        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition = $this->getMock('Makhan\Component\DependencyInjection\Definition');
         $container = $this->getMock(
-            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            'Makhan\Component\DependencyInjection\ContainerBuilder',
             array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
         );
 

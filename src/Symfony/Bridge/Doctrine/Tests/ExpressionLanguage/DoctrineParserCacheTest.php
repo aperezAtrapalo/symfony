@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\ExpressionLanguage;
+namespace Makhan\Bridge\Doctrine\Tests\ExpressionLanguage;
 
-use Symfony\Bridge\Doctrine\ExpressionLanguage\DoctrineParserCache;
+use Makhan\Bridge\Doctrine\ExpressionLanguage\DoctrineParserCache;
 
 class DoctrineParserCacheTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +47,7 @@ class DoctrineParserCacheTest extends \PHPUnit_Framework_TestCase
         $doctrineCacheMock = $this->getMock('Doctrine\Common\Cache\Cache');
         $parserCache = new DoctrineParserCache($doctrineCacheMock);
 
-        $expression = $this->getMockBuilder('Symfony\Component\ExpressionLanguage\ParsedExpression')
+        $expression = $this->getMockBuilder('Makhan\Component\ExpressionLanguage\ParsedExpression')
             ->disableOriginalConstructor()
             ->getMock();
 

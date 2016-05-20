@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony OptionsResolver Component Test Suite">
+        <testsuite name="Makhan OptionsResolver Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

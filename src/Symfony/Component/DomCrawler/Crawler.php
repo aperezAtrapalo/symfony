@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler;
+namespace Makhan\Component\DomCrawler;
 
-use Symfony\Component\CssSelector\CssSelectorConverter;
+use Makhan\Component\CssSelector\CssSelectorConverter;
 
 /**
  * Crawler eases navigation of a list of \DOMNode objects.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Crawler implements \Countable, \IteratorAggregate
 {
@@ -240,7 +240,7 @@ class Crawler implements \Countable, \IteratorAggregate
      * @param string $charset The charset
      * @param int    $options Bitwise OR of the libxml option constants
      *                        LIBXML_PARSEHUGE is dangerous, see
-     *                        http://symfony.com/blog/security-release-symfony-2-0-17-released
+     *                        http://makhan.com/blog/security-release-makhan-2-0-17-released
      */
     public function addXmlContent($content, $charset = 'UTF-8', $options = LIBXML_NONET)
     {
@@ -654,7 +654,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Filters the list of nodes with a CSS selector.
      *
-     * This method only works if you have installed the CssSelector Symfony Component.
+     * This method only works if you have installed the CssSelector Makhan Component.
      *
      * @param string $selector A CSS selector
      *
@@ -664,8 +664,8 @@ class Crawler implements \Countable, \IteratorAggregate
      */
     public function filter($selector)
     {
-        if (!class_exists('Symfony\\Component\\CssSelector\\CssSelectorConverter')) {
-            throw new \RuntimeException('Unable to filter with a CSS selector as the Symfony CssSelector 2.8+ is not installed (you can use filterXPath instead).');
+        if (!class_exists('Makhan\\Component\\CssSelector\\CssSelectorConverter')) {
+            throw new \RuntimeException('Unable to filter with a CSS selector as the Makhan CssSelector 2.8+ is not installed (you can use filterXPath instead).');
         }
 
         $converter = new CssSelectorConverter($this->isHtml);

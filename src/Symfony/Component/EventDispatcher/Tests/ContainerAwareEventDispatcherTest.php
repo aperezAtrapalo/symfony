@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\EventDispatcher\Tests;
+namespace Makhan\Component\EventDispatcher\Tests;
 
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher;
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\EventDispatcher\ContainerAwareEventDispatcher;
+use Makhan\Component\EventDispatcher\Event;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
 {
@@ -29,7 +29,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
     {
         $event = new Event();
 
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $service
             ->expects($this->once())
@@ -50,7 +50,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
     {
         $event = new Event();
 
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\SubscriberService');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\SubscriberService');
 
         $service
             ->expects($this->once())
@@ -74,7 +74,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
         $container->set('service.subscriber', $service);
 
         $dispatcher = new ContainerAwareEventDispatcher($container);
-        $dispatcher->addSubscriberService('service.subscriber', 'Symfony\Component\EventDispatcher\Tests\SubscriberService');
+        $dispatcher->addSubscriberService('service.subscriber', 'Makhan\Component\EventDispatcher\Tests\SubscriberService');
 
         $dispatcher->dispatch('onEvent', $event);
         $dispatcher->dispatch('onEventWithPriority', $event);
@@ -85,7 +85,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
     {
         $event = new Event();
 
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $service
             ->expects($this->once())
@@ -107,7 +107,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
     {
         $event = new Event();
 
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $container = new Container();
         $container->set('service.listener', $service);
@@ -130,7 +130,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
 
     public function testGetListenersOnLazyLoad()
     {
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $container = new Container();
         $container->set('service.listener', $service);
@@ -147,7 +147,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
 
     public function testRemoveAfterDispatch()
     {
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $container = new Container();
         $container->set('service.listener', $service);
@@ -162,7 +162,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
 
     public function testRemoveBeforeDispatch()
     {
-        $service = $this->getMock('Symfony\Component\EventDispatcher\Tests\Service');
+        $service = $this->getMock('Makhan\Component\EventDispatcher\Tests\Service');
 
         $container = new Container();
         $container->set('service.listener', $service);

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\HttpKernelExtension;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Fragment\FragmentHandler;
+use Makhan\Bridge\Twig\Extension\HttpKernelExtension;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Fragment\FragmentHandler;
 
 class HttpKernelExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,7 +39,7 @@ class HttpKernelExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testUnknownFragmentRenderer()
     {
-        $context = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\RequestStack')
+        $context = $this->getMockBuilder('Makhan\\Component\\HttpFoundation\\RequestStack')
             ->disableOriginalConstructor()
             ->getMock()
         ;
@@ -51,11 +51,11 @@ class HttpKernelExtensionTest extends \PHPUnit_Framework_TestCase
 
     protected function getFragmentHandler($return)
     {
-        $strategy = $this->getMock('Symfony\\Component\\HttpKernel\\Fragment\\FragmentRendererInterface');
+        $strategy = $this->getMock('Makhan\\Component\\HttpKernel\\Fragment\\FragmentRendererInterface');
         $strategy->expects($this->once())->method('getName')->will($this->returnValue('inline'));
         $strategy->expects($this->once())->method('render')->will($return);
 
-        $context = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\RequestStack')
+        $context = $this->getMockBuilder('Makhan\\Component\\HttpFoundation\\RequestStack')
             ->disableOriginalConstructor()
             ->getMock()
         ;

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\XPath\Extension;
+namespace Makhan\Component\CssSelector\XPath\Extension;
 
-use Symfony\Component\CssSelector\Exception\ExpressionErrorException;
-use Symfony\Component\CssSelector\Node\FunctionNode;
-use Symfony\Component\CssSelector\XPath\Translator;
-use Symfony\Component\CssSelector\XPath\XPathExpr;
+use Makhan\Component\CssSelector\Exception\ExpressionErrorException;
+use Makhan\Component\CssSelector\Node\FunctionNode;
+use Makhan\Component\CssSelector\XPath\Translator;
+use Makhan\Component\CssSelector\XPath\XPathExpr;
 
 /**
  * XPath expression translator HTML extension.

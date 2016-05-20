@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\Exception\AuthenticationException;
 
 class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,9 +24,9 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request(array(), array(), array(), array(), array(), array());
 
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage
             ->expects($this->any())
             ->method('getToken')
@@ -38,15 +38,15 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo($token))
         ;
 
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
         $authenticationManager
             ->expects($this->once())
             ->method('authenticate')
-            ->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
+            ->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
             ->will($this->returnValue($token))
         ;
 
-        $listener = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
+        $listener = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
             $tokenStorage,
             $authenticationManager,
             'TheProviderKey',
@@ -56,7 +56,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getPreAuthenticatedData')
             ->will($this->returnValue($userCredentials));
 
-        $event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $event
             ->expects($this->any())
             ->method('getRequest')
@@ -72,7 +72,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request(array(), array(), array(), array(), array(), array());
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage
             ->expects($this->any())
             ->method('getToken')
@@ -84,15 +84,15 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $exception = new AuthenticationException('Authentication failed.');
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
         $authenticationManager
             ->expects($this->once())
             ->method('authenticate')
-            ->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
+            ->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
             ->will($this->throwException($exception))
         ;
 
-        $listener = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
+        $listener = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
             $tokenStorage,
             $authenticationManager,
             'TheProviderKey',
@@ -102,7 +102,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getPreAuthenticatedData')
             ->will($this->returnValue($userCredentials));
 
-        $event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $event
             ->expects($this->any())
             ->method('getRequest')
@@ -120,7 +120,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request(array(), array(), array(), array(), array(), array());
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage
             ->expects($this->any())
             ->method('getToken')
@@ -132,15 +132,15 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $exception = new AuthenticationException('Authentication failed.');
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
         $authenticationManager
             ->expects($this->once())
             ->method('authenticate')
-            ->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
+            ->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
             ->will($this->throwException($exception))
         ;
 
-        $listener = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
+        $listener = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
             $tokenStorage,
             $authenticationManager,
             'TheProviderKey',
@@ -150,7 +150,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getPreAuthenticatedData')
             ->will($this->returnValue($userCredentials));
 
-        $event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $event
             ->expects($this->any())
             ->method('getRequest')
@@ -168,20 +168,20 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 
         $token = new PreAuthenticatedToken('TheUser', 'TheCredentials', 'TheProviderKey', array('ROLE_FOO'));
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage
             ->expects($this->any())
             ->method('getToken')
             ->will($this->returnValue($token))
         ;
 
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
         $authenticationManager
             ->expects($this->never())
             ->method('authenticate')
         ;
 
-        $listener = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
+        $listener = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
             $tokenStorage,
             $authenticationManager,
             'TheProviderKey',
@@ -191,7 +191,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getPreAuthenticatedData')
             ->will($this->returnValue($userCredentials));
 
-        $event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $event
             ->expects($this->any())
             ->method('getRequest')
@@ -209,7 +209,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
 
         $token = new PreAuthenticatedToken('AnotherUser', 'TheCredentials', 'TheProviderKey', array('ROLE_FOO'));
 
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $tokenStorage
             ->expects($this->any())
             ->method('getToken')
@@ -222,15 +222,15 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $exception = new AuthenticationException('Authentication failed.');
-        $authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
         $authenticationManager
             ->expects($this->once())
             ->method('authenticate')
-            ->with($this->isInstanceOf('Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
+            ->with($this->isInstanceOf('Makhan\Component\Security\Core\Authentication\Token\PreAuthenticatedToken'))
             ->will($this->throwException($exception))
         ;
 
-        $listener = $this->getMockForAbstractClass('Symfony\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
+        $listener = $this->getMockForAbstractClass('Makhan\Component\Security\Http\Firewall\AbstractPreAuthenticatedListener', array(
             $tokenStorage,
             $authenticationManager,
             'TheProviderKey',
@@ -240,7 +240,7 @@ class AbstractPreAuthenticatedListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getPreAuthenticatedData')
             ->will($this->returnValue($userCredentials));
 
-        $event = $this->getMock('Symfony\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
+        $event = $this->getMock('Makhan\Component\HttpKernel\Event\GetResponseEvent', array(), array(), '', false);
         $event
             ->expects($this->any())
             ->method('getRequest')

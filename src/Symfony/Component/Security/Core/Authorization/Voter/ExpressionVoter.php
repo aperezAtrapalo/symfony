@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authorization\Voter;
+namespace Makhan\Component\Security\Core\Authorization\Voter;
 
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
-use Symfony\Component\Security\Core\Authorization\ExpressionLanguage;
-use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
-use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
-use Symfony\Component\ExpressionLanguage\Expression;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
+use Makhan\Component\Security\Core\Authorization\ExpressionLanguage;
+use Makhan\Component\Security\Core\Role\RoleHierarchyInterface;
+use Makhan\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
+use Makhan\Component\ExpressionLanguage\Expression;
+use Makhan\Component\HttpFoundation\Request;
 
 /**
  * ExpressionVoter votes based on the evaluation of an expression.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ExpressionVoter implements VoterInterface
 {

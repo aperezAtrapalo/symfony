@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Authorization\Voter;
+namespace Makhan\Component\Security\Core\Authorization\Voter;
 
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface;
+use Makhan\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * AuthenticatedVoter votes if an attribute like IS_AUTHENTICATED_FULLY,
@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
  *
  * This list is most restrictive to least restrictive checking.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class AuthenticatedVoter implements VoterInterface

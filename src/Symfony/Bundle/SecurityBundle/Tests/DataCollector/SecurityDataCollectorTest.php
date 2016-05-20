@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\DataCollector;
+namespace Makhan\Bundle\SecurityBundle\Tests\DataCollector;
 
-use Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\Role\Role;
-use Symfony\Component\Security\Core\Role\RoleHierarchy;
+use Makhan\Bundle\SecurityBundle\DataCollector\SecurityDataCollector;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Role\RoleHierarchy;
 
 class SecurityDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,7 +60,7 @@ class SecurityDataCollectorTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($collector->isEnabled());
         $this->assertTrue($collector->isAuthenticated());
-        $this->assertSame('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $collector->getTokenClass());
+        $this->assertSame('Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken', $collector->getTokenClass());
         $this->assertTrue($collector->supportsRoleHierarchy());
         $this->assertSame($normalizedRoles, $collector->getRoles());
         $this->assertSame($inheritedRoles, $collector->getInheritedRoles());
@@ -105,7 +105,7 @@ class SecurityDataCollectorTest extends \PHPUnit_Framework_TestCase
     private function getRequest()
     {
         return $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\Request')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
     }
@@ -113,7 +113,7 @@ class SecurityDataCollectorTest extends \PHPUnit_Framework_TestCase
     private function getResponse()
     {
         return $this
-            ->getMockBuilder('Symfony\Component\HttpFoundation\Response')
+            ->getMockBuilder('Makhan\Component\HttpFoundation\Response')
             ->disableOriginalConstructor()
             ->getMock();
     }

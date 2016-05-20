@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Normalizer;
+namespace Makhan\Component\Serializer\Normalizer;
 
-use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
-use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
-use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
+use Makhan\Component\PropertyAccess\Exception\NoSuchPropertyException;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Component\PropertyAccess\PropertyAccessorInterface;
+use Makhan\Component\PropertyInfo\PropertyTypeExtractorInterface;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
+use Makhan\Component\Serializer\NameConverter\NameConverterInterface;
 
 /**
  * Converts between objects and arrays using the PropertyAccess component.

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authorization;
+namespace Makhan\Component\Security\Core\Tests\Authorization;
 
-use Symfony\Component\Security\Core\Authorization\ExpressionLanguage;
-use Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver;
-use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
-use Symfony\Component\Security\Core\Authentication\Token\RememberMeToken;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\User\User;
+use Makhan\Component\Security\Core\Authorization\ExpressionLanguage;
+use Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolver;
+use Makhan\Component\Security\Core\Authentication\Token\AnonymousToken;
+use Makhan\Component\Security\Core\Authentication\Token\RememberMeToken;
+use Makhan\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Makhan\Component\Security\Core\User\User;
 
 class ExpressionLanguageTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,8 +25,8 @@ class ExpressionLanguageTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAuthenticated($token, $expression, $result, array $roles = array())
     {
-        $anonymousTokenClass = 'Symfony\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken';
-        $rememberMeTokenClass = 'Symfony\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken';
+        $anonymousTokenClass = 'Makhan\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken';
+        $rememberMeTokenClass = 'Makhan\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken';
         $expressionLanguage = new ExpressionLanguage();
         $trustResolver = new AuthenticationTrustResolver($anonymousTokenClass, $rememberMeTokenClass);
 

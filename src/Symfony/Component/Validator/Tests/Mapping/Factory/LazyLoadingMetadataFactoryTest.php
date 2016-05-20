@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Mapping\Factory;
+namespace Makhan\Component\Validator\Tests\Mapping\Factory;
 
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
-use Symfony\Component\Validator\Mapping\Loader\LoaderInterface;
-use Symfony\Component\Validator\Tests\Fixtures\ConstraintA;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
+use Makhan\Component\Validator\Mapping\Loader\LoaderInterface;
+use Makhan\Component\Validator\Tests\Fixtures\ConstraintA;
 
 class LazyLoadingMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 {
-    const CLASSNAME = 'Symfony\Component\Validator\Tests\Fixtures\Entity';
-    const PARENTCLASS = 'Symfony\Component\Validator\Tests\Fixtures\EntityParent';
+    const CLASSNAME = 'Makhan\Component\Validator\Tests\Fixtures\Entity';
+    const PARENTCLASS = 'Makhan\Component\Validator\Tests\Fixtures\EntityParent';
 
     public function testLoadClassMetadata()
     {
@@ -60,7 +60,7 @@ class LazyLoadingMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testWriteMetadataToCache()
     {
-        $cache = $this->getMock('Symfony\Component\Validator\Mapping\Cache\CacheInterface');
+        $cache = $this->getMock('Makhan\Component\Validator\Mapping\Cache\CacheInterface');
         $factory = new LazyLoadingMetadataFactory(new TestLoader(), $cache);
 
         $constraints = array(
@@ -87,8 +87,8 @@ class LazyLoadingMetadataFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testReadMetadataFromCache()
     {
-        $loader = $this->getMock('Symfony\Component\Validator\Mapping\Loader\LoaderInterface');
-        $cache = $this->getMock('Symfony\Component\Validator\Mapping\Cache\CacheInterface');
+        $loader = $this->getMock('Makhan\Component\Validator\Mapping\Loader\LoaderInterface');
+        $cache = $this->getMock('Makhan\Component\Validator\Mapping\Cache\CacheInterface');
         $factory = new LazyLoadingMetadataFactory($loader, $cache);
 
         $metadata = new ClassMetadata(self::PARENTCLASS);

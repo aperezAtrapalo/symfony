@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\DataCollector;
+namespace Makhan\Component\Form\Extension\DataCollector;
 
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpKernel\DataCollector\Util\ValueExporter;
-use Symfony\Component\Validator\ConstraintViolationInterface;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormView;
+use Makhan\Component\HttpKernel\DataCollector\Util\ValueExporter;
+use Makhan\Component\Validator\ConstraintViolationInterface;
 
 /**
  * Default implementation of {@link FormDataExtractorInterface}.

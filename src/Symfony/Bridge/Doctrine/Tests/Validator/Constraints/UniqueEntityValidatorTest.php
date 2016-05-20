@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Validator\Constraints;
+namespace Makhan\Bridge\Doctrine\Tests\Validator\Constraints;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Symfony\Bridge\Doctrine\Test\DoctrineTestHelper;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\DoubleNameEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Makhan\Bridge\Doctrine\Test\DoctrineTestHelper;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\DoubleNameEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\AssociationEntity;
+use Makhan\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Makhan\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+use Makhan\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 use Doctrine\ORM\Tools\SchemaTool;
 
 /**
@@ -124,10 +124,10 @@ class UniqueEntityValidatorTest extends AbstractConstraintValidatorTest
     {
         $schemaTool = new SchemaTool($em);
         $schemaTool->createSchema(array(
-            $em->getClassMetadata('Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity'),
-            $em->getClassMetadata('Symfony\Bridge\Doctrine\Tests\Fixtures\DoubleNameEntity'),
-            $em->getClassMetadata('Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity'),
-            $em->getClassMetadata('Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity'),
+            $em->getClassMetadata('Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity'),
+            $em->getClassMetadata('Makhan\Bridge\Doctrine\Tests\Fixtures\DoubleNameEntity'),
+            $em->getClassMetadata('Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity'),
+            $em->getClassMetadata('Makhan\Bridge\Doctrine\Tests\Fixtures\AssociationEntity'),
         ));
     }
 
@@ -427,7 +427,7 @@ class UniqueEntityValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
      * @expectedExceptionMessage Object manager "foo" does not exist.
      */
     public function testDedicatedEntityManagerNullObject()
@@ -449,8 +449,8 @@ class UniqueEntityValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\ConstraintDefinitionException
-     * @expectedExceptionMessage Unable to find the object manager associated with an entity of class "Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity"
+     * @expectedException \Makhan\Component\Validator\Exception\ConstraintDefinitionException
+     * @expectedExceptionMessage Unable to find the object manager associated with an entity of class "Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity"
      */
     public function testEntityManagerNullObject()
     {

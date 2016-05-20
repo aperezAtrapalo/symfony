@@ -1,37 +1,37 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Style;
+namespace Makhan\Component\Console\Style;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Exception\RuntimeException;
-use Symfony\Component\Console\Formatter\OutputFormatter;
-use Symfony\Component\Console\Helper\Helper;
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\SymfonyQuestionHelper;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Helper\TableCell;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ChoiceQuestion;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
-use Symfony\Component\Console\Question\Question;
+use Makhan\Component\Console\Application;
+use Makhan\Component\Console\Exception\RuntimeException;
+use Makhan\Component\Console\Formatter\OutputFormatter;
+use Makhan\Component\Console\Helper\Helper;
+use Makhan\Component\Console\Helper\ProgressBar;
+use Makhan\Component\Console\Helper\MakhanQuestionHelper;
+use Makhan\Component\Console\Helper\Table;
+use Makhan\Component\Console\Helper\TableCell;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\BufferedOutput;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Question\ChoiceQuestion;
+use Makhan\Component\Console\Question\ConfirmationQuestion;
+use Makhan\Component\Console\Question\Question;
 
 /**
- * Output decorator helpers for the Symfony Style Guide.
+ * Output decorator helpers for the Makhan Style Guide.
  *
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-class SymfonyStyle extends OutputStyle
+class MakhanStyle extends OutputStyle
 {
     const MAX_LINE_LENGTH = 120;
 
@@ -228,7 +228,7 @@ class SymfonyStyle extends OutputStyle
         $table = new Table($this);
         $table->setHeaders($headers);
         $table->setRows($rows);
-        $table->setStyle('symfony-style-guide');
+        $table->setStyle('makhan-style-guide');
 
         $table->render();
         $this->newLine();
@@ -334,7 +334,7 @@ class SymfonyStyle extends OutputStyle
         }
 
         if (!$this->questionHelper) {
-            $this->questionHelper = new SymfonyQuestionHelper();
+            $this->questionHelper = new MakhanQuestionHelper();
         }
 
         $answer = $this->questionHelper->ask($this->input, $this, $question);

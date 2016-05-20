@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\CacheWarmer;
+namespace Makhan\Bundle\FrameworkBundle\Tests\CacheWarmer;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser;
-use Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder;
-use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\BaseBundle\BaseBundle;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Templating\TemplateFilenameParser;
+use Makhan\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder;
+use Makhan\Bundle\FrameworkBundle\Tests\Fixtures\BaseBundle\BaseBundle;
 
 class TemplateFinderTest extends TestCase
 {
     public function testFindAllTemplates()
     {
         $kernel = $this
-            ->getMockBuilder('Symfony\Component\HttpKernel\Kernel')
+            ->getMockBuilder('Makhan\Component\HttpKernel\Kernel')
             ->disableOriginalConstructor()
             ->getMock()
         ;

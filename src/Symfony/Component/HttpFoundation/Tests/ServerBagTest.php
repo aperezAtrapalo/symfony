@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\ServerBag;
+use Makhan\Component\HttpFoundation\ServerBag;
 
 /**
  * ServerBagTest.
@@ -153,7 +153,7 @@ class ServerBagTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @see https://github.com/symfony/symfony/issues/17345
+     * @see https://github.com/makhan/makhan/issues/17345
      */
     public function testItDoesNotOverwriteTheAuthorizationHeaderIfItIsAlreadySet()
     {

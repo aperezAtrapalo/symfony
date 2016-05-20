@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\ExpressionLanguage\Tests;
+namespace Makhan\Component\ExpressionLanguage\Tests;
 
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Symfony\Component\ExpressionLanguage\Tests\Fixtures\TestProvider;
+use Makhan\Component\ExpressionLanguage\ExpressionLanguage;
+use Makhan\Component\ExpressionLanguage\Tests\Fixtures\TestProvider;
 
 class ExpressionLanguageTest extends \PHPUnit_Framework_TestCase
 {
     public function testCachedParse()
     {
-        $cacheMock = $this->getMock('Symfony\Component\ExpressionLanguage\ParserCache\ParserCacheInterface');
+        $cacheMock = $this->getMock('Makhan\Component\ExpressionLanguage\ParserCache\ParserCacheInterface');
         $savedParsedExpression = null;
         $expressionLanguage = new ExpressionLanguage($cacheMock);
 
@@ -33,7 +33,7 @@ class ExpressionLanguageTest extends \PHPUnit_Framework_TestCase
         $cacheMock
             ->expects($this->exactly(1))
             ->method('save')
-            ->with('1 + 1//', $this->isInstanceOf('Symfony\Component\ExpressionLanguage\ParsedExpression'))
+            ->with('1 + 1//', $this->isInstanceOf('Makhan\Component\ExpressionLanguage\ParsedExpression'))
             ->will($this->returnCallback(function ($key, $expression) use (&$savedParsedExpression) {
                 $savedParsedExpression = $expression;
             }))
@@ -116,7 +116,7 @@ class ExpressionLanguageTest extends \PHPUnit_Framework_TestCase
 
     public function testCachingWithDifferentNamesOrder()
     {
-        $cacheMock = $this->getMock('Symfony\Component\ExpressionLanguage\ParserCache\ParserCacheInterface');
+        $cacheMock = $this->getMock('Makhan\Component\ExpressionLanguage\ParserCache\ParserCacheInterface');
         $expressionLanguage = new ExpressionLanguage($cacheMock);
         $savedParsedExpressions = array();
         $cacheMock

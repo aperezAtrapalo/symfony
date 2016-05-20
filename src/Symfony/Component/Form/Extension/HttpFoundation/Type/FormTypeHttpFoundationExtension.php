@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\HttpFoundation\Type;
+namespace Makhan\Component\Form\Extension\HttpFoundation\Type;
 
-use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\RequestHandlerInterface;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
+use Makhan\Component\Form\AbstractTypeExtension;
+use Makhan\Component\Form\RequestHandlerInterface;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -47,6 +47,6 @@ class FormTypeHttpFoundationExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return 'Makhan\Component\Form\Extension\Core\Type\FormType';
     }
 }

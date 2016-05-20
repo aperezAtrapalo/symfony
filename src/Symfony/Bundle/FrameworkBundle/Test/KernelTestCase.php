@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Test;
+namespace Makhan\Bundle\FrameworkBundle\Test;
 
-use Symfony\Component\DependencyInjection\ResettableContainerInterface;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpKernel\KernelInterface;
+use Makhan\Component\DependencyInjection\ResettableContainerInterface;
+use Makhan\Component\Finder\Finder;
+use Makhan\Component\HttpKernel\KernelInterface;
 
 /**
  * KernelTestCase is the base class for tests needing a Kernel.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class KernelTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -122,7 +122,7 @@ abstract class KernelTestCase extends \PHPUnit_Framework_TestCase
         $finder->name('*Kernel.php')->depth(0)->in($dir);
         $results = iterator_to_array($finder);
         if (!count($results)) {
-            throw new \RuntimeException('Either set KERNEL_DIR in your phpunit.xml according to https://symfony.com/doc/current/book/testing.html#your-first-functional-test or override the WebTestCase::createKernel() method.');
+            throw new \RuntimeException('Either set KERNEL_DIR in your phpunit.xml according to https://makhan.com/doc/current/book/testing.html#your-first-functional-test or override the WebTestCase::createKernel() method.');
         }
 
         $file = current($results);

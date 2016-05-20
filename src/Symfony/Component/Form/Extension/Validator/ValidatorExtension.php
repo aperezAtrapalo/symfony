@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Validator;
+namespace Makhan\Component\Form\Extension\Validator;
 
-use Symfony\Component\Form\Extension\Validator\Constraints\Form;
-use Symfony\Component\Form\AbstractExtension;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\Form\Extension\Validator\Constraints\Form;
+use Makhan\Component\Form\AbstractExtension;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\Mapping\ClassMetadata;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
 
 /**
- * Extension supporting the Symfony Validator component in forms.
+ * Extension supporting the Makhan Validator component in forms.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -28,7 +28,7 @@ class ValidatorExtension extends AbstractExtension
 
     public function __construct(ValidatorInterface $validator)
     {
-        $metadata = $validator->getMetadataFor('Symfony\Component\Form\Form');
+        $metadata = $validator->getMetadataFor('Makhan\Component\Form\Form');
 
         // Register the form constraints in the validator programmatically.
         // This functionality is required when using the Form component without

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Tests\Loader;
+namespace Makhan\Component\Routing\Tests\Loader;
 
 abstract class AbstractAnnotationLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ abstract class AbstractAnnotationLoaderTest extends \PHPUnit_Framework_TestCase
 
     public function getClassLoader($reader)
     {
-        return $this->getMockBuilder('Symfony\Component\Routing\Loader\AnnotationClassLoader')
+        return $this->getMockBuilder('Makhan\Component\Routing\Loader\AnnotationClassLoader')
             ->setConstructorArgs(array($reader))
             ->getMockForAbstractClass()
         ;

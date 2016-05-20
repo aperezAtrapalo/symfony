@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\EventListener;
+namespace Makhan\Component\HttpKernel\EventListener;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\KernelEvents;
 
 /**
  * Saves the session, in case it is still open, before sending the response/headers.
@@ -37,7 +37,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
  * This listener should be executed as one of the last listeners, so that previous listeners
  * can still operate on the open session. This prevents the overhead of restarting it.
  * Listeners after closing the session can still work with the session as usual because
- * Symfonys session implementation starts the session on demand. So writing to it after
+ * Makhans session implementation starts the session on demand. So writing to it after
  * it is saved will just restart it.
  *
  * @author Tobias Schultze <http://tobion.de>

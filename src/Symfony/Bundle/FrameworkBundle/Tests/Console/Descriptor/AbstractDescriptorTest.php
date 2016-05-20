@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Console\Descriptor;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Console\Descriptor;
 
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\Console\Input\ArrayInput;
+use Makhan\Component\Console\Output\BufferedOutput;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 abstract class AbstractDescriptorTest extends \PHPUnit_Framework_TestCase
 {
@@ -137,7 +137,7 @@ abstract class AbstractDescriptorTest extends \PHPUnit_Framework_TestCase
         $output = new BufferedOutput(BufferedOutput::VERBOSITY_NORMAL, true);
 
         if ('txt' === $this->getFormat()) {
-            $options['output'] = new SymfonyStyle(new ArrayInput(array()), $output);
+            $options['output'] = new MakhanStyle(new ArrayInput(array()), $output);
         }
 
         $this->getDescriptor()->describe($output, $describedObject, $options);

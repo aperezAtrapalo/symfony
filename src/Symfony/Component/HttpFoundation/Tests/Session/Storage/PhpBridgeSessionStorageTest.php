@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\Session\Storage;
+namespace Makhan\Component\HttpFoundation\Tests\Session\Storage;
 
-use Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Makhan\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage;
+use Makhan\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
 /**
  * Test class for PhpSessionStorage.
@@ -83,13 +83,13 @@ class PhpBridgeSessionStorageTest extends \PHPUnit_Framework_TestCase
     {
         $storage = $this->getStorage();
         session_start();
-        $_SESSION['drak'] = 'loves symfony';
-        $storage->getBag('attributes')->set('symfony', 'greatness');
+        $_SESSION['drak'] = 'loves makhan';
+        $storage->getBag('attributes')->set('makhan', 'greatness');
         $key = $storage->getBag('attributes')->getStorageKey();
-        $this->assertEquals($_SESSION[$key], array('symfony' => 'greatness'));
-        $this->assertEquals($_SESSION['drak'], 'loves symfony');
+        $this->assertEquals($_SESSION[$key], array('makhan' => 'greatness'));
+        $this->assertEquals($_SESSION['drak'], 'loves makhan');
         $storage->clear();
         $this->assertEquals($_SESSION[$key], array());
-        $this->assertEquals($_SESSION['drak'], 'loves symfony');
+        $this->assertEquals($_SESSION['drak'], 'loves makhan');
     }
 }

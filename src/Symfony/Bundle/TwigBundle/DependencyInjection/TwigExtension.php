@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\DependencyInjection;
+namespace Makhan\Bundle\TwigBundle\DependencyInjection;
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Resource\FileExistenceResource;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\Config\Resource\FileExistenceResource;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * TwigExtension.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Jeremy Mikola <jmikola@gmail.com>
  */
 class TwigExtension extends Extension
@@ -159,6 +159,6 @@ class TwigExtension extends Extension
 
     public function getNamespace()
     {
-        return 'http://symfony.com/schema/dic/twig';
+        return 'http://makhan.com/schema/dic/twig';
     }
 }

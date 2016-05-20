@@ -1,7 +1,7 @@
 <?php
 
-/** @var $loader \Symfony\Component\Routing\Loader\PhpFileLoader */
-/** @var \Symfony\Component\Routing\RouteCollection $collection */
+/** @var $loader \Makhan\Component\Routing\Loader\PhpFileLoader */
+/** @var \Makhan\Component\Routing\RouteCollection $collection */
 $collection = $loader->import('validpattern.php');
 $collection->addDefaults(array(
     'foo' => 123,

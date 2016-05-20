@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\EventDispatcher\Tests;
+namespace Makhan\Component\EventDispatcher\Tests;
 
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\EventDispatcher\Event;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
 {
@@ -129,8 +129,8 @@ abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
         $this->dispatcher->dispatch(self::preFoo);
         $this->assertTrue($this->listener->preFooInvoked);
         $this->assertFalse($this->listener->postFooInvoked);
-        $this->assertInstanceOf('Symfony\Component\EventDispatcher\Event', $this->dispatcher->dispatch('noevent'));
-        $this->assertInstanceOf('Symfony\Component\EventDispatcher\Event', $this->dispatcher->dispatch(self::preFoo));
+        $this->assertInstanceOf('Makhan\Component\EventDispatcher\Event', $this->dispatcher->dispatch('noevent'));
+        $this->assertInstanceOf('Makhan\Component\EventDispatcher\Event', $this->dispatcher->dispatch(self::preFoo));
         $event = new Event();
         $return = $this->dispatcher->dispatch(self::preFoo, $event);
         $this->assertSame($event, $return);
@@ -209,7 +209,7 @@ abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
         $listeners = $this->dispatcher->getListeners('pre.foo');
         $this->assertTrue($this->dispatcher->hasListeners(self::preFoo));
         $this->assertCount(2, $listeners);
-        $this->assertInstanceOf('Symfony\Component\EventDispatcher\Tests\TestEventSubscriberWithPriorities', $listeners[0][0]);
+        $this->assertInstanceOf('Makhan\Component\EventDispatcher\Tests\TestEventSubscriberWithPriorities', $listeners[0][0]);
     }
 
     public function testAddSubscriberWithMultipleListeners()

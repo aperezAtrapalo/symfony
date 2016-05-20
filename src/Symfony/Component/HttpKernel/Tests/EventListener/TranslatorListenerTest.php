@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FinishRequestEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\EventListener\TranslatorListener;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Event\FinishRequestEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseEvent;
+use Makhan\Component\HttpKernel\EventListener\TranslatorListener;
+use Makhan\Component\HttpKernel\HttpKernelInterface;
 
 class TranslatorListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,8 +25,8 @@ class TranslatorListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->translator = $this->getMock('Symfony\Component\Translation\TranslatorInterface');
-        $this->requestStack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack');
+        $this->translator = $this->getMock('Makhan\Component\Translation\TranslatorInterface');
+        $this->requestStack = $this->getMock('Makhan\Component\HttpFoundation\RequestStack');
         $this->listener = new TranslatorListener($this->translator, $this->requestStack);
     }
 
@@ -96,7 +96,7 @@ class TranslatorListenerTest extends \PHPUnit_Framework_TestCase
 
     private function createHttpKernel()
     {
-        return $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        return $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
     }
 
     private function createRequest($locale)

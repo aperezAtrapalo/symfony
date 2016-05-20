@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\PropertyInfo\Tests\PhpDocExtractors;
+namespace Makhan\Component\PropertyInfo\Tests\PhpDocExtractors;
 
-use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
-use Symfony\Component\PropertyInfo\Type;
+use Makhan\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Makhan\Component\PropertyInfo\Type;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -34,9 +34,9 @@ class PhpDocExtractorTest extends \PHPUnit_Framework_TestCase
      */
     public function testExtract($property, array $type = null, $shortDescription, $longDescription)
     {
-        $this->assertEquals($type, $this->extractor->getTypes('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
-        $this->assertSame($shortDescription, $this->extractor->getShortDescription('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
-        $this->assertSame($longDescription, $this->extractor->getLongDescription('Symfony\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
+        $this->assertEquals($type, $this->extractor->getTypes('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
+        $this->assertSame($shortDescription, $this->extractor->getShortDescription('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
+        $this->assertSame($longDescription, $this->extractor->getLongDescription('Makhan\Component\PropertyInfo\Tests\Fixtures\Dummy', $property));
     }
 
     public function typesProvider()
@@ -59,10 +59,10 @@ class PhpDocExtractorTest extends \PHPUnit_Framework_TestCase
                 null,
             ),
             array('bal', array(new Type(Type::BUILTIN_TYPE_OBJECT, false, 'DateTime')), null, null),
-            array('parent', array(new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Symfony\Component\PropertyInfo\Tests\Fixtures\ParentDummy')), null, null),
+            array('parent', array(new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Makhan\Component\PropertyInfo\Tests\Fixtures\ParentDummy')), null, null),
             array('collection', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true, new Type(Type::BUILTIN_TYPE_INT), new Type(Type::BUILTIN_TYPE_OBJECT, false, 'DateTime'))), null, null),
             array('a', array(new Type(Type::BUILTIN_TYPE_INT)), 'A.', null),
-            array('b', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Symfony\Component\PropertyInfo\Tests\Fixtures\ParentDummy')), 'B.', null),
+            array('b', array(new Type(Type::BUILTIN_TYPE_OBJECT, true, 'Makhan\Component\PropertyInfo\Tests\Fixtures\ParentDummy')), 'B.', null),
             array('c', array(new Type(Type::BUILTIN_TYPE_BOOL, true)), null, null),
             array('d', array(new Type(Type::BUILTIN_TYPE_BOOL)), null, null),
             array('e', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true, new Type(Type::BUILTIN_TYPE_INT), new Type(Type::BUILTIN_TYPE_RESOURCE))), null, null),

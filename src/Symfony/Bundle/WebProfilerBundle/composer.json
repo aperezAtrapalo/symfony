@@ -1,34 +1,34 @@
 {
-    "name": "symfony/web-profiler-bundle",
-    "type": "symfony-bundle",
-    "description": "Symfony WebProfilerBundle",
+    "name": "makhan/web-profiler-bundle",
+    "type": "makhan-bundle",
+    "description": "Makhan WebProfilerBundle",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/http-kernel": "~2.8|~3.0",
-        "symfony/routing": "~2.8|~3.0",
-        "symfony/twig-bridge": "~2.8|~3.0"
+        "makhan/http-kernel": "~2.8|~3.0",
+        "makhan/routing": "~2.8|~3.0",
+        "makhan/twig-bridge": "~2.8|~3.0"
     },
     "require-dev": {
-        "symfony/config": "~2.8|~3.0",
-        "symfony/console": "~2.8|~3.0",
-        "symfony/dependency-injection": "~2.8|~3.0",
-        "symfony/stopwatch": "~2.8|~3.0"
+        "makhan/config": "~2.8|~3.0",
+        "makhan/console": "~2.8|~3.0",
+        "makhan/dependency-injection": "~2.8|~3.0",
+        "makhan/stopwatch": "~2.8|~3.0"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Bundle\\WebProfilerBundle\\": "" },
+        "psr-4": { "Makhan\\Bundle\\WebProfilerBundle\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

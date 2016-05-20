@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Session;
+namespace Makhan\Component\Security\Http\Tests\Session;
 
-use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy;
+use Makhan\Component\Security\Http\Session\SessionAuthenticationStrategy;
 
 class SessionAuthenticationStrategyTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,7 +39,7 @@ class SessionAuthenticationStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testSessionIsMigrated()
     {
-        $session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
+        $session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface');
         $session->expects($this->once())->method('migrate')->with($this->equalTo(true));
 
         $strategy = new SessionAuthenticationStrategy(SessionAuthenticationStrategy::MIGRATE);
@@ -48,7 +48,7 @@ class SessionAuthenticationStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testSessionIsInvalidated()
     {
-        $session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
+        $session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface');
         $session->expects($this->once())->method('invalidate');
 
         $strategy = new SessionAuthenticationStrategy(SessionAuthenticationStrategy::INVALIDATE);
@@ -57,7 +57,7 @@ class SessionAuthenticationStrategyTest extends \PHPUnit_Framework_TestCase
 
     private function getRequest($session = null)
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
 
         if (null !== $session) {
             $request->expects($this->any())->method('getSession')->will($this->returnValue($session));
@@ -68,6 +68,6 @@ class SessionAuthenticationStrategyTest extends \PHPUnit_Framework_TestCase
 
     private function getToken()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
     }
 }

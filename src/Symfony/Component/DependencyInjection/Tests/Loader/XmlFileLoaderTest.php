@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests\Loader;
+namespace Makhan\Component\DependencyInjection\Tests\Loader;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\IniFileLoader;
-use Symfony\Component\Config\Loader\LoaderResolver;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\YamlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\IniFileLoader;
+use Makhan\Component\Config\Loader\LoaderResolver;
+use Makhan\Component\Config\FileLocator;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -58,7 +58,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $m->invoke($loader, self::$fixturesPath.'/ini/parameters.ini');
             $this->fail('->parseFileToDOM() throws an InvalidArgumentException if the loaded file is not a valid XML file');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->parseFileToDOM() throws an InvalidArgumentException if the loaded file is not a valid XML file');
+            $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->parseFileToDOM() throws an InvalidArgumentException if the loaded file is not a valid XML file');
             $this->assertRegExp(sprintf('#^Unable to parse file ".+%s".$#', 'parameters.ini'), $e->getMessage(), '->parseFileToDOM() throws an InvalidArgumentException if the loaded file is not a valid XML file');
 
             $e = $e->getPrevious();
@@ -72,7 +72,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $m->invoke($loader, self::$fixturesPath.'/xml/nonvalid.xml');
             $this->fail('->parseFileToDOM() throws an InvalidArgumentException if the loaded file does not validate the XSD');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->parseFileToDOM() throws an InvalidArgumentException if the loaded file does not validate the XSD');
+            $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->parseFileToDOM() throws an InvalidArgumentException if the loaded file does not validate the XSD');
             $this->assertRegExp(sprintf('#^Unable to parse file ".+%s".$#', 'nonvalid.xml'), $e->getMessage(), '->parseFileToDOM() throws an InvalidArgumentException if the loaded file is not a valid XML file');
 
             $e = $e->getPrevious();
@@ -168,7 +168,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
         // anonymous service as an argument
         $args = $services['foo']->getArguments();
         $this->assertCount(1, $args, '->load() references anonymous services as "normal" ones');
-        $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Reference', $args[0], '->load() converts anonymous services to references to "normal" services');
+        $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Reference', $args[0], '->load() converts anonymous services to references to "normal" services');
         $this->assertTrue(isset($services[(string) $args[0]]), '->load() makes a reference to the created ones');
         $inner = $services[(string) $args[0]];
         $this->assertEquals('BarClass', $inner->getClass(), '->load() uses the same configuration as for the anonymous ones');
@@ -177,7 +177,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
         // inner anonymous services
         $args = $inner->getArguments();
         $this->assertCount(1, $args, '->load() references anonymous services as "normal" ones');
-        $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Reference', $args[0], '->load() converts anonymous services to references to "normal" services');
+        $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Reference', $args[0], '->load() converts anonymous services to references to "normal" services');
         $this->assertTrue(isset($services[(string) $args[0]]), '->load() makes a reference to the created ones');
         $inner = $services[(string) $args[0]];
         $this->assertEquals('BazClass', $inner->getClass(), '->load() uses the same configuration as for the anonymous ones');
@@ -186,7 +186,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
         // anonymous service as a property
         $properties = $services['foo']->getProperties();
         $property = $properties['p'];
-        $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Reference', $property, '->load() converts anonymous services to references to "normal" services');
+        $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Reference', $property, '->load() converts anonymous services to references to "normal" services');
         $this->assertTrue(isset($services[(string) $property]), '->load() makes a reference to the created ones');
         $inner = $services[(string) $property];
         $this->assertEquals('BuzClass', $inner->getClass(), '->load() uses the same configuration as for the anonymous ones');
@@ -218,7 +218,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $services = $container->getDefinitions();
         $this->assertTrue(isset($services['foo']), '->load() parses <service> elements');
         $this->assertFalse($services['not_shared']->isShared(), '->load() parses shared flag');
-        $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Definition', $services['foo'], '->load() converts <service> element to Definition instances');
+        $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Definition', $services['foo'], '->load() converts <service> element to Definition instances');
         $this->assertEquals('FooClass', $services['foo']->getClass(), '->load() parses the class attribute');
         $this->assertEquals('%path%/foo.php', $services['file']->getFile(), '->load() parses the file tag');
         $this->assertEquals(array('foo', new Reference('foo'), array(true, false)), $services['arguments']->getArguments(), '->load() parses the argument tags');
@@ -268,7 +268,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     public function testParseTagsWithoutNameThrowsException()
     {
@@ -278,7 +278,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @expectedException \Makhan\Component\DependencyInjection\Exception\InvalidArgumentException
      * @expectedExceptionMessageRegExp /The tag name for service ".+" in .* must be a non-empty string/
      */
     public function testParseTagWithEmptyNameThrowsException()
@@ -364,7 +364,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('extensions/services3.xml');
             $this->fail('->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
+            $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
             $this->assertRegExp(sprintf('#^Unable to parse file ".+%s".$#', 'services3.xml'), $e->getMessage(), '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
 
             $e = $e->getPrevious();
@@ -401,7 +401,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('extensions/services7.xml');
             $this->fail('->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
+            $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
             $this->assertRegExp(sprintf('#^Unable to parse file ".+%s".$#', 'services7.xml'), $e->getMessage(), '->load() throws an InvalidArgumentException if the configuration does not validate the XSD');
 
             $e = $e->getPrevious();
@@ -451,7 +451,7 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
             $loader->load('withdoctype.xml');
             $this->fail('->load() throws an InvalidArgumentException if the configuration contains a document type');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration contains a document type');
+            $this->assertInstanceOf('Makhan\\Component\\DependencyInjection\\Exception\\InvalidArgumentException', $e, '->load() throws an InvalidArgumentException if the configuration contains a document type');
             $this->assertRegExp(sprintf('#^Unable to parse file ".+%s".$#', 'withdoctype.xml'), $e->getMessage(), '->load() throws an InvalidArgumentException if the configuration contains a document type');
 
             $e = $e->getPrevious();
@@ -490,22 +490,22 @@ class XmlFileLoaderTest extends \PHPUnit_Framework_TestCase
         $foo = $container->getDefinition('foo');
 
         $fooFactory = $foo->getFactory();
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Definition', $fooFactory[0]);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\Definition', $fooFactory[0]);
         $this->assertSame('FooFactory', $fooFactory[0]->getClass());
         $this->assertSame('createFoo', $fooFactory[1]);
 
         $fooFactoryFactory = $fooFactory[0]->getFactory();
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Definition', $fooFactoryFactory[0]);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\Definition', $fooFactoryFactory[0]);
         $this->assertSame('Foobar', $fooFactoryFactory[0]->getClass());
         $this->assertSame('createFooFactory', $fooFactoryFactory[1]);
 
         $fooConfigurator = $foo->getConfigurator();
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Definition', $fooConfigurator[0]);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\Definition', $fooConfigurator[0]);
         $this->assertSame('Bar', $fooConfigurator[0]->getClass());
         $this->assertSame('configureFoo', $fooConfigurator[1]);
 
         $barConfigurator = $fooConfigurator[0]->getConfigurator();
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\Definition', $barConfigurator[0]);
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\Definition', $barConfigurator[0]);
         $this->assertSame('Baz', $barConfigurator[0]->getClass());
         $this->assertSame('configureBar', $barConfigurator[1]);
     }

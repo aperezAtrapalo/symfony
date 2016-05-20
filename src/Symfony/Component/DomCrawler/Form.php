@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DomCrawler;
+namespace Makhan\Component\DomCrawler;
 
-use Symfony\Component\DomCrawler\Field\ChoiceFormField;
-use Symfony\Component\DomCrawler\Field\FormField;
+use Makhan\Component\DomCrawler\Field\ChoiceFormField;
+use Makhan\Component\DomCrawler\Field\FormField;
 
 /**
  * Form represents an HTML form.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class Form extends Link implements \ArrayAccess
 {
@@ -458,7 +458,7 @@ class Form extends Link implements \ArrayAccess
             $this->set(new Field\ChoiceFormField($node));
         } elseif ('input' == $nodeName && 'radio' == strtolower($node->getAttribute('type'))) {
             // there may be other fields with the same name that are no choice
-            // fields already registered (see https://github.com/symfony/symfony/issues/11689)
+            // fields already registered (see https://github.com/makhan/makhan/issues/11689)
             if ($this->has($node->getAttribute('name')) && $this->get($node->getAttribute('name')) instanceof ChoiceFormField) {
                 $this->get($node->getAttribute('name'))->addChoice($node);
             } else {

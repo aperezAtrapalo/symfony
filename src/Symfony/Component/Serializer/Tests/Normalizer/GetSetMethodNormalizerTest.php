@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Tests\Fixtures\CircularReferenceDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\SiblingHolder;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Tests\Fixtures\GroupDummy;
+use Makhan\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Makhan\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\Normalizer\NormalizerInterface;
+use Makhan\Component\Serializer\Tests\Fixtures\CircularReferenceDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\SiblingHolder;
+use Makhan\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Makhan\Component\Serializer\Tests\Fixtures\GroupDummy;
 
 class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,8 +44,8 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
     public function testInterface()
     {
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
-        $this->assertInstanceOf('Symfony\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\NormalizerInterface', $this->normalizer);
+        $this->assertInstanceOf('Makhan\Component\Serializer\Normalizer\DenormalizerInterface', $this->normalizer);
     }
 
     public function testNormalize()
@@ -152,7 +152,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
     {
         $obj = $this->normalizer->denormalize(
             array('foo' => array(1, 2, 3)),
-            'Symfony\Component\Serializer\Tests\Fixtures\VariadicConstructorArgsDummy', 'any');
+            'Makhan\Component\Serializer\Tests\Fixtures\VariadicConstructorArgsDummy', 'any');
         $this->assertEquals(array(1, 2, 3), $obj->getFoo());
     }
 
@@ -163,7 +163,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
     {
         $obj = $this->normalizer->denormalize(
             array(),
-            'Symfony\Component\Serializer\Tests\Fixtures\VariadicConstructorArgsDummy', 'any');
+            'Makhan\Component\Serializer\Tests\Fixtures\VariadicConstructorArgsDummy', 'any');
         $this->assertEquals(array(), $obj->getFoo());
     }
 
@@ -195,7 +195,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
         $obj->setFoo('foo');
         $obj->setBar('bar');
         $obj->setFooBar('fooBar');
-        $obj->setSymfony('symfony');
+        $obj->setMakhan('makhan');
         $obj->setKevin('kevin');
         $obj->setCoopTilleuls('coopTilleuls');
 
@@ -204,7 +204,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
         ), $this->normalizer->normalize($obj, null, array(GetSetMethodNormalizer::GROUPS => array('c'))));
 
         $this->assertEquals(array(
-            'symfony' => 'symfony',
+            'makhan' => 'makhan',
             'foo' => 'foo',
             'fooBar' => 'fooBar',
             'bar' => 'bar',
@@ -226,7 +226,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(GetSetMethodNormalizer::GROUPS => array('a'))
         );
@@ -236,7 +236,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(GetSetMethodNormalizer::GROUPS => array('a', 'b'))
         );
@@ -251,14 +251,14 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
         $obj->setCoopTilleuls('les-tilleuls.coop');
 
         $this->assertEquals(
             array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
             ),
             $this->normalizer->normalize($obj, null, array(GetSetMethodNormalizer::GROUPS => array('name_converter')))
         );
@@ -272,16 +272,16 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
 
         $this->assertEquals(
             $obj,
             $this->normalizer->denormalize(array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
                 'coop_tilleuls' => 'les-tilleuls.coop',
-            ), 'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(GetSetMethodNormalizer::GROUPS => array('name_converter')))
+            ), 'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(GetSetMethodNormalizer::GROUPS => array('name_converter')))
         );
     }
 
@@ -389,12 +389,12 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\LogicException
+     * @expectedException \Makhan\Component\Serializer\Exception\LogicException
      * @expectedExceptionMessage Cannot normalize attribute "object" because the injected serializer is not a normalizer
      */
     public function testUnableToNormalizeObjectAttribute()
     {
-        $serializer = $this->getMock('Symfony\Component\Serializer\SerializerInterface');
+        $serializer = $this->getMock('Makhan\Component\Serializer\SerializerInterface');
         $this->normalizer->setSerializer($serializer);
 
         $obj = new GetSetDummy();
@@ -405,7 +405,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\CircularReferenceException
+     * @expectedException \Makhan\Component\Serializer\Exception\CircularReferenceException
      */
     public function testUnableToNormalizeCircularReference()
     {
@@ -443,7 +443,7 @@ class GetSetMethodNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new CircularReferenceDummy();
 
-        $expected = array('me' => 'Symfony\Component\Serializer\Tests\Fixtures\CircularReferenceDummy');
+        $expected = array('me' => 'Makhan\Component\Serializer\Tests\Fixtures\CircularReferenceDummy');
         $this->assertEquals($expected, $this->normalizer->normalize($obj));
     }
 

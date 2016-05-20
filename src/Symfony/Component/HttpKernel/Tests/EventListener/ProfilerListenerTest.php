@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\EventListener\ProfilerListener;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Symfony\Component\HttpKernel\Kernel;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpKernel\EventListener\ProfilerListener;
+use Makhan\Component\HttpKernel\Event\FilterResponseEvent;
+use Makhan\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Makhan\Component\HttpKernel\Event\PostResponseEvent;
+use Makhan\Component\HttpKernel\Exception\HttpException;
+use Makhan\Component\HttpKernel\Kernel;
 
 class ProfilerListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,11 +26,11 @@ class ProfilerListenerTest extends \PHPUnit_Framework_TestCase
      */
     public function testKernelTerminate()
     {
-        $profile = $this->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profile')
+        $profile = $this->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profile')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $profiler = $this->getMockBuilder('Symfony\Component\HttpKernel\Profiler\Profiler')
+        $profiler = $this->getMockBuilder('Makhan\Component\HttpKernel\Profiler\Profiler')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -38,17 +38,17 @@ class ProfilerListenerTest extends \PHPUnit_Framework_TestCase
             ->method('collect')
             ->will($this->returnValue($profile));
 
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\HttpKernelInterface');
 
-        $masterRequest = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
+        $masterRequest = $this->getMockBuilder('Makhan\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $subRequest = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
+        $subRequest = $this->getMockBuilder('Makhan\Component\HttpFoundation\Request')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $response = $this->getMockBuilder('Symfony\Component\HttpFoundation\Response')
+        $response = $this->getMockBuilder('Makhan\Component\HttpFoundation\Response')
             ->disableOriginalConstructor()
             ->getMock();
 

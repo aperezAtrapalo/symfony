@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Filesystem\Tests;
+namespace Makhan\Component\Filesystem\Tests;
 
 /**
  * Test class for Filesystem.
@@ -30,7 +30,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testCopyFails()
     {
@@ -41,7 +41,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testCopyUnreadableFileFails()
     {
@@ -115,7 +115,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testCopyWithOverrideWithReadOnlyTargetFails()
     {
@@ -158,7 +158,7 @@ class FilesystemTest extends FilesystemTestCase
 
     public function testCopyForOriginUrlsAndExistingLocalFileDefaultsToCopy()
     {
-        $sourceFilePath = 'http://symfony.com/images/common/logo/logo_symfony_header.png';
+        $sourceFilePath = 'http://makhan.com/images/common/logo/logo_makhan_header.png';
         $targetFilePath = $this->workspace.DIRECTORY_SEPARATOR.'copy_target_file';
 
         file_put_contents($targetFilePath, 'TARGET FILE');
@@ -209,7 +209,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testMkdirCreatesDirectoriesFails()
     {
@@ -231,7 +231,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testTouchFails()
     {
@@ -367,7 +367,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testFilesExistsFails()
     {
@@ -566,7 +566,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testChownSymlinkFails()
     {
@@ -583,7 +583,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testChownFail()
     {
@@ -632,7 +632,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testChgrpSymlinkFails()
     {
@@ -649,7 +649,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testChgrpFail()
     {
@@ -674,7 +674,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testRenameThrowsExceptionIfTargetAlreadyExists()
     {
@@ -702,7 +702,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testRenameThrowsExceptionOnError()
     {
@@ -815,13 +815,13 @@ class FilesystemTest extends FilesystemTestCase
     public function providePathsForMakePathRelative()
     {
         $paths = array(
-            array('/var/lib/symfony/src/Symfony/', '/var/lib/symfony/src/Symfony/Component', '../'),
-            array('/var/lib/symfony/src/Symfony/', '/var/lib/symfony/src/Symfony/Component/', '../'),
-            array('/var/lib/symfony/src/Symfony', '/var/lib/symfony/src/Symfony/Component', '../'),
-            array('/var/lib/symfony/src/Symfony', '/var/lib/symfony/src/Symfony/Component/', '../'),
-            array('var/lib/symfony/', 'var/lib/symfony/src/Symfony/Component', '../../../'),
-            array('/usr/lib/symfony/', '/var/lib/symfony/src/Symfony/Component', '../../../../../../usr/lib/symfony/'),
-            array('/var/lib/symfony/src/Symfony/', '/var/lib/symfony/', 'src/Symfony/'),
+            array('/var/lib/makhan/src/Makhan/', '/var/lib/makhan/src/Makhan/Component', '../'),
+            array('/var/lib/makhan/src/Makhan/', '/var/lib/makhan/src/Makhan/Component/', '../'),
+            array('/var/lib/makhan/src/Makhan', '/var/lib/makhan/src/Makhan/Component', '../'),
+            array('/var/lib/makhan/src/Makhan', '/var/lib/makhan/src/Makhan/Component/', '../'),
+            array('var/lib/makhan/', 'var/lib/makhan/src/Makhan/Component', '../../../'),
+            array('/usr/lib/makhan/', '/var/lib/makhan/src/Makhan/Component', '../../../../../../usr/lib/makhan/'),
+            array('/var/lib/makhan/src/Makhan/', '/var/lib/makhan/', 'src/Makhan/'),
             array('/aa/bb', '/aa/bb', './'),
             array('/aa/bb', '/aa/bb/', './'),
             array('/aa/bb/', '/aa/bb', './'),
@@ -843,7 +843,7 @@ class FilesystemTest extends FilesystemTestCase
         );
 
         if ('\\' === DIRECTORY_SEPARATOR) {
-            $paths[] = array('c:\var\lib/symfony/src/Symfony/', 'c:/var/lib/symfony/', 'src/Symfony/');
+            $paths[] = array('c:\var\lib/makhan/src/Makhan/', 'c:/var/lib/makhan/', 'src/Makhan/');
         }
 
         return $paths;
@@ -1016,7 +1016,7 @@ class FilesystemTest extends FilesystemTestCase
 
     public function testTempnamWithMockScheme()
     {
-        stream_wrapper_register('mock', 'Symfony\Component\Filesystem\Tests\Fixtures\MockStream\MockStream');
+        stream_wrapper_register('mock', 'Makhan\Component\Filesystem\Tests\Fixtures\MockStream\MockStream');
 
         $scheme = 'mock://';
         $dirname = $scheme.$this->workspace;
@@ -1028,7 +1028,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testTempnamWithZlibSchemeFails()
     {
@@ -1053,7 +1053,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testTempnamWithPharSchemeFails()
     {
@@ -1072,7 +1072,7 @@ class FilesystemTest extends FilesystemTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Filesystem\Exception\IOException
+     * @expectedException \Makhan\Component\Filesystem\Exception\IOException
      */
     public function testTempnamWithHTTPSchemeFails()
     {

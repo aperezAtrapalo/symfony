@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping\Loader;
+namespace Makhan\Component\Validator\Mapping\Loader;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Exception\MappingException;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Exception\MappingException;
 
 /**
  * Base loader for validation metadata.
  *
- * This loader supports the loading of constraints from Symfony's default
+ * This loader supports the loading of constraints from Makhan's default
  * namespace (see {@link DEFAULT_NAMESPACE}) using the short class names of
  * those constraints. Constraints can also be loaded using their fully
  * qualified class names. At last, namespace aliases can be defined to load
@@ -30,7 +30,7 @@ abstract class AbstractLoader implements LoaderInterface
     /**
      * The namespace to load constraints from by default.
      */
-    const DEFAULT_NAMESPACE = '\\Symfony\\Component\\Validator\\Constraints\\';
+    const DEFAULT_NAMESPACE = '\\Makhan\\Component\\Validator\\Constraints\\';
 
     /**
      * @var array

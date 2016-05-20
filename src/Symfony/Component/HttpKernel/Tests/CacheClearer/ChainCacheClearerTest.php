@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\CacheClearer;
+namespace Makhan\Component\HttpKernel\Tests\CacheClearer;
 
-use Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer;
+use Makhan\Component\HttpKernel\CacheClearer\ChainCacheClearer;
 
 class ChainCacheClearerTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,6 +52,6 @@ class ChainCacheClearerTest extends \PHPUnit_Framework_TestCase
 
     protected function getMockClearer()
     {
-        return $this->getMock('Symfony\Component\HttpKernel\CacheClearer\CacheClearerInterface');
+        return $this->getMock('Makhan\Component\HttpKernel\CacheClearer\CacheClearerInterface');
     }
 }

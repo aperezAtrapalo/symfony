@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Security\User;
+namespace Makhan\Bridge\Doctrine\Security\User;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\Exception\UnsupportedUserException;
+use Makhan\Component\Security\Core\Exception\UsernameNotFoundException;
+use Makhan\Component\Security\Core\User\UserProviderInterface;
+use Makhan\Component\Security\Core\User\UserInterface;
 
 /**
  * Wrapper around a Doctrine ObjectManager.
  *
  * Provides easy to use provisioning for Doctrine entity users.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
 class EntityUserProvider implements UserProviderInterface
@@ -51,7 +51,7 @@ class EntityUserProvider implements UserProviderInterface
             $user = $repository->findOneBy(array($this->property => $username));
         } else {
             if (!$repository instanceof UserLoaderInterface) {
-                throw new \InvalidArgumentException(sprintf('The Doctrine repository "%s" must implement Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface.', get_class($repository)));
+                throw new \InvalidArgumentException(sprintf('The Doctrine repository "%s" must implement Makhan\Bridge\Doctrine\Security\User\UserLoaderInterface.', get_class($repository)));
             }
 
             $user = $repository->loadUserByUsername($username);

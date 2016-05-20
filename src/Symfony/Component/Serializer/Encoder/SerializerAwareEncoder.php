@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Encoder;
+namespace Makhan\Component\Serializer\Encoder;
 
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\SerializerAwareInterface;
+use Makhan\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\SerializerAwareInterface;
 
 /**
  * SerializerAware Encoder implementation.

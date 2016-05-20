@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\ChoiceList;
+namespace Makhan\Component\Form\Tests\ChoiceList;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -17,7 +17,7 @@ namespace Symfony\Component\Form\Tests\ChoiceList;
 abstract class AbstractChoiceListTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \Symfony\Component\Form\ChoiceList\ChoiceListInterface
+     * @var \Makhan\Component\Form\ChoiceList\ChoiceListInterface
      */
     protected $list;
 
@@ -174,7 +174,7 @@ abstract class AbstractChoiceListTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array($this->choice1, $this->choice2), $this->list->getChoicesForValues($values));
     }
 
-    // https://github.com/symfony/symfony/issues/3446
+    // https://github.com/makhan/makhan/issues/3446
     public function testGetChoicesForValuesEmpty()
     {
         $this->assertSame(array(), $this->list->getChoicesForValues(array()));
@@ -217,7 +217,7 @@ abstract class AbstractChoiceListTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Symfony\Component\Form\ChoiceList\ChoiceListInterface
+     * @return \Makhan\Component\Form\ChoiceList\ChoiceListInterface
      */
     abstract protected function createChoiceList();
 

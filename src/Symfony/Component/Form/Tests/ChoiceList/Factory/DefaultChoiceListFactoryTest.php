@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\ChoiceList\Factory;
+namespace Makhan\Component\Form\Tests\ChoiceList\Factory;
 
-use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
-use Symfony\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
-use Symfony\Component\Form\ChoiceList\LazyChoiceList;
-use Symfony\Component\Form\ChoiceList\View\ChoiceGroupView;
-use Symfony\Component\Form\ChoiceList\View\ChoiceListView;
-use Symfony\Component\Form\ChoiceList\View\ChoiceView;
+use Makhan\Component\Form\ChoiceList\ArrayChoiceList;
+use Makhan\Component\Form\ChoiceList\ChoiceListInterface;
+use Makhan\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory;
+use Makhan\Component\Form\ChoiceList\LazyChoiceList;
+use Makhan\Component\Form\ChoiceList\View\ChoiceGroupView;
+use Makhan\Component\Form\ChoiceList\View\ChoiceListView;
+use Makhan\Component\Form\ChoiceList\View\ChoiceView;
 
 class DefaultChoiceListFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -193,7 +193,7 @@ class DefaultChoiceListFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateFromLoader()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $list = $this->factory->createListFromLoader($loader);
 
@@ -202,7 +202,7 @@ class DefaultChoiceListFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateFromLoaderWithValues()
     {
-        $loader = $this->getMock('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
+        $loader = $this->getMock('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface');
 
         $value = function () {};
         $list = $this->factory->createListFromLoader($loader, $value);

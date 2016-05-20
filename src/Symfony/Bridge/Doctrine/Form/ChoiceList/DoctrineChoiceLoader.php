@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Form\ChoiceList;
+namespace Makhan\Bridge\Doctrine\Form\ChoiceList;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
-use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
-use Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
+use Makhan\Component\Form\ChoiceList\ArrayChoiceList;
+use Makhan\Component\Form\ChoiceList\ChoiceListInterface;
+use Makhan\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
+use Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
 
 /**
  * Loads choices using a Doctrine object manager.
@@ -143,7 +143,7 @@ class DoctrineChoiceLoader implements ChoiceLoaderInterface
         // object loader. At least with MySQL and on the development machine
         // this was tested on, no exception was thrown for such invalid
         // statements, consequently no test fails when this code is removed.
-        // https://github.com/symfony/symfony/pull/8981#issuecomment-24230557
+        // https://github.com/makhan/makhan/pull/8981#issuecomment-24230557
         if (empty($values)) {
             return array();
         }

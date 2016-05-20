@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator\Constraints;
+namespace Makhan\Component\Form\Tests\Extension\Validator\Constraints;
 
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\Extension\Validator\Constraints\Form;
-use Symfony\Component\Form\Extension\Validator\Constraints\FormValidator;
-use Symfony\Component\Form\SubmitButtonBuilder;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\ExecutionContextInterface;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\CallbackTransformer;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\Extension\Validator\Constraints\Form;
+use Makhan\Component\Form\Extension\Validator\Constraints\FormValidator;
+use Makhan\Component\Form\SubmitButtonBuilder;
+use Makhan\Component\Validator\Constraints\NotNull;
+use Makhan\Component\Validator\Constraints\NotBlank;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\ExecutionContextInterface;
+use Makhan\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -46,10 +46,10 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
         $this->serverParams = $this->getMock(
-            'Symfony\Component\Form\Extension\Validator\Util\ServerParams',
+            'Makhan\Component\Form\Extension\Validator\Util\ServerParams',
             array('getNormalizedIniPostMaxSize', 'getContentLength')
         );
 
@@ -211,8 +211,8 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
     public function testDontValidateConstraintsIfNoValidationGroups()
     {
         $object = $this->getMock('\stdClass');
-        $constraint1 = $this->getMock('Symfony\Component\Validator\Constraint');
-        $constraint2 = $this->getMock('Symfony\Component\Validator\Constraint');
+        $constraint1 = $this->getMock('Makhan\Component\Validator\Constraint');
+        $constraint2 = $this->getMock('Makhan\Component\Validator\Constraint');
 
         $options = array(
             'validation_groups' => array(),
@@ -240,7 +240,7 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
                 'invalid_message' => 'invalid_message_key',
                 // Invalid message parameters must be supported, because the
                 // invalid message can be a translation key
-                // see https://github.com/symfony/symfony/issues/5144
+                // see https://github.com/makhan/makhan/issues/5144
                 'invalid_message_parameters' => array('{{ foo }}' => 'bar'),
             ))
             ->setData($object)
@@ -274,7 +274,7 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
                 'invalid_message' => 'invalid_message_key',
                 // Invalid message parameters must be supported, because the
                 // invalid message can be a translation key
-                // see https://github.com/symfony/symfony/issues/5144
+                // see https://github.com/makhan/makhan/issues/5144
                 'invalid_message_parameters' => array('{{ foo }}' => 'bar'),
                 'validation_groups' => array(),
             ))
@@ -304,8 +304,8 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
     public function testDontValidateConstraintsIfNotSynchronized()
     {
         $object = $this->getMock('\stdClass');
-        $constraint1 = $this->getMock('Symfony\Component\Validator\Constraint');
-        $constraint2 = $this->getMock('Symfony\Component\Validator\Constraint');
+        $constraint1 = $this->getMock('Makhan\Component\Validator\Constraint');
+        $constraint2 = $this->getMock('Makhan\Component\Validator\Constraint');
 
         $options = array(
             'invalid_message' => 'invalid_message_key',
@@ -335,7 +335,7 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
             ->assertRaised();
     }
 
-    // https://github.com/symfony/symfony/issues/4359
+    // https://github.com/makhan/makhan/issues/4359
     public function testDontMarkInvalidIfAnyChildIsNotSynchronized()
     {
         $object = $this->getMock('\stdClass');
@@ -619,9 +619,9 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
 
     private function getMockExecutionContext()
     {
-        $context = $this->getMock('Symfony\Component\Validator\Context\ExecutionContextInterface');
-        $validator = $this->getMock('Symfony\Component\Validator\Validator\ValidatorInterface');
-        $contextualValidator = $this->getMock('Symfony\Component\Validator\Validator\ContextualValidatorInterface');
+        $context = $this->getMock('Makhan\Component\Validator\Context\ExecutionContextInterface');
+        $validator = $this->getMock('Makhan\Component\Validator\Validator\ValidatorInterface');
+        $contextualValidator = $this->getMock('Makhan\Component\Validator\Validator\ContextualValidatorInterface');
 
         $validator->expects($this->any())
             ->method('inContext')
@@ -669,6 +669,6 @@ class FormValidatorTest extends AbstractConstraintValidatorTest
      */
     private function getDataMapper()
     {
-        return $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        return $this->getMock('Makhan\Component\Form\DataMapperInterface');
     }
 }

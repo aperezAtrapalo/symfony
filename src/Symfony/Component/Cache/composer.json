@@ -1,9 +1,9 @@
 {
-    "name": "symfony/cache",
+    "name": "makhan/cache",
     "type": "library",
-    "description": "Symfony implementation of PSR-6",
+    "description": "Makhan implementation of PSR-6",
     "keywords": ["caching", "psr6"],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
@@ -11,8 +11,8 @@
             "email": "p@tchwork.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "provide": {
@@ -29,10 +29,10 @@
         "predis/predis": "~1.0"
     },
     "suggest": {
-        "symfony/polyfill-apcu": "For using ApcuAdapter on HHVM"
+        "makhan/polyfill-apcu": "For using ApcuAdapter on HHVM"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Cache\\": "" },
+        "psr-4": { "Makhan\\Component\\Cache\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

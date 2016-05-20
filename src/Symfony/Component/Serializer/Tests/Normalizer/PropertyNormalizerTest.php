@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Normalizer;
+namespace Makhan\Component\Serializer\Tests\Normalizer;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
-use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\Tests\Fixtures\GroupDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\PropertyCircularReferenceDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\PropertySiblingHolder;
+use Makhan\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Makhan\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Makhan\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Makhan\Component\Serializer\Normalizer\PropertyNormalizer;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\SerializerInterface;
+use Makhan\Component\Serializer\Tests\Fixtures\GroupDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\MaxDepthDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\PropertyCircularReferenceDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\PropertySiblingHolder;
 
 class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 {
@@ -36,7 +36,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->serializer = $this->getMock('Symfony\Component\Serializer\SerializerInterface');
+        $this->serializer = $this->getMock('Makhan\Component\Serializer\SerializerInterface');
         $this->normalizer = new PropertyNormalizer();
         $this->normalizer->setSerializer($this->serializer);
     }
@@ -138,7 +138,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
         $obj->setFoo('foo');
         $obj->setBar('bar');
         $obj->setFooBar('fooBar');
-        $obj->setSymfony('symfony');
+        $obj->setMakhan('makhan');
         $obj->setKevin('kevin');
         $obj->setCoopTilleuls('coopTilleuls');
 
@@ -148,7 +148,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         // The PropertyNormalizer is not able to hydrate properties from parent classes
         $this->assertEquals(array(
-            'symfony' => 'symfony',
+            'makhan' => 'makhan',
             'foo' => 'foo',
             'fooBar' => 'fooBar',
             'bar' => 'bar',
@@ -168,7 +168,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(PropertyNormalizer::GROUPS => array('a'))
         );
@@ -178,7 +178,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $normalized = $this->normalizer->denormalize(
             $toNormalize,
-            'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy',
+            'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy',
             null,
             array(PropertyNormalizer::GROUPS => array('a', 'b'))
         );
@@ -193,14 +193,14 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
         $obj->setCoopTilleuls('les-tilleuls.coop');
 
         $this->assertEquals(
             array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
             ),
             $this->normalizer->normalize($obj, null, array(PropertyNormalizer::GROUPS => array('name_converter')))
         );
@@ -214,16 +214,16 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new GroupDummy();
         $obj->setFooBar('@dunglas');
-        $obj->setSymfony('@coopTilleuls');
+        $obj->setMakhan('@coopTilleuls');
 
         $this->assertEquals(
             $obj,
             $this->normalizer->denormalize(array(
                 'bar' => null,
                 'foo_bar' => '@dunglas',
-                'symfony' => '@coopTilleuls',
+                'makhan' => '@coopTilleuls',
                 'coop_tilleuls' => 'les-tilleuls.coop',
-            ), 'Symfony\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(PropertyNormalizer::GROUPS => array('name_converter')))
+            ), 'Makhan\Component\Serializer\Tests\Fixtures\GroupDummy', null, array(PropertyNormalizer::GROUPS => array('name_converter')))
         );
     }
 
@@ -289,7 +289,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\CircularReferenceException
+     * @expectedException \Makhan\Component\Serializer\Exception\CircularReferenceException
      */
     public function testUnableToNormalizeCircularReference()
     {
@@ -327,7 +327,7 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
 
         $obj = new PropertyCircularReferenceDummy();
 
-        $expected = array('me' => 'Symfony\Component\Serializer\Tests\Fixtures\PropertyCircularReferenceDummy');
+        $expected = array('me' => 'Makhan\Component\Serializer\Tests\Fixtures\PropertyCircularReferenceDummy');
         $this->assertEquals($expected, $this->normalizer->normalize($obj));
     }
 
@@ -348,12 +348,12 @@ class PropertyNormalizerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\LogicException
+     * @expectedException \Makhan\Component\Serializer\Exception\LogicException
      * @expectedExceptionMessage Cannot normalize attribute "bar" because the injected serializer is not a normalizer
      */
     public function testUnableToNormalizeObjectAttribute()
     {
-        $serializer = $this->getMock('Symfony\Component\Serializer\SerializerInterface');
+        $serializer = $this->getMock('Makhan\Component\Serializer\SerializerInterface');
         $this->normalizer->setSerializer($serializer);
 
         $obj = new PropertyDummy();

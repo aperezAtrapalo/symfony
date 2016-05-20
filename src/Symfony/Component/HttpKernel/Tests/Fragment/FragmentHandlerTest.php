@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Makhan\Component\HttpKernel\Tests\Fragment;
 
-use Symfony\Component\HttpKernel\Fragment\FragmentHandler;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Fragment\FragmentHandler;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
 
 /**
  * @group time-sensitive
@@ -24,7 +24,7 @@ class FragmentHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->requestStack = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\RequestStack')
+        $this->requestStack = $this->getMockBuilder('Makhan\\Component\\HttpFoundation\\RequestStack')
             ->disableOriginalConstructor()
             ->getMock()
         ;
@@ -74,7 +74,7 @@ class FragmentHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function getHandler($returnValue, $arguments = array())
     {
-        $renderer = $this->getMock('Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface');
+        $renderer = $this->getMock('Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface');
         $renderer
             ->expects($this->any())
             ->method('getName')

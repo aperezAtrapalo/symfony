@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Templating;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Templating;
 
-use Symfony\Bundle\FrameworkBundle\Templating\DelegatingEngine;
+use Makhan\Bundle\FrameworkBundle\Templating\DelegatingEngine;
 
 class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,7 +60,7 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 
     public function testRenderResponseWithFrameworkEngine()
     {
-        $response = $this->getMock('Symfony\Component\HttpFoundation\Response');
+        $response = $this->getMock('Makhan\Component\HttpFoundation\Response');
         $engine = $this->getFrameworkEngineMock('template.php', true);
         $engine->expects($this->once())
             ->method('renderResponse')
@@ -79,12 +79,12 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
         $container = $this->getContainerMock(array('engine' => $engine));
         $delegatingEngine = new DelegatingEngine($container, array('engine'));
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $delegatingEngine->renderResponse('template.php', array('foo' => 'bar')));
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\Response', $delegatingEngine->renderResponse('template.php', array('foo' => 'bar')));
     }
 
     private function getEngineMock($template, $supports)
     {
-        $engine = $this->getMock('Symfony\Component\Templating\EngineInterface');
+        $engine = $this->getMock('Makhan\Component\Templating\EngineInterface');
 
         $engine->expects($this->once())
             ->method('supports')
@@ -96,7 +96,7 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 
     private function getFrameworkEngineMock($template, $supports)
     {
-        $engine = $this->getMock('Symfony\Bundle\FrameworkBundle\Templating\EngineInterface');
+        $engine = $this->getMock('Makhan\Bundle\FrameworkBundle\Templating\EngineInterface');
 
         $engine->expects($this->once())
             ->method('supports')
@@ -108,7 +108,7 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 
     private function getContainerMock($services)
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $container = $this->getMock('Makhan\Component\DependencyInjection\ContainerInterface');
 
         $i = 0;
         foreach ($services as $id => $service) {

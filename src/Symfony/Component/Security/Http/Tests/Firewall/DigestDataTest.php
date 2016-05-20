@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests\Firewall;
+namespace Makhan\Component\Security\Http\Tests\Firewall;
 
-use Symfony\Component\Security\Http\Firewall\DigestData;
+use Makhan\Component\Security\Http\Firewall\DigestData;
 
 class DigestDataTest extends \PHPUnit_Framework_TestCase
 {
@@ -158,7 +158,7 @@ class DigestDataTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        class_exists('Symfony\Component\Security\Http\Firewall\DigestAuthenticationListener', true);
+        class_exists('Makhan\Component\Security\Http\Firewall\DigestAuthenticationListener', true);
     }
 
     private function calculateServerDigest($username, $realm, $password, $key, $nc, $cnonce, $qop, $method, $uri)

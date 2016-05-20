@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authorization\Voter;
+namespace Makhan\Component\Security\Core\Tests\Authorization\Voter;
 
-use Symfony\Component\Security\Core\Authorization\Voter\ExpressionVoter;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
-use Symfony\Component\Security\Core\Role\Role;
+use Makhan\Component\Security\Core\Authorization\Voter\ExpressionVoter;
+use Makhan\Component\Security\Core\Authorization\Voter\VoterInterface;
+use Makhan\Component\Security\Core\Role\Role;
 
 class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
         foreach ($roles as $i => $role) {
             $roles[$i] = new Role($role);
         }
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         if ($tokenExpectsGetRoles) {
             $token->expects($this->once())
@@ -58,7 +58,7 @@ class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 
     protected function createExpressionLanguage($expressionLanguageExpectsEvaluate = true)
     {
-        $mock = $this->getMock('Symfony\Component\Security\Core\Authorization\ExpressionLanguage');
+        $mock = $this->getMock('Makhan\Component\Security\Core\Authorization\ExpressionLanguage');
 
         if ($expressionLanguageExpectsEvaluate) {
             $mock->expects($this->once())
@@ -71,17 +71,17 @@ class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 
     protected function createTrustResolver()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationTrustResolverInterface');
     }
 
     protected function createRoleHierarchy()
     {
-        return $this->getMock('Symfony\Component\Security\Core\Role\RoleHierarchyInterface');
+        return $this->getMock('Makhan\Component\Security\Core\Role\RoleHierarchyInterface');
     }
 
     protected function createExpression()
     {
-        return $this->getMockBuilder('Symfony\Component\ExpressionLanguage\Expression')
+        return $this->getMockBuilder('Makhan\Component\ExpressionLanguage\Expression')
             ->disableOriginalConstructor()
             ->getMock();
     }

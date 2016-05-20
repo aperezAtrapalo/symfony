@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Finder\Tests\Iterator;
+namespace Makhan\Component\Finder\Tests\Iterator;
 
 abstract class RealIteratorTestCase extends IteratorTestCase
 {
@@ -18,7 +18,7 @@ abstract class RealIteratorTestCase extends IteratorTestCase
 
     public static function setUpBeforeClass()
     {
-        self::$tmpDir = realpath(sys_get_temp_dir()).DIRECTORY_SEPARATOR.'symfony_finder';
+        self::$tmpDir = realpath(sys_get_temp_dir()).DIRECTORY_SEPARATOR.'makhan_finder';
 
         self::$files = array(
             '.git/',
@@ -75,7 +75,7 @@ abstract class RealIteratorTestCase extends IteratorTestCase
          * Without the call to setUpBeforeClass() property can be null.
          */
         if (!self::$tmpDir) {
-            self::$tmpDir = realpath(sys_get_temp_dir()).DIRECTORY_SEPARATOR.'symfony_finder';
+            self::$tmpDir = realpath(sys_get_temp_dir()).DIRECTORY_SEPARATOR.'makhan_finder';
         }
 
         if (is_array($files)) {

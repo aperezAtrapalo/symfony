@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Tests\Authorization;
+namespace Makhan\Component\Security\Core\Tests\Authorization;
 
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Makhan\Component\Security\Core\Authorization\AuthorizationChecker;
 
 class AuthorizationCheckerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,8 +23,8 @@ class AuthorizationCheckerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->authenticationManager = $this->getMock('Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface');
-        $this->accessDecisionManager = $this->getMock('Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface');
+        $this->authenticationManager = $this->getMock('Makhan\Component\Security\Core\Authentication\AuthenticationManagerInterface');
+        $this->accessDecisionManager = $this->getMock('Makhan\Component\Security\Core\Authorization\AccessDecisionManagerInterface');
         $this->tokenStorage = new TokenStorage();
 
         $this->authorizationChecker = new AuthorizationChecker(
@@ -36,10 +36,10 @@ class AuthorizationCheckerTest extends \PHPUnit_Framework_TestCase
 
     public function testVoteAuthenticatesTokenIfNecessary()
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $this->tokenStorage->setToken($token);
 
-        $newToken = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $newToken = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
 
         $this->authenticationManager
             ->expects($this->once())
@@ -66,7 +66,7 @@ class AuthorizationCheckerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException
+     * @expectedException \Makhan\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException
      */
     public function testVoteWithoutAuthenticationToken()
     {
@@ -78,7 +78,7 @@ class AuthorizationCheckerTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsGranted($decide)
     {
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
             ->expects($this->once())
             ->method('isAuthenticated')

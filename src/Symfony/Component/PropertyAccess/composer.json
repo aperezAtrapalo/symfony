@@ -1,27 +1,27 @@
 {
-    "name": "symfony/property-access",
+    "name": "makhan/property-access",
     "type": "library",
-    "description": "Symfony PropertyAccess Component",
+    "description": "Makhan PropertyAccess Component",
     "keywords": ["property", "index", "access", "object", "array", "extraction", "injection", "reflection", "property path"],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/polyfill-php70": "~1.0",
-        "symfony/inflector": "~3.1"
+        "makhan/polyfill-php70": "~1.0",
+        "makhan/inflector": "~3.1"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\PropertyAccess\\": "" },
+        "psr-4": { "Makhan\\Component\\PropertyAccess\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

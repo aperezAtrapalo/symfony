@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * AddConsoleCommandPass.
@@ -34,8 +34,8 @@ class AddConsoleCommandPass implements CompilerPassInterface
             }
 
             $class = $container->getParameterBag()->resolveValue($definition->getClass());
-            if (!is_subclass_of($class, 'Symfony\\Component\\Console\\Command\\Command')) {
-                throw new \InvalidArgumentException(sprintf('The service "%s" tagged "console.command" must be a subclass of "Symfony\\Component\\Console\\Command\\Command".', $id));
+            if (!is_subclass_of($class, 'Makhan\\Component\\Console\\Command\\Command')) {
+                throw new \InvalidArgumentException(sprintf('The service "%s" tagged "console.command" must be a subclass of "Makhan\\Component\\Console\\Command\\Command".', $id));
             }
             $container->setAlias($serviceId = 'console.command.'.strtolower(str_replace('\\', '_', $class)), $id);
             $serviceIds[] = $serviceId;

@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\DataFixtures;
+namespace Makhan\Bridge\Doctrine\DataFixtures;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\Loader;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\ContainerAwareInterface;
+use Makhan\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Doctrine data fixtures loader that injects the service container into
  * fixture objects that implement ContainerAwareInterface.
  *
  * Note: Use of this class requires the Doctrine data fixtures extension, which
- * is a suggested dependency for Symfony.
+ * is a suggested dependency for Makhan.
  */
 class ContainerAwareLoader extends Loader
 {

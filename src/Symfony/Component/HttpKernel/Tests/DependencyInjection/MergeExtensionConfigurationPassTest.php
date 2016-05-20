@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\DependencyInjection;
+namespace Makhan\Component\HttpKernel\Tests\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
+use Makhan\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
 
 class MergeExtensionConfigurationPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testAutoloadMainExtension()
     {
         $container = $this->getMock(
-            'Symfony\\Component\\DependencyInjection\\ContainerBuilder',
+            'Makhan\\Component\\DependencyInjection\\ContainerBuilder',
             array(
                 'getExtensionConfig',
                 'loadFromExtension',
@@ -28,7 +28,7 @@ class MergeExtensionConfigurationPassTest extends \PHPUnit_Framework_TestCase
                 'getExtensions',
             )
         );
-        $params = $this->getMock('Symfony\\Component\\DependencyInjection\\ParameterBag\\ParameterBag');
+        $params = $this->getMock('Makhan\\Component\\DependencyInjection\\ParameterBag\\ParameterBag');
 
         $container->expects($this->at(0))
             ->method('getExtensionConfig')

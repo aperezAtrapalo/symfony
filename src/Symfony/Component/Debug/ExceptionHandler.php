@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug;
+namespace Makhan\Component\Debug;
 
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\Debug\Exception\OutOfMemoryException;
+use Makhan\Component\Debug\Exception\FlattenException;
+use Makhan\Component\Debug\Exception\OutOfMemoryException;
 
 /**
  * ExceptionHandler converts an exception to a Response object.
@@ -23,7 +23,7 @@ use Symfony\Component\Debug\Exception\OutOfMemoryException;
  * As this class is mainly used during Kernel boot, where nothing is yet
  * available, the Response content is always HTML.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Nicolas Grekas <p@tchwork.com>
  */
 class ExceptionHandler

@@ -1,29 +1,29 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\WebProfilerBundle\Tests\DependencyInjection;
+namespace Makhan\Bundle\WebProfilerBundle\Tests\DependencyInjection;
 
-use Symfony\Bundle\WebProfilerBundle\Tests\TestCase;
-use Symfony\Bundle\WebProfilerBundle\DependencyInjection\WebProfilerExtension;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
+use Makhan\Bundle\WebProfilerBundle\Tests\TestCase;
+use Makhan\Bundle\WebProfilerBundle\DependencyInjection\WebProfilerExtension;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Dumper\PhpDumper;
 
 class WebProfilerExtensionTest extends TestCase
 {
     private $kernel;
     /**
-     * @var \Symfony\Component\DependencyInjection\Container
+     * @var \Makhan\Component\DependencyInjection\Container
      */
     private $container;
 
@@ -45,10 +45,10 @@ class WebProfilerExtensionTest extends TestCase
     {
         parent::setUp();
 
-        $this->kernel = $this->getMock('Symfony\\Component\\HttpKernel\\KernelInterface');
+        $this->kernel = $this->getMock('Makhan\\Component\\HttpKernel\\KernelInterface');
 
         $this->container = new ContainerBuilder();
-        $this->container->register('router', $this->getMockClass('Symfony\\Component\\Routing\\RouterInterface'));
+        $this->container->register('router', $this->getMockClass('Makhan\\Component\\Routing\\RouterInterface'));
         $this->container->register('twig', 'Twig_Environment');
         $this->container->register('twig_loader', 'Twig_Loader_Array')->addArgument(array());
         $this->container->register('twig', 'Twig_Environment')->addArgument(new Reference('twig_loader'));
@@ -56,9 +56,9 @@ class WebProfilerExtensionTest extends TestCase
         $this->container->setParameter('kernel.cache_dir', __DIR__);
         $this->container->setParameter('kernel.debug', false);
         $this->container->setParameter('kernel.root_dir', __DIR__);
-        $this->container->setParameter('profiler.class', array('Symfony\\Component\\HttpKernel\\Profiler\\Profiler'));
-        $this->container->register('profiler', $this->getMockClass('Symfony\\Component\\HttpKernel\\Profiler\\Profiler'))
-            ->addArgument(new Definition($this->getMockClass('Symfony\\Component\\HttpKernel\\Profiler\\ProfilerStorageInterface')));
+        $this->container->setParameter('profiler.class', array('Makhan\\Component\\HttpKernel\\Profiler\\Profiler'));
+        $this->container->register('profiler', $this->getMockClass('Makhan\\Component\\HttpKernel\\Profiler\\Profiler'))
+            ->addArgument(new Definition($this->getMockClass('Makhan\\Component\\HttpKernel\\Profiler\\ProfilerStorageInterface')));
         $this->container->setParameter('data_collector.templates', array());
         $this->container->set('kernel', $this->kernel);
     }

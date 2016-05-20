@@ -1,28 +1,28 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Dumper;
+namespace Makhan\Component\DependencyInjection\Dumper;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Parameter;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-use Symfony\Component\ExpressionLanguage\Expression;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\Parameter;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\Exception\RuntimeException;
+use Makhan\Component\ExpressionLanguage\Expression;
 
 /**
  * XmlDumper dumps a service container as an XML string.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Martin Hasoň <martin.hason@gmail.com>
  */
 class XmlDumper extends Dumper
@@ -44,9 +44,9 @@ class XmlDumper extends Dumper
         $this->document = new \DOMDocument('1.0', 'utf-8');
         $this->document->formatOutput = true;
 
-        $container = $this->document->createElementNS('http://symfony.com/schema/dic/services', 'container');
+        $container = $this->document->createElementNS('http://makhan.com/schema/dic/services', 'container');
         $container->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-        $container->setAttribute('xsi:schemaLocation', 'http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd');
+        $container->setAttribute('xsi:schemaLocation', 'http://makhan.com/schema/dic/services http://makhan.com/schema/dic/services/services-1.0.xsd');
 
         $this->addParameters($container);
         $this->addServices($container);

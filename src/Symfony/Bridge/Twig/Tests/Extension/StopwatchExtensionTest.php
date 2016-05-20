@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\StopwatchExtension;
+use Makhan\Bridge\Twig\Extension\StopwatchExtension;
 
 class StopwatchExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,7 +42,7 @@ class StopwatchExtensionTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('{% stopwatch "foo" %}something{% endstopwatch %}', 'foo'),
-            array('{% stopwatch "foo" %}symfony2 is fun{% endstopwatch %}{% stopwatch "bar" %}something{% endstopwatch %}', array('foo', 'bar')),
+            array('{% stopwatch "foo" %}makhan2 is fun{% endstopwatch %}{% stopwatch "bar" %}something{% endstopwatch %}', array('foo', 'bar')),
             array('{% set foo = "foo" %}{% stopwatch foo %}something{% endstopwatch %}', 'foo'),
             array('{% set foo = "foo" %}{% stopwatch foo %}something {% set foo = "bar" %}{% endstopwatch %}', 'foo'),
             array('{% stopwatch "foo.bar" %}something{% endstopwatch %}', 'foo.bar'),
@@ -53,7 +53,7 @@ class StopwatchExtensionTest extends \PHPUnit_Framework_TestCase
     protected function getStopwatch($events = array())
     {
         $events = is_array($events) ? $events : array($events);
-        $stopwatch = $this->getMock('Symfony\Component\Stopwatch\Stopwatch');
+        $stopwatch = $this->getMock('Makhan\Component\Stopwatch\Stopwatch');
 
         $i = -1;
         foreach ($events as $eventName) {

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\DateFormatter\Verification;
+namespace Makhan\Component\Intl\Tests\DateFormatter\Verification;
 
-use Symfony\Component\Intl\DateFormatter\IntlDateFormatter;
-use Symfony\Component\Intl\Tests\DateFormatter\AbstractIntlDateFormatterTest;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Intl\DateFormatter\IntlDateFormatter;
+use Makhan\Component\Intl\Tests\DateFormatter\AbstractIntlDateFormatterTest;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 /**
  * Verifies that {@link AbstractIntlDateFormatterTest} matches the behavior of

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\BrowserKit;
+namespace Makhan\Component\BrowserKit;
 
-use Symfony\Component\DomCrawler\Crawler;
-use Symfony\Component\DomCrawler\Link;
-use Symfony\Component\DomCrawler\Form;
-use Symfony\Component\Process\PhpProcess;
+use Makhan\Component\DomCrawler\Crawler;
+use Makhan\Component\DomCrawler\Link;
+use Makhan\Component\DomCrawler\Form;
+use Makhan\Component\Process\PhpProcess;
 
 /**
  * Client simulates a browser.
@@ -24,7 +24,7 @@ use Symfony\Component\Process\PhpProcess;
  * If you want to be able to run requests in their own process (insulated flag),
  * you need to also implement the getScript() method.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Client
 {
@@ -104,12 +104,12 @@ abstract class Client
      *
      * @param bool $insulated Whether to insulate the requests or not
      *
-     * @throws \RuntimeException When Symfony Process Component is not installed
+     * @throws \RuntimeException When Makhan Process Component is not installed
      */
     public function insulate($insulated = true)
     {
-        if ($insulated && !class_exists('Symfony\\Component\\Process\\Process')) {
-            throw new \RuntimeException('Unable to isolate requests as the Symfony Process Component is not installed.');
+        if ($insulated && !class_exists('Makhan\\Component\\Process\\Process')) {
+            throw new \RuntimeException('Unable to isolate requests as the Makhan Process Component is not installed.');
         }
 
         $this->insulated = (bool) $insulated;
@@ -123,7 +123,7 @@ abstract class Client
     public function setServerParameters(array $server)
     {
         $this->server = array_merge(array(
-            'HTTP_USER_AGENT' => 'Symfony2 BrowserKit',
+            'HTTP_USER_AGENT' => 'Makhan2 BrowserKit',
         ), $server);
     }
 
@@ -413,7 +413,7 @@ abstract class Client
      */
     protected function createCrawlerFromContent($uri, $content, $type)
     {
-        if (!class_exists('Symfony\Component\DomCrawler\Crawler')) {
+        if (!class_exists('Makhan\Component\DomCrawler\Crawler')) {
             return;
         }
 

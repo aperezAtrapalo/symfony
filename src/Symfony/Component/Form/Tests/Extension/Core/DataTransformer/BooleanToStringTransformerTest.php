@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\BooleanToStringTransformer;
+use Makhan\Component\Form\Extension\Core\DataTransformer\BooleanToStringTransformer;
 
 class BooleanToStringTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,14 +38,14 @@ class BooleanToStringTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->transformer->transform(false));
     }
 
-    // https://github.com/symfony/symfony/issues/8989
+    // https://github.com/makhan/makhan/issues/8989
     public function testTransformAcceptsNull()
     {
         $this->assertNull($this->transformer->transform(null));
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformFailsIfString()
     {
@@ -53,7 +53,7 @@ class BooleanToStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformFailsIfInteger()
     {

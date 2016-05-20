@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\Session\Flash;
+namespace Makhan\Component\HttpFoundation\Tests\Session\Flash;
 
-use Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag as FlashBag;
+use Makhan\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag as FlashBag;
 
 /**
  * AutoExpireFlashBagTest.
@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag as FlashBa
 class AutoExpireFlashBagTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var \Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag
+     * @var \Makhan\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag
      */
     private $bag;
 

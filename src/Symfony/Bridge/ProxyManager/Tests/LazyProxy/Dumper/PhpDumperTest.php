@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\ProxyManager\Tests\LazyProxy\Dumper;
+namespace Makhan\Bridge\ProxyManager\Tests\LazyProxy\Dumper;
 
 use ProxyManager\ProxyGenerator\LazyLoading\MethodGenerator\StaticProxyConstructor;
-use Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
+use Makhan\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Dumper\PhpDumper;
 
 /**
- * Integration tests for {@see \Symfony\Component\DependencyInjection\Dumper\PhpDumper} combined
+ * Integration tests for {@see \Makhan\Component\DependencyInjection\Dumper\PhpDumper} combined
  * with the ProxyManager bridge.
  *
  * @author Marco Pivetta <ocramius@gmail.com>

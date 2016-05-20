@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\EventListener;
+namespace Makhan\Component\HttpKernel\Tests\EventListener;
 
-use Symfony\Component\HttpKernel\EventListener\DumpListener;
-use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\VarDumper\Cloner\ClonerInterface;
-use Symfony\Component\VarDumper\Cloner\Data;
-use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
-use Symfony\Component\VarDumper\VarDumper;
+use Makhan\Component\HttpKernel\EventListener\DumpListener;
+use Makhan\Component\HttpKernel\KernelEvents;
+use Makhan\Component\VarDumper\Cloner\ClonerInterface;
+use Makhan\Component\VarDumper\Cloner\Data;
+use Makhan\Component\VarDumper\Dumper\DataDumperInterface;
+use Makhan\Component\VarDumper\VarDumper;
 
 /**
  * DumpListenerTest.

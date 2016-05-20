@@ -1,30 +1,30 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Helper;
+namespace Makhan\Component\Console\Helper;
 
-use Symfony\Component\Console\Exception\LogicException;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ChoiceQuestion;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
-use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use Makhan\Component\Console\Exception\LogicException;
+use Makhan\Component\Console\Input\InputInterface;
+use Makhan\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Question\ChoiceQuestion;
+use Makhan\Component\Console\Question\ConfirmationQuestion;
+use Makhan\Component\Console\Question\Question;
+use Makhan\Component\Console\Style\MakhanStyle;
 
 /**
- * Symfony Style Guide compliant question helper.
+ * Makhan Style Guide compliant question helper.
  *
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-class SymfonyQuestionHelper extends QuestionHelper
+class MakhanQuestionHelper extends QuestionHelper
 {
     /**
      * {@inheritdoc}
@@ -95,7 +95,7 @@ class SymfonyQuestionHelper extends QuestionHelper
      */
     protected function writeError(OutputInterface $output, \Exception $error)
     {
-        if ($output instanceof SymfonyStyle) {
+        if ($output instanceof MakhanStyle) {
             $output->newLine();
             $output->error($error->getMessage());
 

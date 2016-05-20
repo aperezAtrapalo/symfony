@@ -1,25 +1,25 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Constraints;
+namespace Makhan\Component\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\ConstraintValidator;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * ChoiceValidator validates that the value is one of the expected values.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Florian Eckerstorfer <florian@eckerstorfer.org>
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

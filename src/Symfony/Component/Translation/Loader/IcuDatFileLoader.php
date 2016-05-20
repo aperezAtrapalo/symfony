@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Loader;
+namespace Makhan\Component\Translation\Loader;
 
-use Symfony\Component\Translation\MessageCatalogue;
-use Symfony\Component\Translation\Exception\InvalidResourceException;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Symfony\Component\Config\Resource\FileResource;
+use Makhan\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\Exception\InvalidResourceException;
+use Makhan\Component\Translation\Exception\NotFoundResourceException;
+use Makhan\Component\Config\Resource\FileResource;
 
 /**
  * IcuResFileLoader loads translations from a resource bundle.
@@ -53,7 +53,7 @@ class IcuDatFileLoader extends IcuResFileLoader
         $catalogue = new MessageCatalogue($locale);
         $catalogue->add($messages, $domain);
 
-        if (class_exists('Symfony\Component\Config\Resource\FileResource')) {
+        if (class_exists('Makhan\Component\Config\Resource\FileResource')) {
             $catalogue->addResource(new FileResource($resource.'.dat'));
         }
 

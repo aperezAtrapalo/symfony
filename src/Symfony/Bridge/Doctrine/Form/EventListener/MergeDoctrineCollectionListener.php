@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Form\EventListener;
+namespace Makhan\Bridge\Doctrine\Form\EventListener;
 
 use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Makhan\Component\Form\FormEvents;
+use Makhan\Component\Form\FormEvent;
+use Makhan\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Merge changes from the request to a Doctrine\Common\Collections\Collection instance.

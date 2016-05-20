@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\CssSelector\Exception;
+namespace Makhan\Component\CssSelector\Exception;
 
-use Symfony\Component\CssSelector\Parser\Token;
+use Makhan\Component\CssSelector\Parser\Token;
 
 /**
  * ParseException is thrown when a CSS selector syntax is not valid.

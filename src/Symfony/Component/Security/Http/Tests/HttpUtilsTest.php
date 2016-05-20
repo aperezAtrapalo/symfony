@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http\Tests;
+namespace Makhan\Component\Security\Http\Tests;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Http\HttpUtils;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Security\Core\Security;
+use Makhan\Component\Routing\Generator\UrlGeneratorInterface;
+use Makhan\Component\Security\Http\HttpUtils;
 
 class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,14 +32,14 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
     public function testCreateRedirectResponseWithAbsoluteUrl()
     {
         $utils = new HttpUtils($this->getUrlGenerator());
-        $response = $utils->createRedirectResponse($this->getRequest(), 'http://symfony.com/');
+        $response = $utils->createRedirectResponse($this->getRequest(), 'http://makhan.com/');
 
-        $this->assertTrue($response->isRedirect('http://symfony.com/'));
+        $this->assertTrue($response->isRedirect('http://makhan.com/'));
     }
 
     public function testCreateRedirectResponseWithRouteName()
     {
-        $utils = new HttpUtils($urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface'));
+        $utils = new HttpUtils($urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface'));
 
         $urlGenerator
             ->expects($this->any())
@@ -50,7 +50,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
         $urlGenerator
             ->expects($this->any())
             ->method('getContext')
-            ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RequestContext')))
+            ->will($this->returnValue($this->getMock('Makhan\Component\Routing\RequestContext')))
         ;
 
         $response = $utils->createRedirectResponse($this->getRequest(), 'foobar');
@@ -73,7 +73,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateRequestWithRouteName()
     {
-        $utils = new HttpUtils($urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface'));
+        $utils = new HttpUtils($urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface'));
 
         $urlGenerator
             ->expects($this->once())
@@ -83,7 +83,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
         $urlGenerator
             ->expects($this->any())
             ->method('getContext')
-            ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RequestContext')))
+            ->will($this->returnValue($this->getMock('Makhan\Component\Routing\RequestContext')))
         ;
 
         $subRequest = $utils->createRequest($this->getRequest(), 'foobar');
@@ -93,8 +93,8 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateRequestWithAbsoluteUrl()
     {
-        $utils = new HttpUtils($this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface'));
-        $subRequest = $utils->createRequest($this->getRequest(), 'http://symfony.com/');
+        $utils = new HttpUtils($this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface'));
+        $subRequest = $utils->createRequest($this->getRequest(), 'http://makhan.com/');
 
         $this->assertEquals('/', $subRequest->getPathInfo());
     }
@@ -102,7 +102,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
     public function testCreateRequestPassesSessionToTheNewRequest()
     {
         $request = $this->getRequest();
-        $request->setSession($session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface'));
+        $request->setSession($session = $this->getMock('Makhan\Component\HttpFoundation\Session\SessionInterface'));
 
         $utils = new HttpUtils($this->getUrlGenerator());
         $subRequest = $utils->createRequest($request, '/foobar');
@@ -148,7 +148,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 
     public function testCheckRequestPathWithUrlMatcherAndResourceNotFound()
     {
-        $urlMatcher = $this->getMock('Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        $urlMatcher = $this->getMock('Makhan\Component\Routing\Matcher\UrlMatcherInterface');
         $urlMatcher
             ->expects($this->any())
             ->method('match')
@@ -163,7 +163,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
     public function testCheckRequestPathWithUrlMatcherAndMethodNotAllowed()
     {
         $request = $this->getRequest();
-        $urlMatcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $urlMatcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $urlMatcher
             ->expects($this->any())
             ->method('matchRequest')
@@ -177,7 +177,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 
     public function testCheckRequestPathWithUrlMatcherAndResourceFoundByUrl()
     {
-        $urlMatcher = $this->getMock('Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        $urlMatcher = $this->getMock('Makhan\Component\Routing\Matcher\UrlMatcherInterface');
         $urlMatcher
             ->expects($this->any())
             ->method('match')
@@ -192,7 +192,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
     public function testCheckRequestPathWithUrlMatcherAndResourceFoundByRequest()
     {
         $request = $this->getRequest();
-        $urlMatcher = $this->getMock('Symfony\Component\Routing\Matcher\RequestMatcherInterface');
+        $urlMatcher = $this->getMock('Makhan\Component\Routing\Matcher\RequestMatcherInterface');
         $urlMatcher
             ->expects($this->any())
             ->method('matchRequest')
@@ -209,7 +209,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
      */
     public function testCheckRequestPathWithUrlMatcherLoadingException()
     {
-        $urlMatcher = $this->getMock('Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        $urlMatcher = $this->getMock('Makhan\Component\Routing\Matcher\UrlMatcherInterface');
         $urlMatcher
             ->expects($this->any())
             ->method('match')
@@ -250,7 +250,7 @@ class HttpUtilsTest extends \PHPUnit_Framework_TestCase
 
     private function getUrlGenerator($generatedUrl = '/foo/bar')
     {
-        $urlGenerator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
+        $urlGenerator = $this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface');
         $urlGenerator
             ->expects($this->any())
             ->method('generate')

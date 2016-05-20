@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache\Tests\Fixtures;
+namespace Makhan\Component\Cache\Tests\Fixtures;
 
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
+use Makhan\Component\Cache\Adapter\ArrayAdapter;
 
 /**
- * Adapter not implementing the {@see \Symfony\Component\Cache\Adapter\AdapterInterface}.
+ * Adapter not implementing the {@see \Makhan\Component\Cache\Adapter\AdapterInterface}.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

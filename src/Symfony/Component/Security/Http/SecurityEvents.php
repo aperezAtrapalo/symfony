@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Http;
+namespace Makhan\Component\Security\Http;
 
 final class SecurityEvents
 {
@@ -17,7 +17,7 @@ final class SecurityEvents
      * The INTERACTIVE_LOGIN event occurs after a user is logged in
      * interactively for authentication based on http, cookies or X509.
      *
-     * @Event("Symfony\Component\Security\Http\Event\InteractiveLoginEvent")
+     * @Event("Makhan\Component\Security\Http\Event\InteractiveLoginEvent")
      *
      * @var string
      */
@@ -27,7 +27,7 @@ final class SecurityEvents
      * The SWITCH_USER event occurs before switch to another user and
      * before exit from an already switched user.
      *
-     * @Event("Symfony\Component\Security\Http\Event\SwitchUserEvent")
+     * @Event("Makhan\Component\Security\Http\Event\SwitchUserEvent")
      *
      * @var string
      */

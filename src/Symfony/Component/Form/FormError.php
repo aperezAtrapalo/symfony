@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\BadMethodCallException;
+use Makhan\Component\Form\Exception\BadMethodCallException;
 
 /**
  * Wraps errors in forms.
@@ -73,7 +73,7 @@ class FormError implements \Serializable
      * @param int|null    $messagePluralization The value for error message pluralization
      * @param mixed       $cause                The cause of the error
      *
-     * @see \Symfony\Component\Translation\Translator
+     * @see \Makhan\Component\Translation\Translator
      */
     public function __construct($message, $messageTemplate = null, array $messageParameters = array(), $messagePluralization = null, $cause = null)
     {

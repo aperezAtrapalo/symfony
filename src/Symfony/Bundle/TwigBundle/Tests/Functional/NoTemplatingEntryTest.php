@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle\Tests;
+namespace Makhan\Bundle\TwigBundle\Tests;
 
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use Symfony\Bundle\TwigBundle\TwigBundle;
+use Makhan\Component\HttpKernel\Kernel;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Bundle\FrameworkBundle\FrameworkBundle;
+use Makhan\Bundle\TwigBundle\TwigBundle;
 
 class NoTemplatingEntryTest extends \PHPUnit_Framework_TestCase
 {

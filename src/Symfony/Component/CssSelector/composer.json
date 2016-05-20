@@ -1,29 +1,29 @@
 {
-    "name": "symfony/css-selector",
+    "name": "makhan/css-selector",
     "type": "library",
-    "description": "Symfony CssSelector Component",
+    "description": "Makhan CssSelector Component",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
             "name": "Jean-François Simon",
             "email": "jeanfrancois.simon@sensiolabs.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\CssSelector\\": "" },
+        "psr-4": { "Makhan\\Component\\CssSelector\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Guard;
+namespace Makhan\Component\Security\Guard;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken;
+use Makhan\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Guard\Token\PostAuthenticationGuardToken;
 
 /**
  * An optional base class that creates a PostAuthenticationGuardToken for you.

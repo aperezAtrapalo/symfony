@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Extension;
+namespace Makhan\Bridge\Twig\Extension;
 
-use Symfony\Bridge\Twig\TokenParser\DumpTokenParser;
-use Symfony\Component\VarDumper\Cloner\ClonerInterface;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+use Makhan\Bridge\Twig\TokenParser\DumpTokenParser;
+use Makhan\Component\VarDumper\Cloner\ClonerInterface;
+use Makhan\Component\VarDumper\Dumper\HtmlDumper;
 
 /**
  * Provides integration of the dump() function with Twig.

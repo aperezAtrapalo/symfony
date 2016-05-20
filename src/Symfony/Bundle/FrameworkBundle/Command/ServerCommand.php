@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Makhan\Bundle\FrameworkBundle\Command;
 
 /**
  * Base methods for commands related to PHP's built-in web server.
@@ -27,7 +27,7 @@ abstract class ServerCommand extends ContainerAwareCommand
             return false;
         }
 
-        if (!class_exists('Symfony\Component\Process\Process')) {
+        if (!class_exists('Makhan\Component\Process\Process')) {
             return false;
         }
 

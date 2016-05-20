@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests;
+namespace Makhan\Component\HttpFoundation\Tests;
 
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\HttpFoundation\Cookie;
+use Makhan\Component\HttpFoundation\ResponseHeaderBag;
+use Makhan\Component\HttpFoundation\Cookie;
 
 /**
  * @group time-sensitive
@@ -250,13 +250,13 @@ class ResponseHeaderBagTest extends \PHPUnit_Framework_TestCase
     {
         $headers = new ResponseHeaderBag();
 
-        $headers->set('Location', 'http://www.symfony.com');
+        $headers->set('Location', 'http://www.makhan.com');
         $headers->set('Content-type', 'text/html');
 
         (string) $headers;
 
         $allHeaders = $headers->allPreserveCase();
-        $this->assertEquals(array('http://www.symfony.com'), $allHeaders['Location']);
+        $this->assertEquals(array('http://www.makhan.com'), $allHeaders['Location']);
         $this->assertEquals(array('text/html'), $allHeaders['Content-type']);
     }
 

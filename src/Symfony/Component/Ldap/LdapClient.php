@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Ldap;
+namespace Makhan\Component\Ldap;
 
 /**
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  * @author Francis Besset <francis.besset@gmail.com>
  * @author Charles Sarrazin <charles@sarraz.in>
  *
- * @deprecated The LdapClient class will be removed in Symfony 4.0. You should use the Ldap class instead.
+ * @deprecated The LdapClient class will be removed in Makhan 4.0. You should use the Ldap class instead.
  */
 final class LdapClient implements LdapClientInterface
 {

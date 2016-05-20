@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\TwigBundle;
+namespace Makhan\Bundle\TwigBundle;
 
-use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Finder\Finder;
+use Makhan\Component\HttpKernel\KernelInterface;
+use Makhan\Component\Finder\Finder;
 
 /**
  * Iterator for all templates in bundles and in the application Resources directory.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TemplateIterator implements \IteratorAggregate
 {

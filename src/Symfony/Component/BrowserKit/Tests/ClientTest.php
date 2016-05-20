@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\BrowserKit\Tests;
+namespace Makhan\Component\BrowserKit\Tests;
 
-use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\History;
-use Symfony\Component\BrowserKit\CookieJar;
-use Symfony\Component\BrowserKit\Response;
+use Makhan\Component\BrowserKit\Client;
+use Makhan\Component\BrowserKit\History;
+use Makhan\Component\BrowserKit\CookieJar;
+use Makhan\Component\BrowserKit\Response;
 
 class SpecialResponse extends Response
 {
@@ -58,7 +58,7 @@ class TestClient extends Client
 
     protected function getScript($request)
     {
-        $r = new \ReflectionClass('Symfony\Component\BrowserKit\Response');
+        $r = new \ReflectionClass('Makhan\Component\BrowserKit\Response');
         $path = $r->getFileName();
 
         return <<<EOF
@@ -110,7 +110,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client->request('GET', 'http://example.com/');
 
         $this->assertEquals('foo', $client->getResponse()->getContent(), '->getCrawler() returns the Response of the last request');
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Response', $client->getResponse(), '->getCrawler() returns the Response of the last request');
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Response', $client->getResponse(), '->getCrawler() returns the Response of the last request');
     }
 
     public function testGetInternalResponse()
@@ -119,9 +119,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client->setNextResponse(new SpecialResponse('foo'));
         $client->request('GET', 'http://example.com/');
 
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Response', $client->getInternalResponse());
-        $this->assertNotInstanceOf('Symfony\Component\BrowserKit\Tests\SpecialResponse', $client->getInternalResponse());
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Tests\SpecialResponse', $client->getResponse());
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Response', $client->getInternalResponse());
+        $this->assertNotInstanceOf('Makhan\Component\BrowserKit\Tests\SpecialResponse', $client->getInternalResponse());
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Tests\SpecialResponse', $client->getResponse());
     }
 
     public function testGetContent()
@@ -423,7 +423,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $headers = array(
             'HTTP_HOST' => 'www.example.com',
-            'HTTP_USER_AGENT' => 'Symfony2 BrowserKit',
+            'HTTP_USER_AGENT' => 'Makhan2 BrowserKit',
             'CONTENT_TYPE' => 'application/vnd.custom+xml',
             'HTTPS' => false,
         );
@@ -450,7 +450,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $headers = array(
             'HTTP_HOST' => 'www.example.com:8080',
-            'HTTP_USER_AGENT' => 'Symfony2 BrowserKit',
+            'HTTP_USER_AGENT' => 'Makhan2 BrowserKit',
             'HTTPS' => false,
             'HTTP_REFERER' => 'http://www.example.com:8080/',
         );
@@ -554,12 +554,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new TestClient();
         $client->insulate();
-        $client->setNextScript("new Symfony\Component\BrowserKit\Response('foobar')");
+        $client->setNextScript("new Makhan\Component\BrowserKit\Response('foobar')");
         $client->request('GET', 'http://www.example.com/foo/foobar');
 
         $this->assertEquals('foobar', $client->getResponse()->getContent(), '->insulate() process the request in a forked process');
 
-        $client->setNextScript("new Symfony\Component\BrowserKit\Response('foobar)");
+        $client->setNextScript("new Makhan\Component\BrowserKit\Response('foobar)");
 
         try {
             $client->request('GET', 'http://www.example.com/foo/foobar');
@@ -573,7 +573,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new TestClient();
         $this->assertEquals('', $client->getServerParameter('HTTP_HOST'));
-        $this->assertEquals('Symfony2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
+        $this->assertEquals('Makhan2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
         $this->assertEquals('testvalue', $client->getServerParameter('testkey', 'testvalue'));
     }
 
@@ -582,7 +582,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client = new TestClient();
 
         $this->assertEquals('', $client->getServerParameter('HTTP_HOST'));
-        $this->assertEquals('Symfony2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
+        $this->assertEquals('Makhan2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
 
         $client->setServerParameter('HTTP_HOST', 'testhost');
         $this->assertEquals('testhost', $client->getServerParameter('HTTP_HOST'));
@@ -596,7 +596,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client = new TestClient();
 
         $this->assertEquals('', $client->getServerParameter('HTTP_HOST'));
-        $this->assertEquals('Symfony2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
+        $this->assertEquals('Makhan2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
 
         $client->request('GET', 'https://www.example.com/https/www.example.com', array(), array(), array(
             'HTTP_HOST' => 'testhost',
@@ -606,7 +606,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         ));
 
         $this->assertEquals('', $client->getServerParameter('HTTP_HOST'));
-        $this->assertEquals('Symfony2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
+        $this->assertEquals('Makhan2 BrowserKit', $client->getServerParameter('HTTP_USER_AGENT'));
 
         $this->assertEquals('http://www.example.com/https/www.example.com', $client->getRequest()->getUri());
 
@@ -636,7 +636,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             'NEW_SERVER_KEY' => 'new-server-key-value',
         ));
 
-        $this->assertInstanceOf('Symfony\Component\BrowserKit\Request', $client->getInternalRequest());
+        $this->assertInstanceOf('Makhan\Component\BrowserKit\Request', $client->getInternalRequest());
     }
 
     public function testInternalRequestNull()

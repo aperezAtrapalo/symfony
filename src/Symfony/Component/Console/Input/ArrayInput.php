@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Input;
+namespace Makhan\Component\Console\Input;
 
-use Symfony\Component\Console\Exception\InvalidArgumentException;
-use Symfony\Component\Console\Exception\InvalidOptionException;
+use Makhan\Component\Console\Exception\InvalidArgumentException;
+use Makhan\Component\Console\Exception\InvalidOptionException;
 
 /**
  * ArrayInput represents an input provided as an array.
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Exception\InvalidOptionException;
  *
  *     $input = new ArrayInput(array('name' => 'foo', '--bar' => 'foobar'));
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class ArrayInput extends Input
 {

@@ -1,30 +1,30 @@
 {
-    "name": "symfony/proxy-manager-bridge",
-    "type": "symfony-bridge",
-    "description": "Symfony ProxyManager Bridge",
+    "name": "makhan/proxy-manager-bridge",
+    "type": "makhan-bridge",
+    "description": "Makhan ProxyManager Bridge",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
             "name": "Fabien Potencier",
-            "email": "fabien@symfony.com"
+            "email": "fabien@makhan.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/dependency-injection": "~2.8|~3.0",
+        "makhan/dependency-injection": "~2.8|~3.0",
         "ocramius/proxy-manager": "~0.4|~1.0|~2.0"
     },
     "require-dev": {
-        "symfony/config": "~2.8|~3.0"
+        "makhan/config": "~2.8|~3.0"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Bridge\\ProxyManager\\": "" },
+        "psr-4": { "Makhan\\Bridge\\ProxyManager\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

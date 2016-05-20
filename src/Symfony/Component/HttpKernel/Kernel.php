@@ -1,46 +1,46 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel;
+namespace Makhan\Component\HttpKernel;
 
-use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
-use Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\IniFileLoader;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
-use Symfony\Component\DependencyInjection\Loader\DirectoryLoader;
-use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Symfony\Component\HttpKernel\Config\EnvParametersResource;
-use Symfony\Component\HttpKernel\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
-use Symfony\Component\HttpKernel\DependencyInjection\AddClassesToCachePass;
-use Symfony\Component\Config\Loader\LoaderResolver;
-use Symfony\Component\Config\Loader\DelegatingLoader;
-use Symfony\Component\Config\ConfigCache;
-use Symfony\Component\ClassLoader\ClassCollectionLoader;
+use Makhan\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
+use Makhan\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Dumper\PhpDumper;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Loader\XmlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\YamlFileLoader;
+use Makhan\Component\DependencyInjection\Loader\IniFileLoader;
+use Makhan\Component\DependencyInjection\Loader\PhpFileLoader;
+use Makhan\Component\DependencyInjection\Loader\DirectoryLoader;
+use Makhan\Component\DependencyInjection\Loader\ClosureLoader;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\Bundle\BundleInterface;
+use Makhan\Component\HttpKernel\Config\EnvParametersResource;
+use Makhan\Component\HttpKernel\Config\FileLocator;
+use Makhan\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
+use Makhan\Component\HttpKernel\DependencyInjection\AddClassesToCachePass;
+use Makhan\Component\Config\Loader\LoaderResolver;
+use Makhan\Component\Config\Loader\DelegatingLoader;
+use Makhan\Component\Config\ConfigCache;
+use Makhan\Component\ClassLoader\ClassCollectionLoader;
 
 /**
- * The Kernel is the heart of the Symfony system.
+ * The Kernel is the heart of the Makhan system.
  *
  * It manages an environment made of bundles.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class Kernel implements KernelInterface, TerminableInterface
 {
@@ -605,7 +605,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
     {
         $container = new ContainerBuilder(new ParameterBag($this->getKernelParameters()));
 
-        if (class_exists('ProxyManager\Configuration') && class_exists('Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator')) {
+        if (class_exists('ProxyManager\Configuration') && class_exists('Makhan\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator')) {
             $container->setProxyInstantiator(new RuntimeInstantiator());
         }
 
@@ -625,7 +625,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
         // cache the container
         $dumper = new PhpDumper($container);
 
-        if (class_exists('ProxyManager\Configuration') && class_exists('Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper')) {
+        if (class_exists('ProxyManager\Configuration') && class_exists('Makhan\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper')) {
             $dumper->setProxyDumper(new ProxyDumper(md5($cache->getPath())));
         }
 

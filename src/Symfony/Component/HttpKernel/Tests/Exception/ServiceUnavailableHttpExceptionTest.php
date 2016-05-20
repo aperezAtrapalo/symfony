@@ -1,8 +1,8 @@
 <?php
 
-namespace Symfony\Component\HttpKernel\Tests\Exception;
+namespace Makhan\Component\HttpKernel\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
+use Makhan\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
 
 class ServiceUnavailableHttpExceptionTest extends HttpExceptionTest
 {

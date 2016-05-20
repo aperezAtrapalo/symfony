@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Style;
+namespace Makhan\Component\Console\Style;
 
-use Symfony\Component\Console\Formatter\OutputFormatterInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\OutputInterface;
+use Makhan\Component\Console\Formatter\OutputFormatterInterface;
+use Makhan\Component\Console\Helper\ProgressBar;
+use Makhan\Component\Console\Output\OutputInterface;
 
 /**
  * Decorates output to add console style guide helpers.

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\NativeRequestHandler;
+use Makhan\Component\Form\NativeRequestHandler;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -49,7 +49,7 @@ class NativeRequestHandlerTest extends AbstractRequestHandlerTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testRequestShouldBeNull()
     {

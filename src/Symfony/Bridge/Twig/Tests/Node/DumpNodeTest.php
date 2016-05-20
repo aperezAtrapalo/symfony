@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Node;
+namespace Makhan\Bridge\Twig\Tests\Node;
 
-use Symfony\Bridge\Twig\Node\DumpNode;
+use Makhan\Bridge\Twig\Node\DumpNode;
 
 class DumpNodeTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,7 +31,7 @@ if ($this->env->isDebug()) {
         }
     }
     // line 7
-    \Symfony\Component\VarDumper\VarDumper::dump($barvars);
+    \Makhan\Component\VarDumper\VarDumper::dump($barvars);
 }
 
 EOTXT;
@@ -55,7 +55,7 @@ EOTXT;
             }
         }
         // line 7
-        \Symfony\Component\VarDumper\VarDumper::dump($barvars);
+        \Makhan\Component\VarDumper\VarDumper::dump($barvars);
     }
 
 EOTXT;
@@ -76,7 +76,7 @@ EOTXT;
         $expected = <<<'EOTXT'
 if ($this->env->isDebug()) {
     // line 7
-    \Symfony\Component\VarDumper\VarDumper::dump(%foo%);
+    \Makhan\Component\VarDumper\VarDumper::dump(%foo%);
 }
 
 EOTXT;
@@ -99,7 +99,7 @@ EOTXT;
         $expected = <<<'EOTXT'
 if ($this->env->isDebug()) {
     // line 7
-    \Symfony\Component\VarDumper\VarDumper::dump(array(
+    \Makhan\Component\VarDumper\VarDumper::dump(array(
         "foo" => %foo%,
         "bar" => %bar%,
     ));

@@ -1,50 +1,50 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle;
+namespace Makhan\Bundle\FrameworkBundle;
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConstraintValidatorsPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddValidatorInitializersPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConsoleCommandPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\CachePoolPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ControllerArgumentValueResolverPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\FormPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TemplatingPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\RoutingResolverPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ProfilerPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslatorPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\LoggingTranslatorPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheWarmerPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheClearerPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddExpressionLanguageProvidersPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ContainerBuilderDebugDumpPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\CompilerDebugDumpPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationExtractorPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationDumperPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\UnusedTagsPass;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\ConfigCachePass;
-use Symfony\Component\Debug\ErrorHandler;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
-use Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass;
-use Symfony\Component\HttpKernel\DependencyInjection\FragmentRendererPass;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConstraintValidatorsPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddValidatorInitializersPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConsoleCommandPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\CachePoolPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\ControllerArgumentValueResolverPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\FormPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\TemplatingPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\RoutingResolverPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\ProfilerPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslatorPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\LoggingTranslatorPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheWarmerPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddCacheClearerPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddExpressionLanguageProvidersPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\ContainerBuilderDebugDumpPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\CompilerDebugDumpPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationExtractorPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\TranslationDumperPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\UnusedTagsPass;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\ConfigCachePass;
+use Makhan\Component\Debug\ErrorHandler;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Compiler\PassConfig;
+use Makhan\Component\EventDispatcher\DependencyInjection\RegisterListenersPass;
+use Makhan\Component\HttpKernel\DependencyInjection\FragmentRendererPass;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Bundle.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class FrameworkBundle extends Bundle
 {

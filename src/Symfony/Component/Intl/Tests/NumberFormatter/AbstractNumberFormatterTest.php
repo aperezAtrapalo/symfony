@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\NumberFormatter;
+namespace Makhan\Component\Intl\Tests\NumberFormatter;
 
-use Symfony\Component\Intl\Globals\IntlGlobals;
-use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Intl\Globals\IntlGlobals;
+use Makhan\Component\Intl\NumberFormatter\NumberFormatter;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 /**
  * Note that there are some values written like -2147483647 - 1. This is the lower 32bit int max and is a known
@@ -574,9 +574,9 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
         $decimalFormatter = $this->getNumberFormatter('en', NumberFormatter::DECIMAL);
         $currencyFormatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
 
-        $r = new \ReflectionProperty('Symfony\Component\Intl\NumberFormatter\NumberFormatter', 'enSymbols');
+        $r = new \ReflectionProperty('Makhan\Component\Intl\NumberFormatter\NumberFormatter', 'enSymbols');
         $r->setAccessible(true);
-        $expected = $r->getValue('Symfony\Component\Intl\NumberFormatter\NumberFormatter');
+        $expected = $r->getValue('Makhan\Component\Intl\NumberFormatter\NumberFormatter');
 
         for ($i = 0; $i <= 17; ++$i) {
             $this->assertSame($expected[1][$i], $decimalFormatter->getSymbol($i));
@@ -589,9 +589,9 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
         $decimalFormatter = $this->getNumberFormatter('en', NumberFormatter::DECIMAL);
         $currencyFormatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
 
-        $r = new \ReflectionProperty('Symfony\Component\Intl\NumberFormatter\NumberFormatter', 'enTextAttributes');
+        $r = new \ReflectionProperty('Makhan\Component\Intl\NumberFormatter\NumberFormatter', 'enTextAttributes');
         $r->setAccessible(true);
-        $expected = $r->getValue('Symfony\Component\Intl\NumberFormatter\NumberFormatter');
+        $expected = $r->getValue('Makhan\Component\Intl\NumberFormatter\NumberFormatter');
 
         for ($i = 0; $i <= 5; ++$i) {
             $this->assertSame($expected[1][$i], $decimalFormatter->getTextAttribute($i));

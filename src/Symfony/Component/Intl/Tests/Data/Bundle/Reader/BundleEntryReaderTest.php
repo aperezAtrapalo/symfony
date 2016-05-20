@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\Data\Bundle\Reader;
+namespace Makhan\Component\Intl\Tests\Data\Bundle\Reader;
 
-use Symfony\Component\Intl\Exception\ResourceBundleNotFoundException;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
+use Makhan\Component\Intl\Exception\ResourceBundleNotFoundException;
+use Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -62,7 +62,7 @@ class BundleEntryReaderTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->readerImpl = $this->getMock('Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface');
+        $this->readerImpl = $this->getMock('Makhan\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface');
         $this->reader = new BundleEntryReader($this->readerImpl);
     }
 
@@ -102,7 +102,7 @@ class BundleEntryReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testReadNonExistingEntry()
     {
@@ -130,7 +130,7 @@ class BundleEntryReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testDontFallbackIfEntryDoesNotExistAndFallbackDisabled()
     {
@@ -158,7 +158,7 @@ class BundleEntryReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testDontFallbackIfLocaleDoesNotExistAndFallbackDisabled()
     {
@@ -290,7 +290,7 @@ class BundleEntryReaderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testFailIfEntryFoundNeitherInParentNorChild()
     {

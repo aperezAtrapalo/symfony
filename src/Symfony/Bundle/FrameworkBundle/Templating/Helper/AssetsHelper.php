@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Templating\Helper;
+namespace Makhan\Bundle\FrameworkBundle\Templating\Helper;
 
-use Symfony\Component\Asset\Packages;
-use Symfony\Component\Templating\Helper\Helper;
+use Makhan\Component\Asset\Packages;
+use Makhan\Component\Templating\Helper\Helper;
 
 /**
  * AssetsHelper helps manage asset URLs.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class AssetsHelper extends Helper
 {

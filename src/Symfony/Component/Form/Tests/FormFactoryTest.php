@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests;
+namespace Makhan\Component\Form\Tests;
 
-use Symfony\Component\Form\FormTypeGuesserChain;
-use Symfony\Component\Form\FormFactory;
-use Symfony\Component\Form\Guess\Guess;
-use Symfony\Component\Form\Guess\ValueGuess;
-use Symfony\Component\Form\Guess\TypeGuess;
+use Makhan\Component\Form\FormTypeGuesserChain;
+use Makhan\Component\Form\FormFactory;
+use Makhan\Component\Form\Guess\Guess;
+use Makhan\Component\Form\Guess\ValueGuess;
+use Makhan\Component\Form\Guess\TypeGuess;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -54,11 +54,11 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->resolvedTypeFactory = $this->getMock('Symfony\Component\Form\ResolvedFormTypeFactoryInterface');
-        $this->guesser1 = $this->getMock('Symfony\Component\Form\FormTypeGuesserInterface');
-        $this->guesser2 = $this->getMock('Symfony\Component\Form\FormTypeGuesserInterface');
-        $this->registry = $this->getMock('Symfony\Component\Form\FormRegistryInterface');
-        $this->builder = $this->getMock('Symfony\Component\Form\Test\FormBuilderInterface');
+        $this->resolvedTypeFactory = $this->getMock('Makhan\Component\Form\ResolvedFormTypeFactoryInterface');
+        $this->guesser1 = $this->getMock('Makhan\Component\Form\FormTypeGuesserInterface');
+        $this->guesser2 = $this->getMock('Makhan\Component\Form\FormTypeGuesserInterface');
+        $this->registry = $this->getMock('Makhan\Component\Form\FormRegistryInterface');
+        $this->builder = $this->getMock('Makhan\Component\Form\Test\FormBuilderInterface');
         $this->factory = new FormFactory($this->registry, $this->resolvedTypeFactory);
 
         $this->registry->expects($this->any())
@@ -152,7 +152,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException        \Makhan\Component\Form\Exception\UnexpectedTypeException
      * @expectedExceptionMessage Expected argument of type "string", "stdClass" given
      */
     public function testCreateNamedBuilderThrowsUnderstandableException()
@@ -161,7 +161,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException        \Makhan\Component\Form\Exception\UnexpectedTypeException
      * @expectedExceptionMessage Expected argument of type "string", "stdClass" given
      */
     public function testCreateThrowsUnderstandableException()
@@ -175,7 +175,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
         $resolvedOptions = array('a' => '2', 'b' => '3');
 
         // the interface does not have the method, so use the real class
-        $resolvedType = $this->getMockBuilder('Symfony\Component\Form\ResolvedFormType')
+        $resolvedType = $this->getMockBuilder('Makhan\Component\Form\ResolvedFormType')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -241,15 +241,15 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateBuilderForPropertyWithoutTypeGuesser()
     {
-        $registry = $this->getMock('Symfony\Component\Form\FormRegistryInterface');
-        $factory = $this->getMockBuilder('Symfony\Component\Form\FormFactory')
+        $registry = $this->getMock('Makhan\Component\Form\FormRegistryInterface');
+        $factory = $this->getMockBuilder('Makhan\Component\Form\FormFactory')
             ->setMethods(array('createNamedBuilder'))
             ->setConstructorArgs(array($registry, $this->resolvedTypeFactory))
             ->getMock();
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array())
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array())
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty('Application\Author', 'firstName');
@@ -263,7 +263,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
             ->method('guessType')
             ->with('Application\Author', 'firstName')
             ->will($this->returnValue(new TypeGuess(
-                'Symfony\Component\Form\Extension\Core\Type\TextType',
+                'Makhan\Component\Form\Extension\Core\Type\TextType',
                 array('attr' => array('maxlength' => 10)),
                 Guess::MEDIUM_CONFIDENCE
             )));
@@ -272,7 +272,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
             ->method('guessType')
             ->with('Application\Author', 'firstName')
             ->will($this->returnValue(new TypeGuess(
-                'Symfony\Component\Form\Extension\Core\Type\PasswordType',
+                'Makhan\Component\Form\Extension\Core\Type\PasswordType',
                 array('attr' => array('maxlength' => 7)),
                 Guess::HIGH_CONFIDENCE
             )));
@@ -281,7 +281,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\PasswordType', null, array('attr' => array('maxlength' => 7)))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\PasswordType', null, array('attr' => array('maxlength' => 7)))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty('Application\Author', 'firstName');
@@ -300,7 +300,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType')
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType')
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty('Application\Author', 'firstName');
@@ -314,7 +314,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
                 ->method('guessType')
                 ->with('Application\Author', 'firstName')
                 ->will($this->returnValue(new TypeGuess(
-                    'Symfony\Component\Form\Extension\Core\Type\TextType',
+                    'Makhan\Component\Form\Extension\Core\Type\TextType',
                     array('attr' => array('maxlength' => 10)),
                     Guess::MEDIUM_CONFIDENCE
                 )));
@@ -323,7 +323,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 11)))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 11)))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty(
@@ -358,7 +358,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 20)))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 20)))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty(
@@ -391,7 +391,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 20, 'pattern' => '.{5,}', 'class' => 'tinymce')))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('maxlength' => 20, 'pattern' => '.{5,}', 'class' => 'tinymce')))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty(
@@ -426,7 +426,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array('required' => false))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array('required' => false))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty(
@@ -459,7 +459,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
         $factory->expects($this->once())
             ->method('createNamedBuilder')
-            ->with('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('pattern' => '[a-zA-Z]')))
+            ->with('firstName', 'Makhan\Component\Form\Extension\Core\Type\TextType', null, array('attr' => array('pattern' => '[a-zA-Z]')))
             ->will($this->returnValue('builderInstance'));
 
         $this->builder = $factory->createBuilderForProperty(
@@ -472,7 +472,7 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
     private function getMockFactory(array $methods = array())
     {
-        return $this->getMockBuilder('Symfony\Component\Form\FormFactory')
+        return $this->getMockBuilder('Makhan\Component\Form\FormFactory')
             ->setMethods($methods)
             ->setConstructorArgs(array($this->registry, $this->resolvedTypeFactory))
             ->getMock();
@@ -480,6 +480,6 @@ class FormFactoryTest extends \PHPUnit_Framework_TestCase
 
     private function getMockResolvedType()
     {
-        return $this->getMock('Symfony\Component\Form\ResolvedFormTypeInterface');
+        return $this->getMock('Makhan\Component\Form\ResolvedFormTypeInterface');
     }
 }

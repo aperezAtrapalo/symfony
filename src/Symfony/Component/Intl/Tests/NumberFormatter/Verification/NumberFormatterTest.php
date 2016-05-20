@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\NumberFormatter\Verification;
+namespace Makhan\Component\Intl\Tests\NumberFormatter\Verification;
 
-use Symfony\Component\Intl\Tests\NumberFormatter\AbstractNumberFormatterTest;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Intl\Tests\NumberFormatter\AbstractNumberFormatterTest;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 /**
  * Note that there are some values written like -2147483647 - 1. This is the lower 32bit int max and is a known

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Routing;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Routing;
 
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher;
+use Makhan\Component\Routing\RequestContext;
 
 class RedirectableUrlMatcherTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class RedirectableUrlMatcherTest extends \PHPUnit_Framework_TestCase
         $matcher = new RedirectableUrlMatcher($coll, $context = new RequestContext());
 
         $this->assertEquals(array(
-                '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction',
+                '_controller' => 'Makhan\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction',
                 'path' => '/foo/',
                 'permanent' => true,
                 'scheme' => null,
@@ -46,7 +46,7 @@ class RedirectableUrlMatcherTest extends \PHPUnit_Framework_TestCase
         $matcher = new RedirectableUrlMatcher($coll, $context = new RequestContext());
 
         $this->assertEquals(array(
-                '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction',
+                '_controller' => 'Makhan\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction',
                 'path' => '/foo',
                 'permanent' => true,
                 'scheme' => 'https',

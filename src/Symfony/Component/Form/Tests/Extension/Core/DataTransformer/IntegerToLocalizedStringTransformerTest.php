@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\IntegerToLocalizedStringTransformer;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Extension\Core\DataTransformer\IntegerToLocalizedStringTransformer;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -183,7 +183,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsString()
     {
@@ -193,7 +193,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsValidNumber()
     {
@@ -203,7 +203,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsNaN()
     {
@@ -213,7 +213,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsNaN2()
     {
@@ -223,7 +223,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsInfinity()
     {
@@ -233,7 +233,7 @@ class IntegerToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCas
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsNegativeInfinity()
     {

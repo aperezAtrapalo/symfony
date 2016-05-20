@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Validator\Type;
+namespace Makhan\Component\Form\Extension\Validator\Type;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Validator\ViolationMapper\ViolationMapper;
-use Symfony\Component\Form\Extension\Validator\EventListener\ValidationListener;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\Extension\Validator\ViolationMapper\ViolationMapper;
+use Makhan\Component\Form\Extension\Validator\EventListener\ValidationListener;
+use Makhan\Component\Validator\Validator\ValidatorInterface;
+use Makhan\Component\OptionsResolver\Options;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -76,6 +76,6 @@ class FormTypeValidatorExtension extends BaseValidatorExtension
      */
     public function getExtendedType()
     {
-        return 'Symfony\Component\Form\Extension\Core\Type\FormType';
+        return 'Makhan\Component\Form\Extension\Core\Type\FormType';
     }
 }

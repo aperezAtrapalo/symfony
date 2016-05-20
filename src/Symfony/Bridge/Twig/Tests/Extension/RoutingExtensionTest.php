@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Twig\Tests\Extension;
+namespace Makhan\Bridge\Twig\Tests\Extension;
 
-use Symfony\Bridge\Twig\Extension\RoutingExtension;
+use Makhan\Bridge\Twig\Extension\RoutingExtension;
 
 class RoutingExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class RoutingExtensionTest extends \PHPUnit_Framework_TestCase
     public function testEscaping($template, $mustBeEscaped)
     {
         $twig = new \Twig_Environment($this->getMock('Twig_LoaderInterface'), array('debug' => true, 'cache' => false, 'autoescape' => 'html', 'optimizations' => 0));
-        $twig->addExtension(new RoutingExtension($this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface')));
+        $twig->addExtension(new RoutingExtension($this->getMock('Makhan\Component\Routing\Generator\UrlGeneratorInterface')));
 
         $nodes = $twig->parse($twig->tokenize($template));
 

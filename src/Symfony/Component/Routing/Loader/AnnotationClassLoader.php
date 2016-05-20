@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Routing\Loader;
+namespace Makhan\Component\Routing\Loader;
 
 use Doctrine\Common\Annotations\Reader;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Loader\LoaderResolverInterface;
+use Makhan\Component\Config\Resource\FileResource;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
+use Makhan\Component\Config\Loader\LoaderInterface;
+use Makhan\Component\Config\Loader\LoaderResolverInterface;
 
 /**
  * AnnotationClassLoader loads routing information from a PHP class and its methods.
@@ -53,7 +53,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
  *         }
  *     }
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 abstract class AnnotationClassLoader implements LoaderInterface
 {
@@ -65,7 +65,7 @@ abstract class AnnotationClassLoader implements LoaderInterface
     /**
      * @var string
      */
-    protected $routeAnnotationClass = 'Symfony\\Component\\Routing\\Annotation\\Route';
+    protected $routeAnnotationClass = 'Makhan\\Component\\Routing\\Annotation\\Route';
 
     /**
      * @var int

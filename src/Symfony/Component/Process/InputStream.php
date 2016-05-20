@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Process;
+namespace Makhan\Component\Process;
 
-use Symfony\Component\Process\Exception\RuntimeException;
+use Makhan\Component\Process\Exception\RuntimeException;
 
 /**
  * Provides a way to continuously write to the input of a Process until the InputStream is closed.

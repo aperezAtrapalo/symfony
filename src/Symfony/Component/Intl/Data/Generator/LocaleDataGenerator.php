@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Data\Generator;
+namespace Makhan\Component\Intl\Data\Generator;
 
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Intl\Data\Provider\LanguageDataProvider;
-use Symfony\Component\Intl\Data\Provider\RegionDataProvider;
-use Symfony\Component\Intl\Data\Provider\ScriptDataProvider;
-use Symfony\Component\Intl\Data\Util\LocaleScanner;
-use Symfony\Component\Intl\Exception\MissingResourceException;
-use Symfony\Component\Intl\Exception\ResourceBundleNotFoundException;
-use Symfony\Component\Intl\Locale;
+use Makhan\Component\Filesystem\Filesystem;
+use Makhan\Component\Intl\Data\Provider\LanguageDataProvider;
+use Makhan\Component\Intl\Data\Provider\RegionDataProvider;
+use Makhan\Component\Intl\Data\Provider\ScriptDataProvider;
+use Makhan\Component\Intl\Data\Util\LocaleScanner;
+use Makhan\Component\Intl\Exception\MissingResourceException;
+use Makhan\Component\Intl\Exception\ResourceBundleNotFoundException;
+use Makhan\Component\Intl\Locale;
 
 /**
  * The rule for compiling the locale bundle.

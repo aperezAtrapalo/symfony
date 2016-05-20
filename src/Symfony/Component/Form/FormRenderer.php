@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\LogicException;
-use Symfony\Component\Form\Exception\BadMethodCallException;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Form\Exception\LogicException;
+use Makhan\Component\Form\Exception\BadMethodCallException;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 /**
  * Renders a form into HTML using a rendering engine.

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Console\Tests\Helper;
+namespace Makhan\Component\Console\Tests\Helper;
 
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Helper;
-use Symfony\Component\Console\Output\StreamOutput;
+use Makhan\Component\Console\Helper\ProgressBar;
+use Makhan\Component\Console\Helper\Helper;
+use Makhan\Component\Console\Output\StreamOutput;
 
 /**
  * @group time-sensitive
@@ -296,7 +296,7 @@ class ProgressBarTest extends \PHPUnit_Framework_TestCase
 
     public function testRedrawFrequency()
     {
-        $bar = $this->getMock('Symfony\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream(), 6));
+        $bar = $this->getMock('Makhan\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream(), 6));
         $bar->expects($this->exactly(4))->method('display');
 
         $bar->setRedrawFrequency(2);
@@ -309,7 +309,7 @@ class ProgressBarTest extends \PHPUnit_Framework_TestCase
 
     public function testRedrawFrequencyIsAtLeastOneIfZeroGiven()
     {
-        $bar = $this->getMock('Symfony\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream()));
+        $bar = $this->getMock('Makhan\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream()));
 
         $bar->expects($this->exactly(2))->method('display');
         $bar->setRedrawFrequency(0);
@@ -319,7 +319,7 @@ class ProgressBarTest extends \PHPUnit_Framework_TestCase
 
     public function testRedrawFrequencyIsAtLeastOneIfSmallerOneGiven()
     {
-        $bar = $this->getMock('Symfony\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream()));
+        $bar = $this->getMock('Makhan\Component\Console\Helper\ProgressBar', array('display'), array($this->getOutputStream()));
 
         $bar->expects($this->exactly(2))->method('display');
         $bar->setRedrawFrequency(0.9);

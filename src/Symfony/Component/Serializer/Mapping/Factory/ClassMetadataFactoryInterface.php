@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Mapping\Factory;
+namespace Makhan\Component\Serializer\Mapping\Factory;
 
-use Symfony\Component\Serializer\Exception\InvalidArgumentException;
-use Symfony\Component\Serializer\Mapping\ClassMetadataInterface;
+use Makhan\Component\Serializer\Exception\InvalidArgumentException;
+use Makhan\Component\Serializer\Mapping\ClassMetadataInterface;
 
 /**
  * Returns a {@see ClassMetadataInterface}.
@@ -31,7 +31,7 @@ interface ClassMetadataFactoryInterface
      *
      * Otherwise, a new metadata instance is created. If the factory was
      * configured with a loader, the metadata is passed to the
-     * {@link \Symfony\Component\Serializer\Mapping\Loader\LoaderInterface::loadClassMetadata()} method for further
+     * {@link \Makhan\Component\Serializer\Mapping\Loader\LoaderInterface::loadClassMetadata()} method for further
      * configuration. At last, the new object is returned.
      *
      * @param string|object $value

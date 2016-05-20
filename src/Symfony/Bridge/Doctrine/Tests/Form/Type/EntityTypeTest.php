@@ -1,49 +1,49 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bridge\Doctrine\Tests\Form\Type;
+namespace Makhan\Bridge\Doctrine\Tests\Form\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\SchemaTool;
-use Symfony\Bridge\Doctrine\Form\DoctrineOrmExtension;
-use Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Bridge\Doctrine\Test\DoctrineTestHelper;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeStringIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\GroupableEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringCastableIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity;
-use Symfony\Component\Form\ChoiceList\View\ChoiceGroupView;
-use Symfony\Component\Form\ChoiceList\View\ChoiceView;
-use Symfony\Component\Form\Forms;
-use Symfony\Component\Form\Test\TypeTestCase;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity;
-use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity;
+use Makhan\Bridge\Doctrine\Form\DoctrineOrmExtension;
+use Makhan\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser;
+use Makhan\Bridge\Doctrine\Form\Type\EntityType;
+use Makhan\Bridge\Doctrine\Test\DoctrineTestHelper;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeStringIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\GroupableEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleStringCastableIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity;
+use Makhan\Component\Form\ChoiceList\View\ChoiceGroupView;
+use Makhan\Component\Form\ChoiceList\View\ChoiceView;
+use Makhan\Component\Form\Forms;
+use Makhan\Component\Form\Test\TypeTestCase;
+use Makhan\Component\PropertyAccess\PropertyAccess;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity;
+use Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity;
 
 class EntityTypeTest extends TypeTestCase
 {
-    const ITEM_GROUP_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\GroupableEntity';
-    const SINGLE_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity';
-    const SINGLE_IDENT_NO_TO_STRING_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity';
-    const SINGLE_STRING_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity';
-    const SINGLE_ASSOC_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity';
-    const SINGLE_STRING_CASTABLE_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringCastableIdEntity';
-    const COMPOSITE_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity';
-    const COMPOSITE_STRING_IDENT_CLASS = 'Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeStringIdEntity';
+    const ITEM_GROUP_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\GroupableEntity';
+    const SINGLE_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity';
+    const SINGLE_IDENT_NO_TO_STRING_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity';
+    const SINGLE_STRING_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity';
+    const SINGLE_ASSOC_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity';
+    const SINGLE_STRING_CASTABLE_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\SingleStringCastableIdEntity';
+    const COMPOSITE_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity';
+    const COMPOSITE_STRING_IDENT_CLASS = 'Makhan\Bridge\Doctrine\Tests\Fixtures\CompositeStringIdEntity';
 
     /**
      * @var EntityManager
@@ -112,19 +112,19 @@ class EntityTypeTest extends TypeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\MissingOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\MissingOptionsException
      */
     public function testClassOptionIsRequired()
     {
-        $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType');
+        $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType');
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\RuntimeException
+     * @expectedException \Makhan\Component\Form\Exception\RuntimeException
      */
     public function testInvalidClassOption()
     {
-        $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'class' => 'foo',
         ));
     }
@@ -136,7 +136,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'required' => false,
@@ -153,7 +153,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'required' => false,
@@ -170,7 +170,7 @@ class EntityTypeTest extends TypeTestCase
         $this->persist(array($entity1, $entity2));
         $qb = $this->em->createQueryBuilder()->select('e')->from(self::SINGLE_IDENT_CLASS, 'e');
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'required' => false,
@@ -182,11 +182,11 @@ class EntityTypeTest extends TypeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\OptionsResolver\Exception\InvalidOptionsException
+     * @expectedException \Makhan\Component\OptionsResolver\Exception\InvalidOptionsException
      */
     public function testConfigureQueryBuilderWithNonQueryBuilderAndNonClosure()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => new \stdClass(),
@@ -194,11 +194,11 @@ class EntityTypeTest extends TypeTestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Form\Exception\UnexpectedTypeException
      */
     public function testConfigureQueryBuilderWithClosureReturningNonQueryBuilder()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function () {
@@ -211,7 +211,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testConfigureQueryBuilderWithClosureReturningNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function () {
@@ -224,7 +224,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSetDataSingleNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
@@ -237,7 +237,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSetDataMultipleExpandedNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => true,
             'em' => 'default',
@@ -251,7 +251,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSetDataMultipleNonExpandedNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -265,7 +265,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSubmitSingleExpandedNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => true,
             'em' => 'default',
@@ -279,7 +279,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSubmitSingleNonExpandedNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -293,7 +293,7 @@ class EntityTypeTest extends TypeTestCase
 
     public function testSubmitMultipleNull()
     {
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
@@ -311,7 +311,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -336,7 +336,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($innerEntity1, $innerEntity2, $entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -358,7 +358,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -382,7 +382,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -411,7 +411,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($innerEntity1, $innerEntity2, $innerEntity3, $entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -436,7 +436,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -467,7 +467,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -493,7 +493,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -523,7 +523,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => true,
             'em' => 'default',
@@ -549,7 +549,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => true,
             'em' => 'default',
@@ -578,7 +578,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => true,
             'em' => 'default',
@@ -603,7 +603,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -625,7 +625,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => true,
             'em' => 'default',
@@ -651,7 +651,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -682,7 +682,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => false,
             'em' => 'default',
@@ -707,7 +707,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => true,
             'expanded' => true,
             'em' => 'default',
@@ -737,7 +737,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             // not all persisted entities should be displayed
@@ -760,7 +760,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'choice_label' => 'name',
@@ -782,7 +782,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::ITEM_GROUP_CLASS,
             'choice_label' => 'name',
@@ -809,7 +809,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'choice_label' => 'name',
@@ -820,7 +820,7 @@ class EntityTypeTest extends TypeTestCase
         $field->submit(1);
 
         $unitOfWorkIdentityMap = $this->em->getUnitOfWork()->getIdentityMap();
-        $managedEntitiesNames = array_map('strval', $unitOfWorkIdentityMap['Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity']);
+        $managedEntitiesNames = array_map('strval', $unitOfWorkIdentityMap['Makhan\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity']);
 
         $this->assertContains((string) $entity1, $managedEntitiesNames);
         $this->assertNotContains((string) $entity2, $managedEntitiesNames);
@@ -835,7 +835,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($item1, $item2, $item3, $item4));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::ITEM_GROUP_CLASS,
             'choices' => array($item1, $item2, $item3, $item4),
@@ -866,7 +866,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'preferred_choices' => array($entity3, $entity2),
@@ -885,7 +885,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'choices' => array($entity2, $entity3),
@@ -905,7 +905,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'choices' => array($entity1, $entity2),
@@ -928,7 +928,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($innerEntity1, $innerEntity2, $entity1, $entity2));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_ASSOC_IDENT_CLASS,
             'choices' => array($entity1, $entity2),
@@ -949,7 +949,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::COMPOSITE_IDENT_CLASS,
             'choices' => array($entity1, $entity2),
@@ -972,7 +972,7 @@ class EntityTypeTest extends TypeTestCase
 
         $repository = $this->em->getRepository(self::SINGLE_IDENT_CLASS);
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => $repository->createQueryBuilder('e')
@@ -1000,7 +1000,7 @@ class EntityTypeTest extends TypeTestCase
 
         $repository = $this->em->getRepository(self::SINGLE_ASSOC_IDENT_CLASS);
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_ASSOC_IDENT_CLASS,
             'query_builder' => $repository->createQueryBuilder('e')
@@ -1022,7 +1022,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function ($repository) {
@@ -1046,7 +1046,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1, $entity2, $entity3));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => 'default',
             'class' => self::COMPOSITE_IDENT_CLASS,
             'query_builder' => function ($repository) {
@@ -1068,7 +1068,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -1089,7 +1089,7 @@ class EntityTypeTest extends TypeTestCase
 
         $this->persist(array($entity1));
 
-        $field = $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $field = $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'multiple' => false,
             'expanded' => false,
             'em' => 'default',
@@ -1115,7 +1115,7 @@ class EntityTypeTest extends TypeTestCase
             ->with(self::SINGLE_IDENT_CLASS)
             ->will($this->returnValue($this->em));
 
-        $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'class' => self::SINGLE_IDENT_CLASS,
             'required' => false,
             'choice_label' => 'name',
@@ -1130,7 +1130,7 @@ class EntityTypeTest extends TypeTestCase
         $this->emRegistry->expects($this->never())
             ->method('getManagerForClass');
 
-        $this->factory->createNamed('name', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', null, array(
+        $this->factory->createNamed('name', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', null, array(
             'em' => $this->em,
             'class' => self::SINGLE_IDENT_CLASS,
             'choice_label' => 'name',
@@ -1159,15 +1159,15 @@ class EntityTypeTest extends TypeTestCase
             ->addTypeGuesser($entityTypeGuesser)
             ->getFormFactory();
 
-        $formBuilder = $factory->createNamedBuilder('form', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $formBuilder = $factory->createNamedBuilder('form', 'Makhan\Component\Form\Extension\Core\Type\FormType');
 
-        $formBuilder->add('property1', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property1', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => $repo->createQueryBuilder('e')->where('e.id IN (1, 2)'),
         ));
 
-        $formBuilder->add('property2', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property2', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function (EntityRepository $repo) {
@@ -1175,7 +1175,7 @@ class EntityTypeTest extends TypeTestCase
             },
         ));
 
-        $formBuilder->add('property3', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property3', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function (EntityRepository $repo) {
@@ -1195,7 +1195,7 @@ class EntityTypeTest extends TypeTestCase
         $choiceLoader2 = $form->get('property2')->getConfig()->getOption('choice_loader');
         $choiceLoader3 = $form->get('property3')->getConfig()->getOption('choice_loader');
 
-        $this->assertInstanceOf('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface', $choiceLoader1);
+        $this->assertInstanceOf('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface', $choiceLoader1);
         $this->assertSame($choiceLoader1, $choiceLoader2);
         $this->assertSame($choiceLoader1, $choiceLoader3);
     }
@@ -1222,15 +1222,15 @@ class EntityTypeTest extends TypeTestCase
             ->addTypeGuesser($entityTypeGuesser)
             ->getFormFactory();
 
-        $formBuilder = $factory->createNamedBuilder('form', 'Symfony\Component\Form\Extension\Core\Type\FormType');
+        $formBuilder = $factory->createNamedBuilder('form', 'Makhan\Component\Form\Extension\Core\Type\FormType');
 
-        $formBuilder->add('property1', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property1', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => $repo->createQueryBuilder('e')->where('e.id = :id')->setParameter('id', 1),
         ));
 
-        $formBuilder->add('property2', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property2', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function (EntityRepository $repo) {
@@ -1238,7 +1238,7 @@ class EntityTypeTest extends TypeTestCase
             },
         ));
 
-        $formBuilder->add('property3', 'Symfony\Bridge\Doctrine\Form\Type\EntityType', array(
+        $formBuilder->add('property3', 'Makhan\Bridge\Doctrine\Form\Type\EntityType', array(
             'em' => 'default',
             'class' => self::SINGLE_IDENT_CLASS,
             'query_builder' => function (EntityRepository $repo) {
@@ -1258,7 +1258,7 @@ class EntityTypeTest extends TypeTestCase
         $choiceLoader2 = $form->get('property2')->getConfig()->getOption('choice_loader');
         $choiceLoader3 = $form->get('property3')->getConfig()->getOption('choice_loader');
 
-        $this->assertInstanceOf('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface', $choiceLoader1);
+        $this->assertInstanceOf('Makhan\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface', $choiceLoader1);
         $this->assertSame($choiceLoader1, $choiceLoader2);
         $this->assertSame($choiceLoader1, $choiceLoader3);
     }

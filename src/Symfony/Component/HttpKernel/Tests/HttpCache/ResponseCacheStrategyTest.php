@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * This code is partially based on the Rack-Cache library by Ryan Tomayko,
  * which is released under the MIT license.
@@ -13,10 +13,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\HttpCache;
+namespace Makhan\Component\HttpKernel\Tests\HttpCache;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpCache\ResponseCacheStrategy;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpKernel\HttpCache\ResponseCacheStrategy;
 
 class ResponseCacheStrategyTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\Exception\TransformationFailedException;
 
 /**
  * A form group bundling multiple forms in a hierarchical structure.
@@ -176,7 +176,7 @@ interface FormInterface extends \ArrayAccess, \Traversable, \Countable
     /**
      * Returns the property path that the form is mapped to.
      *
-     * @return \Symfony\Component\PropertyAccess\PropertyPathInterface The property path.
+     * @return \Makhan\Component\PropertyAccess\PropertyPathInterface The property path.
      */
     public function getPropertyPath();
 

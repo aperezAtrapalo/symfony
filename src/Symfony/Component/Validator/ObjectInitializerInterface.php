@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator;
+namespace Makhan\Component\Validator;
 
 /**
  * Prepares an object for validation.
@@ -17,7 +17,7 @@ namespace Symfony\Component\Validator;
  * Concrete implementations of this interface are used by {@link ValidationVisitorInterface}
  * to initialize objects just before validating them.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 interface ObjectInitializerInterface

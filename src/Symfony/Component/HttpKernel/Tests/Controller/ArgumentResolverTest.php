@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Controller;
+namespace Makhan\Component\HttpKernel\Tests\Controller;
 
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestAttributeValueResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver;
-use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
-use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\ExtendingRequest;
-use Symfony\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
-use Symfony\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver\RequestAttributeValueResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver;
+use Makhan\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
+use Makhan\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
+use Makhan\Component\HttpKernel\Tests\Fixtures\Controller\ExtendingRequest;
+use Makhan\Component\HttpKernel\Tests\Fixtures\Controller\VariadicController;
+use Makhan\Component\HttpFoundation\Request;
 
 class ArgumentResolverTest extends \PHPUnit_Framework_TestCase
 {

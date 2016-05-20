@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Component\Validator\Constraints\Expression;
-use Symfony\Component\Validator\Constraints\ExpressionValidator;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
+use Makhan\Component\Validator\Constraints\Expression;
+use Makhan\Component\Validator\Constraints\ExpressionValidator;
+use Makhan\Component\Validator\Tests\Fixtures\Entity;
 
 class ExpressionValidatorTest extends AbstractConstraintValidatorTest
 {
@@ -172,7 +172,7 @@ class ExpressionValidatorTest extends AbstractConstraintValidatorTest
 
     /**
      * When validatePropertyValue() is called with a class name
-     * https://github.com/symfony/symfony/pull/11498.
+     * https://github.com/makhan/makhan/pull/11498.
      */
     public function testSucceedingExpressionAtPropertyLevelWithoutRoot()
     {
@@ -189,7 +189,7 @@ class ExpressionValidatorTest extends AbstractConstraintValidatorTest
 
     /**
      * When validatePropertyValue() is called with a class name
-     * https://github.com/symfony/symfony/pull/11498.
+     * https://github.com/makhan/makhan/pull/11498.
      */
     public function testFailingExpressionAtPropertyLevelWithoutRoot()
     {
@@ -217,7 +217,7 @@ class ExpressionValidatorTest extends AbstractConstraintValidatorTest
             'expression' => 'false',
         ));
 
-        $expressionLanguage = $this->getMock('Symfony\Component\ExpressionLanguage\ExpressionLanguage');
+        $expressionLanguage = $this->getMock('Makhan\Component\ExpressionLanguage\ExpressionLanguage');
 
         $used = false;
 

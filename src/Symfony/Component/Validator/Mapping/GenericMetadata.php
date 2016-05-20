@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Makhan\Component\Validator\Mapping;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Traverse;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
+use Makhan\Component\Validator\Constraint;
+use Makhan\Component\Validator\Constraints\Traverse;
+use Makhan\Component\Validator\Constraints\Valid;
+use Makhan\Component\Validator\Exception\ConstraintDefinitionException;
 
 /**
  * A generic container of {@link Constraint} objects.
@@ -128,7 +128,7 @@ class GenericMetadata implements MetadataInterface
         if ($constraint instanceof Traverse) {
             throw new ConstraintDefinitionException(sprintf(
                 'The constraint "%s" can only be put on classes. Please use '.
-                '"Symfony\Component\Validator\Constraints\Valid" instead.',
+                '"Makhan\Component\Validator\Constraints\Valid" instead.',
                 get_class($constraint)
             ));
         }

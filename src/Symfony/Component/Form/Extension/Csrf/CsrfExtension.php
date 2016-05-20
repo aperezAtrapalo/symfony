@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Csrf;
+namespace Makhan\Component\Form\Extension\Csrf;
 
-use Symfony\Component\Form\AbstractExtension;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Translation\TranslatorInterface;
+use Makhan\Component\Form\AbstractExtension;
+use Makhan\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Makhan\Component\Translation\TranslatorInterface;
 
 /**
  * This extension protects forms by using a CSRF token.

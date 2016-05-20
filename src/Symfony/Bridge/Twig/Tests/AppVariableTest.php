@@ -1,10 +1,10 @@
 <?php
 
-namespace Symfony\Bridge\Twig\Tests;
+namespace Makhan\Bridge\Twig\Tests;
 
-use Symfony\Bridge\Twig\AppVariable;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Makhan\Bridge\Twig\AppVariable;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpFoundation\Session\Session;
 
 class AppVariableTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ class AppVariableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetSession()
     {
-        $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
+        $request = $this->getMock('Makhan\Component\HttpFoundation\Request');
         $request->method('getSession')->willReturn($session = new Session());
 
         $this->setRequestStack($request);
@@ -69,7 +69,7 @@ class AppVariableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetUser()
     {
-        $this->setTokenStorage($user = $this->getMock('Symfony\Component\Security\Core\User\UserInterface'));
+        $this->setTokenStorage($user = $this->getMock('Makhan\Component\Security\Core\User\UserInterface'));
 
         $this->assertEquals($user, $this->appVariable->getUser());
     }
@@ -83,7 +83,7 @@ class AppVariableTest extends \PHPUnit_Framework_TestCase
 
     public function testGetUserWithNoToken()
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $this->appVariable->setTokenStorage($tokenStorage);
 
         $this->assertNull($this->appVariable->getUser());
@@ -131,7 +131,7 @@ class AppVariableTest extends \PHPUnit_Framework_TestCase
 
     protected function setRequestStack($request)
     {
-        $requestStackMock = $this->getMock('Symfony\Component\HttpFoundation\RequestStack');
+        $requestStackMock = $this->getMock('Makhan\Component\HttpFoundation\RequestStack');
         $requestStackMock->method('getCurrentRequest')->willReturn($request);
 
         $this->appVariable->setRequestStack($requestStackMock);
@@ -139,10 +139,10 @@ class AppVariableTest extends \PHPUnit_Framework_TestCase
 
     protected function setTokenStorage($user)
     {
-        $tokenStorage = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
+        $tokenStorage = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface');
         $this->appVariable->setTokenStorage($tokenStorage);
 
-        $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $token = $this->getMock('Makhan\Component\Security\Core\Authentication\Token\TokenInterface');
         $tokenStorage->method('getToken')->willReturn($token);
 
         $token->method('getUser')->willReturn($user);

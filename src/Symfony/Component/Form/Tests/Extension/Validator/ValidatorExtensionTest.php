@@ -1,47 +1,47 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator;
+namespace Makhan\Component\Form\Tests\Extension\Validator;
 
-use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
-use Symfony\Component\Validator\ValidatorInterface;
+use Makhan\Component\Form\Extension\Validator\ValidatorExtension;
+use Makhan\Component\Validator\ValidatorInterface;
 
 class ValidatorExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function test2Dot5ValidationApi()
     {
-        $validator = $this->getMockBuilder('Symfony\Component\Validator\Validator\RecursiveValidator')
+        $validator = $this->getMockBuilder('Makhan\Component\Validator\Validator\RecursiveValidator')
             ->disableOriginalConstructor()
             ->getMock();
-        $metadata = $this->getMockBuilder('Symfony\Component\Validator\Mapping\ClassMetadata')
+        $metadata = $this->getMockBuilder('Makhan\Component\Validator\Mapping\ClassMetadata')
             ->disableOriginalConstructor()
             ->getMock();
 
         $validator->expects($this->once())
             ->method('getMetadataFor')
-            ->with($this->identicalTo('Symfony\Component\Form\Form'))
+            ->with($this->identicalTo('Makhan\Component\Form\Form'))
             ->will($this->returnValue($metadata));
 
         // Verify that the constraints are added
         $metadata->expects($this->once())
             ->method('addConstraint')
-            ->with($this->isInstanceOf('Symfony\Component\Form\Extension\Validator\Constraints\Form'));
+            ->with($this->isInstanceOf('Makhan\Component\Form\Extension\Validator\Constraints\Form'));
 
         $metadata->expects($this->once())
             ->method('addPropertyConstraint')
-            ->with('children', $this->isInstanceOf('Symfony\Component\Validator\Constraints\Valid'));
+            ->with('children', $this->isInstanceOf('Makhan\Component\Validator\Constraints\Valid'));
 
         $extension = new ValidatorExtension($validator);
         $guesser = $extension->loadTypeGuesser();
 
-        $this->assertInstanceOf('Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser', $guesser);
+        $this->assertInstanceOf('Makhan\Component\Form\Extension\Validator\ValidatorTypeGuesser', $guesser);
     }
 }

@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
+namespace Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConsoleCommandPass;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Makhan\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddConsoleCommandPass;
+use Makhan\Component\Console\Command\Command;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\HttpKernel\Bundle\Bundle;
 
 class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
     {
         $container = new ContainerBuilder();
         $container->addCompilerPass(new AddConsoleCommandPass());
-        $container->setParameter('my-command.class', 'Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
+        $container->setParameter('my-command.class', 'Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
 
         $definition = new Definition('%my-command.class%');
         $definition->setPublic($public);
@@ -35,7 +35,7 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
 
         $container->compile();
 
-        $alias = 'console.command.symfony_bundle_frameworkbundle_tests_dependencyinjection_compiler_mycommand';
+        $alias = 'console.command.makhan_bundle_frameworkbundle_tests_dependencyinjection_compiler_mycommand';
         if ($container->hasAlias($alias)) {
             $this->assertSame('my-command', (string) $container->getAlias($alias));
         } else {
@@ -46,7 +46,7 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
         }
 
         $this->assertTrue($container->hasParameter('console.command.ids'));
-        $this->assertSame(array('console.command.symfony_bundle_frameworkbundle_tests_dependencyinjection_compiler_mycommand'), $container->getParameter('console.command.ids'));
+        $this->assertSame(array('console.command.makhan_bundle_frameworkbundle_tests_dependencyinjection_compiler_mycommand'), $container->getParameter('console.command.ids'));
     }
 
     public function visibilityProvider()
@@ -66,7 +66,7 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $container->addCompilerPass(new AddConsoleCommandPass());
 
-        $definition = new Definition('Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
+        $definition = new Definition('Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
         $definition->addTag('console.command');
         $definition->setAbstract(true);
         $container->setDefinition('my-command', $definition);
@@ -76,7 +76,7 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage The service "my-command" tagged "console.command" must be a subclass of "Symfony\Component\Console\Command\Command".
+     * @expectedExceptionMessage The service "my-command" tagged "console.command" must be a subclass of "Makhan\Component\Console\Command\Command".
      */
     public function testProcessThrowAnExceptionIfTheServiceIsNotASubclassOfCommand()
     {
@@ -94,14 +94,14 @@ class AddConsoleCommandPassTest extends \PHPUnit_Framework_TestCase
     {
         $container = new ContainerBuilder();
         $container->addCompilerPass(new AddConsoleCommandPass());
-        $definition = new Definition('Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
+        $definition = new Definition('Makhan\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler\MyCommand');
         $definition->addTag('console.command');
         $container->setDefinition('my-command', $definition);
         $container->compile();
 
-        $application = $this->getMock('Symfony\Component\Console\Application');
+        $application = $this->getMock('Makhan\Component\Console\Application');
         // Never called, because it's the
-        // Symfony\Bundle\FrameworkBundle\Console\Application that register
+        // Makhan\Bundle\FrameworkBundle\Console\Application that register
         // commands as a service
         $application->expects($this->never())->method('add');
 

@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Tests\Controller;
+namespace Makhan\Bundle\FrameworkBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
-use Symfony\Component\ClassLoader\ClassLoader;
+use Makhan\Bundle\FrameworkBundle\Tests\TestCase;
+use Makhan\Bundle\FrameworkBundle\Controller\ControllerNameParser;
+use Makhan\Component\ClassLoader\ClassLoader;
 
 class ControllerNameParserTest extends TestCase
 {
@@ -146,7 +146,7 @@ class ControllerNameParserTest extends TestCase
             'FabpotFooBundle' => array($this->getBundle('TestBundle\Fabpot\FooBundle', 'FabpotFooBundle'), $this->getBundle('TestBundle\Sensio\FooBundle', 'SensioFooBundle')),
         );
 
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMock('Makhan\Component\HttpKernel\KernelInterface');
         $kernel
             ->expects($this->any())
             ->method('getBundle')
@@ -176,7 +176,7 @@ class ControllerNameParserTest extends TestCase
 
     private function getBundle($namespace, $name)
     {
-        $bundle = $this->getMock('Symfony\Component\HttpKernel\Bundle\BundleInterface');
+        $bundle = $this->getMock('Makhan\Component\HttpKernel\Bundle\BundleInterface');
         $bundle->expects($this->any())->method('getName')->will($this->returnValue($name));
         $bundle->expects($this->any())->method('getNamespace')->will($this->returnValue($namespace));
 

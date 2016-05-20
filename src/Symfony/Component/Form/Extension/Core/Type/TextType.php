@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\DataTransformerInterface;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 class TextType extends AbstractType implements DataTransformerInterface
 {
@@ -24,7 +24,7 @@ class TextType extends AbstractType implements DataTransformerInterface
         // a string should always be returned when NULL is submitted
         // This gives more control and thus helps preventing some issues
         // with PHP 7 which allows type hinting strings in functions
-        // See https://github.com/symfony/symfony/issues/5906#issuecomment-203189375
+        // See https://github.com/makhan/makhan/issues/5906#issuecomment-203189375
         if ('' === $options['empty_data']) {
             $builder->addViewTransformer($this);
         }

@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony EventDispatcher Component Test Suite">
+        <testsuite name="Makhan EventDispatcher Component Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

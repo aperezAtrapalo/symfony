@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Validator\ViolationMapper;
+namespace Makhan\Component\Form\Tests\Extension\Validator\ViolationMapper;
 
-use Symfony\Component\Form\Extension\Validator\ViolationMapper\ViolationMapper;
-use Symfony\Component\Form\Exception\TransformationFailedException;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\Form;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormConfigBuilder;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\ConstraintViolationInterface;
+use Makhan\Component\Form\Extension\Validator\ViolationMapper\ViolationMapper;
+use Makhan\Component\Form\Exception\TransformationFailedException;
+use Makhan\Component\Form\CallbackTransformer;
+use Makhan\Component\Form\Form;
+use Makhan\Component\Form\FormInterface;
+use Makhan\Component\Form\FormConfigBuilder;
+use Makhan\Component\Form\FormError;
+use Makhan\Component\PropertyAccess\PropertyPath;
+use Makhan\Component\Validator\ConstraintViolation;
+use Makhan\Component\Validator\ConstraintViolationInterface;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -62,7 +62,7 @@ class ViolationMapperTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
         $this->mapper = new ViolationMapper();
         $this->message = 'Message';
         $this->messageTemplate = 'Message template';
@@ -95,7 +95,7 @@ class ViolationMapperTest extends \PHPUnit_Framework_TestCase
      */
     private function getDataMapper()
     {
-        return $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        return $this->getMock('Makhan\Component\Form\DataMapperInterface');
     }
 
     /**

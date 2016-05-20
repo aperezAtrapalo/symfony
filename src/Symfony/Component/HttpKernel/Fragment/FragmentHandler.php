@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Fragment;
+namespace Makhan\Component\HttpKernel\Fragment;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpFoundation\Response;
+use Makhan\Component\HttpFoundation\StreamedResponse;
+use Makhan\Component\HttpFoundation\RequestStack;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
 
 /**
  * Renders a URI that represents a resource fragment.
@@ -22,7 +22,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerReference;
  * This class handles the rendering of resource fragments that are included into
  * a main resource. The handling of the rendering is managed by specialized renderers.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  *
  * @see FragmentRendererInterface
  */

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpFoundation\Tests\File;
+namespace Makhan\Component\HttpFoundation\Tests\File;
 
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
+use Makhan\Component\HttpFoundation\File\File;
+use Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesser;
 
 class FileTest extends \PHPUnit_Framework_TestCase
 {
@@ -63,7 +63,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
     public function testConstructWhenFileNotExists()
     {
-        $this->setExpectedException('Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException');
+        $this->setExpectedException('Makhan\Component\HttpFoundation\File\Exception\FileNotFoundException');
 
         new File(__DIR__.'/Fixtures/not_here');
     }
@@ -79,7 +79,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
         $file = new File($path);
         $movedFile = $file->move($targetDir);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\File\File', $movedFile);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\File\File', $movedFile);
 
         $this->assertFileExists($targetPath);
         $this->assertFileNotExists($path);
@@ -133,7 +133,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
         $file = new File($path);
         $movedFile = $file->move($targetDir, $filename);
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\File\File', $movedFile);
+        $this->assertInstanceOf('Makhan\Component\HttpFoundation\File\File', $movedFile);
 
         $this->assertFileExists($targetPath);
         $this->assertFileNotExists($path);
@@ -166,7 +166,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
     protected function createMockGuesser($path, $mimeType)
     {
-        $guesser = $this->getMock('Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface');
+        $guesser = $this->getMock('Makhan\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface');
         $guesser
             ->expects($this->once())
             ->method('guess')

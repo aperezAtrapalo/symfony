@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\Core\DataTransformer;
+namespace Makhan\Component\Form\Tests\Extension\Core\DataTransformer;
 
-use Symfony\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer;
-use Symfony\Component\Intl\Util\IntlTestHelper;
+use Makhan\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer;
+use Makhan\Component\Intl\Util\IntlTestHelper;
 
 class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
 {
@@ -237,7 +237,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @see https://github.com/symfony/symfony/issues/7609
+     * @see https://github.com/makhan/makhan/issues/7609
      */
     public function testReverseTransformWithGroupingAndFixedSpaces()
     {
@@ -389,7 +389,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testDecimalSeparatorMayNotBeDotIfGroupingSeparatorIsDot()
     {
@@ -404,7 +404,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testDecimalSeparatorMayNotBeDotIfGroupingSeparatorIsDotWithNoGroupSep()
     {
@@ -448,7 +448,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testDecimalSeparatorMayNotBeCommaIfGroupingSeparatorIsComma()
     {
@@ -458,7 +458,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testDecimalSeparatorMayNotBeCommaIfGroupingSeparatorIsCommaWithNoGroupSep()
     {
@@ -476,7 +476,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testTransformExpectsNumeric()
     {
@@ -486,7 +486,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsString()
     {
@@ -496,7 +496,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformExpectsValidNumber()
     {
@@ -506,9 +506,9 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      *
-     * @link https://github.com/symfony/symfony/issues/3161
+     * @link https://github.com/makhan/makhan/issues/3161
      */
     public function testReverseTransformDisallowsNaN()
     {
@@ -518,7 +518,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsNaN2()
     {
@@ -528,7 +528,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsInfinity()
     {
@@ -538,7 +538,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsInfinity2()
     {
@@ -548,7 +548,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsNegativeInfinity()
     {
@@ -558,7 +558,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      */
     public function testReverseTransformDisallowsLeadingExtraCharacters()
     {
@@ -568,7 +568,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo3"
      */
     public function testReverseTransformDisallowsCenteredExtraCharacters()
@@ -579,7 +579,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo8"
      */
     public function testReverseTransformDisallowsCenteredExtraCharactersMultibyte()
@@ -595,7 +595,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo8"
      */
     public function testReverseTransformIgnoresTrailingSpacesInExceptionMessage()
@@ -611,7 +611,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo"
      */
     public function testReverseTransformDisallowsTrailingExtraCharacters()
@@ -622,7 +622,7 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
+     * @expectedException \Makhan\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo"
      */
     public function testReverseTransformDisallowsTrailingExtraCharactersMultibyte()

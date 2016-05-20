@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Makhan\Component\HttpKernel\Tests\Fragment;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
+use Makhan\Component\HttpFoundation\Request;
+use Makhan\Component\HttpKernel\Controller\ControllerReference;
 
 class RoutableFragmentRendererTest extends \PHPUnit_Framework_TestCase
 {
@@ -73,7 +73,7 @@ class RoutableFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
     private function callGenerateFragmentUriMethod(ControllerReference $reference, Request $request, $absolute = false)
     {
-        $renderer = $this->getMockForAbstractClass('Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer');
+        $renderer = $this->getMockForAbstractClass('Makhan\Component\HttpKernel\Fragment\RoutableFragmentRenderer');
         $r = new \ReflectionObject($renderer);
         $m = $r->getMethod('generateFragmentUri');
         $m->setAccessible(true);

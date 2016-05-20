@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Controller;
+namespace Makhan\Component\HttpKernel\Controller;
 
-use Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface;
+use Makhan\Component\HttpKernel\Fragment\FragmentRendererInterface;
 
 /**
  * Acts as a marker and a data holder for a Controller.
  *
- * Some methods in Symfony accept both a URI (as a string) or a controller as
+ * Some methods in Makhan accept both a URI (as a string) or a controller as
  * an argument. In the latter case, instead of passing an array representing
  * the controller, you can use an instance of this class.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  *
  * @see FragmentRendererInterface
  */

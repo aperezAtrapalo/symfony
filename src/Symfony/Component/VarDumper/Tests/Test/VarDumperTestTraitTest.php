@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\VarDumper\Tests\Test;
+namespace Makhan\Component\VarDumper\Tests\Test;
 
-use Symfony\Component\VarDumper\Test\VarDumperTestTrait;
+use Makhan\Component\VarDumper\Test\VarDumperTestTrait;
 
 class VarDumperTestTraitTest extends \PHPUnit_Framework_TestCase
 {

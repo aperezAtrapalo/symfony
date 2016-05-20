@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Tests\Extension\DataCollector;
+namespace Makhan\Component\Form\Tests\Extension\DataCollector;
 
-use Symfony\Component\Form\Extension\DataCollector\FormDataCollector;
-use Symfony\Component\Form\Form;
-use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\FormView;
+use Makhan\Component\Form\Extension\DataCollector\FormDataCollector;
+use Makhan\Component\Form\Form;
+use Makhan\Component\Form\FormBuilder;
+use Makhan\Component\Form\FormView;
 
 class FormDataCollectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -65,11 +65,11 @@ class FormDataCollectorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->dataExtractor = $this->getMock('Symfony\Component\Form\Extension\DataCollector\FormDataExtractorInterface');
+        $this->dataExtractor = $this->getMock('Makhan\Component\Form\Extension\DataCollector\FormDataExtractorInterface');
         $this->dataCollector = new FormDataCollector($this->dataExtractor);
-        $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
-        $this->factory = $this->getMock('Symfony\Component\Form\FormFactoryInterface');
-        $this->dataMapper = $this->getMock('Symfony\Component\Form\DataMapperInterface');
+        $this->dispatcher = $this->getMock('Makhan\Component\EventDispatcher\EventDispatcherInterface');
+        $this->factory = $this->getMock('Makhan\Component\Form\FormFactoryInterface');
+        $this->dataMapper = $this->getMock('Makhan\Component\Form\DataMapperInterface');
         $this->form = $this->createForm('name');
         $this->childForm = $this->createForm('child');
         $this->view = new FormView();

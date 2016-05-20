@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Cache;
+namespace Makhan\Component\Cache;
 
 use Psr\Cache\CacheItemInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Cache\Exception\InvalidArgumentException;
+use Makhan\Component\Cache\Exception\InvalidArgumentException;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -23,7 +23,7 @@ final class CacheItem implements CacheItemInterface
     /**
      * @internal
      */
-    const CAST_PREFIX = "\0Symfony\Component\Cache\CacheItem\0";
+    const CAST_PREFIX = "\0Makhan\Component\Cache\CacheItem\0";
 
     private $key;
     private $value;

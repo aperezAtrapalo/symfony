@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form;
+namespace Makhan\Component\Form;
 
-use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\Exception\UnexpectedTypeException;
+use Makhan\Component\EventDispatcher\EventDispatcher;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 /**
  * A wrapper for a form type and its extensions.
@@ -46,7 +46,7 @@ class ResolvedFormType implements ResolvedFormTypeInterface
     {
         foreach ($typeExtensions as $extension) {
             if (!$extension instanceof FormTypeExtensionInterface) {
-                throw new UnexpectedTypeException($extension, 'Symfony\Component\Form\FormTypeExtensionInterface');
+                throw new UnexpectedTypeException($extension, 'Makhan\Component\Form\FormTypeExtensionInterface');
             }
         }
 
@@ -178,7 +178,7 @@ class ResolvedFormType implements ResolvedFormTypeInterface
     /**
      * Returns the configured options resolver used for this type.
      *
-     * @return \Symfony\Component\OptionsResolver\OptionsResolver The options resolver.
+     * @return \Makhan\Component\OptionsResolver\OptionsResolver The options resolver.
      */
     public function getOptionsResolver()
     {

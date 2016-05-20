@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Serializer\Tests\Encoder;
+namespace Makhan\Component\Serializer\Tests\Encoder;
 
-use Symfony\Component\Serializer\Tests\Fixtures\Dummy;
-use Symfony\Component\Serializer\Tests\Fixtures\NormalizableTraversableDummy;
-use Symfony\Component\Serializer\Tests\Fixtures\ScalarDummy;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Exception\UnexpectedValueException;
-use Symfony\Component\Serializer\Normalizer\CustomNormalizer;
+use Makhan\Component\Serializer\Tests\Fixtures\Dummy;
+use Makhan\Component\Serializer\Tests\Fixtures\NormalizableTraversableDummy;
+use Makhan\Component\Serializer\Tests\Fixtures\ScalarDummy;
+use Makhan\Component\Serializer\Encoder\XmlEncoder;
+use Makhan\Component\Serializer\Serializer;
+use Makhan\Component\Serializer\Exception\UnexpectedValueException;
+use Makhan\Component\Serializer\Normalizer\CustomNormalizer;
 
 class XmlEncoderTest extends \PHPUnit_Framework_TestCase
 {
@@ -54,7 +54,7 @@ class XmlEncoderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException        \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException        \Makhan\Component\Serializer\Exception\UnexpectedValueException
      * @expectedExceptionMessage Document types are not allowed.
      */
     public function testDocTypeIsNotAllowed()
@@ -421,7 +421,7 @@ XML;
     }
 
     /**
-     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Makhan\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testDecodeInvalidXml()
     {
@@ -449,7 +449,7 @@ XML;
 
     public function testDecodeEmptyXml()
     {
-        $this->setExpectedException('Symfony\Component\Serializer\Exception\UnexpectedValueException', 'Invalid XML data, it can not be empty.');
+        $this->setExpectedException('Makhan\Component\Serializer\Exception\UnexpectedValueException', 'Invalid XML data, it can not be empty.');
         $this->encoder->decode(' ', 'xml');
     }
 

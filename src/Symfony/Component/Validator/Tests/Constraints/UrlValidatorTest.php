@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Tests\Constraints;
+namespace Makhan\Component\Validator\Tests\Constraints;
 
-use Symfony\Bridge\PhpUnit\DnsMock;
-use Symfony\Component\Validator\Constraints\Url;
-use Symfony\Component\Validator\Constraints\UrlValidator;
+use Makhan\Bridge\PhpUnit\DnsMock;
+use Makhan\Component\Validator\Constraints\Url;
+use Makhan\Component\Validator\Constraints\UrlValidator;
 
 /**
  * @group dns-sensitive
@@ -47,7 +47,7 @@ class UrlValidatorTest extends AbstractConstraintValidatorTest
     }
 
     /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
+     * @expectedException \Makhan\Component\Validator\Exception\UnexpectedTypeException
      */
     public function testExpectsStringCompatibleType()
     {
@@ -75,13 +75,13 @@ class UrlValidatorTest extends AbstractConstraintValidatorTest
             array('https://google.com:80/'),
             array('http://www.example.coop/'),
             array('http://www.test-example.com/'),
-            array('http://www.symfony.com/'),
-            array('http://symfony.fake/blog/'),
-            array('http://symfony.com/?'),
-            array('http://symfony.com/search?type=&q=url+validator'),
-            array('http://symfony.com/#'),
-            array('http://symfony.com/#?'),
-            array('http://www.symfony.com/doc/current/book/validation.html#supported-constraints'),
+            array('http://www.makhan.com/'),
+            array('http://makhan.fake/blog/'),
+            array('http://makhan.com/?'),
+            array('http://makhan.com/search?type=&q=url+validator'),
+            array('http://makhan.com/#'),
+            array('http://makhan.com/#?'),
+            array('http://www.makhan.com/doc/current/book/validation.html#supported-constraints'),
             array('http://very.long.domain.name.com/'),
             array('http://localhost/'),
             array('http://127.0.0.1/'),
@@ -113,14 +113,14 @@ class UrlValidatorTest extends AbstractConstraintValidatorTest
             array('http://xn--espaa-rta.xn--ca-ol-fsay5a/'),
             array('http://xn--d1abbgf6aiiy.xn--p1ai/'),
             array('http://☎.com/'),
-            array('http://username:password@symfony.com'),
-            array('http://user-name@symfony.com'),
-            array('http://symfony.com?'),
-            array('http://symfony.com?query=1'),
-            array('http://symfony.com/?query=1'),
-            array('http://symfony.com#'),
-            array('http://symfony.com#fragment'),
-            array('http://symfony.com/#fragment'),
+            array('http://username:password@makhan.com'),
+            array('http://user-name@makhan.com'),
+            array('http://makhan.com?'),
+            array('http://makhan.com?query=1'),
+            array('http://makhan.com/?query=1'),
+            array('http://makhan.com#'),
+            array('http://makhan.com#fragment'),
+            array('http://makhan.com/#fragment'),
         );
     }
 
@@ -157,10 +157,10 @@ class UrlValidatorTest extends AbstractConstraintValidatorTest
             array('ftp://[::1]/'),
             array('http://[::1'),
             array('http://hello.☎/'),
-            array('http://:password@symfony.com'),
-            array('http://:password@@symfony.com'),
-            array('http://username:passwordsymfony.com'),
-            array('http://usern@me:password@symfony.com'),
+            array('http://:password@makhan.com'),
+            array('http://:password@@makhan.com'),
+            array('http://username:passwordmakhan.com'),
+            array('http://usern@me:password@makhan.com'),
         );
     }
 
@@ -189,7 +189,7 @@ class UrlValidatorTest extends AbstractConstraintValidatorTest
 
     /**
      * @dataProvider getCheckDns
-     * @requires function Symfony\Bridge\PhpUnit\DnsMock::withMockedHosts
+     * @requires function Makhan\Bridge\PhpUnit\DnsMock::withMockedHosts
      */
     public function testCheckDns($violation)
     {

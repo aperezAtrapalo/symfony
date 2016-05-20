@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Form\Extension\Core\Type;
+namespace Makhan\Component\Form\Extension\Core\Type;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\EventListener\FixUrlProtocolListener;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Makhan\Component\Form\AbstractType;
+use Makhan\Component\Form\FormBuilderInterface;
+use Makhan\Component\Form\Extension\Core\EventListener\FixUrlProtocolListener;
+use Makhan\Component\OptionsResolver\OptionsResolver;
 
 class UrlType extends AbstractType
 {

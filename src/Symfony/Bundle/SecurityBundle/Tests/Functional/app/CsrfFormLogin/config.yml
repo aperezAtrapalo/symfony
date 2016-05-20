@@ -3,7 +3,7 @@ imports:
 
 services:
     csrf_form_login.form.type:
-        class: Symfony\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType
+        class: Makhan\Bundle\SecurityBundle\Tests\Functional\Bundle\CsrfFormLoginBundle\Form\UserLoginType
         arguments:
             - '@request_stack'
         tags:
@@ -11,7 +11,7 @@ services:
 
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Makhan\Component\Security\Core\User\User: plaintext
 
     providers:
         in_memory:

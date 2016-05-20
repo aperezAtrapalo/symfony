@@ -1,26 +1,26 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Console\Descriptor;
+namespace Makhan\Bundle\FrameworkBundle\Console\Descriptor;
 
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouteCollection;
+use Makhan\Component\Console\Helper\Table;
+use Makhan\Component\Console\Style\MakhanStyle;
+use Makhan\Component\DependencyInjection\Alias;
+use Makhan\Component\DependencyInjection\ContainerBuilder;
+use Makhan\Component\DependencyInjection\Definition;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Reference;
+use Makhan\Component\EventDispatcher\EventDispatcherInterface;
+use Makhan\Component\Routing\Route;
+use Makhan\Component\Routing\RouteCollection;
 
 /**
  * @author Jean-François Simon <jeanfrancois.simon@sensiolabs.com>
@@ -110,7 +110,7 @@ class TextDescriptor extends Descriptor
             $tableRows[] = array($parameter, $this->formatParameter($value));
         }
 
-        $options['output']->title('Symfony Container Parameters');
+        $options['output']->title('Makhan Container Parameters');
         $options['output']->table($tableHeaders, $tableRows);
     }
 
@@ -122,9 +122,9 @@ class TextDescriptor extends Descriptor
         $showPrivate = isset($options['show_private']) && $options['show_private'];
 
         if ($showPrivate) {
-            $options['output']->title('Symfony Container Public and Private Tags');
+            $options['output']->title('Makhan Container Public and Private Tags');
         } else {
-            $options['output']->title('Symfony Container Public Tags');
+            $options['output']->title('Makhan Container Public Tags');
         }
 
         foreach ($this->findDefinitionsByTag($builder, $showPrivate) as $tag => $definitions) {
@@ -166,9 +166,9 @@ class TextDescriptor extends Descriptor
         $showTag = isset($options['tag']) ? $options['tag'] : null;
 
         if ($showPrivate) {
-            $title = 'Symfony Container Public and Private Services';
+            $title = 'Makhan Container Public and Private Services';
         } else {
-            $title = 'Symfony Container Public Services';
+            $title = 'Makhan Container Public Services';
         }
 
         if ($showTag) {
@@ -385,7 +385,7 @@ class TextDescriptor extends Descriptor
     /**
      * @param array $array
      */
-    private function renderEventListenerTable(EventDispatcherInterface $eventDispatcher, $event, array $eventListeners, SymfonyStyle $io)
+    private function renderEventListenerTable(EventDispatcherInterface $eventDispatcher, $event, array $eventListeners, MakhanStyle $io)
     {
         $tableHeaders = array('Order', 'Callable', 'Priority');
         $tableRows = array();

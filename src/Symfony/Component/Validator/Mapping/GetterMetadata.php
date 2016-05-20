@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Makhan\Component\Validator\Mapping;
 
-use Symfony\Component\Validator\Exception\ValidatorException;
+use Makhan\Component\Validator\Exception\ValidatorException;
 
 /**
  * Stores all metadata needed for validating a class property via its getter

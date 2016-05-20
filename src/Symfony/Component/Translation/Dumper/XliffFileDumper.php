@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Translation\Dumper;
+namespace Makhan\Component\Translation\Dumper;
 
-use Symfony\Component\Translation\MessageCatalogue;
+use Makhan\Component\Translation\MessageCatalogue;
 
 /**
  * XliffFileDumper generates xliff files from a message catalogue.
@@ -56,7 +56,7 @@ class XliffFileDumper extends FileDumper
 
     private function dumpXliff1($defaultLocale, MessageCatalogue $messages, $domain, array $options = array())
     {
-        $toolInfo = array('tool-id' => 'symfony', 'tool-name' => 'Symfony');
+        $toolInfo = array('tool-id' => 'makhan', 'tool-name' => 'Makhan');
         if (array_key_exists('tool_info', $options)) {
             $toolInfo = array_merge($toolInfo, $options['tool_info']);
         }

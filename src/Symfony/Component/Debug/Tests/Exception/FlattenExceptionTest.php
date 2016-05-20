@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Debug\Tests\Exception;
+namespace Makhan\Component\Debug\Tests\Exception;
 
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
-use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpKernel\Exception\GoneHttpException;
-use Symfony\Component\HttpKernel\Exception\LengthRequiredHttpException;
-use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
-use Symfony\Component\HttpKernel\Exception\PreconditionRequiredHttpException;
-use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
-use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
-use Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
+use Makhan\Component\Debug\Exception\FlattenException;
+use Makhan\Component\HttpKernel\Exception\NotFoundHttpException;
+use Makhan\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Makhan\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Makhan\Component\HttpKernel\Exception\BadRequestHttpException;
+use Makhan\Component\HttpKernel\Exception\NotAcceptableHttpException;
+use Makhan\Component\HttpKernel\Exception\ConflictHttpException;
+use Makhan\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Makhan\Component\HttpKernel\Exception\GoneHttpException;
+use Makhan\Component\HttpKernel\Exception\LengthRequiredHttpException;
+use Makhan\Component\HttpKernel\Exception\PreconditionFailedHttpException;
+use Makhan\Component\HttpKernel\Exception\PreconditionRequiredHttpException;
+use Makhan\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
+use Makhan\Component\HttpKernel\Exception\TooManyRequestsHttpException;
+use Makhan\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
 
 class FlattenExceptionTest extends \PHPUnit_Framework_TestCase
 {
@@ -142,7 +142,7 @@ class FlattenExceptionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($flattened->getMessage(), 'Parse error: Oh noes!', 'The message is copied from the original exception.');
         $this->assertEquals($flattened->getCode(), 42, 'The code is copied from the original exception.');
-        $this->assertEquals($flattened->getClass(), 'Symfony\Component\Debug\Exception\FatalThrowableError', 'The class is set to the class of the original exception');
+        $this->assertEquals($flattened->getClass(), 'Makhan\Component\Debug\Exception\FatalThrowableError', 'The class is set to the class of the original exception');
     }
 
     /**

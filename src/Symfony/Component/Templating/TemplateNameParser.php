@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+namespace Makhan\Component\Templating;
 
 /**
  * TemplateNameParser is the default implementation of TemplateNameParserInterface.
@@ -17,7 +17,7 @@ namespace Symfony\Component\Templating;
  * This implementation takes everything as the template name
  * and the extension for the engine.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  */
 class TemplateNameParser implements TemplateNameParserInterface
 {

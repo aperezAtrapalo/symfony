@@ -1,16 +1,16 @@
 <?php
 
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\RequestContext;
+use Makhan\Component\Routing\Exception\MethodNotAllowedException;
+use Makhan\Component\Routing\Exception\ResourceNotFoundException;
+use Makhan\Component\Routing\RequestContext;
 
 /**
  * ProjectUrlMatcher.
  *
  * This class has been auto-generated
- * by the Symfony Routing Component.
+ * by the Makhan Routing Component.
  */
-class ProjectUrlMatcher extends Symfony\Component\Routing\Matcher\UrlMatcher
+class ProjectUrlMatcher extends Makhan\Component\Routing\Matcher\UrlMatcher
 {
     /**
      * Constructor.
@@ -28,7 +28,7 @@ class ProjectUrlMatcher extends Symfony\Component\Routing\Matcher\UrlMatcher
         $request = $this->request;
 
         // foo
-        if (0 === strpos($pathinfo, '/foo') && preg_match('#^/foo/(?P<bar>baz|symfony)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/foo') && preg_match('#^/foo/(?P<bar>baz|makhan)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'foo')), array (  'def' => 'test',));
         }
 

@@ -1,16 +1,16 @@
 {
-    "name": "symfony/inflector",
+    "name": "makhan/inflector",
     "type": "library",
-    "description": "Symfony Inflector Component",
+    "description": "Makhan Inflector Component",
     "keywords": [
         "string",
         "inflection",
         "singularize",
         "pluralize",
         "words",
-        "symfony"
+        "makhan"
     ],
-    "homepage": "https://symfony.com",
+    "homepage": "https://makhan.com",
     "license": "MIT",
     "authors": [
         {
@@ -18,15 +18,15 @@
             "email": "bschussek@gmail.com"
         },
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Makhan Community",
+            "homepage": "https://makhan.com/contributors"
         }
     ],
     "require": {
         "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Component\\Inflector\\": "" },
+        "psr-4": { "Makhan\\Component\\Inflector\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

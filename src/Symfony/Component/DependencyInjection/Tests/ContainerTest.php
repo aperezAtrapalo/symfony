@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\DependencyInjection\Tests;
+namespace Makhan\Component\DependencyInjection\Tests;
 
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Makhan\Component\DependencyInjection\Container;
+use Makhan\Component\DependencyInjection\ContainerInterface;
+use Makhan\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class ContainerTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,7 +76,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($sc->getParameterBag()->isResolved(), '->compile() resolves the parameter bag');
         $sc->compile();
         $this->assertTrue($sc->getParameterBag()->isResolved(), '->compile() resolves the parameter bag');
-        $this->assertInstanceOf('Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag', $sc->getParameterBag(), '->compile() changes the parameter bag to a FrozenParameterBag instance');
+        $this->assertInstanceOf('Makhan\Component\DependencyInjection\ParameterBag\FrozenParameterBag', $sc->getParameterBag(), '->compile() changes the parameter bag to a FrozenParameterBag instance');
         $this->assertEquals(array('foo' => 'bar'), $sc->getParameterBag()->all(), '->compile() copies the current parameters to the new parameter bag');
     }
 
@@ -168,7 +168,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
             $sc->get('');
             $this->fail('->get() throws a \InvalidArgumentException exception if the service is empty');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws a ServiceNotFoundException exception if the service is empty');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws a ServiceNotFoundException exception if the service is empty');
         }
         $this->assertNull($sc->get('', ContainerInterface::NULL_ON_INVALID_REFERENCE), '->get() returns null if the service is empty');
     }
@@ -182,18 +182,18 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
         try {
             $sc->get('foo1');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent service "foo1". Did you mean this: "foo"?', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException with some advices');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent service "foo1". Did you mean this: "foo"?', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException with some advices');
         }
 
         try {
             $sc->get('bag');
-            $this->fail('->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
+            $this->fail('->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
-            $this->assertEquals('You have requested a non-existent service "bag". Did you mean one of these: "bar", "baz"?', $e->getMessage(), '->get() throws an Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException with some advices');
+            $this->assertInstanceOf('Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException', $e, '->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException if the key does not exist');
+            $this->assertEquals('You have requested a non-existent service "bag". Did you mean one of these: "bar", "baz"?', $e->getMessage(), '->get() throws an Makhan\Component\DependencyInjection\Exception\ServiceNotFoundException with some advices');
         }
     }
 
@@ -204,7 +204,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
             $sc->get('circular');
             $this->fail('->get() throws a ServiceCircularReferenceException if it contains circular reference');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('\Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException', $e, '->get() throws a ServiceCircularReferenceException if it contains circular reference');
+            $this->assertInstanceOf('\Makhan\Component\DependencyInjection\Exception\ServiceCircularReferenceException', $e, '->get() throws a ServiceCircularReferenceException if it contains circular reference');
             $this->assertStringStartsWith('Circular reference detected for service "circular"', $e->getMessage(), '->get() throws a \LogicException if it contains circular reference');
         }
     }
@@ -301,7 +301,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function testThatCloningIsNotSupported()
     {
-        $class = new \ReflectionClass('Symfony\Component\DependencyInjection\Container');
+        $class = new \ReflectionClass('Makhan\Component\DependencyInjection\Container');
         $clone = $class->getMethod('__clone');
         $this->assertFalse($class->isCloneable());
         $this->assertTrue($clone->isPrivate());

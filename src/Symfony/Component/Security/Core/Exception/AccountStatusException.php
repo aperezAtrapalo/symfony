@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\Exception;
+namespace Makhan\Component\Security\Core\Exception;
 
-use Symfony\Component\Security\Core\User\UserInterface;
+use Makhan\Component\Security\Core\User\UserInterface;
 
 /**
  * AccountStatusException is the base class for authentication exceptions
  * caused by the user account status.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author Fabien Potencier <fabien@makhan.com>
  * @author Alexander <iam.asm89@gmail.com>
  */
 abstract class AccountStatusException extends AuthenticationException

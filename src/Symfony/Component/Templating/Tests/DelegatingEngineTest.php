@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Tests;
+namespace Makhan\Component\Templating\Tests;
 
-use Symfony\Component\Templating\DelegatingEngine;
-use Symfony\Component\Templating\StreamingEngineInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Makhan\Component\Templating\DelegatingEngine;
+use Makhan\Component\Templating\StreamingEngineInterface;
+use Makhan\Component\Templating\EngineInterface;
 
 class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 {
@@ -126,7 +126,7 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 
     private function getEngineMock($template, $supports)
     {
-        $engine = $this->getMock('Symfony\Component\Templating\EngineInterface');
+        $engine = $this->getMock('Makhan\Component\Templating\EngineInterface');
 
         $engine->expects($this->once())
             ->method('supports')
@@ -138,7 +138,7 @@ class DelegatingEngineTest extends \PHPUnit_Framework_TestCase
 
     private function getStreamingEngineMock($template, $supports)
     {
-        $engine = $this->getMockForAbstractClass('Symfony\Component\Templating\Tests\MyStreamingEngine');
+        $engine = $this->getMockForAbstractClass('Makhan\Component\Templating\Tests\MyStreamingEngine');
 
         $engine->expects($this->once())
             ->method('supports')

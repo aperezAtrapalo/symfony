@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
+ * This file is part of the Makhan package.
  *
- * (c) Fabien Potencier <fabien@symfony.com>
+ * (c) Fabien Potencier <fabien@makhan.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Intl\Tests\Data\Provider;
+namespace Makhan\Component\Intl\Tests\Data\Provider;
 
-use Symfony\Component\Intl\Data\Provider\CurrencyDataProvider;
-use Symfony\Component\Intl\Intl;
-use Symfony\Component\Intl\Locale;
+use Makhan\Component\Intl\Data\Provider\CurrencyDataProvider;
+use Makhan\Component\Intl\Intl;
+use Makhan\Component\Intl\Locale;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -713,7 +713,7 @@ abstract class AbstractCurrencyDataProviderTest extends AbstractDataProviderTest
 
     /**
      * @dataProvider provideCurrenciesWithoutNumericEquivalent
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testGetNumericCodeFailsIfNoNumericEquivalent($currency)
     {
@@ -758,7 +758,7 @@ abstract class AbstractCurrencyDataProviderTest extends AbstractDataProviderTest
 
     /**
      * @dataProvider provideInvalidNumericCodes
-     * @expectedException \Symfony\Component\Intl\Exception\MissingResourceException
+     * @expectedException \Makhan\Component\Intl\Exception\MissingResourceException
      */
     public function testForNumericCodeFailsIfInvalidNumericCode($currency)
     {
